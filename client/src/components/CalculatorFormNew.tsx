@@ -18,6 +18,7 @@ import { saveProgress, loadProgress, generateShareableLink, clearProgress, type 
 import { saveLocation, getSavedLocation } from '@/lib/locationMemory';
 import { getBreedRecommendation, generalStatistics } from '@/data/breedRecommendations';
 import { toast } from 'sonner';
+import Header from './Header';
 
 interface CalculatorFormProps {
   onCalculate: (inputs: CalculatorInputs, results: CostBreakdown) => void;
@@ -235,7 +236,9 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-secondary/10 py-12 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-primary/10 via-background to-secondary/10 relative overflow-hidden">
+      <Header />
+      <div className="py-12">
       {/* Decorative background elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -1152,6 +1155,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
             </div>
           </div>
         </Card>
+      </div>
       </div>
     </div>
   );

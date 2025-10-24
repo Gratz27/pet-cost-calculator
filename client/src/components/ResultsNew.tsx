@@ -9,6 +9,8 @@ import { Pie, Bar } from 'react-chartjs-2';
 import { formatCurrency, type CalculatorInputs, type CostBreakdown, getBreedById } from '@/lib/calculator';
 import LegalDisclaimer from './LegalDisclaimer';
 import { SocialShare } from './SocialShare';
+import Header from './Header';
+import EmailCapture from './EmailCapture';
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -144,7 +146,9 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      <Header />
+      <div className="py-12">
       <div className="container max-w-6xl" data-pdf-export>
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
@@ -529,27 +533,7 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
         </div>
 
         {/* Email Capture */}
-        <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-3">Get Your Free Pet Budget Checklist</h2>
-            <p className="text-muted-foreground mb-6">
-              Download our comprehensive checklist to make sure you're prepared for every expense.
-            </p>
-            <div className="flex gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none"
-              />
-              <Button size="lg" className="px-8">
-                Send Checklist
-              </Button>
-            </div>
-            <p className="text-xs text-muted-foreground mt-3">
-              We respect your privacy. Unsubscribe anytime.
-            </p>
-          </div>
-        </Card>
+        <EmailCapture />
 
         {/* Social Share */}
         <SocialShare
@@ -559,6 +543,7 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
 
         {/* Legal Disclaimer */}
         <LegalDisclaimer />
+      </div>
       </div>
     </div>
   );
