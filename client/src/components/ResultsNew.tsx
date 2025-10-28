@@ -518,7 +518,7 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
                 <Button 
                   className="w-full" 
                   variant="outline"
-                  onClick={() => window.open('https://tidd.ly/3lqY4T', '_blank')}
+                  onClick={() => window.open('https://tidd.ly/3JqYJ4T', '_blank')}
                 >
                   Barking Heads & Meowing Heads
                 </Button>
@@ -536,7 +536,7 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
                 <Button 
                   className="w-full" 
                   variant="default"
-                  onClick={() => window.open('https://tidd.ly/3LapGk5', '_blank')}
+                  onClick={() => window.open('https://tidd.ly/3LabGk5', '_blank')}
                 >
                   Pet Lifestyle and You
                 </Button>

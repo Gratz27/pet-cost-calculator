@@ -51,3 +51,10 @@
 - [x] Move Purr & Mutt from Food to Pet Accessories category
 - [x] Verify all affiliate links are working correctly
 
+
+
+## Affiliate Link Issues
+- [x] Fix Barking Heads & Meowing Heads link - corrected to https://tidd.ly/3JqYJ4T
+- [x] Fix Pet Lifestyle and You link - corrected to https://tidd.ly/3LabGk5
+- [x] Verified Purr & Mutt link working - https://tidd.ly/4oFAlLH
+
