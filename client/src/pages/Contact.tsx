@@ -70,72 +70,10 @@ export default function Contact() {
       {/* Contact Section */}
       <section className="py-16 md:py-24">
         <div className="container">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Contact Form */}
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <Label htmlFor="name">Name</Label>
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder="Your name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                      className="mt-2"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="your.email@example.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                      className="mt-2"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="subject">Subject</Label>
-                    <Input
-                      id="subject"
-                      type="text"
-                      placeholder="What's this about?"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      required
-                      className="mt-2"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      placeholder="Tell us more..."
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      required
-                      className="mt-2 min-h-[150px]"
-                    />
-                  </div>
-
-                  <Button type="submit" size="lg" className="w-full">
-                    Send Message
-                  </Button>
-                </form>
-              </div>
-
-              {/* Contact Info */}
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Other Ways to Reach Us</h2>
+          <div className="max-w-4xl mx-auto">
+            {/* Contact Info */}
+            <div>
+              <h2 className="text-3xl font-bold mb-8 text-center">Ways to Reach Us</h2>
                 
                 <div className="space-y-6">
                   <div className="bg-card border rounded-lg p-6">
@@ -202,7 +140,6 @@ export default function Contact() {
                     </Button>
                   </Link>
                 </div>
-              </div>
             </div>
           </div>
         </div>

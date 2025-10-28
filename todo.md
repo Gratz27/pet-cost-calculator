@@ -32,3 +32,22 @@
 ## New Features to Add
 - [x] Set up contact form to send emails to hello@petcost-calculator.com
 
+
+
+## New Changes Requested
+- [x] Remove "Send Us a Message" form from Contact page, keep only "Ways to Reach Us"
+- [x] Change "First-Time Owner Bundle" to "Pet Accessories" in recommendations section
+
+
+
+## New Affiliates to Add
+- [x] Add Barking Heads & Meowing Heads (Food) - https://tidd.ly/3lqY4T
+- [x] Add Pet Lifestyle and You (Accessories) - https://tidd.ly/3LapGk5
+- [x] Add Purr & Mutt (Food) - https://tidd.ly/4oFAlLH
+
+
+
+## Affiliate Link Fixes
+- [x] Move Purr & Mutt from Food to Pet Accessories category
+- [x] Verify all affiliate links are working correctly
+

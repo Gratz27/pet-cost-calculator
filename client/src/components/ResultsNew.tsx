@@ -505,33 +505,49 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
                 {inputs.foodType === 'premium' ? 'Premium' : 'Quality'} Food Delivery
               </h3>
               <p className="text-sm text-muted-foreground mb-3">
-                Fresh, human-grade meals delivered to your door
+                Fresh, nutritious meals from trusted brands
               </p>
-              <p className="text-2xl font-bold text-primary mb-4">
-                Use code: PETCOSTCALCULAT
-              </p>
-              <Button 
-                className="w-full" 
-                variant="default"
-                onClick={() => window.open('https://yumwoof.com/discount/PETCOSTCALCULAT?ref=rjdfquwx', '_blank')}
-              >
-                Get YumWoof Discount
-              </Button>
+              <div className="space-y-2 mb-4">
+                <Button 
+                  className="w-full" 
+                  variant="default"
+                  onClick={() => window.open('https://yumwoof.com/discount/PETCOSTCALCULAT?ref=rjdfquwx', '_blank')}
+                >
+                  YumWoof - Use code: PETCOSTCALCULAT
+                </Button>
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => window.open('https://tidd.ly/3lqY4T', '_blank')}
+                >
+                  Barking Heads & Meowing Heads
+                </Button>
+              </div>
             </Card>
 
             {/* Essential supplies */}
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-4 text-center">📦</div>
-              <h3 className="text-xl font-bold mb-2">First-Time Owner Bundle</h3>
+              <h3 className="text-xl font-bold mb-2">Pet Accessories</h3>
               <p className="text-sm text-muted-foreground mb-3">
-                Everything you need to get started
+                Essential accessories and lifestyle products
               </p>
-              <p className="text-2xl font-bold text-primary mb-4">
-                $250-400
-              </p>
-              <Button className="w-full" variant="outline">
-                Shop Now
-              </Button>
+              <div className="space-y-2 mb-4">
+                <Button 
+                  className="w-full" 
+                  variant="default"
+                  onClick={() => window.open('https://tidd.ly/3LapGk5', '_blank')}
+                >
+                  Pet Lifestyle and You
+                </Button>
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => window.open('https://tidd.ly/4oFAlLH', '_blank')}
+                >
+                  Purr & Mutt
+                </Button>
+              </div>
             </Card>
           </div>
         </div>
