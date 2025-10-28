@@ -505,13 +505,17 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
                 {inputs.foodType === 'premium' ? 'Premium' : 'Quality'} Food Delivery
               </h3>
               <p className="text-sm text-muted-foreground mb-3">
-                Save 20-30% with auto-delivery
+                Fresh, human-grade meals delivered to your door
               </p>
               <p className="text-2xl font-bold text-primary mb-4">
-                Save $180/year
+                Use code: PETCOSTCALCULAT
               </p>
-              <Button className="w-full" variant="outline">
-                Shop Chewy
+              <Button 
+                className="w-full" 
+                variant="default"
+                onClick={() => window.open('https://yumwoof.com/discount/PETCOSTCALCULAT?ref=rjdfquwx', '_blank')}
+              >
+                Get YumWoof Discount
               </Button>
             </Card>
 

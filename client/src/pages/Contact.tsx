@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Link } from 'wouter';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import Header from '@/components/Header';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -15,45 +16,42 @@ export default function Contact() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send to a backend
-    toast.success('Message sent! We\'ll get back to you within 24 hours.');
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    
+    try {
+      // Send to Web3Forms which forwards to hello@petcost-calculator.com
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // Replace with actual key
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: 'PetCost Calculator Contact Form',
+          to_email: 'hello@petcost-calculator.com'
+        }),
+      });
+
+      if (response.ok) {
+        toast.success('Message sent! We\'ll get back to you within 24 hours.');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        toast.error('Failed to send message. Please try again or email us directly.');
+      }
+    } catch (error) {
+      console.error('Contact form error:', error);
+      toast.error('Failed to send message. Please email us at hello@petcost-calculator.com');
+    }
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/">
-              <a className="flex items-center gap-2">
-                <PawPrint className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold text-foreground">PetCost-Calculator.com</span>
-              </a>
-            </Link>
-            <nav className="hidden md:flex items-center gap-6">
-              <Link href="/about">
-                <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                  About
-                </a>
-              </Link>
-              <Link href="/how-it-works">
-                <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                  How It Works
-                </a>
-              </Link>
-              <Link href="/contact">
-                <a className="text-sm font-medium text-foreground transition-colors">
-                  Contact
-                </a>
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
