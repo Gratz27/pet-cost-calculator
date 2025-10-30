@@ -5,6 +5,7 @@ import { Link } from 'wouter';
 import CalculatorForm from '@/components/CalculatorFormNew';
 import Results from '@/components/ResultsNew';
 import FooterDisclaimer from '@/components/FooterDisclaimer';
+import FAQ from '@/components/FAQ';
 import type { CalculatorInputs, CostBreakdown } from '@/lib/calculator';
 
 export default function Home() {
@@ -63,7 +64,7 @@ export default function Home() {
               Find Out the True Lifetime Cost of Your Future Pet
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Get a personalized cost breakdown for any breed. Free, instant, and comprehensive—including the hidden expenses most people forget.
+              Get a personalized cost breakdown for any breed. Free, instant, and comprehensive—including the hidden expenses most people forget. <Link href="/how-it-works" className="text-primary hover:underline">Learn how it works</Link>.
             </p>
             <Button 
               size="lg" 
@@ -204,6 +205,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQ />
 
       {/* Footer */}
       <footer className="border-t py-12 bg-muted/30">

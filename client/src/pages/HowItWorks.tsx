@@ -2,10 +2,20 @@ import { PawPrint, CheckCircle2, TrendingUp, Download, Share2, Calculator, Shiel
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import Header from '@/components/Header';
+import SEO from '@/components/SEO';
 
 export default function HowItWorks() {
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="How Our Pet Cost Calculator Works - Step-by-Step Guide"
+        description="Learn how to use our free pet cost calculator to get accurate breed-specific estimates for adoption fees, vet care, food, grooming, and lifetime pet ownership costs in 8 simple steps."
+        keywords="how pet cost calculator works, pet cost estimator guide, calculate pet expenses, pet budgeting steps"
+        breadcrumbs={[
+          { name: "Home", url: "https://petcost-calculator.com" },
+          { name: "How It Works", url: "https://petcost-calculator.com/how-it-works" }
+        ]}
+      />
       <Header />
 
       {/* Hero Section */}
@@ -35,7 +45,7 @@ export default function HowItWorks() {
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Choose Your Pet Type</h3>
                   <p className="text-lg text-muted-foreground">
-                    Select whether you're considering a dog or cat. Each has different cost profiles based on size, care needs, and lifespan.
+                    Select whether you're considering a dog or cat. Each has different cost profiles based on size, care needs, and lifespan. <Link href="/" className="text-primary hover:underline">Start your calculation</Link>.
                   </p>
                 </div>
               </div>
@@ -182,7 +192,7 @@ export default function HowItWorks() {
             <div className="mt-16 text-center bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg p-12">
               <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
               <p className="text-muted-foreground mb-6">
-                Calculate your personalized pet costs in less than 2 minutes.
+                Calculate your personalized pet costs in less than 2 minutes. <Link href="/about" className="text-primary hover:underline">Learn more about us</Link> or <Link href="/contact" className="text-primary hover:underline">contact us</Link> with questions.
               </p>
               <Link href="/">
                 <Button size="lg" className="text-lg px-8">

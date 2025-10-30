@@ -7,6 +7,7 @@ import { Link } from 'wouter';
 import { useState } from 'react';
 import { toast } from 'sonner';
 import Header from '@/components/Header';
+import SEO from '@/components/SEO';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -51,6 +52,15 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SEO 
+        title="Contact Pet Cost Calculator - Get Help with Pet Budgeting"
+        description="Contact PetCost-Calculator.com for questions, feedback, partnership inquiries, or technical support. We're here to help you plan your pet budget."
+        keywords="contact pet cost calculator, pet budgeting help, pet cost questions, partnership inquiries"
+        breadcrumbs={[
+          { name: "Home", url: "https://petcost-calculator.com" },
+          { name: "Contact", url: "https://petcost-calculator.com/contact" }
+        ]}
+      />
       <Header />
 
       {/* Hero Section */}
@@ -61,7 +71,7 @@ export default function Contact() {
               Get In Touch
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Have questions, feedback, or partnership inquiries? We'd love to hear from you.
+              Have questions, feedback, or partnership inquiries? We'd love to hear from you. <Link href="/" className="text-primary hover:underline">Try our calculator</Link> to get started.
             </p>
           </div>
         </div>
@@ -132,7 +142,7 @@ export default function Contact() {
                 <div className="mt-8 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg p-6">
                   <h3 className="text-lg font-semibold mb-2">Looking for Quick Answers?</h3>
                   <p className="text-muted-foreground mb-4">
-                    Check out our How It Works page for detailed information about using the calculator.
+                    Check out our <Link href="/how-it-works" className="text-primary hover:underline">How It Works</Link> page for detailed information about using the calculator, or visit our <Link href="/about" className="text-primary hover:underline">About page</Link> to learn more about our mission.
                   </p>
                   <Link href="/how-it-works">
                     <Button variant="outline">
