@@ -3,6 +3,24 @@
   "outputDirectory": "dist/public",
   "installCommand": "pnpm install",
   "framework": null,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.petcost-calculator.com"
+        }
+      ],
+      "destination": "https://petcost-calculator.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/:path((?:[^/]+/)*[^/]+)/",
+      "destination": "/:path",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

@@ -5,6 +5,14 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Redirect www to non-www
+[[redirects]]
+  from = "https://www.petcost-calculator.com/*"
+  to = "https://petcost-calculator.com/:splat"
+  status = 301
+  force = true
+
+# SPA fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"

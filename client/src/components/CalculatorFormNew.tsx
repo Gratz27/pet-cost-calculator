@@ -784,34 +784,36 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                 </RadioGroup>
               </div>
 
-              {/* Activity Level */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-2">
-                  <Activity className="w-5 h-5 text-green-600" />
-                  <Label className="text-base font-semibold">Activity Level</Label>
-                </div>
-                <RadioGroup value={activityLevel} onValueChange={setActivityLevel}>
-                  <div className="space-y-2">
-                    {[
-                      { value: 'very-active', label: 'Very Active (daily long walks/runs)' },
-                      { value: 'moderate', label: 'Moderately Active (regular walks)' },
-                      { value: 'low', label: 'Low Activity (minimal exercise)' }
-                    ].map((option) => (
-                      <label
-                        key={option.value}
-                        className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
-                          activityLevel === option.value
-                            ? 'border-primary bg-primary/10'
-                            : 'border-border hover:border-primary/50'
-                        }`}
-                      >
-                        <RadioGroupItem value={option.value} id={`activity-${option.value}`} className="mr-3" />
-                        <span>{option.label}</span>
-                      </label>
-                    ))}
+              {/* Activity Level - Dogs Only */}
+              {petType === 'dog' && (
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <Activity className="w-5 h-5 text-green-600" />
+                    <Label className="text-base font-semibold">Activity Level</Label>
                   </div>
-                </RadioGroup>
-              </div>
+                  <RadioGroup value={activityLevel} onValueChange={setActivityLevel}>
+                    <div className="space-y-2">
+                      {[
+                        { value: 'very-active', label: 'Very Active (daily long walks/runs)' },
+                        { value: 'moderate', label: 'Moderately Active (regular walks)' },
+                        { value: 'low', label: 'Low Activity (minimal exercise)' }
+                      ].map((option) => (
+                        <label
+                          key={option.value}
+                          className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
+                            activityLevel === option.value
+                              ? 'border-primary bg-primary/10'
+                              : 'border-border hover:border-primary/50'
+                          }`}
+                        >
+                          <RadioGroupItem value={option.value} id={`activity-${option.value}`} className="mr-3" />
+                          <span>{option.label}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </RadioGroup>
+                </div>
+              )}
             </div>
           )}
 
@@ -895,35 +897,37 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                 </RadioGroup>
               </div>
 
-              {/* Daycare/Walking Services */}
-              <div className="space-y-3">
-                <Label className="text-base font-semibold">Daycare/Walking Services</Label>
-                <RadioGroup value={daycareFrequency} onValueChange={(value: any) => setDaycareFrequency(value)}>
-                  <div className="space-y-2">
-                    {[
-                      { value: 'daily', label: 'Daily', desc: '$400-600/month' },
-                      { value: '2-3-week', label: '2-3 times per week', desc: '$200-300/month' },
-                      { value: 'occasionally', label: 'Occasionally', desc: '$50-100/month' },
-                      { value: 'never', label: 'Never', desc: "I'll handle all walks" }
-                    ].map((option) => (
-                      <label
-                        key={option.value}
-                        className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
-                          daycareFrequency === option.value
-                            ? 'border-primary bg-primary/10'
-                            : 'border-border hover:border-primary/50'
-                        }`}
-                      >
-                        <RadioGroupItem value={option.value} id={`daycare-${option.value}`} className="mr-3" />
-                        <div>
-                          <p className="font-medium">{option.label}</p>
-                          <p className="text-sm text-muted-foreground">{option.desc}</p>
-                        </div>
-                      </label>
-                    ))}
-                  </div>
-                </RadioGroup>
-              </div>
+              {/* Daycare/Walking Services - Dogs Only */}
+              {petType === 'dog' && (
+                <div className="space-y-3">
+                  <Label className="text-base font-semibold">Daycare/Walking Services</Label>
+                  <RadioGroup value={daycareFrequency} onValueChange={(value: any) => setDaycareFrequency(value)}>
+                    <div className="space-y-2">
+                      {[
+                        { value: 'daily', label: 'Daily', desc: '$400-600/month' },
+                        { value: '2-3-week', label: '2-3 times per week', desc: '$200-300/month' },
+                        { value: 'occasionally', label: 'Occasionally', desc: '$50-100/month' },
+                        { value: 'never', label: 'Never', desc: "I'll handle all walks" }
+                      ].map((option) => (
+                        <label
+                          key={option.value}
+                          className={`flex items-center p-3 rounded-lg border-2 cursor-pointer transition-all ${
+                            daycareFrequency === option.value
+                              ? 'border-primary bg-primary/10'
+                              : 'border-border hover:border-primary/50'
+                          }`}
+                        >
+                          <RadioGroupItem value={option.value} id={`daycare-${option.value}`} className="mr-3" />
+                          <div>
+                            <p className="font-medium">{option.label}</p>
+                            <p className="text-sm text-muted-foreground">{option.desc}</p>
+                          </div>
+                        </label>
+                      ))}
+                    </div>
+                  </RadioGroup>
+                </div>
+              )}
 
               {/* Dental Care */}
               <div className="space-y-3">
@@ -1054,7 +1058,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                   <div className="space-y-1 text-sm">
                     <p><span className="text-muted-foreground">Work:</span> {workSchedule}</p>
                     <p><span className="text-muted-foreground">Travel:</span> {travelFrequency}</p>
-                    <p><span className="text-muted-foreground">Activity:</span> {activityLevel}</p>
+                    {petType === 'dog' && <p><span className="text-muted-foreground">Activity:</span> {activityLevel}</p>}
                   </div>
                 </Card>
 
@@ -1070,7 +1074,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                   <div className="grid md:grid-cols-2 gap-x-6 gap-y-1 text-sm">
                     <p><span className="text-muted-foreground">Food:</span> {foodType === 'premium' ? 'Premium' : 'Standard'}</p>
                     <p><span className="text-muted-foreground">Grooming:</span> {groomingFrequency.replace('-', ' ')}</p>
-                    <p><span className="text-muted-foreground">Daycare:</span> {daycareFrequency === 'never' ? 'Never' : daycareFrequency}</p>
+                    {petType === 'dog' && <p><span className="text-muted-foreground">Daycare:</span> {daycareFrequency === 'never' ? 'Never' : daycareFrequency}</p>}
                     <p><span className="text-muted-foreground">Dental:</span> {dentalCare === 'annual' ? 'Annual cleanings' : 'As needed'}</p>
                   </div>
                 </Card>
@@ -1173,10 +1177,12 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
     else if (groomingFrequency === 'monthly') total += 60;
     else if (groomingFrequency === '3-months') total += 20;
     
-    // Daycare
-    if (daycareFrequency === 'daily') total += 500;
-    else if (daycareFrequency === '2-3-week') total += 250;
-    else if (daycareFrequency === 'occasionally') total += 75;
+    // Daycare (dogs only)
+    if (petType === 'dog') {
+      if (daycareFrequency === 'daily') total += 500;
+      else if (daycareFrequency === '2-3-week') total += 250;
+      else if (daycareFrequency === 'occasionally') total += 75;
+    }
     
     // Dental (convert to monthly)
     if (dentalCare === 'annual') total += 25;

@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import Header from '@/components/Header';
 import SEO from '@/components/SEO';
+import AdSense from '@/components/AdSense';
 
 export default function HowItWorks() {
   return (
@@ -201,6 +202,13 @@ export default function HowItWorks() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Ad Section - Content-rich page */}
+      <section className="py-8">
+        <div className="container max-w-4xl">
+          <AdSense />
         </div>
       </section>
 

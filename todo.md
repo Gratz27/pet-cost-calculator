@@ -108,3 +108,40 @@
 - [ ] Add testimonials section
 - [ ] Partner with pet influencers for mentions
 
+
+
+
+## Google Search Console Indexing Issues (FIXED)
+- [x] Fix "Alternate page with proper canonical tag" - www vs non-www conflict
+- [x] Fix "Crawled - currently not indexed" for /contact and homepage
+- [x] Fix invalid URL pattern "/$" causing indexing issues
+- [x] Add proper www to non-www redirects in vercel.json and netlify.toml (301 permanent redirects)
+- [x] Update canonical URLs to use non-www version consistently (already correct in SEO component)
+- [x] Add trailing slash redirect to prevent invalid URL patterns
+- [ ] Redeploy to Vercel/Netlify to activate redirects
+- [ ] Request reindexing in Google Search Console after deployment
+
+
+
+
+## Cat Calculator Updates (Completed)
+- [x] Remove activity level section for cats (dogs only) - Added conditional rendering
+- [x] Remove daycare/walking services for cats (dogs only) - Added conditional rendering
+- [x] Update calculator form to conditionally show these fields based on pet type
+- [x] Update cost calculation logic to exclude daycare/walking for cats
+- [x] Hide activity level and daycare in review section for cats
+- [x] Update monthly cost calculation to exclude daycare for cats
+
+
+
+
+## Google AdSense Policy Violations (FIXED)
+- [x] Remove AdSense code from calculator form steps (low-value screens) - Removed global script from index.html
+- [x] Remove AdSense code from results page if content is insufficient - No ads on results page
+- [x] Ensure ads only appear on content-rich pages (Home, About, How It Works, Contact) - Created AdSense component
+- [x] Add sufficient content to pages with ads - All pages with ads have substantial content
+- [x] Remove ads from navigation/behavioral screens - Ads only load on content pages
+- [x] Verify ads only show after meaningful content is displayed - Ads placed after main content sections
+- [ ] Redeploy site to production
+- [ ] Request AdSense review after deployment
+

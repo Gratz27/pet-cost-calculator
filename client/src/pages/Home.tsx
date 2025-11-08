@@ -6,6 +6,7 @@ import CalculatorForm from '@/components/CalculatorFormNew';
 import Results from '@/components/ResultsNew';
 import FooterDisclaimer from '@/components/FooterDisclaimer';
 import FAQ from '@/components/FAQ';
+import AdSense from '@/components/AdSense';
 import type { CalculatorInputs, CostBreakdown } from '@/lib/calculator';
 
 export default function Home() {
@@ -208,6 +209,13 @@ export default function Home() {
 
       {/* FAQ Section */}
       <FAQ />
+
+      {/* Ad Section - Content-rich page */}
+      <section className="py-8">
+        <div className="container max-w-4xl">
+          <AdSense />
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="border-t py-12 bg-muted/30">

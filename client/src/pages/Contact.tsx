@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import Header from '@/components/Header';
 import SEO from '@/components/SEO';
+import AdSense from '@/components/AdSense';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -152,6 +153,13 @@ export default function Contact() {
                 </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Ad Section - Content-rich page */}
+      <section className="py-8">
+        <div className="container max-w-4xl">
+          <AdSense />
         </div>
       </section>
 
