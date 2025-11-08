@@ -388,10 +388,21 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
               {/* Helpful Tips */}
               <ExpandableHelp title="How breed affects costs">
                 <div className="space-y-2">
-                  <p><strong>Size matters:</strong> Larger breeds typically cost more for food, medications, and boarding.</p>
-                  <p><strong>Grooming needs:</strong> Breeds like Poodles and Shih Tzus require regular professional grooming ($50-80/visit).</p>
-                  <p><strong>Health considerations:</strong> Some breeds are prone to specific health issues that increase vet costs.</p>
-                  <p><strong>Activity level:</strong> High-energy breeds may need daycare or dog walking services.</p>
+                  {petType === 'dog' ? (
+                    <>
+                      <p><strong>Size matters:</strong> Larger breeds typically cost more for food, medications, and boarding.</p>
+                      <p><strong>Grooming needs:</strong> Breeds like Poodles and Shih Tzus require regular professional grooming ($50-80/visit).</p>
+                      <p><strong>Health considerations:</strong> Some breeds are prone to specific health issues that increase vet costs.</p>
+                      <p><strong>Activity level:</strong> High-energy breeds may need daycare or dog walking services.</p>
+                    </>
+                  ) : (
+                    <>
+                      <p><strong>Size matters:</strong> Larger cat breeds typically cost more for food and medications.</p>
+                      <p><strong>Grooming needs:</strong> Long-haired breeds like Persians and Maine Coons may need regular professional grooming ($50-70/visit).</p>
+                      <p><strong>Health considerations:</strong> Some breeds are prone to specific health issues (e.g., Persians with breathing issues, Maine Coons with heart conditions).</p>
+                      <p><strong>Indoor vs outdoor:</strong> Indoor cats generally have lower health risks but may need more enrichment and toys.</p>
+                    </>
+                  )}
                 </div>
               </ExpandableHelp>
             </div>
@@ -615,7 +626,8 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                 </RadioGroup>
               </div>
 
-              {/* Professional Training */}
+              {/* Professional Training - Dogs only */}
+              {petType === 'dog' && (
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
                   <GraduationCap className="w-5 h-5 text-purple-600" />
@@ -657,6 +669,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                   </div>
                 </RadioGroup>
               </div>
+              )}
 
               {/* Initial Vet Care */}
               <div className="space-y-3">
