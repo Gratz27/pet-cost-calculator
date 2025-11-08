@@ -168,3 +168,13 @@
 - [x] Build process verified
 - [x] All JSON files validated
 
+
+
+
+## Structured Data Missing on Live Site (FIXED)
+- [x] Investigate why schema markup is not appearing in deployed HTML - SEO component was not being used on Home page
+- [x] Verify SEO component is being used on all pages - Added to Home.tsx
+- [x] Check if structured data props are being passed correctly - Added isHomepage prop
+- [x] Test structured data locally before deployment - 7 schemas now appearing (Organization, WebSite, SoftwareApplication, FAQPage)
+- [ ] Deploy and verify structured data appears in production
+

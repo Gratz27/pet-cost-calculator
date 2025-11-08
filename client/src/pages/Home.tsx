@@ -7,6 +7,7 @@ import Results from '@/components/ResultsNew';
 import FooterDisclaimer from '@/components/FooterDisclaimer';
 import FAQ from '@/components/FAQ';
 import AdSense from '@/components/AdSense';
+import SEO from '@/components/SEO';
 import type { CalculatorInputs, CostBreakdown } from '@/lib/calculator';
 
 export default function Home() {
@@ -33,7 +34,15 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <>
+      <SEO
+        title="Pet Adoption Cost Reality Calculator - Free Pet Cost Estimator"
+        description="Free pet cost calculator with breed-specific data. Get accurate estimates for adoption fees, vet care, food, grooming, and lifetime costs. Used by 50,000+ prospective pet owners."
+        keywords="pet cost calculator, dog cost calculator, cat cost calculator, pet ownership costs, pet adoption costs, lifetime pet costs, petcost-calculator"
+        canonical="https://petcost-calculator.com"
+        isHomepage={true}
+      />
+      <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container py-4">
@@ -233,6 +242,7 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </>
   );
 }
 
