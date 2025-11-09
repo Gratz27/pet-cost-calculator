@@ -6,9 +6,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Link } from 'wouter';
 import { useState } from 'react';
 import { toast } from 'sonner';
-import Header from '@/components/Header';
-import SEO from '@/components/SEO';
-import AdSense from '@/components/AdSense';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -18,51 +15,45 @@ export default function Contact() {
     message: ''
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-    try {
-      // Send to Web3Forms which forwards to hello@petcost-calculator.com
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // Replace with actual key
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-          from_name: 'PetCost Calculator Contact Form',
-          to_email: 'hello@petcost-calculator.com'
-        }),
-      });
-
-      if (response.ok) {
-        toast.success('Message sent! We\'ll get back to you within 24 hours.');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        toast.error('Failed to send message. Please try again or email us directly.');
-      }
-    } catch (error) {
-      console.error('Contact form error:', error);
-      toast.error('Failed to send message. Please email us at hello@petcost-calculator.com');
-    }
+    // In a real app, this would send to a backend
+    toast.success('Message sent! We\'ll get back to you within 24 hours.');
+    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   return (
     <div className="min-h-screen flex flex-col">
-      <SEO 
-        title="Contact Pet Cost Calculator - Get Help with Pet Budgeting"
-        description="Contact PetCost-Calculator.com for questions, feedback, partnership inquiries, or technical support. We're here to help you plan your pet budget."
-        keywords="contact pet cost calculator, pet budgeting help, pet cost questions, partnership inquiries"
-        breadcrumbs={[
-          { name: "Home", url: "https://petcost-calculator.com" },
-          { name: "Contact", url: "https://petcost-calculator.com/contact" }
-        ]}
-      />
-      <Header />
+      {/* Header */}
+      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/">
+              <a className="flex items-center gap-2">
+                <PawPrint className="h-8 w-8 text-primary" />
+                <span className="text-xl font-bold text-foreground">PetCost-Calculator.com</span>
+              </a>
+            </Link>
+            <nav className="hidden md:flex items-center gap-6">
+              <Link href="/about">
+                <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  About
+                </a>
+              </Link>
+              <Link href="/how-it-works">
+                <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  How It Works
+                </a>
+              </Link>
+              <Link href="/contact">
+                <a className="text-sm font-medium text-foreground transition-colors">
+                  Contact
+                </a>
+              </Link>
+            </nav>
+          </div>
+        </div>
+      </header>
 
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -72,7 +63,7 @@ export default function Contact() {
               Get In Touch
             </h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Have questions, feedback, or partnership inquiries? We'd love to hear from you. <Link href="/" className="text-primary hover:underline">Try our calculator</Link> to get started.
+              Have questions, feedback, or partnership inquiries? We'd love to hear from you.
             </p>
           </div>
         </div>
@@ -81,10 +72,72 @@ export default function Contact() {
       {/* Contact Section */}
       <section className="py-16 md:py-24">
         <div className="container">
-          <div className="max-w-4xl mx-auto">
-            {/* Contact Info */}
-            <div>
-              <h2 className="text-3xl font-bold mb-8 text-center">Ways to Reach Us</h2>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12">
+              {/* Contact Form */}
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Send Us a Message</h2>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div>
+                    <Label htmlFor="name">Name</Label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Your name"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                      className="mt-2"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="your.email@example.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      required
+                      className="mt-2"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="subject">Subject</Label>
+                    <Input
+                      id="subject"
+                      type="text"
+                      placeholder="What's this about?"
+                      value={formData.subject}
+                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                      required
+                      className="mt-2"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      placeholder="Tell us more..."
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      required
+                      className="mt-2 min-h-[150px]"
+                    />
+                  </div>
+
+                  <Button type="submit" size="lg" className="w-full">
+                    Send Message
+                  </Button>
+                </form>
+              </div>
+
+              {/* Contact Info */}
+              <div>
+                <h2 className="text-3xl font-bold mb-6">Other Ways to Reach Us</h2>
                 
                 <div className="space-y-6">
                   <div className="bg-card border rounded-lg p-6">
@@ -143,7 +196,7 @@ export default function Contact() {
                 <div className="mt-8 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg p-6">
                   <h3 className="text-lg font-semibold mb-2">Looking for Quick Answers?</h3>
                   <p className="text-muted-foreground mb-4">
-                    Check out our <Link href="/how-it-works" className="text-primary hover:underline">How It Works</Link> page for detailed information about using the calculator, or visit our <Link href="/about" className="text-primary hover:underline">About page</Link> to learn more about our mission.
+                    Check out our How It Works page for detailed information about using the calculator.
                   </p>
                   <Link href="/how-it-works">
                     <Button variant="outline">
@@ -151,15 +204,9 @@ export default function Contact() {
                     </Button>
                   </Link>
                 </div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Ad Section - Content-rich page */}
-      <section className="py-8">
-        <div className="container max-w-4xl">
-          <AdSense />
         </div>
       </section>
 

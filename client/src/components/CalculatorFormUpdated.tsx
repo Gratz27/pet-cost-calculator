@@ -244,12 +244,9 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
     else if (groomingFrequency === 'monthly') total += 60;
     else if (groomingFrequency === '3-months') total += 20;
     
-    // Daycare (dogs only)
-    if (petType === 'dog') {
-      if (daycareFrequency === 'daily') total += 500;
-      else if (daycareFrequency === '2-3-week') total += 250;
-      else if (daycareFrequency === 'occasionally') total += 75;
-    }
+    if (daycareFrequency === 'daily') total += 500;
+    else if (daycareFrequency === '2-3-week') total += 250;
+    else if (daycareFrequency === 'occasionally') total += 75;
     
     if (dentalCare === 'annual') total += 25;
     

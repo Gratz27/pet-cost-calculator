@@ -5,9 +5,6 @@ import { Link } from 'wouter';
 import CalculatorForm from '@/components/CalculatorFormNew';
 import Results from '@/components/ResultsNew';
 import FooterDisclaimer from '@/components/FooterDisclaimer';
-import FAQ from '@/components/FAQ';
-import AdSense from '@/components/AdSense';
-import SEO from '@/components/SEO';
 import type { CalculatorInputs, CostBreakdown } from '@/lib/calculator';
 
 export default function Home() {
@@ -34,15 +31,7 @@ export default function Home() {
   }
 
   return (
-    <>
-      <SEO
-        title="Pet Adoption Cost Reality Calculator - Free Pet Cost Estimator"
-        description="Free pet cost calculator with breed-specific data. Get accurate estimates for adoption fees, vet care, food, grooming, and lifetime costs. Used by 50,000+ prospective pet owners."
-        keywords="pet cost calculator, dog cost calculator, cat cost calculator, pet ownership costs, pet adoption costs, lifetime pet costs, petcost-calculator"
-        canonical="https://petcost-calculator.com"
-        isHomepage={true}
-      />
-      <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container py-4">
@@ -74,7 +63,7 @@ export default function Home() {
               Find Out the True Lifetime Cost of Your Future Pet
             </h1>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Get a personalized cost breakdown for any breed. Free, instant, and comprehensive—including the hidden expenses most people forget. <Link href="/how-it-works" className="text-primary hover:underline">Learn how it works</Link>.
+              Get a personalized cost breakdown for any breed. Free, instant, and comprehensive—including the hidden expenses most people forget.
             </p>
             <Button 
               size="lg" 
@@ -216,16 +205,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <FAQ />
-
-      {/* Ad Section - Content-rich page */}
-      <section className="py-8">
-        <div className="container max-w-4xl">
-          <AdSense />
-        </div>
-      </section>
-
       {/* Footer */}
       <footer className="border-t py-12 bg-muted/30">
         <div className="container">
@@ -242,7 +221,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
-    </>
   );
 }
 

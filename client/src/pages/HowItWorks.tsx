@@ -1,23 +1,40 @@
-import { PawPrint, CheckCircle2, TrendingUp, Download, Share2, Calculator, Shield } from 'lucide-react';
+import { PawPrint, CheckCircle2, Calculator, TrendingUp, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
-import Header from '@/components/Header';
-import SEO from '@/components/SEO';
-import AdSense from '@/components/AdSense';
 
 export default function HowItWorks() {
   return (
     <div className="min-h-screen flex flex-col">
-      <SEO 
-        title="How Our Pet Cost Calculator Works - Step-by-Step Guide"
-        description="Learn how to use our free pet cost calculator to get accurate breed-specific estimates for adoption fees, vet care, food, grooming, and lifetime pet ownership costs in 8 simple steps."
-        keywords="how pet cost calculator works, pet cost estimator guide, calculate pet expenses, pet budgeting steps"
-        breadcrumbs={[
-          { name: "Home", url: "https://petcost-calculator.com" },
-          { name: "How It Works", url: "https://petcost-calculator.com/how-it-works" }
-        ]}
-      />
-      <Header />
+      {/* Header */}
+      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+        <div className="container py-4">
+          <div className="flex items-center justify-between">
+            <Link href="/">
+              <a className="flex items-center gap-2">
+                <PawPrint className="h-8 w-8 text-primary" />
+                <span className="text-xl font-bold text-foreground">PetCost-Calculator.com</span>
+              </a>
+            </Link>
+            <nav className="hidden md:flex items-center gap-6">
+              <Link href="/about">
+                <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  About
+                </a>
+              </Link>
+              <Link href="/how-it-works">
+                <a className="text-sm font-medium text-foreground transition-colors">
+                  How It Works
+                </a>
+              </Link>
+              <Link href="/contact">
+                <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  Contact
+                </a>
+              </Link>
+            </nav>
+          </div>
+        </div>
+      </header>
 
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -46,7 +63,7 @@ export default function HowItWorks() {
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Choose Your Pet Type</h3>
                   <p className="text-lg text-muted-foreground">
-                    Select whether you're considering a dog or cat. Each has different cost profiles based on size, care needs, and lifespan. <Link href="/" className="text-primary hover:underline">Start your calculation</Link>.
+                    Select whether you're considering a dog or cat. Each has different cost profiles based on size, care needs, and lifespan.
                   </p>
                 </div>
               </div>
@@ -193,7 +210,7 @@ export default function HowItWorks() {
             <div className="mt-16 text-center bg-gradient-to-br from-primary/5 to-secondary/5 rounded-lg p-12">
               <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
               <p className="text-muted-foreground mb-6">
-                Calculate your personalized pet costs in less than 2 minutes. <Link href="/about" className="text-primary hover:underline">Learn more about us</Link> or <Link href="/contact" className="text-primary hover:underline">contact us</Link> with questions.
+                Calculate your personalized pet costs in less than 2 minutes.
               </p>
               <Link href="/">
                 <Button size="lg" className="text-lg px-8">
@@ -202,13 +219,6 @@ export default function HowItWorks() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Ad Section - Content-rich page */}
-      <section className="py-8">
-        <div className="container max-w-4xl">
-          <AdSense />
         </div>
       </section>
 
