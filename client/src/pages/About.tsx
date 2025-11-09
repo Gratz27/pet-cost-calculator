@@ -1,40 +1,23 @@
-import { PawPrint, Heart, Target, Users } from 'lucide-react';
+import { PawPrint, Heart, Target, Users, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
+import Header from '@/components/Header';
+import SEO from '@/components/SEO';
+import AdSense from '@/components/AdSense';
 
 export default function About() {
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/">
-              <a className="flex items-center gap-2">
-                <PawPrint className="h-8 w-8 text-primary" />
-                <span className="text-xl font-bold text-foreground">PetCost-Calculator.com</span>
-              </a>
-            </Link>
-            <nav className="hidden md:flex items-center gap-6">
-              <Link href="/about">
-                <a className="text-sm font-medium text-foreground transition-colors">
-                  About
-                </a>
-              </Link>
-              <Link href="/how-it-works">
-                <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                  How It Works
-                </a>
-              </Link>
-              <Link href="/contact">
-                <a className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-                  Contact
-                </a>
-              </Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <SEO 
+        title="About Pet Cost Calculator - Helping Pet Owners Budget Wisely"
+        description="Learn about PetCost-Calculator.com and our mission to help prospective pet owners make informed financial decisions about pet adoption and ownership costs."
+        keywords="about pet cost calculator, pet budgeting tool, pet ownership planning, responsible pet adoption"
+        breadcrumbs={[
+          { name: "Home", url: "https://petcost-calculator.com" },
+          { name: "About", url: "https://petcost-calculator.com/about" }
+        ]}
+      />
+      <Header />
 
       {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
@@ -61,7 +44,7 @@ export default function About() {
                 </div>
                 <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  We believe that every pet deserves a loving, stable home—and every prospective owner deserves to know the true financial commitment before adopting. Our mission is to reduce pet surrenders by providing transparent, accurate cost information that helps people make responsible decisions.
+                  We believe that every pet deserves a loving, stable home—and every prospective owner deserves to know the true financial commitment before adopting. Our mission is to reduce pet surrenders by providing transparent, accurate <Link href="/" className="text-primary hover:underline">cost information</Link> that helps people make responsible decisions.
                 </p>
               </div>
               <div>
@@ -70,7 +53,7 @@ export default function About() {
                 </div>
                 <h2 className="text-3xl font-bold mb-4">Why We Built This</h2>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Too many pets are surrendered to shelters because owners didn't anticipate the full cost of ownership. We created this calculator to shine a light on both obvious and hidden expenses—from adoption fees to emergency vet care—so families can plan confidently and commit for life.
+                  Too many pets are surrendered to shelters because owners didn't anticipate the full cost of ownership. We created this <Link href="/how-it-works" className="text-primary hover:underline">calculator</Link> to shine a light on both obvious and hidden expenses—from adoption fees to emergency vet care—so families can plan confidently and commit for life.
                 </p>
               </div>
             </div>
@@ -128,7 +111,7 @@ export default function About() {
             <div className="mt-16 text-center">
               <h2 className="text-2xl font-bold mb-4">Ready to Calculate Your Pet Costs?</h2>
               <p className="text-muted-foreground mb-6">
-                Get your personalized estimate in less than 2 minutes.
+                Get your personalized estimate in less than 2 minutes. <Link href="/how-it-works" className="text-primary hover:underline">Learn how it works</Link> or <Link href="/contact" className="text-primary hover:underline">contact us</Link> with questions.
               </p>
               <Link href="/">
                 <Button size="lg" className="text-lg px-8">
@@ -137,6 +120,13 @@ export default function About() {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Ad Section - Content-rich page */}
+      <section className="py-8">
+        <div className="container max-w-4xl">
+          <AdSense />
         </div>
       </section>
 

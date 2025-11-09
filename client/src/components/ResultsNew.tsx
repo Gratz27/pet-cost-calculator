@@ -9,6 +9,8 @@ import { Pie, Bar } from 'react-chartjs-2';
 import { formatCurrency, type CalculatorInputs, type CostBreakdown, getBreedById } from '@/lib/calculator';
 import LegalDisclaimer from './LegalDisclaimer';
 import { SocialShare } from './SocialShare';
+import Header from './Header';
+import EmailCapture from './EmailCapture';
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -144,7 +146,9 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      <Header />
+      <div className="py-12">
       <div className="container max-w-6xl" data-pdf-export>
         {/* Header */}
         <div className="mb-8 flex items-center justify-between">
@@ -501,55 +505,55 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
                 {inputs.foodType === 'premium' ? 'Premium' : 'Quality'} Food Delivery
               </h3>
               <p className="text-sm text-muted-foreground mb-3">
-                Save 20-30% with auto-delivery
+                Fresh, nutritious meals from trusted brands
               </p>
-              <p className="text-2xl font-bold text-primary mb-4">
-                Save $180/year
-              </p>
-              <Button className="w-full" variant="outline">
-                Shop Chewy
-              </Button>
+              <div className="space-y-2 mb-4">
+                <Button 
+                  className="w-full" 
+                  variant="default"
+                  onClick={() => window.open('https://yumwoof.com/discount/PETCOSTCALCULAT?ref=rjdfquwx', '_blank')}
+                >
+                  YumWoof - Use code: PETCOSTCALCULAT
+                </Button>
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => window.open('https://tidd.ly/3JqYJ4T', '_blank')}
+                >
+                  Barking Heads & Meowing Heads
+                </Button>
+              </div>
             </Card>
 
             {/* Essential supplies */}
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-4 text-center">📦</div>
-              <h3 className="text-xl font-bold mb-2">First-Time Owner Bundle</h3>
+              <h3 className="text-xl font-bold mb-2">Pet Accessories</h3>
               <p className="text-sm text-muted-foreground mb-3">
-                Everything you need to get started
+                Essential accessories and lifestyle products
               </p>
-              <p className="text-2xl font-bold text-primary mb-4">
-                $250-400
-              </p>
-              <Button className="w-full" variant="outline">
-                Shop Now
-              </Button>
+              <div className="space-y-2 mb-4">
+                <Button 
+                  className="w-full" 
+                  variant="default"
+                  onClick={() => window.open('https://tidd.ly/3LabGk5', '_blank')}
+                >
+                  Pet Lifestyle and You
+                </Button>
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => window.open('https://tidd.ly/4oFAlLH', '_blank')}
+                >
+                  Purr & Mutt
+                </Button>
+              </div>
             </Card>
           </div>
         </div>
 
         {/* Email Capture */}
-        <Card className="p-8 bg-gradient-to-br from-primary/10 to-secondary/10">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-3">Get Your Free Pet Budget Checklist</h2>
-            <p className="text-muted-foreground mb-6">
-              Download our comprehensive checklist to make sure you're prepared for every expense.
-            </p>
-            <div className="flex gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none"
-              />
-              <Button size="lg" className="px-8">
-                Send Checklist
-              </Button>
-            </div>
-            <p className="text-xs text-muted-foreground mt-3">
-              We respect your privacy. Unsubscribe anytime.
-            </p>
-          </div>
-        </Card>
+        <EmailCapture />
 
         {/* Social Share */}
         <SocialShare
@@ -559,6 +563,7 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
 
         {/* Legal Disclaimer */}
         <LegalDisclaimer />
+      </div>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 
 function Router() {
   return (
@@ -35,6 +36,7 @@ function App() {
         defaultTheme="light"
         // switchable
       >
+        <GoogleAnalytics />
         <TooltipProvider>
           <Toaster />
           <Router />
