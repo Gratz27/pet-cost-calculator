@@ -1,7 +1,0 @@
-# robots.txt for petcost-calculator.com
-User-agent: *
-Allow: /
-
-# Sitemap
-Sitemap: https://petcost-calculator.com/sitemap.xml
-
