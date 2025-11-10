@@ -614,10 +614,8 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
             <p className="text-sm text-muted-foreground mb-4">
               Protect yourself from unexpected vet bills with comprehensive pet insurance.
             </p>
-            <Button variant="outline" className="w-full" asChild>
-              <a href="https://www.petinsurance.com" target="_blank" rel="noopener noreferrer">
-                Compare Plans
-              </a>
+            <Button variant="outline" className="w-full" disabled>
+              Coming Soon
             </Button>
           </Card>
 

@@ -12,11 +12,36 @@ interface SEOProps {
   keywords?: string;
   breadcrumbs?: BreadcrumbItem[];
   isHomepage?: boolean;
+  // Blog article specific props
+  isBlogArticle?: boolean;
+  articleImage?: string;
+  articlePublishDate?: string;
+  articleModifiedDate?: string;
+  articleAuthor?: string;
+  articleTags?: string[];
 }
 
-export default function SEO({ title, description, canonical, keywords, breadcrumbs, isHomepage = false }: SEOProps) {
+export default function SEO({ 
+  title, 
+  description, 
+  canonical, 
+  keywords, 
+  breadcrumbs, 
+  isHomepage = false,
+  isBlogArticle = false,
+  articleImage,
+  articlePublishDate,
+  articleModifiedDate,
+  articleAuthor = 'Pet Cost Calculator Team',
+  articleTags = []
+}: SEOProps) {
   const fullTitle = `${title} | PetCost-Calculator.com`;
   const canonicalUrl = canonical || `https://petcost-calculator.com${window.location.pathname}`;
+  
+  // Construct full image URL for social sharing
+  const fullImageUrl = articleImage 
+    ? `https://petcost-calculator.com${articleImage}` 
+    : 'https://petcost-calculator.com/favicon.svg';
   
   const breadcrumbSchema = breadcrumbs ? {
     "@context": "https://schema.org",
@@ -27,6 +52,35 @@ export default function SEO({ title, description, canonical, keywords, breadcrum
       "name": item.name,
       "item": item.url
     }))
+  } : null;
+
+  // Blog article schema
+  const articleSchema = isBlogArticle && articlePublishDate ? {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": title,
+    "description": description,
+    "image": fullImageUrl,
+    "datePublished": articlePublishDate,
+    "dateModified": articleModifiedDate || articlePublishDate,
+    "author": {
+      "@type": "Organization",
+      "name": articleAuthor,
+      "url": "https://petcost-calculator.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PetCost-Calculator.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://petcost-calculator.com/favicon.svg"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    },
+    "keywords": articleTags.join(', ')
   } : null;
 
   // Homepage-specific schemas
@@ -154,19 +208,48 @@ export default function SEO({ title, description, canonical, keywords, breadcrum
       {keywords && <meta name="keywords" content={keywords} />}
       <link rel="canonical" href={canonicalUrl} />
       
-      {/* Open Graph */}
+      {/* Open Graph Meta Tags */}
+      <meta property="og:type" content={isBlogArticle ? "article" : "website"} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
+      <meta property="og:image" content={fullImageUrl} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:site_name" content="PetCost-Calculator.com" />
+      <meta property="og:locale" content="en_US" />
       
-      {/* Twitter */}
+      {/* Blog article specific Open Graph tags */}
+      {isBlogArticle && articlePublishDate && (
+        <>
+          <meta property="article:published_time" content={articlePublishDate} />
+          {articleModifiedDate && (
+            <meta property="article:modified_time" content={articleModifiedDate} />
+          )}
+          <meta property="article:author" content={articleAuthor} />
+          {articleTags.map((tag, index) => (
+            <meta key={index} property="article:tag" content={tag} />
+          ))}
+        </>
+      )}
+      
+      {/* Twitter Card Meta Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={fullImageUrl} />
+      <meta name="twitter:site" content="@petcostcalc" />
+      <meta name="twitter:creator" content="@petcostcalc" />
       
       {/* Structured Data Schemas */}
       {breadcrumbSchema && (
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
+        </script>
+      )}
+      {articleSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(articleSchema)}
         </script>
       )}
       {organizationSchema && (

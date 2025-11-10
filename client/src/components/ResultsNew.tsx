@@ -492,8 +492,8 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
                 <p className="text-2xl font-bold text-primary mb-4">
                   $40-60/month
                 </p>
-                <Button className="w-full" variant="default">
-                  Compare Plans
+                <Button className="w-full" variant="default" disabled>
+                  Coming Soon
                 </Button>
               </Card>
             )}
