@@ -10,6 +10,7 @@ import BlogArticle from "./pages/blog/BlogArticle";
 import About from "./pages/About";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
       <Route path={"/about"} component={About} />
       <Route path={"/how-it-works"} component={HowItWorks} />
       <Route path={"/contact"} component={Contact} />
+      <Route path={"/privacy-policy"} component={PrivacyPolicy} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

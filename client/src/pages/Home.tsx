@@ -220,6 +220,83 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Blog Section */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Expert Pet Care Guides & Tips
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore our comprehensive guides on pet costs, breed-specific information, and money-saving tips.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <Link href="/blog/golden-retriever-lifetime-costs" className="group">
+              <div className="bg-card rounded-lg overflow-hidden border hover:shadow-lg transition-shadow">
+                <img 
+                  src="/blog-images/golden-retriever.jpg" 
+                  alt="Golden Retriever Cost Guide"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <div className="text-sm text-primary font-medium mb-2">Breed Guide</div>
+                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                    Golden Retriever Lifetime Costs
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Complete breakdown of Golden Retriever ownership costs from puppyhood to senior years.
+                  </p>
+                </div>
+              </div>
+            </Link>
+            <Link href="/blog/budget-friendly-pet-care-tips" className="group">
+              <div className="bg-card rounded-lg overflow-hidden border hover:shadow-lg transition-shadow">
+                <img 
+                  src="/blog-images/budget-pet-care.jpg" 
+                  alt="Budget Pet Care Tips"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <div className="text-sm text-primary font-medium mb-2">Cost-Saving Tips</div>
+                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                    15 Budget-Friendly Pet Care Tips
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Save money on pet care without compromising quality or your pet's happiness.
+                  </p>
+                </div>
+              </div>
+            </Link>
+            <Link href="/blog/dog-vs-cat-costs" className="group">
+              <div className="bg-card rounded-lg overflow-hidden border hover:shadow-lg transition-shadow">
+                <img 
+                  src="/blog-images/dog-vs-cat.jpg" 
+                  alt="Dog vs Cat Costs"
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <div className="text-sm text-primary font-medium mb-2">Comparison</div>
+                  <h3 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
+                    Dog vs Cat: Which Costs More?
+                  </h3>
+                  <p className="text-sm text-muted-foreground">
+                    Comprehensive cost comparison to help you choose the right pet for your budget.
+                  </p>
+                </div>
+              </div>
+            </Link>
+          </div>
+          <div className="text-center">
+            <Link href="/blog">
+              <Button variant="outline" size="lg">
+                View All Articles
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
       <FAQ />
 
@@ -238,9 +315,14 @@ export default function Home() {
               <PawPrint className="h-6 w-6 text-primary" />
               <span className="font-semibold">PetCost-Calculator.com</span>
             </div>
-            <p className="text-sm text-muted-foreground">
-              © 2025 PetCost-Calculator.com. Helping pet owners make informed decisions.
-            </p>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Privacy Policy
+              </Link>
+              <p className="text-sm text-muted-foreground">
+                © 2025 PetCost-Calculator.com. Helping pet owners make informed decisions.
+              </p>
+            </div>
           </div>
           <FooterDisclaimer />
         </div>
