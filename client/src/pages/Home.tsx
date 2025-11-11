@@ -62,6 +62,9 @@ export default function Home() {
               <Link href="/contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 Contact
               </Link>
+              <Link href="/privacy-policy" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                Privacy Policy
+              </Link>
             </nav>
           </div>
         </div>

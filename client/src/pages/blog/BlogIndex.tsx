@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Calendar } from "lucide-react";
+import { Clock, Calendar, PawPrint } from "lucide-react";
 
 const categoryLabels: Record<BlogCategory, string> = {
   'breed-guide': 'Breed Guides',
@@ -35,7 +35,38 @@ export default function BlogIndex() {
       />
       
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">
-        {/* Header */}
+        {/* Navigation Header */}
+        <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
+          <div className="container py-4">
+            <div className="flex items-center justify-between">
+              <Link href="/">
+                <div className="flex items-center gap-2 cursor-pointer">
+                  <PawPrint className="h-8 w-8 text-primary" />
+                  <span className="text-xl font-bold text-foreground">PetCost-Calculator.com</span>
+                </div>
+              </Link>
+              <nav className="hidden md:flex items-center gap-6">
+                <Link href="/" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  Home
+                </Link>
+                <Link href="/blog" className="text-sm font-medium text-foreground">
+                  Blog
+                </Link>
+                <Link href="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  About
+                </Link>
+                <Link href="/contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  Contact
+                </Link>
+                <Link href="/privacy-policy" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+                  Privacy Policy
+                </Link>
+              </nav>
+            </div>
+          </div>
+        </header>
+
+        {/* Page Header */}
         <div className="bg-primary text-primary-foreground py-16">
           <div className="container">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Pet Cost Calculator Blog</h1>
