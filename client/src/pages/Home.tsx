@@ -91,7 +91,7 @@ export default function Home() {
               Calculate Your Pet Costs
             </Button>
             <p className="text-sm text-muted-foreground mt-4">
-              Used by 50,000+ prospective pet owners
+              Free tool for prospective pet owners worldwide
             </p>
           </div>
         </div>
@@ -103,16 +103,16 @@ export default function Home() {
           <div className="max-w-4xl mx-auto prose prose-lg">
             <h2 className="text-3xl font-bold mb-6">Understanding the True Cost of Pet Ownership</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Bringing a pet into your home is one of life's most rewarding experiences, but it's also a significant financial commitment that extends far beyond the initial adoption fee. According to the American Pet Products Association, Americans spent over $136 billion on their pets in 2022, with the average dog owner spending between $1,500 to $2,500 annually on their furry companion. However, these figures often don't tell the complete story of what pet ownership truly costs over a lifetime.
+              Bringing a pet into your home is one of life's most rewarding experiences, but it's also a significant financial commitment that extends far beyond the initial adoption fee. Whether you're in London, Singapore, Sydney, or New York, the reality is the same: pet ownership involves substantial ongoing costs. Annual expenses typically range from £1,200-£2,000 in the UK, $2,000-$3,500 AUD in Australia, $2,500-$4,000 SGD in Singapore, or $1,500-$2,500 USD in the United States, depending on your pet's size and needs.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Many prospective pet owners underestimate the long-term financial responsibility, focusing primarily on the upfront costs like adoption fees and initial supplies. The reality is that veterinary care, quality food, grooming, training, pet insurance, and unexpected medical emergencies can add up to tens of thousands of dollars over your pet's lifetime. A large breed dog living 10-12 years could cost anywhere from $20,000 to $55,000 in total expenses, while smaller breeds and cats typically range from $15,000 to $35,000.
+              Many prospective pet owners underestimate the long-term financial responsibility, focusing primarily on upfront costs like adoption fees and initial supplies. The reality is that veterinary care, quality food, grooming, training, insurance, and unexpected medical emergencies add up significantly over your pet's lifetime. A large breed dog living 10-12 years could cost £15,000-£40,000 total in the UK, $25,000-$60,000 AUD in Australia, or $20,000-$55,000 USD in the US. Smaller breeds and cats typically cost less but still represent a substantial multi-year financial commitment.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              That's where our Pet Adoption Cost Reality Calculator becomes an invaluable tool. Unlike generic pet cost calculators that provide rough estimates, our calculator uses breed-specific data, regional cost variations, and comprehensive expense categories to give you an accurate, personalized breakdown of what you can expect to spend. We factor in everything from routine vet visits and vaccinations to less obvious costs like pet deposits for rental properties, boarding fees for vacations, and even the wear and tear on your furniture and belongings.
+              That's where our Pet Cost Calculator becomes a useful planning tool. We use breed-specific data, regional cost variations, and comprehensive expense categories to provide personalized estimates based on your location and circumstances. We factor in everything from routine vet visits and vaccinations to less obvious costs like pet deposits for rental properties, boarding fees during travel, and grooming requirements. By entering your postal code or ZIP code, you'll receive estimates adjusted for your region's typical costs.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Our mission is simple: to help prospective pet owners make informed, responsible decisions by providing transparent, realistic cost projections. We believe that understanding the financial commitment upfront leads to better outcomes for both pets and their families, reducing the heartbreaking number of animals surrendered to shelters due to unexpected expenses. With over 50,000 users and partnerships with animal shelters nationwide, we're proud to be the most trusted resource for pet cost planning.
+              Our goal is to help prospective pet owners make informed, responsible decisions by providing transparent, realistic cost projections. Understanding the financial commitment upfront leads to better outcomes for both pets and their families, reducing the number of animals surrendered to shelters due to unexpected expenses. This free tool is available to anyone worldwide who wants to understand what pet ownership will cost in their specific situation before making this important decision.
             </p>
           </div>
         </div>
@@ -227,19 +227,19 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-white">
         <div className="container">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-center">How Our Pet Cost Calculator Delivers Accurate Estimates</h2>
+            <h2 className="text-3xl font-bold mb-6 text-center">How the Calculator Provides Estimates</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Our calculator stands apart from basic pet cost estimators by incorporating comprehensive, breed-specific data collected from veterinarians, pet insurance companies, and thousands of real pet owners. When you enter your chosen breed, location, and lifestyle preferences, our algorithm analyzes over 50 different cost factors to generate a personalized financial projection that reflects your unique situation.
+                Our calculator uses breed-specific data and regional cost information to generate personalized estimates. When you enter your chosen breed, postal code or ZIP code, and lifestyle details, the system considers multiple cost factors including breed size, grooming requirements, typical health issues, and your location's general cost of living. The estimates are based on publicly available research and data from veterinary associations, pet insurance reports, and published pet ownership surveys.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                The calculation process takes just two minutes and covers eight essential categories: initial adoption costs, first-year setup expenses, routine veterinary care, food and treats, grooming and maintenance, training and socialization, pet insurance or emergency funds, and miscellaneous expenses like toys, boarding, and replacement items. Each category is adjusted based on your pet's breed size, coat type, common health issues, and your geographic location, since costs can vary dramatically between rural and urban areas.
+                The process covers essential expense categories: initial adoption and setup costs, routine veterinary care, food and treats, grooming and maintenance, training, insurance or emergency funds, and miscellaneous expenses like toys and boarding. Each category is adjusted based on your pet's characteristics and your location. For example, veterinary costs in London or Singapore are typically higher than in rural areas, while grooming costs for a Poodle will be substantially more than for a Beagle.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                What makes our calculator particularly valuable is its inclusion of hidden costs that catch many new pet owners off guard. These include pet deposits and monthly pet rent for apartment dwellers (averaging $200-$500 deposits and $25-$50 monthly), professional dog walking or daycare services for working owners ($15-$30 per day), travel costs including boarding or pet-sitting ($25-$75 per day), and home repairs from chewing, scratching, or accidents that can total hundreds or thousands of dollars over time.
+                The calculator also accounts for often-overlooked expenses that catch many new pet owners by surprise. These include pet deposits and monthly pet rent for renters (which vary by region and landlord), professional dog walking or daycare if you work long hours, boarding or pet-sitting costs when you travel, and potential home repairs from normal pet wear and tear. These hidden costs can add up to thousands over your pet's lifetime.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                The results provide three critical views of your financial commitment: first-year costs (typically the highest due to initial setup), average annual costs for subsequent years, and total lifetime costs based on your pet's expected lifespan. This comprehensive breakdown empowers you to budget effectively, compare different breeds within your financial comfort zone, and make confident decisions about pet insurance, emergency funds, and long-term financial planning for your future companion.
+                Your results show three views of the financial commitment: first-year costs (typically highest due to initial setup), average annual costs for subsequent years, and total lifetime costs based on typical breed lifespan. This breakdown helps you budget effectively, compare different breeds, and make informed decisions about pet insurance and emergency funds. Remember, these are estimates to help you plan—actual costs will vary based on your specific circumstances and choices.
               </p>
             </div>
           </div>
