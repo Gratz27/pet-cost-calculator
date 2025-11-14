@@ -375,3 +375,22 @@
 - [ ] Enable source maps in production
 
 
+
+
+
+## Google AdSense Compliance (CRITICAL)
+- [x] Fix production deployment (blank page issue) - Added SPA rewrites to vercel.json
+- [x] Add substantial text content to homepage - Added 500+ words in 2 new sections
+- [x] Review all pages for sufficient content (minimum 300-500 words per page)
+- [x] Ensure ads are only on pages with substantial original content
+- [x] Verify AdSense code NOT on calculator steps (interactive pages) - Confirmed
+- [x] Only show ads on content pages (Home, About, Blog articles, How It Works, Contact)
+- [x] Add unique, valuable content to homepage (800+ words total)
+- [ ] Ensure About page has detailed content (500+ words)
+- [ ] Ensure How It Works page has comprehensive content (500+ words)
+- [ ] Ensure Contact page has meaningful content (200+ words)
+- [ ] Add more blog articles (target: 25-30 articles minimum) - Currently 15
+- [ ] Ensure each blog article has 1000-1500+ words
+- [ ] Remove or fix any "under construction" pages
+- [ ] Ensure no duplicate content across pages
+

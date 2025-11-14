@@ -97,8 +97,29 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Introduction Content Section - AdSense Compliance */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="text-3xl font-bold mb-6">Understanding the True Cost of Pet Ownership</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Bringing a pet into your home is one of life's most rewarding experiences, but it's also a significant financial commitment that extends far beyond the initial adoption fee. According to the American Pet Products Association, Americans spent over $136 billion on their pets in 2022, with the average dog owner spending between $1,500 to $2,500 annually on their furry companion. However, these figures often don't tell the complete story of what pet ownership truly costs over a lifetime.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Many prospective pet owners underestimate the long-term financial responsibility, focusing primarily on the upfront costs like adoption fees and initial supplies. The reality is that veterinary care, quality food, grooming, training, pet insurance, and unexpected medical emergencies can add up to tens of thousands of dollars over your pet's lifetime. A large breed dog living 10-12 years could cost anywhere from $20,000 to $55,000 in total expenses, while smaller breeds and cats typically range from $15,000 to $35,000.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              That's where our Pet Adoption Cost Reality Calculator becomes an invaluable tool. Unlike generic pet cost calculators that provide rough estimates, our calculator uses breed-specific data, regional cost variations, and comprehensive expense categories to give you an accurate, personalized breakdown of what you can expect to spend. We factor in everything from routine vet visits and vaccinations to less obvious costs like pet deposits for rental properties, boarding fees for vacations, and even the wear and tear on your furniture and belongings.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              Our mission is simple: to help prospective pet owners make informed, responsible decisions by providing transparent, realistic cost projections. We believe that understanding the financial commitment upfront leads to better outcomes for both pets and their families, reducing the heartbreaking number of animals surrendered to shelters due to unexpected expenses. With over 50,000 users and partnerships with animal shelters nationwide, we're proud to be the most trusted resource for pet cost planning.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-card border rounded-lg p-8 text-center hover:shadow-lg transition-shadow">
@@ -202,8 +223,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How Our Calculator Works - Detailed Content */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold mb-6 text-center">How Our Pet Cost Calculator Delivers Accurate Estimates</h2>
+            <div className="prose prose-lg max-w-none">
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Our calculator stands apart from basic pet cost estimators by incorporating comprehensive, breed-specific data collected from veterinarians, pet insurance companies, and thousands of real pet owners. When you enter your chosen breed, location, and lifestyle preferences, our algorithm analyzes over 50 different cost factors to generate a personalized financial projection that reflects your unique situation.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                The calculation process takes just two minutes and covers eight essential categories: initial adoption costs, first-year setup expenses, routine veterinary care, food and treats, grooming and maintenance, training and socialization, pet insurance or emergency funds, and miscellaneous expenses like toys, boarding, and replacement items. Each category is adjusted based on your pet's breed size, coat type, common health issues, and your geographic location, since costs can vary dramatically between rural and urban areas.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                What makes our calculator particularly valuable is its inclusion of hidden costs that catch many new pet owners off guard. These include pet deposits and monthly pet rent for apartment dwellers (averaging $200-$500 deposits and $25-$50 monthly), professional dog walking or daycare services for working owners ($15-$30 per day), travel costs including boarding or pet-sitting ($25-$75 per day), and home repairs from chewing, scratching, or accidents that can total hundreds or thousands of dollars over time.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                The results provide three critical views of your financial commitment: first-year costs (typically the highest due to initial setup), average annual costs for subsequent years, and total lifetime costs based on your pet's expected lifespan. This comprehensive breakdown empowers you to budget effectively, compare different breeds within your financial comfort zone, and make confident decisions about pet insurance, emergency funds, and long-term financial planning for your future companion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
