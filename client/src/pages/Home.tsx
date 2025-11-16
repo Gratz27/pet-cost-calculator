@@ -5,7 +5,7 @@ import { Link } from 'wouter';
 import CalculatorForm from '@/components/CalculatorFormNew';
 import Results from '@/components/ResultsNew';
 import FooterDisclaimer from '@/components/FooterDisclaimer';
-import FAQ from '@/components/FAQ';
+import FAQ, { faqData } from '@/components/FAQ';
 import AdSense from '@/components/AdSense';
 import SEO from '@/components/SEO';
 import { trackButtonClick } from '@/lib/analytics';
@@ -42,6 +42,18 @@ export default function Home() {
         keywords="pet cost calculator, dog cost calculator, cat cost calculator, pet ownership costs, pet adoption costs, lifetime pet costs, petcost-calculator"
         canonical="https://petcost-calculator.com"
         isHomepage={true}
+        faqSchema={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqData.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
+        }}
       />
       <div className="min-h-screen flex flex-col">
       {/* Header */}

@@ -19,6 +19,8 @@ interface SEOProps {
   articleModifiedDate?: string;
   articleAuthor?: string;
   articleTags?: string[];
+  // FAQ schema for homepage
+  faqSchema?: any;
 }
 
 export default function SEO({ 
@@ -33,7 +35,8 @@ export default function SEO({
   articlePublishDate,
   articleModifiedDate,
   articleAuthor = 'Pet Cost Calculator Team',
-  articleTags = []
+  articleTags = [],
+  faqSchema
 }: SEOProps) {
   const fullTitle = `${title} | PetCost-Calculator.com`;
   const canonicalUrl = canonical || `https://petcost-calculator.com${window.location.pathname}`;
@@ -130,7 +133,8 @@ export default function SEO({
     "description": "Free pet cost calculator with breed-specific data for dogs and cats. Calculate adoption fees, vet care, food, grooming, and lifetime costs."
   } : null;
 
-  const faqSchema = isHomepage ? {
+  // FAQ schema is now passed as a prop from the homepage
+  const faqSchemaToUse = faqSchema || (isHomepage ? {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
@@ -199,7 +203,7 @@ export default function SEO({
         }
       }
     ]
-  } : null;
+  } : null);
 
   return (
     <Helmet>
@@ -267,9 +271,9 @@ export default function SEO({
           {JSON.stringify(softwareAppSchema)}
         </script>
       )}
-      {faqSchema && (
+      {faqSchemaToUse && (
         <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
+          {JSON.stringify(faqSchemaToUse)}
         </script>
       )}
     </Helmet>
