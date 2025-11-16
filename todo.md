@@ -448,3 +448,15 @@
 - [x] Auto-select currency on results page based on postal code - useMemo with detectedCurrency
 - [x] Test with UK, Australia, Singapore, Canada, US, EU postal codes - All patterns working
 
+
+
+
+## Google Search Console Issues (CRITICAL)
+- [x] Fix FAQ schema markup errors - Added proper FAQPage schema with Question/Answer entities
+- [x] Update sitemap.xml with all pages - Added all 20 pages including blog articles and privacy policy
+- [x] Update robots.txt - Already configured correctly
+- [ ] Fix 404 errors (2 pages) - Need to identify specific URLs from Search Console
+- [ ] Fix page redirects (2 pages) - Need to identify specific URLs
+- [ ] Fix canonical tag issues (2 pages) - Need to verify canonical tags on all pages
+- [ ] Monitor indexing issues - Will resolve after sitemap resubmission
+

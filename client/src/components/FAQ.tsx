@@ -43,43 +43,65 @@ export default function FAQ() {
     }
   ];
 
+  // Generate FAQ schema markup for Google
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  };
+
   return (
-    <section className="py-20 bg-gradient-to-b from-background to-muted/20">
-      <div className="container max-w-4xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            Everything you need to know about pet ownership costs
-          </p>
-        </div>
+    <>
+      {/* FAQ Schema Markup for Google */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      
+      <section className="py-20 bg-gradient-to-b from-background to-muted/20">
+        <div className="container max-w-4xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Everything you need to know about pet ownership costs
+            </p>
+          </div>
 
-        <Card className="p-6">
-          <Accordion type="single" collapsible className="w-full">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`}>
-                <AccordionTrigger className="text-left">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </Card>
+          <Card className="p-6">
+            <Accordion type="single" collapsible className="w-full">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`item-${index}`}>
+                  <AccordionTrigger className="text-left">
+                    {faq.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </Card>
 
-        <div className="mt-8 text-center">
-          <p className="text-sm text-muted-foreground">
-            Still have questions?{' '}
-            <Link href="/contact" className="text-primary hover:underline">
-              Contact us
-            </Link>
-          </p>
+          <div className="mt-8 text-center">
+            <p className="text-sm text-muted-foreground">
+              Still have questions?{' '}
+              <Link href="/contact" className="text-primary hover:underline">
+                Contact us
+              </Link>
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
 
