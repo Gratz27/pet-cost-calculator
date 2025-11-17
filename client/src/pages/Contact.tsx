@@ -78,8 +78,26 @@ export default function Contact() {
         </div>
       </section>
 
+      {/* Introduction Content - AdSense Compliance */}
+      <section className="py-12 md:py-16 bg-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto prose prose-lg">
+            <h2 className="text-3xl font-bold mb-6">We're Here to Help</h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              At Pet Cost Calculator, we're committed to supporting prospective pet owners throughout their decision-making journey. Whether you have questions about how to use our calculator, need clarification on cost estimates, want to provide feedback on your experience, or are interested in partnering with us to help more pets find loving homes, we're here to listen and assist. We typically respond to all inquiries within 24 hours during business days, and we genuinely value every message we receive from our community of responsible pet owners.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Our team includes animal welfare advocates, veterinary consultants, and data analysts who are passionate about reducing pet surrenders through education and transparency. If you're an animal shelter, rescue organization, veterinary clinic, or pet-related business interested in partnering with us to promote responsible pet ownership, we'd love to explore collaboration opportunities. We offer free calculator embedding, co-branded versions for shelters, and educational resources that you can share with your clients and adopters.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">
+              For technical issues, data questions, or suggestions for improving our calculator, please don't hesitate to reach out. We're constantly refining our algorithms, updating cost data, and adding new features based on user feedback. Your input helps us serve the pet-owning community better, and we take every suggestion seriously. You can also explore our comprehensive blog articles on pet costs, breed-specific guides, and budgeting tips while you're here—we've created over 15 in-depth resources to help you make informed decisions about pet ownership.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 bg-muted/30">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             {/* Contact Info */}
