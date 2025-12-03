@@ -1,4 +1,21 @@
 {
+  "redirects": [
+    {
+      "source": "/$",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)/$",
+      "destination": "/$1",
+      "permanent": true
+    },
+    {
+      "source": "/g",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
@@ -38,4 +55,3 @@
     }
   ]
 }
-

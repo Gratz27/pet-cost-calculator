@@ -1,7 +1,20 @@
-# robots.txt for petcost-calculator.com
+# robots.txt for PetCost-Calculator.com
+# Allow all search engines to crawl the site
+
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://petcost-calculator.com/sitemap.xml
+# Sitemap location
+Sitemap: https://www.petcost-calculator.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Allow all important pages
+Allow: /about
+Allow: /how-it-works
+Allow: /contact
+Allow: /privacy-policy
+Allow: /blog
+Allow: /blog/*
 

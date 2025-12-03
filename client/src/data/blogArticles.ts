@@ -4,8 +4,11 @@ import { germanShepherdCosts } from './blog-articles/german-shepherd-costs';
 import { persianCatCosts, maineCoonCosts, budgetFriendlyPetCare, petInsuranceWorthIt } from './blog-articles/remaining-articles';
 import { firstYearPuppyCosts, seniorPetCareCosts, emergencyVetCosts, dogVsCatCosts } from './blog-articles/cost-saving-articles';
 import { purebredVsMixedCosts, smallVsLargeDogCosts, puppyVsAdultDogCosts, petCostsByLocation } from './blog-articles/comparison-articles';
+import { holidayPetCareTravel } from './blog-articles/holiday-pet-care-travel';
+import { petsAsHolidayGifts } from './blog-articles/pets-as-holiday-gifts';
+import { holidayPetSafetyCosts } from './blog-articles/holiday-pet-safety-costs';
 
-export type BlogCategory = 'breed-guide' | 'cost-saving' | 'comparison';
+export type BlogCategory = 'breed-guide' | 'cost-saving' | 'comparison' | 'guide';
 
 export interface BlogArticle {
   id: string;
@@ -24,6 +27,11 @@ export interface BlogArticle {
 // All articles now have complete content imported from separate files
 
 export const allBlogArticles: BlogArticle[] = [
+  // Holiday articles (newest first)
+  holidayPetSafetyCosts,
+  petsAsHolidayGifts,
+  holidayPetCareTravel,
+  // Existing articles
   goldenRetrieverCosts,
   labradorRetrieverCosts,
   germanShepherdCosts,
