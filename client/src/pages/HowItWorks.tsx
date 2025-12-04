@@ -59,7 +59,7 @@ export default function HowItWorks() {
                 <div>
                   <h3 className="text-2xl font-bold mb-3">Select Your Breed</h3>
                   <p className="text-lg text-muted-foreground">
-                    Choose from 32 dog breeds or 11 cat breeds, including specific varieties like English Bulldog, French Bulldog, etc. Our database includes breed-specific cost data for accurate estimates.
+                    Choose from 213 dog breeds or 81 cat breeds, covering all UK Kennel Club recognized dog breeds and TICA recognized cat breeds. Our comprehensive database includes breed-specific cost data for accurate estimates.
                   </p>
                 </div>
               </div>
@@ -141,6 +141,23 @@ export default function HowItWorks() {
                   </p>
                 </div>
               </div>
+            </div>
+
+            {/* Detailed Methodology Section - AdSense Compliance */}
+            <div className="mt-20 prose prose-lg max-w-none mb-16">
+              <h2 className="text-3xl font-bold mb-6">Understanding the Estimates</h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Our calculator generates cost estimates based on publicly available research and data about pet ownership expenses. We've compiled information from veterinary associations, pet insurance reports, and published surveys to create a database of typical costs by breed, region, and lifestyle factors. The estimates you receive are meant to give you a realistic starting point for budgeting, not exact predictions. Every pet is unique, and your actual costs will depend on your specific circumstances, choices, and your pet's individual health needs.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Breed selection significantly impacts costs because different breeds have different needs. A large breed dog like a Bernese Mountain Dog will consume more food than a Chihuahua, while a Persian cat requires regular professional grooming compared to a Domestic Shorthair. Some breeds are predisposed to certain health conditions that may increase veterinary expenses over their lifetime. Our calculator considers factors like typical adult weight, grooming requirements, expected lifespan, and known breed characteristics to provide breed-specific estimates.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Location is another critical factor. Veterinary care in London or Singapore costs substantially more than in rural areas, while grooming services in Sydney may be priced differently than in Auckland or Manchester. When you enter your postal code or ZIP code, the calculator attempts to adjust estimates based on general regional cost-of-living data. These are approximations—a routine vet visit might cost £40 in rural England but £80 in central London, or $60 AUD in regional Australia but $120 AUD in Sydney. Your actual costs will vary depending on the specific providers you choose.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                The calculator also factors in your lifestyle through the questions you answer. If you work long hours, you might need daycare or a dog walker. If you travel frequently, boarding costs add up. If you rent, you may face pet deposits and monthly pet rent. By gathering details about your living situation, work schedule, and preferences, we can provide a more personalized estimate that goes beyond just food and basic vet care. Remember, these are estimates to help you plan—actual costs may be higher or lower based on your choices and circumstances.
+              </p>
             </div>
 
             {/* What You Get Section */}

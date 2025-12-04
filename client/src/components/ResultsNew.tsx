@@ -1,12 +1,14 @@
-import { useMemo, useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { AlertCircle, DollarSign, TrendingUp, Calendar, CheckCircle2, Info, Download, Share2 } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { AlertCircle, DollarSign, TrendingUp, Calendar, CheckCircle2, Info, Download, Share2, Globe } from 'lucide-react';
 import { exportToPDF } from '@/lib/exportPDF';
 import { toast } from 'sonner';
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Pie, Bar } from 'react-chartjs-2';
-import { formatCurrency, type CalculatorInputs, type CostBreakdown, getBreedById } from '@/lib/calculator';
+import { formatCurrency as formatCurrencyUSD, type CalculatorInputs, type CostBreakdown, getBreedById } from '@/lib/calculator';
+import { type Currency, convertCurrency, formatCurrency as formatCurrencyWithSymbol, getAllCurrencies, detectCurrencyFromPostalCode } from '@/lib/currency';
 import LegalDisclaimer from './LegalDisclaimer';
 import { SocialShare } from './SocialShare';
 import Header from './Header';
@@ -23,6 +25,19 @@ interface ResultsProps {
 export default function Results({ inputs, results, onRecalculate }: ResultsProps) {
   const breed = getBreedById(inputs.petType, inputs.breedId);
   const [costView, setCostView] = useState<'firstYear' | 'annual' | 'lifetime'>('firstYear');
+  
+  // Auto-detect currency from postal code
+  const detectedCurrency = useMemo(() => {
+    return detectCurrencyFromPostalCode(inputs.location);
+  }, [inputs.location]);
+  
+  const [selectedCurrency, setSelectedCurrency] = useState<Currency>(detectedCurrency);
+  
+  // Helper function to format currency in selected currency
+  const formatCurrency = (amountUSD: number) => {
+    const converted = convertCurrency(amountUSD, selectedCurrency);
+    return formatCurrencyWithSymbol(converted, selectedCurrency);
+  };
 
   // Determine which values were user-provided
   const userProvided = {
@@ -192,6 +207,25 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
               Recalculate
             </Button>
           </div>
+        </div>
+
+        {/* Currency Selector */}
+        <div className="flex justify-center items-center gap-3 mb-8 p-4 bg-muted/30 rounded-lg">
+          <Globe className="w-5 h-5 text-muted-foreground" />
+          <span className="text-sm font-medium text-muted-foreground">Display costs in:</span>
+          <Select value={selectedCurrency} onValueChange={(value) => setSelectedCurrency(value as Currency)}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              {getAllCurrencies().map((currency) => (
+                <SelectItem key={currency.code} value={currency.code}>
+                  {currency.symbol} {currency.name} ({currency.code})
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+          <span className="text-xs text-muted-foreground">Exchange rates are approximate</span>
         </div>
 
         {/* Summary Cards */}

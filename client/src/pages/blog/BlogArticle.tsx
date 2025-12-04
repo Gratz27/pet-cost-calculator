@@ -1,9 +1,13 @@
 import { useRoute, Link } from 'wouter';
 import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
+import { marked } from 'marked';
+import { useMemo } from 'react';
 import Header from '@/components/Header';
 import SEO from '@/components/SEO';
 import AdSense from '@/components/AdSense';
 import { Button } from '@/components/ui/button';
+import EzoicAd from '@/components/EzoicAd';
+import { EZOIC_PLACEMENTS } from '@/config/ezoicPlacements';
 import { allBlogArticles } from '@/data/blogArticles';
 
 export default function BlogArticle() {
@@ -100,15 +104,20 @@ export default function BlogArticle() {
           </div>
         </header>
 
+        {/* Ezoic Ad - Blog Article Top */}
+        <div className="my-8">
+          <EzoicAd placementId={EZOIC_PLACEMENTS.BLOG_ARTICLE_TOP} className="flex justify-center" />
+        </div>
+
         {/* Article content */}
         <div 
           className="prose prose-lg max-w-none mb-12"
-          dangerouslySetInnerHTML={{ __html: article.content }}
+          dangerouslySetInnerHTML={{ __html: useMemo(() => marked(article.content), [article.content]) }}
         />
 
-        {/* Ad Section */}
+        {/* Ezoic Ad - Blog Article Mid-Content */}
         <div className="my-12">
-          <AdSense />
+          <EzoicAd placementId={EZOIC_PLACEMENTS.BLOG_ARTICLE_MID_CONTENT} className="flex justify-center" />
         </div>
 
         {/* Call to action */}
@@ -122,6 +131,11 @@ export default function BlogArticle() {
           <Button size="lg" asChild>
             <Link href="/">Start Free Calculation</Link>
           </Button>
+        </div>
+
+        {/* Ezoic Ad - Blog Article Bottom */}
+        <div className="my-8">
+          <EzoicAd placementId={EZOIC_PLACEMENTS.BLOG_ARTICLE_BOTTOM} className="flex justify-center" />
         </div>
       </article>
     </>

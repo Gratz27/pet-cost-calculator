@@ -1,34 +1,196 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- Homepage - Highest Priority -->
   <url>
-    <loc>https://petcost-calculator.com/</loc>
-    <lastmod>2025-10-29</lastmod>
+    <loc>https://www.petcost-calculator.com/</loc>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- Main Pages - High Priority -->
   <url>
-    <loc>https://petcost-calculator.com/about</loc>
-    <lastmod>2025-10-29</lastmod>
+    <loc>https://www.petcost-calculator.com/about</loc>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://petcost-calculator.com/how-it-works</loc>
-    <lastmod>2025-10-29</lastmod>
+    <loc>https://www.petcost-calculator.com/how-it-works</loc>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
   <url>
-    <loc>https://petcost-calculator.com/contact</loc>
-    <lastmod>2025-10-29</lastmod>
+    <loc>https://www.petcost-calculator.com/contact</loc>
+    <lastmod>2025-11-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+
   <url>
-    <loc>https://petcost-calculator.com/calculator</loc>
-    <lastmod>2025-10-29</lastmod>
+    <loc>https://www.petcost-calculator.com/privacy-policy</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Blog Index - High Priority -->
+  <url>
+    <loc>https://www.petcost-calculator.com/blog</loc>
+    <lastmod>2025-12-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-</urlset>
 
+  <!-- Blog Articles - Breed Guides (High Priority for SEO) -->
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/golden-retriever-lifetime-costs</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/labrador-retriever-costs-complete-guide</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/german-shepherd-costs-ownership-guide</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/persian-cat-costs-complete-guide</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/maine-coon-costs-ownership-guide</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Articles - Comparison Guides -->
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/purebred-vs-mixed-breed-costs</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/small-vs-large-dog-costs</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/puppy-vs-adult-dog-costs</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/pet-ownership-by-location</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/dog-vs-cat-costs</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Articles - Product & Brand  <!-- Blog Articles - Medium Priority -->
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/french-bulldog-complete-cost-guide</loc>
+    <lastmod>2025-12-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/best-pet-food-brands-uk</loc>
+    <lastmod>2025-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <!-- Blog Articles - Holiday Guides (Seasonal - High Priority) -->
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/holiday-pet-safety-emergency-costs</loc>
+    <lastmod>2025-12-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/should-you-give-pet-as-holiday-gift</loc>
+    <lastmod>2025-12-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/holiday-pet-care-travel-costs</loc>
+    <lastmod>2025-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Articles - Cost Saving & Practical Guides -->
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/first-year-puppy-costs</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/senior-pet-care-costs</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/emergency-vet-costs</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/budget-friendly-pet-care-tips</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/is-pet-insurance-worth-it</loc>
+    <lastmod>2025-11-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
