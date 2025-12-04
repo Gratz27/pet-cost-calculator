@@ -1,4 +1,7 @@
 {
+  "buildCommand": "pnpm run build",
+  "installCommand": "pnpm install",
+  "outputDirectory": "dist/public",
   "redirects": [
     {
       "source": "/ads.txt",
