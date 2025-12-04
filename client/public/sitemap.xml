@@ -121,6 +121,14 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Blog Articles - Product & Brand Guides (High Priority for Affiliate) -->
+  <url>
+    <loc>https://www.petcost-calculator.com/blog/best-pet-food-brands-uk</loc>
+    <lastmod>2025-12-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Blog Articles - Holiday Guides (Seasonal - High Priority) -->
   <url>
     <loc>https://www.petcost-calculator.com/blog/holiday-pet-safety-emergency-costs</loc>

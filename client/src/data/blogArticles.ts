@@ -7,6 +7,7 @@ import { purebredVsMixedCosts, smallVsLargeDogCosts, puppyVsAdultDogCosts, petCo
 import { holidayPetCareTravel } from './blog-articles/holiday-pet-care-travel';
 import { petsAsHolidayGifts } from './blog-articles/pets-as-holiday-gifts';
 import { holidayPetSafetyCosts } from './blog-articles/holiday-pet-safety-costs';
+import { bestPetFoodBrandsUK } from './blog-articles/best-pet-food-brands-uk';
 
 export type BlogCategory = 'breed-guide' | 'cost-saving' | 'comparison' | 'guide';
 
@@ -27,7 +28,9 @@ export interface BlogArticle {
 // All articles now have complete content imported from separate files
 
 export const allBlogArticles: BlogArticle[] = [
-  // Holiday articles (newest first)
+  // Newest articles first
+  bestPetFoodBrandsUK,
+  // Holiday articles
   holidayPetSafetyCosts,
   petsAsHolidayGifts,
   holidayPetCareTravel,

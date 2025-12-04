@@ -369,6 +369,56 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Affiliate Partners Section */}
+      <section className="py-12 bg-muted/10 border-t">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl font-bold mb-8">Our Trusted Partners</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="p-6 bg-white rounded-lg border-2 border-border">
+                <div className="text-center mb-4">
+                  <h3 className="text-lg font-semibold mb-2">Purina UK</h3>
+                  <p className="text-sm text-muted-foreground mb-4">Premium pet nutrition and food</p>
+                </div>
+                <div className="space-y-3">
+                  <a 
+                    href="https://www.awin1.com/cread.php?awinmid=24465&awinaffid=2632402&ued=https%3A%2F%2Fdirect.purina.co.uk%2Fproducts%2Fshop-all.list" 
+                    target="_blank" 
+                    rel="noopener noreferrer sponsored"
+                    className="block px-4 py-3 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors text-center font-medium"
+                  >
+                    25% Off New Customers - Code: PURINA25
+                  </a>
+                  <a 
+                    href="https://www.awin1.com/cread.php?awinmid=24465&awinaffid=2632402&ued=https%3A%2F%2Fdirect.purina.co.uk%2Fproducts%2Fshop-all.list" 
+                    target="_blank" 
+                    rel="noopener noreferrer sponsored"
+                    className="block px-4 py-3 bg-secondary text-secondary-foreground rounded-md hover:bg-secondary/90 transition-colors text-center font-medium"
+                  >
+                    15% Off Existing Customers - Code: 15PURINA
+                  </a>
+                  <p className="text-xs text-muted-foreground text-center">Valid until 31/12/2025</p>
+                </div>
+              </div>
+              <a 
+                href="https://www.pet24.org.uk/affiliatecustomerlanding/?affiliate=9SPRRUSDL5" 
+                target="_blank" 
+                rel="noopener noreferrer sponsored"
+                className="flex items-center justify-center p-6 bg-white rounded-lg border-2 border-border hover:border-primary transition-colors group"
+              >
+                <div className="text-center">
+                  <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">Pet 24 UK</h3>
+                  <p className="text-sm text-muted-foreground">24/7 veterinary care and support</p>
+                </div>
+              </a>
+            </div>
+            <p className="text-xs text-muted-foreground mt-6">
+              We may earn a commission from purchases made through these affiliate links at no extra cost to you.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="border-t py-12 bg-muted/30">
         <div className="container">

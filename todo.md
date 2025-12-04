@@ -563,3 +563,39 @@
 - [x] Update sitemap.xml with new blog URLs (now 24 URLs total)
 - [x] Test all new articles load correctly
 - [x] Build and verify changes
+
+
+## New Affiliate Partners (COMPLETED)
+- [x] Add Purina UK affiliate link with discount codes (PURINA25 & 15PURINA)
+- [x] Add Pet 24 UK affiliate link (https://www.pet24.org.uk/affiliatecustomerlanding/?affiliate=9SPRRUSDL5)
+- [x] Test both affiliate links work correctly
+- [x] Build and verify changes
+
+
+## Pet Food Brands Blog Article (COMPLETED)
+- [x] Write "Best Pet Food Brands in the UK" article with Purina affiliate links
+- [x] Find and add appropriate blog image
+- [x] Add article to blog index (now 19 total articles)
+- [x] Update sitemap.xml with new article URL (now 25 URLs total)
+- [x] Test article loads correctly
+- [x] Build and verify changes
+
+
+## Final Validation & GitHub Update (NEW)
+- [ ] Test homepage loads correctly
+- [ ] Test About page with updated breed statistics
+- [ ] Test How It Works page
+- [ ] Test Contact page
+- [ ] Test Privacy Policy page
+- [ ] Test blog index with 19 articles
+- [ ] Test all 4 holiday blog articles load
+- [ ] Test pet food brands article with Purina links
+- [ ] Test affiliate partners section on homepage
+- [ ] Verify Purina discount codes display correctly
+- [ ] Verify Pet 24 UK link works
+- [ ] Test calculator with searchable breed dropdown
+- [ ] Verify sitemap.xml accessible (25 URLs)
+- [ ] Verify robots.txt accessible
+- [ ] Run production build successfully
+- [ ] Create fresh GitHub ZIP file
+- [ ] Generate validation report
