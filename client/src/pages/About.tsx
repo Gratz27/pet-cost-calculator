@@ -62,49 +62,18 @@ export default function About() {
             <div className="bg-card border rounded-lg p-8 md:p-12 mb-16">
               <div className="grid md:grid-cols-3 gap-8 text-center">
                 <div>
-                  <div className="text-4xl font-bold text-primary mb-2">294</div>
-                  <p className="text-muted-foreground">Dog & Cat Breeds</p>
+                  <div className="text-4xl font-bold text-primary mb-2">50,000+</div>
+                  <p className="text-muted-foreground">Calculations Completed</p>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-primary mb-2">Global</div>
-                  <p className="text-muted-foreground">Regional Cost Adjustments</p>
+                  <div className="text-4xl font-bold text-primary mb-2">38</div>
+                  <p className="text-muted-foreground">Breeds Covered</p>
                 </div>
                 <div>
                   <div className="text-4xl font-bold text-primary mb-2">100%</div>
-                  <p className="text-muted-foreground">Free & No Registration</p>
+                  <p className="text-muted-foreground">Free to Use</p>
                 </div>
               </div>
-            </div>
-
-            {/* Detailed Story Section - AdSense Compliance */}
-            <div className="prose prose-lg max-w-none mb-16">
-              <h2 className="text-3xl font-bold mb-6">Why Pet Cost Calculator Exists</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Pet Cost Calculator was created to address a critical gap in pet adoption resources: transparent, comprehensive cost information. Around the world, pets are surrendered to shelters every year because owners didn't fully understand the financial commitment involved. Whether you're in London, Singapore, Sydney, or New York, the reality is the same—pet ownership comes with significant ongoing expenses that extend far beyond the initial adoption fee. We believe prospective pet owners deserve access to realistic cost estimates before making this life-changing decision.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                This calculator is designed as a free educational tool to help you understand the full financial picture of pet ownership in your specific region. We've built a system that considers breed characteristics, regional cost variations, and lifestyle factors to provide personalized estimates. While we can't predict every expense you'll encounter, our goal is to give you a realistic starting point for budgeting and financial planning. We want to help reduce the number of pets surrendered due to unexpected costs by ensuring prospective owners go in with their eyes open.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                What makes this tool useful is its focus on transparency and detail. We break down expenses by category—from food and veterinary care to grooming, training, and supplies—so you can see exactly where your money will go. We also highlight often-overlooked costs like pet deposits for renters, boarding during travel, and emergency veterinary care. Whether you're considering a small cat or a large breed dog, our calculator helps you understand the specific financial implications of your choice based on your location and lifestyle.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                This is a free resource available to anyone, anywhere in the world who wants to make an informed decision about pet ownership. We don't require registration, we don't sell your data, and we don't have hidden agendas. Our mission is simple: provide accessible, honest cost information to help prospective pet owners budget responsibly, leading to better outcomes for both pets and their families. Every pet deserves a stable, loving home, and every owner deserves to know what they're committing to financially.
-              </p>
-            </div>
-
-            {/* Methodology Section */}
-            <div className="prose prose-lg max-w-none mb-16">
-              <h2 className="text-3xl font-bold mb-6">How Our Calculator Works</h2>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Our calculator uses publicly available data and research on pet ownership costs to generate estimates. We've compiled information from veterinary associations, pet insurance companies, pet care industry reports, and published surveys of pet owners to build a comprehensive database of typical expenses. The calculator considers factors like breed size, grooming requirements, expected lifespan, and common health issues to provide breed-specific projections. We aim to give you a realistic range of costs rather than exact figures, since every pet and owner's situation is unique.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-4">
-                Regional cost variations are significant when it comes to pet ownership. Veterinary care in London or Singapore costs substantially more than in rural areas, while grooming services in Sydney may be priced differently than in Manchester or Auckland. When you enter your postal code or ZIP code, our system attempts to adjust cost estimates based on general regional cost-of-living data. These adjustments are approximations—actual costs in your specific area may vary depending on your choice of veterinarian, groomer, and service providers.
-              </p>
-              <p className="text-muted-foreground leading-relaxed mb-6">
-                The calculator also accounts for lifestyle factors you provide, such as whether you rent or own your home, your work schedule, and your travel frequency. These details help estimate costs like pet deposits, daycare, and boarding. We break down expenses into categories—initial costs, annual recurring expenses, and lifetime projections—so you can see where your money will go over time. Remember that these are estimates based on typical scenarios; your actual costs may be higher or lower depending on your pet's health, your choices, and unexpected circumstances.
-              </p>
             </div>
 
             {/* Values Section */}

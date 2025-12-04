@@ -10,15 +10,13 @@ import { Clock, Calendar, PawPrint } from "lucide-react";
 const categoryLabels: Record<BlogCategory, string> = {
   'breed-guide': 'Breed Guides',
   'cost-saving': 'Cost-Saving Tips',
-  'comparison': 'Comparisons',
-  'guide': 'Guides'
+  'comparison': 'Comparisons'
 };
 
 const categoryColors: Record<BlogCategory, string> = {
   'breed-guide': 'bg-blue-100 text-blue-800',
   'cost-saving': 'bg-green-100 text-green-800',
-  'comparison': 'bg-purple-100 text-purple-800',
-  'guide': 'bg-orange-100 text-orange-800'
+  'comparison': 'bg-purple-100 text-purple-800'
 };
 
 export default function BlogIndex() {

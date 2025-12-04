@@ -12,7 +12,6 @@ import { PopularBadge } from '@/components/ui/popular-badge';
 import { ExpandableHelp } from '@/components/ui/expandable-help';
 import { ExampleScenario } from '@/components/ui/example-scenario';
 import { Dog, Cat, PawPrint, ArrowLeft, ArrowRight, CheckCircle2, Edit2, Save, Share2, DollarSign, Shield, GraduationCap, Stethoscope, Home, Briefcase, Plane, Activity, UtensilsCrossed, Scissors } from 'lucide-react';
-import { SearchableSelect } from '@/components/ui/searchable-select';
 import { getAllBreeds, calculateCosts, type CalculatorInputs, type CostBreakdown } from '@/lib/calculator';
 import { lookupPostalCode, formatLocation, type LocationData } from '@/lib/postalCodeLookup';
 import { saveProgress, loadProgress, generateShareableLink, clearProgress, type SavedProgress } from '@/lib/saveProgress';
@@ -377,11 +376,11 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
               
               <div className="space-y-2">
                 <Label htmlFor="breed">Select Breed</Label>
-                <SearchableSelect
+                <select
                   id="breed"
-                  options={breeds}
                   value={breedId}
-                  onChange={(newBreedId) => {
+                  onChange={(e) => {
+                    const newBreedId = e.target.value;
                     setBreedId(newBreedId);
                     // Track breed selection for analytics
                     if (newBreedId) {
@@ -392,8 +391,15 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                       }
                     }
                   }}
-                  placeholder="-- Select a breed --"
-                />
+                  className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-primary"
+                >
+                  <option value="">-- Select a breed --</option>
+                  {breeds.map((breed) => (
+                    <option key={breed.id} value={breed.id}>
+                      {breed.name}
+                    </option>
+                  ))}
+                </select>
                 <p className="text-sm text-muted-foreground">
                   Don't see your breed? Select "Other Breed (Not Listed)" for average estimates
                 </p>

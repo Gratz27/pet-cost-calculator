@@ -1,32 +1,4 @@
 {
-  "redirects": [
-    {
-      "source": "/ads.txt",
-      "destination": "https://srv.adstxtmanager.com/19390/petcost-calculator.com",
-      "permanent": true
-    },
-    {
-      "source": "/$",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/(.*)/$",
-      "destination": "/$1",
-      "permanent": true
-    },
-    {
-      "source": "/g",
-      "destination": "/",
-      "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/assets/(.*)",
@@ -60,3 +32,4 @@
     }
   ]
 }
+
