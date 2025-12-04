@@ -1,6 +1,9 @@
 # Netlify redirects file
 # Handle malformed URLs and invalid routes
 
+# Ezoic ads.txt redirect - MUST be first for proper ad monetization
+/ads.txt        https://srv.adstxtmanager.com/19390/petcost-calculator.com  301!
+
 # Fix trailing $ character (URL encoding issue)
 /$              /       301!
 /*/$            /*      301!
