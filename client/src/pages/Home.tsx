@@ -8,8 +8,6 @@ import FooterDisclaimer from '@/components/FooterDisclaimer';
 import FAQ, { faqData } from '@/components/FAQ';
 import AdSense from '@/components/AdSense';
 import SEO from '@/components/SEO';
-import EzoicAd from '@/components/EzoicAd';
-import { EZOIC_PLACEMENTS } from '@/config/ezoicPlacements';
 import { trackButtonClick } from '@/lib/analytics';
 import type { CalculatorInputs, CostBreakdown } from '@/lib/calculator';
 
@@ -108,11 +106,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Ezoic Ad - Homepage Hero */}
-      <div className="container py-4">
-        <EzoicAd placementId={EZOIC_PLACEMENTS.HOMEPAGE_HERO} className="flex justify-center" />
-      </div>
 
       {/* Introduction Content Section - AdSense Compliance */}
       <section className="py-16 md:py-24 bg-white">
@@ -240,10 +233,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ezoic Ad - Homepage Mid-Content */}
-      <div className="container py-6">
-        <EzoicAd placementId={EZOIC_PLACEMENTS.HOMEPAGE_MID_CONTENT} className="flex justify-center" />
-      </div>
+
 
       {/* How Our Calculator Works - Detailed Content */}
       <section className="py-16 md:py-24 bg-white">
@@ -543,10 +533,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ezoic Ad - Homepage Bottom */}
-      <div className="container py-6">
-        <EzoicAd placementId={EZOIC_PLACEMENTS.HOMEPAGE_BOTTOM} className="flex justify-center" />
-      </div>
+
 
       {/* Footer */}
       <footer className="border-t py-12 bg-muted/30">

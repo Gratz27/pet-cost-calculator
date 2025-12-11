@@ -23,6 +23,48 @@ export default function PrivacyPolicy() {
             <strong>Last updated:</strong> {currentDate}
           </p>
 
+          <section className="mb-12 bg-muted/30 p-6 rounded-lg border border-border">
+            <h2 className="text-2xl font-semibold mb-4 text-primary">
+              Privacy & Cookies
+            </h2>
+            <p className="text-foreground/90 leading-relaxed mb-4">
+              We (PetCost-Calculator.com) use <strong>Google AdSense</strong> and other advertising partners who may place cookies and collect certain device and usage data to provide personalised ads. Third parties may collect information about your visits to this site and other sites to provide ads based on your interests.
+            </p>
+            <p className="text-foreground/90 leading-relaxed mb-4">
+              For information on how Google uses data when you use our partners' sites or apps, see{" "}
+              <a
+                href="https://policies.google.com/technologies/partner-sites"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                How Google uses data when you use our partners' sites or apps
+              </a>
+              .
+            </p>
+            <p className="text-foreground/90 leading-relaxed">
+              You can opt out or manage ad settings at{" "}
+              <a
+                href="https://adssettings.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                Google's Ad Settings
+              </a>
+              {" "}and at{" "}
+              <a
+                href="https://www.aboutads.info/choices"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline font-medium"
+              >
+                aboutads.info
+              </a>
+              .
+            </p>
+          </section>
+
           <section className="mb-12">
             <h2 className="text-2xl font-semibold mb-4 text-primary">
               1. Introduction
