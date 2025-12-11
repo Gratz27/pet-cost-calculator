@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import SEO from '@/components/SEO';
 import AdSense from '@/components/AdSense';
 import { Button } from '@/components/ui/button';
+import RelatedArticles from '@/components/RelatedArticles';
 import { allBlogArticles } from '@/data/blogArticles';
 
 export default function BlogArticle() {
@@ -121,7 +122,12 @@ export default function BlogArticle() {
           </Button>
         </div>
 
-
+        {/* Related Articles - Internal Linking */}
+        <RelatedArticles 
+          currentArticleId={article.id}
+          allArticles={allBlogArticles}
+          maxArticles={3}
+        />
       </article>
     </>
   );
