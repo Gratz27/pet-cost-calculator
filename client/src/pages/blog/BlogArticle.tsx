@@ -4,7 +4,7 @@ import { marked } from 'marked';
 import { useMemo } from 'react';
 import Header from '@/components/Header';
 import SEO from '@/components/SEO';
-import AdSense from '@/components/AdSense';
+import { AffiliateBanner } from '@/components/AffiliateBanner';
 import { Button } from '@/components/ui/button';
 import RelatedArticles from '@/components/RelatedArticles';
 import { allBlogArticles } from '@/data/blogArticles';
@@ -103,11 +103,21 @@ export default function BlogArticle() {
           </div>
         </header>
 
+        {/* Top Affiliate Banner */}
+        <div className="mb-8 not-prose">
+          <AffiliateBanner type="insurance" variant="horizontal" />
+        </div>
+
         {/* Article content */}
         <div 
           className="prose prose-lg max-w-none mb-12"
           dangerouslySetInnerHTML={{ __html: useMemo(() => marked(article.content), [article.content]) }}
         />
+
+        {/* Bottom Affiliate Banner */}
+        <div className="mb-12 not-prose">
+          <AffiliateBanner type="supplies" variant="horizontal" />
+        </div>
 
         {/* Call to action */}
         <div className="bg-primary/5 rounded-lg p-8 text-center">

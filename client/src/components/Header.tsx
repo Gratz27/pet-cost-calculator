@@ -1,4 +1,5 @@
 import { PawPrint, Menu, X } from 'lucide-react';
+import { CurrencySelector } from '@/components/CurrencySelector';
 import { Link } from 'wouter';
 import { useState } from 'react';
 
@@ -16,6 +17,7 @@ export default function Header() {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
+            <CurrencySelector />
             <Link 
               href="/blog"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -66,6 +68,9 @@ export default function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 flex flex-col gap-4 border-t pt-4">
+            <div className="py-2">
+              <CurrencySelector variant="full" className="w-full justify-between" />
+            </div>
             <Link 
               href="/blog"
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"

@@ -6,7 +6,8 @@ import CalculatorForm from '@/components/CalculatorFormNew';
 import Results from '@/components/ResultsNew';
 import FooterDisclaimer from '@/components/FooterDisclaimer';
 import FAQ, { faqData } from '@/components/FAQ';
-import AdSense from '@/components/AdSense';
+import { AffiliateBanner } from '@/components/AffiliateBanner';
+import { CurrencySelector } from '@/components/CurrencySelector';
 import SEO from '@/components/SEO';
 import { trackButtonClick } from '@/lib/analytics';
 import type { CalculatorInputs, CostBreakdown } from '@/lib/calculator';
@@ -65,6 +66,7 @@ export default function Home() {
               <span className="text-xl font-bold text-foreground">PetCost-Calculator.com</span>
             </div>
             <nav className="hidden md:flex items-center gap-6">
+              <CurrencySelector />
               <Link href="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
                 About
               </Link>
@@ -110,7 +112,11 @@ export default function Home() {
       {/* Introduction Content Section - AdSense Compliance */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container">
-          <div className="max-w-4xl mx-auto prose prose-lg">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-12">
+              <AffiliateBanner type="insurance" variant="horizontal" />
+            </div>
+            <div className="prose prose-lg">
             <h2 className="text-3xl font-bold mb-6">Understanding the True Cost of Pet Ownership</h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
               Bringing a pet into your home is one of life's most rewarding experiences, but it's also a significant financial commitment that extends far beyond the initial adoption fee. Whether you're in London, Singapore, Sydney, or New York, the reality is the same: pet ownership involves substantial ongoing costs. Annual expenses typically range from £1,200-£2,000 in the UK, $2,000-$3,500 AUD in Australia, $2,500-$4,000 SGD in Singapore, or $1,500-$2,500 USD in the United States, depending on your pet's size and needs.
@@ -124,6 +130,11 @@ export default function Home() {
             <p className="text-muted-foreground leading-relaxed mb-6">
               Our goal is to help prospective pet owners make informed, responsible decisions by providing transparent, realistic cost projections. Understanding the financial commitment upfront leads to better outcomes for both pets and their families, reducing the number of animals surrendered to shelters due to unexpected expenses. This free tool is available to anyone worldwide who wants to understand what pet ownership will cost in their specific situation before making this important decision.
             </p>
+            <div className="mt-12 grid md:grid-cols-2 gap-6 not-prose">
+              <AffiliateBanner type="supplies" variant="box" />
+              <AffiliateBanner type="food" variant="box" />
+            </div>
+          </div>
           </div>
         </div>
       </section>
@@ -479,7 +490,7 @@ export default function Home() {
       {/* Ad Section - Content-rich page */}
       <section className="py-8">
         <div className="container max-w-4xl">
-          <AdSense />
+          <AffiliateBanner type="insurance" variant="horizontal" />
         </div>
       </section>
 
