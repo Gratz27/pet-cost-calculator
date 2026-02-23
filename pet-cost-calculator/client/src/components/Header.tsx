@@ -1,7 +1,6 @@
 import { PawPrint, Menu, X } from 'lucide-react';
 import { Link } from 'wouter';
 import { useState } from 'react';
-import { CurrencySelector } from '@/components/CurrencySelector';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -35,7 +34,6 @@ export default function Header() {
             >
               How It Works
             </Link>
-            
             <Link 
               href="/contact"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
@@ -48,27 +46,21 @@ export default function Header() {
             >
               Privacy Policy
             </Link>
-            <div className="ml-2">
-              <CurrencySelector />
-            </div>
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 md:hidden">
-            <CurrencySelector />
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 hover:bg-accent rounded-lg transition-colors"
-              aria-label="Toggle mobile menu"
-              aria-expanded={mobileMenuOpen}
-            >
-              {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
-          </div>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 hover:bg-accent rounded-lg transition-colors"
+            aria-label="Toggle mobile menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
         </div>
 
         {/* Mobile Navigation */}
@@ -95,7 +87,6 @@ export default function Header() {
             >
               How It Works
             </Link>
-            
             <Link 
               href="/contact"
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
@@ -116,3 +107,4 @@ export default function Header() {
     </header>
   );
 }
+

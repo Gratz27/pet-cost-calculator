@@ -82,7 +82,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
+      <section className="py-12 md:py-32 bg-gradient-to-br from-primary/5 via-background to-secondary/5">
         <div className="container">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
@@ -107,7 +107,7 @@ export default function Home() {
       </section>
 
       {/* Introduction Content Section - AdSense Compliance */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-10 md:py-24 bg-white">
         <div className="container">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg">
@@ -130,7 +130,7 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-10 md:py-24 bg-muted/30">
         <div className="container">
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="bg-card border rounded-lg p-8 text-center hover:shadow-lg transition-shadow">
@@ -167,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* Why Use Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="py-10 md:py-24 bg-muted/30">
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">

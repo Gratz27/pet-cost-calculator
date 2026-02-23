@@ -4,7 +4,6 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import { CurrencyProvider } from "./contexts/CurrencyContext";
 import Home from "./pages/Home";
 import BlogIndex from "./pages/blog/BlogIndex";
 import BlogArticle from "./pages/blog/BlogArticle";
@@ -12,7 +11,6 @@ import About from "./pages/About";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-
 import GoogleAnalytics from "./components/GoogleAnalytics";
 
 function Router() {
@@ -25,7 +23,6 @@ function Router() {
       <Route path={"/how-it-works"} component={HowItWorks} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/privacy-policy"} component={PrivacyPolicy} />
-      
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
@@ -46,12 +43,10 @@ function App() {
         // switchable
       >
         <GoogleAnalytics />
-        <CurrencyProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-          </TooltipProvider>
-        </CurrencyProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
