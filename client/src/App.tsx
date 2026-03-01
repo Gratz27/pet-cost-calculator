@@ -12,6 +12,8 @@ import About from "./pages/About";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Shop from "./pages/Shop";
+import { CartProvider } from "./contexts/CartContext";
 
 import GoogleAnalytics from "./components/GoogleAnalytics";
 
@@ -25,6 +27,7 @@ function Router() {
       <Route path={"/how-it-works"} component={HowItWorks} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/privacy-policy"} component={PrivacyPolicy} />
+      <Route path={"/shop"} component={Shop} />
       
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
@@ -47,10 +50,12 @@ function App() {
       >
         <GoogleAnalytics />
         <CurrencyProvider>
-          <TooltipProvider>
+          <CartProvider>
+        <TooltipProvider>
             <Toaster />
             <Router />
           </TooltipProvider>
+      </CartProvider>
         </CurrencyProvider>
       </ThemeProvider>
     </ErrorBoundary>

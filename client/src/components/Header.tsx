@@ -18,6 +18,12 @@ export default function Header() {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             <Link 
+              href="/shop"
+              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Shop
+            </Link>
+            <Link 
               href="/blog"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
@@ -74,6 +80,13 @@ export default function Header() {
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 flex flex-col gap-4 border-t pt-4">
+            <Link 
+              href="/shop"
+              className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Shop
+            </Link>
             <Link 
               href="/blog"
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"

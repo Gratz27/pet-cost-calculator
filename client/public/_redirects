@@ -33,6 +33,19 @@
 /y              /       301!
 /z              /       301!
 
+# Redirect old blog URLs to new slugs
+/blog/labrador-retriever-costs /blog/labrador-retriever-costs-guide 301
+/blog/budget-friendly-pet-care /blog/budget-friendly-pet-care-tips 301
+/blog/city-vs-rural-pet-costs /blog/pet-costs-by-location-city-vs-rural 301
+/blog/adoption-vs-breeder /blog/first-year-puppy-costs 301
+/calculator / 301
+/blog/purebred-vs-mixed-breed /blog/purebred-vs-mixed-breed-costs 301
+/blog/diy-pet-care /blog/budget-friendly-pet-care-tips 301
+/blog/small-vs-large-dogs /blog/small-vs-large-dog-costs 301
+
+# Redirect garbage URLs
+/g / 301
+
 # Redirect common typos to correct pages
 /abot           /about  301
 /contac         /contact 301

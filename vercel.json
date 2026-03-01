@@ -2,6 +2,17 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install --legacy-peer-deps",
   "outputDirectory": "dist/public",
+  "redirects": [
+    { "source": "/g", "destination": "/", "permanent": true },
+    { "source": "/blog/labrador-retriever-costs", "destination": "/blog/labrador-retriever-costs-guide", "permanent": true },
+    { "source": "/blog/budget-friendly-pet-care", "destination": "/blog/budget-friendly-pet-care-tips", "permanent": true },
+    { "source": "/blog/city-vs-rural-pet-costs", "destination": "/blog/pet-costs-by-location-city-vs-rural", "permanent": true },
+    { "source": "/blog/adoption-vs-breeder", "destination": "/blog/first-year-puppy-costs", "permanent": true },
+    { "source": "/calculator", "destination": "/", "permanent": true },
+    { "source": "/blog/purebred-vs-mixed-breed", "destination": "/blog/purebred-vs-mixed-breed-costs", "permanent": true },
+    { "source": "/blog/diy-pet-care", "destination": "/blog/budget-friendly-pet-care-tips", "permanent": true },
+    { "source": "/blog/small-vs-large-dogs", "destination": "/blog/small-vs-large-dog-costs", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

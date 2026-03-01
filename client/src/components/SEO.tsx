@@ -39,7 +39,8 @@ export default function SEO({
   faqSchema
 }: SEOProps) {
   const fullTitle = `${title} | PetCost-Calculator.com`;
-  const canonicalUrl = canonical || `https://petcost-calculator.com${window.location.pathname}`;
+  // Ensure canonical URL is always clean (no query params) and absolute
+  const canonicalUrl = canonical || `https://petcost-calculator.com${window.location.pathname === '/' ? '' : window.location.pathname}`;
   
   // Construct full image URL for social sharing
   const fullImageUrl = articleImage 
