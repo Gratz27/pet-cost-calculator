@@ -1,7 +1,11 @@
 import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { AlertCircle, DollarSign, TrendingUp, Calendar, CheckCircle2, Info, Download, Share2, Globe } from 'lucide-react';
+import { AlertCircle, DollarSign, TrendingUp, Calendar, CheckCircle2, Info, Download, Share2, Globe, ShoppingBag, ArrowRight, Lightbulb, RefreshCw } from 'lucide-react';
+import { getBreedFact } from '@/data/breedFacts';
+import { products } from '@/data/products';
+import { ProductCard } from '@/components/ProductCard';
+import { Link } from 'wouter';
 import { exportToPDF } from '@/lib/exportPDF';
 import { toast } from 'sonner';
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
@@ -25,6 +29,16 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
   const [costView, setCostView] = useState<'firstYear' | 'annual' | 'lifetime'>('firstYear');
   
   const { currency } = useCurrency();
+
+  const breedFact = useMemo(() => getBreedFact(inputs.breedId, inputs.petType), [inputs.breedId, inputs.petType]);
+  
+  // Get 3 random products for the "Shop Essentials" carousel
+  const recommendedProducts = useMemo(() => {
+    // Filter products relevant to pet type if possible, or just shuffle
+    // For now, just take first 3, or shuffle
+    const shuffled = [...products].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, 3);
+  }, []);
   
   // Helper function to format currency in selected currency
   const formatCurrency = (amountUSD: number) => {
@@ -196,8 +210,12 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
               <Share2 className="w-4 h-4" />
               Share
             </Button>
-            <Button onClick={onRecalculate} variant="outline">
+            <Button onClick={onRecalculate} variant="outline" className="gap-2">
+              <RefreshCw className="w-4 h-4" />
               Recalculate
+            </Button>
+            <Button onClick={onRecalculate} variant="default" className="gap-2 bg-primary hover:bg-primary/90">
+              Compare Another Breed
             </Button>
           </div>
         </div>
@@ -282,6 +300,21 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
             Lifetime
           </Button>
         </div>
+
+        {/* Did You Know? Fact Card */}
+        <Card className="mb-12 p-6 bg-blue-50/50 border-blue-100">
+          <div className="flex gap-4 items-start">
+            <div className="p-3 bg-blue-100 rounded-full shrink-0">
+              <Lightbulb className="w-6 h-6 text-blue-600" />
+            </div>
+            <div>
+              <h3 className="font-bold text-lg text-blue-900 mb-1">Did You Know?</h3>
+              <p className="text-blue-800/80 leading-relaxed">
+                {breedFact}
+              </p>
+            </div>
+          </div>
+        </Card>
 
         {/* First-Year Breakdown */}
         {costView === 'firstYear' && (
@@ -461,6 +494,27 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
           </div>
         </Card>
         )}
+
+        {/* Shop Essentials Carousel */}
+        <div className="mb-16">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-bold">Shop Essentials for Your {breed?.name}</h2>
+              <p className="text-muted-foreground">Curated products to get you started</p>
+            </div>
+            <Link href="/shop">
+              <Button variant="ghost" className="gap-2">
+                View All <ArrowRight className="w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {recommendedProducts.map(product => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
 
         {/* Hidden Costs Warning */}
         <Card className="p-8 mb-12 border-2 border-amber-500/50 bg-amber-50">
