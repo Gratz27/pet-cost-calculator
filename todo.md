@@ -673,3 +673,9 @@
 - [x] Fix paragraph separation issues in blog articles (installed marked library)
 - [x] Test all fixes in browser (paragraphs rendering correctly)
 - [x] Build and deploy fixes
+
+## Integrate Lemonade Affiliate Link
+- [ ] Read `ResultsNew.tsx` to find the best placement for the insurance CTA
+- [ ] Import `AFFILIATE_LINKS` from `config/affiliates.ts`
+- [ ] Add a prominent call-to-action for Lemonade insurance in the results breakdown
+- [ ] Create final ZIP file (v21) for delivery

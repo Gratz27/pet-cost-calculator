@@ -1,11 +1,7 @@
 import { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { AlertCircle, DollarSign, TrendingUp, Calendar, CheckCircle2, Info, Download, Share2, Globe, ShoppingBag, ArrowRight, Lightbulb, RefreshCw } from 'lucide-react';
-import { getBreedFact } from '@/data/breedFacts';
-import { products } from '@/data/products';
-import { ProductCard } from '@/components/ProductCard';
-import { Link } from 'wouter';
+import { AlertCircle, DollarSign, TrendingUp, Calendar, CheckCircle2, Info, Download, Share2, Globe } from 'lucide-react';
 import { exportToPDF } from '@/lib/exportPDF';
 import { toast } from 'sonner';
 import { Chart as ChartJS, ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
@@ -15,6 +11,8 @@ import { convertCurrency, formatCurrency as formatCurrencyWithSymbol } from '@/l
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { CurrencySelector } from '@/components/CurrencySelector';
 import Header from './Header';
+import { AFFILIATE_LINKS } from '@/config/affiliates';
+import { ShieldCheck } from 'lucide-react';
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -29,16 +27,6 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
   const [costView, setCostView] = useState<'firstYear' | 'annual' | 'lifetime'>('firstYear');
   
   const { currency } = useCurrency();
-
-  const breedFact = useMemo(() => getBreedFact(inputs.breedId, inputs.petType), [inputs.breedId, inputs.petType]);
-  
-  // Get 3 random products for the "Shop Essentials" carousel
-  const recommendedProducts = useMemo(() => {
-    // Filter products relevant to pet type if possible, or just shuffle
-    // For now, just take first 3, or shuffle
-    const shuffled = [...products].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 3);
-  }, []);
   
   // Helper function to format currency in selected currency
   const formatCurrency = (amountUSD: number) => {
@@ -210,12 +198,8 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
               <Share2 className="w-4 h-4" />
               Share
             </Button>
-            <Button onClick={onRecalculate} variant="outline" className="gap-2">
-              <RefreshCw className="w-4 h-4" />
+            <Button onClick={onRecalculate} variant="outline">
               Recalculate
-            </Button>
-            <Button onClick={onRecalculate} variant="default" className="gap-2 bg-primary hover:bg-primary/90">
-              Compare Another Breed
             </Button>
           </div>
         </div>
@@ -300,21 +284,6 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
             Lifetime
           </Button>
         </div>
-
-        {/* Did You Know? Fact Card */}
-        <Card className="mb-12 p-6 bg-blue-50/50 border-blue-100">
-          <div className="flex gap-4 items-start">
-            <div className="p-3 bg-blue-100 rounded-full shrink-0">
-              <Lightbulb className="w-6 h-6 text-blue-600" />
-            </div>
-            <div>
-              <h3 className="font-bold text-lg text-blue-900 mb-1">Did You Know?</h3>
-              <p className="text-blue-800/80 leading-relaxed">
-                {breedFact}
-              </p>
-            </div>
-          </div>
-        </Card>
 
         {/* First-Year Breakdown */}
         {costView === 'firstYear' && (
@@ -495,26 +464,30 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
         </Card>
         )}
 
-        {/* Shop Essentials Carousel */}
-        <div className="mb-16">
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h2 className="text-2xl font-bold">Shop Essentials for Your {breed?.name}</h2>
-              <p className="text-muted-foreground">Curated products to get you started</p>
+        {/* Pet Insurance CTA */}
+        <Card className="p-8 mb-8 border-2 border-blue-500/50 bg-blue-50">
+          <div className="flex flex-col md:flex-row items-center gap-6">
+            <div className="flex-shrink-0 p-4 bg-blue-100 rounded-full">
+              <ShieldCheck className="w-12 h-12 text-blue-600" />
             </div>
-            <Link href="/shop">
-              <Button variant="ghost" className="gap-2">
-                View All <ArrowRight className="w-4 h-4" />
-              </Button>
-            </Link>
+            <div className="flex-grow text-center md:text-left">
+              <h2 className="text-2xl font-bold mb-2 text-blue-900">Protect Your Pet & Your Wallet</h2>
+              <p className="text-blue-800 mb-4">
+                Unexpected vet bills can cost thousands. Pet insurance helps cover accidents and illnesses so you can focus on your pet's health, not the cost.
+              </p>
+              <a 
+                href={AFFILIATE_LINKS.petInsurance} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-block"
+              >
+                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg h-auto w-full md:w-auto">
+                  Get a Free Quote from Lemonade
+                </Button>
+              </a>
+            </div>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {recommendedProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        </div>
+        </Card>
 
         {/* Hidden Costs Warning */}
         <Card className="p-8 mb-12 border-2 border-amber-500/50 bg-amber-50">
