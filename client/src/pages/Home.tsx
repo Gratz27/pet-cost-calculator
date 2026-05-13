@@ -166,6 +166,107 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Articles Section */}
+      <section className="py-10 md:py-24 bg-white">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex items-center justify-between mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold">
+                Featured Pet Guides
+              </h2>
+              <Button variant="outline" asChild>
+                <Link href="/blog">View All Articles</Link>
+              </Button>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Featured Article 1 */}
+              <Link href="/blog/holiday-pet-safety-emergency-costs" className="group">
+                <div className="bg-card border rounded-lg overflow-hidden hover:shadow-lg transition-all h-full flex flex-col">
+                  <div className="aspect-video bg-muted relative overflow-hidden">
+                    <img 
+                      src="/blog-images/holiday-pet-safety.jpg" 
+                      alt="Holiday Pet Safety"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium mb-3 w-fit">
+                      Guide
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                      Holiday Pet Safety: Hidden Dangers and Emergency Costs
+                    </h3>
+                    <p className="text-muted-foreground text-sm line-clamp-3 mb-4 flex-grow">
+                      Comprehensive guide to holiday pet hazards including toxic foods, decorations, and plants. Learn emergency vet costs and prevention strategies.
+                    </p>
+                    <div className="text-sm font-medium text-primary flex items-center">
+                      Read Article <span className="ml-1">→</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Featured Article 2 */}
+              <Link href="/blog/emergency-vet-costs" className="group">
+                <div className="bg-card border rounded-lg overflow-hidden hover:shadow-lg transition-all h-full flex flex-col">
+                  <div className="aspect-video bg-muted relative overflow-hidden">
+                    <img 
+                      src="/blog-images/emergency-vet.jpg" 
+                      alt="Emergency Vet Costs"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium mb-3 w-fit">
+                      Cost Saving
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                      Emergency Vet Costs: Common Scenarios and How to Prepare
+                    </h3>
+                    <p className="text-muted-foreground text-sm line-clamp-3 mb-4 flex-grow">
+                      Learn about common emergency vet costs from $500-$5,000+ and how to prepare financially. Includes real examples and money-saving strategies.
+                    </p>
+                    <div className="text-sm font-medium text-primary flex items-center">
+                      Read Article <span className="ml-1">→</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+
+              {/* Featured Article 3 */}
+              <Link href="/blog/maine-coon-costs-ownership-guide" className="group">
+                <div className="bg-card border rounded-lg overflow-hidden hover:shadow-lg transition-all h-full flex flex-col">
+                  <div className="aspect-video bg-muted relative overflow-hidden">
+                    <img 
+                      src="/blog-images/maine-coon.jpg" 
+                      alt="Maine Coon Costs"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="p-6 flex flex-col flex-grow">
+                    <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium mb-3 w-fit">
+                      Breed Guide
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+                      Maine Coon Costs: Complete Ownership Guide for 2025
+                    </h3>
+                    <p className="text-muted-foreground text-sm line-clamp-3 mb-4 flex-grow">
+                      Comprehensive Maine Coon cost breakdown including purchase price, food, grooming, health care, and lifetime expenses.
+                    </p>
+                    <div className="text-sm font-medium text-primary flex items-center">
+                      Read Article <span className="ml-1">→</span>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Why Use Section */}
       <section className="py-10 md:py-24 bg-muted/30">
         <div className="container">

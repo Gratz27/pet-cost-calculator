@@ -11,8 +11,6 @@ import { convertCurrency, formatCurrency as formatCurrencyWithSymbol } from '@/l
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { CurrencySelector } from '@/components/CurrencySelector';
 import Header from './Header';
-import { AFFILIATE_LINKS } from '@/config/affiliates';
-import { ShieldCheck } from 'lucide-react';
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -463,31 +461,6 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
           </div>
         </Card>
         )}
-
-        {/* Pet Insurance CTA */}
-        <Card className="p-8 mb-8 border-2 border-blue-500/50 bg-blue-50">
-          <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="flex-shrink-0 p-4 bg-blue-100 rounded-full">
-              <ShieldCheck className="w-12 h-12 text-blue-600" />
-            </div>
-            <div className="flex-grow text-center md:text-left">
-              <h2 className="text-2xl font-bold mb-2 text-blue-900">Protect Your Pet & Your Wallet</h2>
-              <p className="text-blue-800 mb-4">
-                Unexpected vet bills can cost thousands. Pet insurance helps cover accidents and illnesses so you can focus on your pet's health, not the cost.
-              </p>
-              <a 
-                href={AFFILIATE_LINKS.petInsurance} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-block"
-              >
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg h-auto w-full md:w-auto">
-                  Get a Free Quote from Lemonade
-                </Button>
-              </a>
-            </div>
-          </div>
-        </Card>
 
         {/* Hidden Costs Warning */}
         <Card className="p-8 mb-12 border-2 border-amber-500/50 bg-amber-50">
