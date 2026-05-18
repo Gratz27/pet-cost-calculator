@@ -8,6 +8,7 @@ import FooterDisclaimer from '@/components/FooterDisclaimer';
 import FAQ, { faqData } from '@/components/FAQ';
 import SEO from '@/components/SEO';
 import { trackButtonClick } from '@/lib/analytics';
+import ProductList from '@/components/ProductList';
 import type { CalculatorInputs, CostBreakdown } from '@/lib/calculator';
 
 export default function Home() {
@@ -162,6 +163,23 @@ export default function Home() {
                 See the full financial picture with first-year, annual, and lifetime cost breakdowns.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Shop Section */}
+      <section className="py-10 md:py-24 bg-muted/10">
+        <div className="container">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Shop Pet Essentials
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Discover our curated selection of high-quality pet products to keep your furry friends happy and healthy.
+              </p>
+            </div>
+            <ProductList />
           </div>
         </div>
       </section>
