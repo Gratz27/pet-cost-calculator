@@ -72,7 +72,7 @@ export default function ProductList() {
             <CardFooter className="p-4 pt-0">
               <Button 
                 className="w-full" 
-                onClick={() => window.open(`https://5sfzj5-w1.myshopify.com/products/${product.handle}`, '_blank')}
+                onClick={() => window.open(`https://dezigntech.store/products/${product.handle}`, '_blank')}
               >
                 View Product
               </Button>
