@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRoute } from "wouter";
-import { getProduct } from "@/lib/shopify";
+import { getProduct, createCheckout } from "@/lib/shopify";
 import { Button } from "@/components/ui/button";
 import { Loader2, ArrowLeft } from "lucide-react";
 import { Link } from "wouter";
@@ -10,6 +10,7 @@ export default function ProductPage() {
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState<string>("");
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   useEffect(() => {
     async function fetchProduct() {
@@ -115,12 +116,38 @@ export default function ProductPage() {
             <Button 
               size="lg" 
               className="w-full md:w-auto text-lg px-8"
-              onClick={() => window.open(`https://5sfzj5-w1.myshopify.com/products/${product.handle}`, '_blank')}
+              disabled={isCheckingOut}
+              onClick={async () => {
+                setIsCheckingOut(true);
+                try {
+                  const variantId = product.variants.edges[0]?.node.id;
+                  if (variantId) {
+                    const checkoutUrl = await createCheckout(variantId);
+                    if (checkoutUrl) {
+                      window.location.href = checkoutUrl;
+                    } else {
+                      alert("Failed to create checkout session. Please try again.");
+                    }
+                  }
+                } catch (error) {
+                  console.error("Checkout error:", error);
+                  alert("An error occurred during checkout.");
+                } finally {
+                  setIsCheckingOut(false);
+                }
+              }}
             >
-              Buy Now on Shopify
+              {isCheckingOut ? (
+                <>
+                  <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                  Processing...
+                </>
+              ) : (
+                "Buy Now"
+              )}
             </Button>
             <p className="text-xs text-muted-foreground mt-4 text-center md:text-left">
-              You will be redirected to our secure Shopify checkout to complete your purchase.
+              You will be redirected to our secure checkout to complete your purchase.
             </p>
           </div>
         </div>

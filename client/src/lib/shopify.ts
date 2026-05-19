@@ -76,6 +76,13 @@ export async function getProduct(handle: string) {
             currencyCode
           }
         }
+        variants(first: 1) {
+          edges {
+            node {
+              id
+            }
+          }
+        }
         images(first: 5) {
           edges {
             node {
@@ -91,4 +98,31 @@ export async function getProduct(handle: string) {
   const variables = { handle };
   const response = await shopifyFetch({ query, variables });
   return response.body?.data?.product || null;
+}
+
+export async function createCheckout(variantId: string) {
+  const query = `
+    mutation checkoutCreate($input: CheckoutCreateInput!) {
+      checkoutCreate(input: $input) {
+        checkout {
+          id
+          webUrl
+        }
+        checkoutUserErrors {
+          code
+          field
+          message
+        }
+      }
+    }
+  `;
+
+  const variables = {
+    input: {
+      lineItems: [{ variantId, quantity: 1 }]
+    }
+  };
+
+  const response = await shopifyFetch({ query, variables });
+  return response.body?.data?.checkoutCreate?.checkout?.webUrl || null;
 }
