@@ -102,14 +102,13 @@ export async function getProduct(handle: string) {
 
 export async function createCheckout(variantId: string) {
   const query = `
-    mutation checkoutCreate($input: CheckoutCreateInput!) {
-      checkoutCreate(input: $input) {
-        checkout {
+    mutation cartCreate($input: CartInput) {
+      cartCreate(input: $input) {
+        cart {
           id
-          webUrl
+          checkoutUrl
         }
-        checkoutUserErrors {
-          code
+        userErrors {
           field
           message
         }
@@ -119,10 +118,10 @@ export async function createCheckout(variantId: string) {
 
   const variables = {
     input: {
-      lineItems: [{ variantId, quantity: 1 }]
+      lines: [{ merchandiseId: variantId, quantity: 1 }]
     }
   };
 
   const response = await shopifyFetch({ query, variables });
-  return response.body?.data?.checkoutCreate?.checkout?.webUrl || null;
+  return response.body?.data?.cartCreate?.cart?.checkoutUrl || null;
 }
