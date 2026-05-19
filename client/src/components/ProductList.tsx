@@ -3,6 +3,7 @@ import { getProducts } from "@/lib/shopify";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
+import { Link } from "wouter";
 
 export default function ProductList() {
   const [products, setProducts] = useState<any[]>([]);
@@ -70,12 +71,11 @@ export default function ProductList() {
               </p>
             </CardContent>
             <CardFooter className="p-4 pt-0">
-              <Button 
-                className="w-full" 
-                onClick={() => window.open(`https://dezigntech.store/products/${product.handle}`, '_blank')}
-              >
-                View Product
-              </Button>
+              <Link href={`/products/${product.handle}`} className="w-full">
+                <Button className="w-full">
+                  View Product
+                </Button>
+              </Link>
             </CardFooter>
           </Card>
         );

@@ -61,3 +61,34 @@ export async function getProducts() {
   const response = await shopifyFetch({ query });
   return response.body?.data?.products?.edges || [];
 }
+
+export async function getProduct(handle: string) {
+  const query = `
+    query getProduct($handle: String!) {
+      product(handle: $handle) {
+        id
+        title
+        handle
+        descriptionHtml
+        priceRange {
+          minVariantPrice {
+            amount
+            currencyCode
+          }
+        }
+        images(first: 5) {
+          edges {
+            node {
+              url
+              altText
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const variables = { handle };
+  const response = await shopifyFetch({ query, variables });
+  return response.body?.data?.product || null;
+}

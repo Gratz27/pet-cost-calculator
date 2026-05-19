@@ -13,6 +13,7 @@ import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Shop from "./pages/Shop";
+import ProductPage from "./pages/ProductPage";
 import { CartProvider } from "./contexts/CartContext";
 
 import GoogleAnalytics from "./components/GoogleAnalytics";
@@ -28,6 +29,7 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/privacy-policy"} component={PrivacyPolicy} />
       <Route path={"/shop"} component={Shop} />
+      <Route path={"/products/:handle"} component={ProductPage} />
       
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
