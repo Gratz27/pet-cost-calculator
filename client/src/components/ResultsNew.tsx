@@ -11,6 +11,7 @@ import { convertCurrency, formatCurrency as formatCurrencyWithSymbol } from '@/l
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { CurrencySelector } from '@/components/CurrencySelector';
 import Header from './Header';
+import ContextualProductCard from './ContextualProductCard';
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -335,9 +336,12 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
               )}
               
               {results.firstYear.supplies > 0 && (
-                <div className="flex items-center justify-between py-2 border-b">
-                  <span className="font-medium">Supplies</span>
-                  <span className="font-semibold">{formatCurrency(results.firstYear.supplies)}</span>
+                <div className="py-2 border-b">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-medium">Supplies</span>
+                    <span className="font-semibold">{formatCurrency(results.firstYear.supplies)}</span>
+                  </div>
+                  <ContextualProductCard category="Supplies" searchQuery="bed" />
                 </div>
               )}
               
@@ -366,14 +370,17 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
               )}
               
               {results.firstYear.grooming > 0 && (
-                <div className="flex items-center justify-between py-2 border-b">
-                  <div className="flex items-center gap-2">
-                    <span className="font-medium">Grooming</span>
-                    {userProvided.grooming && (
-                      <CheckCircle2 className="w-4 h-4 text-primary" />
-                    )}
+                <div className="py-2 border-b">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="font-medium">Grooming</span>
+                      {userProvided.grooming && (
+                        <CheckCircle2 className="w-4 h-4 text-primary" />
+                      )}
+                    </div>
+                    <span className="font-semibold">{formatCurrency(results.firstYear.grooming)}</span>
                   </div>
-                  <span className="font-semibold">{formatCurrency(results.firstYear.grooming)}</span>
+                  <ContextualProductCard category="Grooming" searchQuery="grooming" />
                 </div>
               )}
               
