@@ -136,7 +136,7 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
 
   const chartOptions = {
     responsive: true,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     interaction: {
       mode: 'index' as const,
       intersect: false,
@@ -148,7 +148,8 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
           padding: 15,
           font: {
             size: 12
-          }
+          },
+          boxWidth: 12
         }
       }
     }
@@ -186,10 +187,24 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
               Download PDF
             </Button>
             <Button
-              onClick={() => {
+              onClick={async () => {
                 const url = window.location.href;
-                navigator.clipboard.writeText(url);
-                toast.success('Link copied to clipboard!');
+                if (navigator.share) {
+                  try {
+                    await navigator.share({
+                      title: `My ${breed?.name} Cost Breakdown`,
+                      text: `Check out the estimated costs for a ${breed?.name}!`,
+                      url: url,
+                    });
+                  } catch (err) {
+                    // User cancelled or share failed, fallback to clipboard
+                    navigator.clipboard.writeText(url);
+                    toast.success('Link copied to clipboard!');
+                  }
+                } else {
+                  navigator.clipboard.writeText(url);
+                  toast.success('Link copied to clipboard!');
+                }
               }}
               variant="outline"
               className="gap-2"
@@ -289,9 +304,9 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {/* Pie Chart */}
             <Card className="p-6">
-              <h2 className="text-2xl font-bold mb-6">First-Year Cost Breakdown</h2>
-            <div className="max-w-md mx-auto">
-              <Pie data={pieData} options={chartOptions} />
+              <h2 className="text-2xl font-bold mb-6">Annual Cost Breakdown</h2>
+            <div className="max-w-md mx-auto h-[300px] md:h-auto">
+              <Pie data={annualPieData} options={chartOptions} />
             </div>
           </Card>
 
@@ -417,7 +432,7 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
         {costView === 'annual' && (
           <Card className="p-8 mb-12">
             <h2 className="text-2xl font-bold mb-6">Annual Ongoing Costs</h2>
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto h-[300px] md:h-auto">
             <Pie data={annualPieData} options={chartOptions} />
           </div>
           <div className="mt-6 text-center">

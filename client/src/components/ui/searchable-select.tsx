@@ -157,7 +157,7 @@ export function SearchableSelect({
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Search breeds..."
-                className="w-full pl-9 pr-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                className="w-full pl-9 pr-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-[16px]"
               />
             </div>
           </div>
@@ -180,7 +180,7 @@ export function SearchableSelect({
                   onClick={() => handleSelect(option.id)}
                   onMouseEnter={() => setHighlightedIndex(index)}
                   className={cn(
-                    "w-full flex items-center justify-between px-3 py-2.5 text-left",
+                    "w-full flex items-center justify-between px-3 py-3 text-left min-h-[44px]",
                     "hover:bg-accent transition-colors",
                     highlightedIndex === index && "bg-accent",
                     value === option.id && "bg-primary/10"

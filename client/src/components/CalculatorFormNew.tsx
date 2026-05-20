@@ -311,7 +311,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
         </div>
 
         {/* Form Card */}
-        <Card className="p-4 sm:p-6 md:p-8 mb-24 md:mb-0 shadow-xl border-2 hover:shadow-2xl transition-shadow duration-300">
+        <Card className="p-4 sm:p-6 md:p-8 mb-32 md:mb-0 shadow-xl border-2 hover:shadow-2xl transition-shadow duration-300">
           {/* Step 1: Pet Type */}
           {step === 1 && (
             <div className="space-y-6 animate-fade-in">
@@ -556,6 +556,8 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                         <Input
                           id="deposit-amount"
                           type="number"
+                          inputMode="numeric"
+                          pattern="[0-9]*"
                           placeholder="500"
                           value={petDepositAmount}
                           onChange={(e) => setPetDepositAmount(e.target.value)}
@@ -1138,7 +1140,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
           )}
 
           {/* Navigation Buttons - Mobile Optimized with Sticky Bottom */}
-          <div className="mt-8 pt-6 border-t space-y-4 md:relative md:static fixed bottom-0 left-0 right-0 bg-card md:bg-transparent p-4 md:p-0 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] md:shadow-none z-50">
+          <div className="mt-8 pt-6 border-t space-y-4">
             {/* Save & Share buttons */}
             {step > 1 && step < totalSteps && (
               <div className="flex justify-center gap-2">
@@ -1188,7 +1190,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
             )}
             
             {/* Back & Next buttons - Sticky on mobile */}
-            <div className="flex justify-between mt-8 pt-4 border-t md:border-t-0 md:pt-0 md:mt-0 sticky bottom-16 md:static bg-background/95 backdrop-blur-sm md:bg-transparent p-4 md:p-0 -mx-4 md:mx-0 z-10">
+            <div className="flex justify-between mt-8 pt-4 border-t md:border-t-0 md:pt-0 md:mt-0 fixed bottom-16 left-0 right-0 md:static bg-background/95 backdrop-blur-sm md:bg-transparent p-4 md:p-0 z-40 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] md:shadow-none">
               <Button
                 variant="outline"
                 onClick={handleBack}
