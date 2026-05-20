@@ -19,11 +19,9 @@ export default function MobileNav() {
           const Icon = item.icon;
           
           return (
-            <Link key={item.href} href={item.href}>
-              <a className={`flex flex-col items-center justify-center w-full h-full space-y-1 ${isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
-                <Icon className={`w-6 h-6 ${isActive ? 'fill-primary/20' : ''}`} />
-                <span className="text-[10px] font-medium">{item.label}</span>
-              </a>
+            <Link key={item.href} href={item.href} className={`flex flex-col items-center justify-center w-full h-full space-y-1 ${isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'}`}>
+              <Icon className={`w-6 h-6 ${isActive ? 'fill-primary/20' : ''}`} />
+              <span className="text-[10px] font-medium">{item.label}</span>
             </Link>
           );
         })}

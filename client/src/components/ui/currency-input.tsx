@@ -62,7 +62,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
             aria-label={props['aria-label'] || "Amount in dollars"}
-            className={`pl-8 focus:ring-2 focus:ring-primary focus:border-primary ${error ? 'border-destructive focus:ring-destructive focus:border-destructive' : ''}`}
+            className={`pl-10 focus:ring-2 focus:ring-primary focus:border-primary ${error ? 'border-destructive focus:ring-destructive focus:border-destructive' : ''}`}
           />
         </div>
         {error && (

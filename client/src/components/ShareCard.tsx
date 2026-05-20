@@ -52,10 +52,15 @@ export const ShareCard: React.FC<ShareCardProps> = ({
     
     try {
       setIsGenerating(true);
+      // Wait a tiny bit for fonts/styles to fully render before capturing
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
       const canvas = await html2canvas(cardRef.current, {
         scale: 2, // Higher resolution
         backgroundColor: null,
-        useCORS: true
+        useCORS: true,
+        logging: false,
+        allowTaint: true
       });
       
       const image = canvas.toDataURL('image/png');
@@ -75,10 +80,15 @@ export const ShareCard: React.FC<ShareCardProps> = ({
     
     try {
       setIsGenerating(true);
+      // Wait a tiny bit for fonts/styles to fully render before capturing
+      await new Promise(resolve => setTimeout(resolve, 100));
+      
       const canvas = await html2canvas(cardRef.current, {
         scale: 2,
         backgroundColor: null,
-        useCORS: true
+        useCORS: true,
+        logging: false,
+        allowTaint: true
       });
       
       canvas.toBlob(async (blob) => {

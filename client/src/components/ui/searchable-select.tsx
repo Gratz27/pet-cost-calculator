@@ -141,7 +141,10 @@ export function SearchableSelect({
 
     // Check aliases
     for (const [alias, targets] of Object.entries(aliases)) {
-      if (searchLower.includes(alias) || alias.includes(searchLower)) {
+      // If the user's search matches an alias (e.g. user types "british bulldog", matches alias "british bulldog")
+      // OR if the user's search is a partial match of an alias (e.g. user types "british", matches alias "british bulldog")
+      if (alias.includes(searchLower) || searchLower.includes(alias)) {
+        // If the actual breed name is one of the targets for this alias, it's a match
         if (targets.some(target => nameLower.includes(target))) {
           return true;
         }
