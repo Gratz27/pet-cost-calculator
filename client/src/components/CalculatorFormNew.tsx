@@ -304,7 +304,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
         </div>
 
         {/* Form Card */}
-        <Card className="p-6 md:p-8 mb-24 md:mb-0 shadow-xl border-2 hover:shadow-2xl transition-shadow duration-300">
+        <Card className="p-4 sm:p-6 md:p-8 mb-24 md:mb-0 shadow-xl border-2 hover:shadow-2xl transition-shadow duration-300">
           {/* Step 1: Pet Type */}
           {step === 1 && (
             <div className="space-y-6 animate-fade-in">
@@ -313,10 +313,10 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                 <p className="text-muted-foreground">Choose the pet type to get started</p>
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <button
                   onClick={() => setPetType('dog')}
-                  className={`p-6 md:p-8 rounded-xl border-2 transition-all duration-300 hover:scale-105 min-h-[120px] md:min-h-auto group ${
+                  className={`p-4 sm:p-6 md:p-8 rounded-xl border-2 transition-all duration-300 hover:scale-105 min-h-[120px] md:min-h-auto group ${
                     petType === 'dog' 
                       ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/10 shadow-lg shadow-primary/20' 
                       : 'border-border hover:border-primary/50 hover:shadow-md'
@@ -330,7 +330,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                 
                 <button
                   onClick={() => setPetType('cat')}
-                  className={`p-6 md:p-8 rounded-xl border-2 transition-all duration-300 hover:scale-105 min-h-[120px] md:min-h-auto group ${
+                  className={`p-4 sm:p-6 md:p-8 rounded-xl border-2 transition-all duration-300 hover:scale-105 min-h-[120px] md:min-h-auto group ${
                     petType === 'cat' 
                       ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/10 shadow-lg shadow-primary/20' 
                       : 'border-border hover:border-primary/50 hover:shadow-md'
@@ -581,7 +581,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                   disabled={purchaseFeeUnknown}
                   placeholder="1200"
                   min={0}
-                  max={10000}
+                  max={50000}
                   helperText="Typical range: $50-$3,000"
                 />
                 <label className="flex items-center gap-2 cursor-pointer">
