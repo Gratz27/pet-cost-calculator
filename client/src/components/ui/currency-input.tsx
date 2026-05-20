@@ -45,7 +45,10 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
     return (
       <div className="space-y-1">
         <div className="relative">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-semibold">
+          <span 
+            className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground font-semibold pointer-events-none select-none z-10"
+            aria-hidden="true"
+          >
             $
           </span>
           <Input
@@ -58,7 +61,8 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
             onChange={handleChange}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            className={`pl-7 ${error ? 'border-destructive' : ''}`}
+            aria-label={props['aria-label'] || "Amount in dollars"}
+            className={`pl-8 focus:ring-2 focus:ring-primary focus:border-primary ${error ? 'border-destructive focus:ring-destructive focus:border-destructive' : ''}`}
           />
         </div>
         {error && (
