@@ -322,7 +322,11 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
               
               <div className="grid grid-cols-2 gap-3 sm:gap-4">
                 <button
-                  onClick={() => setPetType('dog')}
+                  onClick={() => {
+                    setPetType('dog');
+                    // Auto-advance after a short delay for better UX
+                    setTimeout(() => handleNext(), 300);
+                  }}
                   className={`p-4 sm:p-6 md:p-8 rounded-xl border-2 transition-all duration-300 hover:scale-105 min-h-[120px] md:min-h-auto group ${
                     petType === 'dog' 
                       ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/10 shadow-lg shadow-primary/20' 
@@ -336,7 +340,11 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                 </button>
                 
                 <button
-                  onClick={() => setPetType('cat')}
+                  onClick={() => {
+                    setPetType('cat');
+                    // Auto-advance after a short delay for better UX
+                    setTimeout(() => handleNext(), 300);
+                  }}
                   className={`p-4 sm:p-6 md:p-8 rounded-xl border-2 transition-all duration-300 hover:scale-105 min-h-[120px] md:min-h-auto group ${
                     petType === 'cat' 
                       ? 'border-primary bg-gradient-to-br from-primary/20 to-primary/10 shadow-lg shadow-primary/20' 
@@ -1179,8 +1187,8 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
               </div>
             )}
             
-            {/* Back & Next buttons */}
-            <div className="flex justify-between">
+            {/* Back & Next buttons - Sticky on mobile */}
+            <div className="flex justify-between mt-8 pt-4 border-t md:border-t-0 md:pt-0 md:mt-0 sticky bottom-16 md:static bg-background/95 backdrop-blur-sm md:bg-transparent p-4 md:p-0 -mx-4 md:mx-0 z-10">
               <Button
                 variant="outline"
                 onClick={handleBack}
