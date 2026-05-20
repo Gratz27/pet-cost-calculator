@@ -444,3 +444,52 @@
   margin-bottom: 0.6666667em;
   line-height: 1.5;
 }
+
+/* Share Card Themes */
+.theme-teal  { background: #0F6E56; color: #fff; }
+.theme-teal  .card-header { background: #0F6E56; }
+.theme-teal  .card-total-band { background: #085041; }
+.theme-teal  .card-breakdown { background: #0F6E56; }
+.theme-teal  .card-bar-section { background: #0F6E56; }
+.theme-teal  .card-footer { background: #085041; color: #9FE1CB; }
+.theme-teal  .site-badge { background: rgba(255,255,255,0.15); color: #fff; }
+.theme-teal  .pet-emoji-wrap { background: rgba(255,255,255,0.15); }
+.theme-teal  .breakdown-item { background: rgba(255,255,255,0.1); color: #fff; }
+.theme-teal  .bar-track { background: rgba(255,255,255,0.15); }
+.theme-teal  .bar-fill { background: #5DCAA5; }
+
+.theme-coral { background: #712B13; color: #fff; }
+.theme-coral .card-header { background: #993C1D; }
+.theme-coral .card-total-band { background: #712B13; }
+.theme-coral .card-breakdown { background: #993C1D; }
+.theme-coral .card-bar-section { background: #993C1D; }
+.theme-coral .card-footer { background: #712B13; color: #F5C4B3; }
+.theme-coral .site-badge { background: rgba(255,255,255,0.15); color: #fff; }
+.theme-coral .pet-emoji-wrap { background: rgba(255,255,255,0.15); }
+.theme-coral .breakdown-item { background: rgba(255,255,255,0.1); color: #fff; }
+.theme-coral .bar-track { background: rgba(255,255,255,0.15); }
+.theme-coral .bar-fill { background: #F0997B; }
+
+.theme-navy  { background: #042C53; color: #fff; }
+.theme-navy  .card-header { background: #185FA5; }
+.theme-navy  .card-total-band { background: #042C53; }
+.theme-navy  .card-breakdown { background: #185FA5; }
+.theme-navy  .card-bar-section { background: #185FA5; }
+.theme-navy  .card-footer { background: #042C53; color: #85B7EB; }
+.theme-navy  .site-badge { background: rgba(255,255,255,0.15); color: #fff; }
+.theme-navy  .pet-emoji-wrap { background: rgba(255,255,255,0.15); }
+.theme-navy  .breakdown-item { background: rgba(255,255,255,0.1); color: #fff; }
+.theme-navy  .bar-track { background: rgba(255,255,255,0.15); }
+.theme-navy  .bar-fill { background: #85B7EB; }
+
+.theme-purple { background: #26215C; color: #fff; }
+.theme-purple .card-header { background: #3C3489; }
+.theme-purple .card-total-band { background: #26215C; }
+.theme-purple .card-breakdown { background: #3C3489; }
+.theme-purple .card-bar-section { background: #3C3489; }
+.theme-purple .card-footer { background: #26215C; color: #CECBF6; }
+.theme-purple .site-badge { background: rgba(255,255,255,0.15); color: #fff; }
+.theme-purple .pet-emoji-wrap { background: rgba(255,255,255,0.15); }
+.theme-purple .breakdown-item { background: rgba(255,255,255,0.1); color: #fff; }
+.theme-purple .bar-track { background: rgba(255,255,255,0.15); }
+.theme-purple .bar-fill { background: #AFA9EC; }

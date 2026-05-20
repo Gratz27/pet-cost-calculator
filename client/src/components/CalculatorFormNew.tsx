@@ -551,17 +551,13 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                   {hasPetDeposit === 'yes' && (
                     <div className="mt-4">
                       <Label htmlFor="deposit-amount">How much?</Label>
-                      <div className="flex items-center mt-2">
-                        <span className="text-2xl font-bold mr-2">$</span>
-                        <Input
+                      <div className="mt-2">
+                        <CurrencyInput
                           id="deposit-amount"
-                          type="number"
-                          inputMode="numeric"
-                          pattern="[0-9]*"
-                          placeholder="500"
                           value={petDepositAmount}
-                          onChange={(e) => setPetDepositAmount(e.target.value)}
-                          className="text-lg"
+                          onChange={setPetDepositAmount}
+                          placeholder="500"
+                          max={10000}
                         />
                       </div>
                     </div>

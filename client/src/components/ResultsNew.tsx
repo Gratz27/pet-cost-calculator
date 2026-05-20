@@ -12,6 +12,7 @@ import { useCurrency } from '@/contexts/CurrencyContext';
 import { CurrencySelector } from '@/components/CurrencySelector';
 import Header from './Header';
 import ContextualProductCard from './ContextualProductCard';
+import { ShareCard } from './ShareCard';
 
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
@@ -483,6 +484,25 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
           </div>
         </Card>
         )}
+
+        {/* Shareable Results Card */}
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6 text-center">Share Your Results</h2>
+          <ShareCard 
+            petType={inputs.petType}
+            breedName={breed?.name || 'Unknown Breed'}
+            lifespan={results.lifetime.years}
+            totalLifetimeCost={results.lifetime.total}
+            monthlyCost={results.annual.total / 12}
+            annualCost={results.annual.total}
+            breakdown={{
+              vet: results.annual.vet * results.lifetime.years + results.firstYear.initialVet,
+              food: results.annual.food * results.lifetime.years,
+              grooming: results.annual.grooming * results.lifetime.years,
+              other: results.annual.supplies * results.lifetime.years + results.firstYear.supplies + results.firstYear.training + results.firstYear.petDeposit
+            }}
+          />
+        </div>
 
         {/* Hidden Costs Warning */}
         <Card className="p-8 mb-12 border-2 border-amber-500/50 bg-amber-50">
