@@ -15,6 +15,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Shop from "./pages/Shop";
 import ProductPage from "./pages/ProductPage";
 import { CartProvider } from "./contexts/CartContext";
+import MobileNav from "./components/MobileNav";
 
 import GoogleAnalytics from "./components/GoogleAnalytics";
 
@@ -55,7 +56,10 @@ function App() {
           <CartProvider>
         <TooltipProvider>
             <Toaster />
-            <Router />
+            <div className="pb-16 md:pb-0">
+              <Router />
+            </div>
+            <MobileNav />
           </TooltipProvider>
       </CartProvider>
         </CurrencyProvider>

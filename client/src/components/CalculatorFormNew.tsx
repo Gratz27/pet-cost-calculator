@@ -37,6 +37,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
   const [location, setLocation] = useState('');
   const [locationData, setLocationData] = useState<LocationData | null>(null);
   const [isLookingUp, setIsLookingUp] = useState(false);
+  const [isCalculating, setIsCalculating] = useState(false);
   
   // Step 4: Living situation
   const [livingSituation, setLivingSituation] = useState<'own-home' | 'rent-apartment' | 'rent-house' | 'other'>('own-home');
@@ -206,23 +207,29 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
       dentalCare
     };
 
-    const results = calculateCosts(inputs);
-    if (results) {
-      // Track cost calculation completion
-      const breeds = getAllBreeds(petType);
-      const selectedBreed = breeds.find(b => b.id === breedId);
-      if (selectedBreed) {
-        trackCostCalculation({
-          petType,
-          breed: selectedBreed.name,
-          firstYearCost: results.firstYear.total,
-          annualCost: results.annual.total,
-          lifetimeCost: results.lifetime.total,
-          lifespan: results.lifetime.years
-        });
+    setIsCalculating(true);
+    
+    // Simulate a brief calculation delay for better UX (perceived value)
+    setTimeout(() => {
+      const results = calculateCosts(inputs);
+      if (results) {
+        // Track cost calculation completion
+        const breeds = getAllBreeds(petType);
+        const selectedBreed = breeds.find(b => b.id === breedId);
+        if (selectedBreed) {
+          trackCostCalculation({
+            petType,
+            breed: selectedBreed.name,
+            firstYearCost: results.firstYear.total,
+            annualCost: results.annual.total,
+            lifetimeCost: results.lifetime.total,
+            lifespan: results.lifetime.years
+          });
+        }
+        onCalculate(inputs, results);
       }
-      onCalculate(inputs, results);
-    }
+      setIsCalculating(false);
+    }, 1200);
   };
 
   const canProceed = () => {
@@ -1186,11 +1193,20 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
               
               <Button
                 onClick={handleNext}
-                disabled={!canProceed()}
+                disabled={!canProceed() || isCalculating}
                 className="gap-2 min-h-[48px] text-base bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
               >
-                {step === totalSteps ? 'Calculate My Costs' : 'Next'}
-                {step < totalSteps && <ArrowRight className="w-4 h-4" />}
+                {isCalculating ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                    Calculating...
+                  </>
+                ) : (
+                  <>
+                    {step === totalSteps ? 'Calculate My Costs' : 'Next'}
+                    {step < totalSteps && <ArrowRight className="w-4 h-4" />}
+                  </>
+                )}
               </Button>
             </div>
           </div>
