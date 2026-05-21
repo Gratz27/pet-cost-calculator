@@ -724,3 +724,10 @@
 ## Fix Currency Input Padding
 - [ ] Fix padding in currency-input.tsx using inline style
 - [ ] Create and deliver new ZIP file (v56)
+
+## Reverification Fixes
+- [ ] Fix maximum-scale in index.html (ensure it's 3.0)
+- [ ] Fix status bar style in index.html (ensure it's black-translucent)
+- [ ] Fix viewport-fit=cover in index.html
+- [ ] Ensure manifest.json is linked in index.html
+- [ ] Create and deliver new ZIP file (v57)
