@@ -55,7 +55,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInputProps>(
             {...props}
             ref={ref}
             type="text"
-            inputMode="numeric"
+            inputMode="decimal"
             pattern="[0-9]*"
             value={displayValue}
             onChange={handleChange}

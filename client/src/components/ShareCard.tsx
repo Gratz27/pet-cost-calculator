@@ -106,8 +106,11 @@ export const ShareCard: React.FC<ShareCardProps> = ({
         // Fallback to download if Web Share API is not supported
         handleDownload();
       }
-    } catch (error) {
-      console.error('Error sharing image:', error);
+    } catch (error: any) {
+      // Ignore AbortError which happens when user cancels the share dialog
+      if (error.name !== 'AbortError') {
+        console.error('Error sharing image:', error);
+      }
     } finally {
       setIsGenerating(false);
     }

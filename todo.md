@@ -702,3 +702,21 @@
 ## Replace all html2canvas instances
 - [ ] Search for and replace html2canvas in all files (e.g., exportPDF.ts)
 - [ ] Create and deliver new ZIP file (v52)
+
+## Fix Share Canceled Error
+- [ ] Update error handling in ShareCard.tsx to ignore AbortError
+- [ ] Create and deliver new ZIP file (v53)
+
+## Mobile Audit Fixes
+- [ ] Fix iOS auto-zoom: Set font-size to 16px for all form inputs and selects
+- [ ] Fix touch targets: Ensure interactive elements have minimum 44x44px hit area
+- [ ] Fix maximum-scale: Change viewport meta to maximum-scale=3.0
+- [ ] Fix iOS status bar: Change apple-mobile-web-app-status-bar-style to black-translucent
+- [ ] Fix safe-area-inset: Add padding for notched iPhones (env(safe-area-inset-*))
+- [ ] Fix number inputs: Add inputmode="decimal" or "numeric" to monetary inputs
+- [ ] Add PWA manifest: Create manifest.json and link it in index.html
+- [ ] Create and deliver new ZIP file (v54)
+
+## Remove Recommended Products
+- [ ] Remove recommended products section from Results.tsx
+- [ ] Create and deliver new ZIP file (v55)
