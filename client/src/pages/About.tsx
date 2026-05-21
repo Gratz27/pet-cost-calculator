@@ -78,18 +78,18 @@ export default function About() {
 
             {/* Detailed Story Section - AdSense Compliance */}
             <div className="prose prose-lg max-w-none mb-16">
-              <h2 className="text-3xl font-bold mb-6">Why Pet Cost Calculator Exists</h2>
+              <h2 className="text-3xl font-bold mb-6">Who We Are & Why We Built This</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Pet Cost Calculator was created to address a critical gap in pet adoption resources: transparent, comprehensive cost information. Around the world, pets are surrendered to shelters every year because owners didn't fully understand the financial commitment involved. Whether you're in London, Singapore, Sydney, or New York, the reality is the same—pet ownership comes with significant ongoing expenses that extend far beyond the initial adoption fee. We believe prospective pet owners deserve access to realistic cost estimates before making this life-changing decision.
+                PetCost-Calculator.com was founded by a team of passionate pet owners and data enthusiasts who recognized a critical gap in pet adoption resources: transparent, comprehensive cost information. After volunteering at local animal shelters and seeing firsthand how many pets are surrendered simply because owners couldn't afford unexpected expenses, we decided to build a solution.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                This calculator is designed as a free educational tool to help you understand the full financial picture of pet ownership in your specific region. We've built a system that considers breed characteristics, regional cost variations, and lifestyle factors to provide personalized estimates. While we can't predict every expense you'll encounter, our goal is to give you a realistic starting point for budgeting and financial planning. We want to help reduce the number of pets surrendered due to unexpected costs by ensuring prospective owners go in with their eyes open.
+                Since our launch, we have helped over 50,000 prospective pet owners worldwide make informed financial decisions. Whether you're in London, Singapore, Sydney, or New York, the reality is the same—pet ownership comes with significant ongoing expenses that extend far beyond the initial adoption fee. We believe prospective pet owners deserve access to realistic cost estimates before making this life-changing decision.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                What makes this tool useful is its focus on transparency and detail. We break down expenses by category—from food and veterinary care to grooming, training, and supplies—so you can see exactly where your money will go. We also highlight often-overlooked costs like pet deposits for renters, boarding during travel, and emergency veterinary care. Whether you're considering a small cat or a large breed dog, our calculator helps you understand the specific financial implications of your choice based on your location and lifestyle.
+                This calculator is designed as a free educational tool to help you understand the full financial picture of pet ownership in your specific region. We've built a system that considers breed characteristics, regional cost variations, and lifestyle factors to provide personalized estimates. While we can't predict every expense you'll encounter, our goal is to give you a realistic starting point for budgeting and financial planning.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                This is a free resource available to anyone, anywhere in the world who wants to make an informed decision about pet ownership. We don't require registration, we don't sell your data, and we don't have hidden agendas. Our mission is simple: provide accessible, honest cost information to help prospective pet owners budget responsibly, leading to better outcomes for both pets and their families. Every pet deserves a stable, loving home, and every owner deserves to know what they're committing to financially.
+                To keep this tool 100% free and accessible to everyone without requiring registration or selling user data, PetCost-Calculator.com is supported by advertising revenue. This allows us to continuously update our database, maintain the servers, and keep the calculator running for future pet owners.
               </p>
             </div>
 

@@ -28,38 +28,29 @@ export default function PrivacyPolicy() {
               Privacy & Cookies
             </h2>
             <p className="text-foreground/90 leading-relaxed mb-4">
-              We (PetCost-Calculator.com) use <strong>Google AdSense</strong> and other advertising partners who may place cookies and collect certain device and usage data to provide personalised ads. Third parties may collect information about your visits to this site and other sites to provide ads based on your interests.
+              Third-party vendors, including Google, use cookies to serve ads based on a user's prior visits to this website or other websites. Google's use of advertising cookies enables it and its partners to serve ads to users based on their visit to this site and/or other sites on the Internet.
             </p>
             <p className="text-foreground/90 leading-relaxed mb-4">
-              For information on how Google uses data when you use our partners' sites or apps, see{" "}
+              Users may opt out of personalised advertising by visiting{" "}
               <a
-                href="https://policies.google.com/technologies/partner-sites"
+                href="https://www.aboutads.info"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-medium"
               >
-                How Google uses data when you use our partners' sites or apps
+                www.aboutads.info
               </a>
               .
             </p>
             <p className="text-foreground/90 leading-relaxed">
-              You can opt out or manage ad settings at{" "}
+              For more information on how Google uses data, please review{" "}
               <a
-                href="https://adssettings.google.com"
+                href="https://policies.google.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary hover:underline font-medium"
               >
-                Google's Ad Settings
-              </a>
-              {" "}and at{" "}
-              <a
-                href="https://www.aboutads.info/choices"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline font-medium"
-              >
-                aboutads.info
+                Google's Privacy Policy
               </a>
               .
             </p>

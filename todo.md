@@ -731,3 +731,13 @@
 - [ ] Fix viewport-fit=cover in index.html
 - [ ] Ensure manifest.json is linked in index.html
 - [ ] Create and deliver new ZIP file (v57)
+
+## AdSense Readiness Fixes
+- [ ] Add Privacy Policy AdSense cookie disclosure
+- [ ] Add Terms of Service / Disclaimer page
+- [ ] Update About Us page with substantive content
+- [ ] Add Contact Us page
+- [ ] Create ads.txt file
+- [ ] Create sitemap.xml
+- [ ] Ensure canonical tags match the preferred domain (https://petcost-calculator.com)
+- [ ] Create and deliver new ZIP file (v58)
