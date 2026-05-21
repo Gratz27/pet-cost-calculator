@@ -98,7 +98,9 @@ export default function ContextualProductCard({ category, searchQuery }: Context
         </div>
         <h4 className="font-medium text-sm line-clamp-2 mb-1">{product.title}</h4>
         <div className="font-bold text-sm">
-          ${parseFloat(product.priceRange.minVariantPrice.amount).toFixed(2)}
+          {product.priceRange?.minVariantPrice?.amount 
+            ? `$${parseFloat(product.priceRange.minVariantPrice.amount).toFixed(2)}`
+            : 'Price unavailable'}
         </div>
       </div>
       

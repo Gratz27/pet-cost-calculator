@@ -142,10 +142,18 @@ export function SearchableSelect({
     // Check aliases
     for (const [alias, targets] of Object.entries(aliases)) {
       // If the user's search matches an alias (e.g. user types "british bulldog", matches alias "british bulldog")
-      // OR if the user's search is a partial match of an alias (e.g. user types "british", matches alias "british bulldog")
-      if (alias.includes(searchLower) || searchLower.includes(alias)) {
+      if (alias.includes(searchLower)) {
         // If the actual breed name is one of the targets for this alias, it's a match
-        if (targets.some(target => nameLower.includes(target))) {
+        // We use EXACT matching to prevent "british bulldog" from matching "french bulldog"
+        if (targets.some(target => nameLower === target)) {
+          return true;
+        }
+      }
+      
+      // If the user types exactly the alias (e.g. "british bulldog")
+      // and the current option is one of the targets (e.g. "bulldog")
+      if (searchLower === alias || searchLower.includes(alias)) {
+        if (targets.some(target => nameLower === target)) {
           return true;
         }
       }
@@ -277,7 +285,7 @@ export function SearchableSelect({
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
                 placeholder="Search breeds..."
-                className="w-full pl-9 pr-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-[16px]"
+                className="w-full pr-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-[16px]" style={{ paddingLeft: '2.5rem' }}
               />
             </div>
           </div>

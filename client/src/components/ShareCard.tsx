@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import html2canvas from 'html2canvas';
+import * as htmlToImage from 'html-to-image';
 import { Button } from './ui/button';
 import { Download, Share2 } from 'lucide-react';
 import { formatCurrency } from '@/lib/currency';
@@ -55,17 +55,17 @@ export const ShareCard: React.FC<ShareCardProps> = ({
       // Wait a tiny bit for fonts/styles to fully render before capturing
       await new Promise(resolve => setTimeout(resolve, 100));
       
-      const canvas = await html2canvas(cardRef.current, {
-        scale: 2, // Higher resolution
-        backgroundColor: null,
-        useCORS: true,
-        logging: false,
-        allowTaint: true
+      const dataUrl = await htmlToImage.toPng(cardRef.current, {
+        pixelRatio: 2,
+        backgroundColor: 'transparent',
+        style: {
+          transform: 'scale(1)',
+          transformOrigin: 'top left'
+        }
       });
       
-      const image = canvas.toDataURL('image/png');
       const link = document.createElement('a');
-      link.href = image;
+      link.href = dataUrl;
       link.download = `petcost-${breedName.toLowerCase().replace(/\s+/g, '-')}.png`;
       link.click();
     } catch (error) {
@@ -83,30 +83,29 @@ export const ShareCard: React.FC<ShareCardProps> = ({
       // Wait a tiny bit for fonts/styles to fully render before capturing
       await new Promise(resolve => setTimeout(resolve, 100));
       
-      const canvas = await html2canvas(cardRef.current, {
-        scale: 2,
-        backgroundColor: null,
-        useCORS: true,
-        logging: false,
-        allowTaint: true
-      });
-      
-      canvas.toBlob(async (blob) => {
-        if (!blob) return;
-        
-        const file = new File([blob], `petcost-${breedName.toLowerCase().replace(/\s+/g, '-')}.png`, { type: 'image/png' });
-        
-        if (navigator.share && navigator.canShare({ files: [file] })) {
-          await navigator.share({
-            title: `True cost of a ${breedName}`,
-            text: `Check out the true lifetime cost of a ${breedName}! Calculated via petcost-calculator.com`,
-            files: [file]
-          });
-        } else {
-          // Fallback to download if Web Share API is not supported
-          handleDownload();
+      const blob = await htmlToImage.toBlob(cardRef.current, {
+        pixelRatio: 2,
+        backgroundColor: 'transparent',
+        style: {
+          transform: 'scale(1)',
+          transformOrigin: 'top left'
         }
       });
+      
+      if (!blob) return;
+      
+      const file = new File([blob], `petcost-${breedName.toLowerCase().replace(/\s+/g, '-')}.png`, { type: 'image/png' });
+      
+      if (navigator.share && navigator.canShare({ files: [file] })) {
+        await navigator.share({
+          title: 'Pet Cost Calculator',
+          text: `Check out the true lifetime cost of a ${breedName}! Calculated via petcost-calculator.com`,
+          files: [file]
+        });
+      } else {
+        // Fallback to download if Web Share API is not supported
+        handleDownload();
+      }
     } catch (error) {
       console.error('Error sharing image:', error);
     } finally {
@@ -117,30 +116,30 @@ export const ShareCard: React.FC<ShareCardProps> = ({
   return (
     <div className="w-full max-w-md mx-auto my-8">
       <div className="mb-4 flex flex-col gap-2">
-        <label className="text-xs font-medium text-muted-foreground uppercase tracking-wider">Choose Theme</label>
+        <label className="text-xs font-medium uppercase tracking-wider" style={{ color: '#6b7280' }}>Choose Theme</label>
         <div className="flex gap-2">
           <button 
             onClick={() => setTheme('teal')}
-            className={`w-8 h-8 rounded-full border-2 transition-colors ${theme === 'teal' ? 'border-primary' : 'border-transparent'}`}
-            style={{ backgroundColor: '#0F6E56' }}
+            className="w-8 h-8 rounded-full border-2 transition-colors"
+            style={{ backgroundColor: '#0F6E56', borderColor: theme === 'teal' ? '#0F6E56' : 'transparent' }}
             aria-label="Teal theme"
           />
           <button 
             onClick={() => setTheme('coral')}
-            className={`w-8 h-8 rounded-full border-2 transition-colors ${theme === 'coral' ? 'border-primary' : 'border-transparent'}`}
-            style={{ backgroundColor: '#993C1D' }}
+            className="w-8 h-8 rounded-full border-2 transition-colors"
+            style={{ backgroundColor: '#993C1D', borderColor: theme === 'coral' ? '#993C1D' : 'transparent' }}
             aria-label="Coral theme"
           />
           <button 
             onClick={() => setTheme('navy')}
-            className={`w-8 h-8 rounded-full border-2 transition-colors ${theme === 'navy' ? 'border-primary' : 'border-transparent'}`}
-            style={{ backgroundColor: '#185FA5' }}
+            className="w-8 h-8 rounded-full border-2 transition-colors"
+            style={{ backgroundColor: '#185FA5', borderColor: theme === 'navy' ? '#185FA5' : 'transparent' }}
             aria-label="Navy theme"
           />
           <button 
             onClick={() => setTheme('purple')}
-            className={`w-8 h-8 rounded-full border-2 transition-colors ${theme === 'purple' ? 'border-primary' : 'border-transparent'}`}
-            style={{ backgroundColor: '#3C3489' }}
+            className="w-8 h-8 rounded-full border-2 transition-colors"
+            style={{ backgroundColor: '#3C3489', borderColor: theme === 'purple' ? '#3C3489' : 'transparent' }}
             aria-label="Purple theme"
           />
         </div>
@@ -244,7 +243,7 @@ export const ShareCard: React.FC<ShareCardProps> = ({
         )}
       </div>
       
-      <p className="text-xs text-center text-muted-foreground mt-4">
+      <p className="text-xs text-center mt-4" style={{ color: '#6b7280' }}>
         * All costs are based on averages and will vary by country and region.
       </p>
     </div>

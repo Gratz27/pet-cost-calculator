@@ -1,4 +1,4 @@
-import html2canvas from 'html2canvas';
+import * as htmlToImage from 'html-to-image';
 import { jsPDF } from 'jspdf';
 import type { CostBreakdown, CalculatorInputs } from './calculator';
 
@@ -33,20 +33,25 @@ export async function exportToPDF(inputs: CalculatorInputs, breakdown: CostBreak
     const socialShare = clone.querySelector('[data-social-share]');
     if (socialShare) socialShare.remove();
 
-    // Capture the element as canvas
-    const canvas = await html2canvas(clone, {
-      scale: 2, // Higher quality
-      useCORS: true,
-      logging: false,
+    // Capture the element as image
+    const imgData = await htmlToImage.toPng(clone, {
+      pixelRatio: 2,
       backgroundColor: '#ffffff',
-      windowWidth: 800,
+      style: {
+        transform: 'scale(1)',
+        transformOrigin: 'top left'
+      }
     });
 
     // Remove the clone
     document.body.removeChild(clone);
 
-    // Convert canvas to PDF
-    const imgData = canvas.toDataURL('image/png');
+    // Create a temporary image to get dimensions
+    const img = new Image();
+    img.src = imgData;
+    await new Promise((resolve) => {
+      img.onload = resolve;
+    });
     const pdf = new jsPDF({
       orientation: 'portrait',
       unit: 'mm',
@@ -56,7 +61,7 @@ export async function exportToPDF(inputs: CalculatorInputs, breakdown: CostBreak
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight = pdf.internal.pageSize.getHeight();
     const imgWidth = pdfWidth - 20; // 10mm margins on each side
-    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+    const imgHeight = (img.height * imgWidth) / img.width;
 
     let heightLeft = imgHeight;
     let position = 10; // Top margin
@@ -78,7 +83,7 @@ export async function exportToPDF(inputs: CalculatorInputs, breakdown: CostBreak
     pdf.save(fileName);
   } catch (error) {
     console.error('Error generating PDF:', error);
-    // Fallback to basic PDF if html2canvas fails
+    // Fallback to basic PDF if html-to-image fails
     fallbackPDFExport(inputs, breakdown);
   }
 }

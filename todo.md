@@ -679,3 +679,26 @@
 - [ ] Investigate `emergency-vet-costs`
 - [ ] Investigate `maine-coon-costs-ownership-guide`
 - [ ] Implement fixes to improve content quality or fix technical issues preventing indexing
+
+## Padding and Overlap Fixes
+- [ ] Fix padding in searchable-select.tsx search input
+- [ ] Check and fix other input components for overlap issues
+- [ ] Create and deliver new ZIP file (v44)
+
+## Breed Database Updates
+- [ ] Add "English Bulldog" and "British Bulldog" to breeds.json
+- [ ] Review and add other common breed aliases as explicit entries
+- [ ] Create and deliver new ZIP file (v49)
+
+## Fix html2canvas oklch error
+- [ ] Identify and fix oklch colors in ShareCard.tsx
+- [ ] Create and deliver new ZIP file (v50)
+
+## Replace html2canvas with html-to-image
+- [ ] Install html-to-image package
+- [ ] Update ShareCard.tsx to use html-to-image
+- [ ] Create and deliver new ZIP file (v51)
+
+## Replace all html2canvas instances
+- [ ] Search for and replace html2canvas in all files (e.g., exportPDF.ts)
+- [ ] Create and deliver new ZIP file (v52)
