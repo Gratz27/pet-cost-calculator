@@ -1,0 +1,71 @@
+import { Toaster } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import NotFound from "@/pages/NotFound";
+import { Route, Switch } from "wouter";
+import ErrorBoundary from "./components/ErrorBoundary";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import { CurrencyProvider } from "./contexts/CurrencyContext";
+import Home from "./pages/Home";
+import BlogIndex from "./pages/blog/BlogIndex";
+import BlogArticle from "./pages/blog/BlogArticle";
+import About from "./pages/About";
+import HowItWorks from "./pages/HowItWorks";
+import Contact from "./pages/Contact";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Shop from "./pages/Shop";
+import ProductPage from "./pages/ProductPage";
+import { CartProvider } from "./contexts/CartContext";
+import MobileNav from "./components/MobileNav";
+
+import GoogleAnalytics from "./components/GoogleAnalytics";
+
+function Router() {
+  return (
+    <Switch>
+      <Route path={"/"} component={Home} />
+      <Route path="/blog" component={BlogIndex} />
+      <Route path="/blog/:slug" component={BlogArticle} />
+      <Route path={"/about"} component={About} />
+      <Route path={"/how-it-works"} component={HowItWorks} />
+      <Route path={"/contact"} component={Contact} />
+      <Route path={"/privacy-policy"} component={PrivacyPolicy} />
+      <Route path={"/shop"} component={Shop} />
+      <Route path={"/products/:handle"} component={ProductPage} />
+      
+      <Route path={"/404"} component={NotFound} />
+      {/* Final fallback route */}
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
+
+// NOTE: About Theme
+// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
+//   to keep consistent foreground/background color across components
+// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
+
+function App() {
+  return (
+    <ErrorBoundary>
+      <ThemeProvider
+        defaultTheme="light"
+        // switchable
+      >
+        <GoogleAnalytics />
+        <CurrencyProvider>
+          <CartProvider>
+        <TooltipProvider>
+            <Toaster />
+            <div className="pb-16 md:pb-0">
+              <Router />
+            </div>
+            <MobileNav />
+          </TooltipProvider>
+      </CartProvider>
+        </CurrencyProvider>
+      </ThemeProvider>
+    </ErrorBoundary>
+  );
+}
+
+export default App;
