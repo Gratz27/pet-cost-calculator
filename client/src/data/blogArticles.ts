@@ -9,8 +9,9 @@ import { petsAsHolidayGifts } from './blog-articles/pets-as-holiday-gifts';
 import { holidayPetSafetyCosts } from './blog-articles/holiday-pet-safety-costs';
 import { bestPetFoodBrandsUK } from './blog-articles/best-pet-food-brands-uk';
 import { frenchBulldogCompleteCostGuide } from './blog-articles/french-bulldog-complete-cost-guide';
+import { newArticles } from './blog-articles/new-authority-articles';
 
-export type BlogCategory = 'breed-guide' | 'cost-saving' | 'comparison' | 'guide';
+export type BlogCategory = 'breed-guide' | 'cost-saving' | 'comparison' | 'guide' | 'dogs' | 'cats' | 'insurance' | 'vet-costs';
 
 export interface BlogArticle {
   id: string;
@@ -30,6 +31,7 @@ export interface BlogArticle {
 
 export const allBlogArticles: BlogArticle[] = [
   // Newest articles first
+  ...newArticles,
   frenchBulldogCompleteCostGuide,
   bestPetFoodBrandsUK,
   // Holiday articles

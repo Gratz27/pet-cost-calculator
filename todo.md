@@ -746,3 +746,15 @@
 - [ ] Fix meta tags on Privacy Policy and About pages (they are currently using old meta tags)
 - [ ] Create Terms/Disclaimer page and link in footer
 - [ ] Create and deliver new ZIP file (v59)
+
+## Content Authority & Depth (AdSense Feedback)
+- [ ] Add Trust Signals (Author bios, Methodology page, Sources, Update dates)
+- [ ] Create Content Silos/Categories (Dogs, Cats, Insurance, Vet Costs)
+- [ ] Generate 10-15 High-Value, Deep Articles (1,200+ words, tables, regional data)
+- [ ] Create and deliver new ZIP file (v60)
+
+## Content Adjustments
+- [ ] Remove author references from BlogArticle.tsx
+- [ ] Rewrite NZ/AU articles to US/UK focus
+- [ ] Fix missing image for expensive breeds article
+- [ ] Create and deliver new ZIP file (v61)

@@ -11,14 +11,22 @@ const categoryLabels: Record<BlogCategory, string> = {
   'breed-guide': 'Breed Guides',
   'cost-saving': 'Cost-Saving Tips',
   'comparison': 'Comparisons',
-  'guide': 'Guides'
+  'guide': 'Guides',
+  'dogs': 'Dogs',
+  'cats': 'Cats',
+  'insurance': 'Insurance',
+  'vet-costs': 'Vet Costs'
 };
 
 const categoryColors: Record<BlogCategory, string> = {
   'breed-guide': 'bg-blue-100 text-blue-800',
   'cost-saving': 'bg-green-100 text-green-800',
   'comparison': 'bg-purple-100 text-purple-800',
-  'guide': 'bg-orange-100 text-orange-800'
+  'guide': 'bg-orange-100 text-orange-800',
+  'dogs': 'bg-amber-100 text-amber-800',
+  'cats': 'bg-indigo-100 text-indigo-800',
+  'insurance': 'bg-rose-100 text-rose-800',
+  'vet-costs': 'bg-teal-100 text-teal-800'
 };
 
 export default function BlogIndex() {
