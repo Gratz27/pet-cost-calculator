@@ -12,6 +12,7 @@ import About from "./pages/About";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
 import Shop from "./pages/Shop";
 import ProductPage from "./pages/ProductPage";
 import { CartProvider } from "./contexts/CartContext";
@@ -29,6 +30,7 @@ function Router() {
       <Route path={"/how-it-works"} component={HowItWorks} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/privacy-policy"} component={PrivacyPolicy} />
+      <Route path={"/terms"} component={Terms} />
       <Route path={"/shop"} component={Shop} />
       <Route path={"/products/:handle"} component={ProductPage} />
       

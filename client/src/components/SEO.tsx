@@ -40,12 +40,12 @@ export default function SEO({
 }: SEOProps) {
   const fullTitle = `${title} | PetCost-Calculator.com`;
   // Ensure canonical URL is always clean (no query params) and absolute
-  const canonicalUrl = canonical || `https://petcost-calculator.com${window.location.pathname === '/' ? '' : window.location.pathname}`;
+  const canonicalUrl = canonical || `https://www.petcost-calculator.com${window.location.pathname === '/' ? '' : window.location.pathname}`;
   
   // Construct full image URL for social sharing
   const fullImageUrl = articleImage 
-    ? `https://petcost-calculator.com${articleImage}` 
-    : 'https://petcost-calculator.com/favicon.svg';
+    ? `https://www.petcost-calculator.com${articleImage}` 
+    : 'https://www.petcost-calculator.com/favicon.svg';
   
   const breadcrumbSchema = breadcrumbs ? {
     "@context": "https://schema.org",
@@ -70,14 +70,14 @@ export default function SEO({
     "author": {
       "@type": "Organization",
       "name": articleAuthor,
-      "url": "https://petcost-calculator.com"
+      "url": "https://www.petcost-calculator.com"
     },
     "publisher": {
       "@type": "Organization",
       "name": "PetCost-Calculator.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://petcost-calculator.com/favicon.svg"
+        "url": "https://www.petcost-calculator.com/favicon.svg"
       }
     },
     "mainEntityOfPage": {
@@ -92,8 +92,8 @@ export default function SEO({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "PetCost-Calculator.com",
-    "url": "https://petcost-calculator.com",
-    "logo": "https://petcost-calculator.com/logo.png",
+    "url": "https://www.petcost-calculator.com",
+    "logo": "https://www.petcost-calculator.com/logo.png",
     "description": "Free pet cost calculator helping prospective pet owners understand the true lifetime costs of pet ownership.",
     "sameAs": [
       "https://twitter.com/petcostcalc",
@@ -105,11 +105,11 @@ export default function SEO({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "PetCost-Calculator.com",
-    "url": "https://petcost-calculator.com",
+    "url": "https://www.petcost-calculator.com",
     "description": "Calculate the true lifetime cost of pet ownership with breed-specific data.",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://petcost-calculator.com/?breed={search_term_string}",
+      "target": "https://www.petcost-calculator.com/?breed={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   } : null;

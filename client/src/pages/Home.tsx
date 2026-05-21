@@ -365,6 +365,9 @@ export default function Home() {
               <Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Privacy Policy
               </Link>
+              <Link href="/terms" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Terms of Service
+              </Link>
               <p className="text-sm text-muted-foreground">
                 © 2025 PetCost-Calculator.com. Helping pet owners make informed decisions.
               </p>

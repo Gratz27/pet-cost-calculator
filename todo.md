@@ -741,3 +741,8 @@
 - [ ] Create sitemap.xml
 - [ ] Ensure canonical tags match the preferred domain (https://petcost-calculator.com)
 - [ ] Create and deliver new ZIP file (v58)
+
+## AdSense Recheck Fixes
+- [ ] Fix meta tags on Privacy Policy and About pages (they are currently using old meta tags)
+- [ ] Create Terms/Disclaimer page and link in footer
+- [ ] Create and deliver new ZIP file (v59)
