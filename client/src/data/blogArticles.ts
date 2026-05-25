@@ -1,7 +1,7 @@
 import { goldenRetrieverCosts } from './blog-articles/golden-retriever-costs';
 import { labradorRetrieverCosts } from './blog-articles/labrador-retriever-costs';
 import { germanShepherdCosts } from './blog-articles/german-shepherd-costs';
-import { persianCatCosts, maineCoonCosts, budgetFriendlyPetCare, petInsuranceWorthIt } from './blog-articles/remaining-articles';
+
 import { firstYearPuppyCosts, seniorPetCareCosts, emergencyVetCosts, dogVsCatCosts } from './blog-articles/cost-saving-articles';
 import { purebredVsMixedCosts, smallVsLargeDogCosts, puppyVsAdultDogCosts, petCostsByLocation } from './blog-articles/comparison-articles';
 import { holidayPetCareTravel } from './blog-articles/holiday-pet-care-travel';
@@ -10,6 +10,7 @@ import { holidayPetSafetyCosts } from './blog-articles/holiday-pet-safety-costs'
 import { bestPetFoodBrandsUK } from './blog-articles/best-pet-food-brands-uk';
 import { frenchBulldogCompleteCostGuide } from './blog-articles/french-bulldog-complete-cost-guide';
 import { newArticles } from './blog-articles/new-authority-articles';
+import { remainingArticlesNew } from './blog-articles/remaining-articles-new';
 
 export type BlogCategory = 'breed-guide' | 'cost-saving' | 'comparison' | 'guide' | 'dogs' | 'cats' | 'insurance' | 'vet-costs';
 
@@ -32,6 +33,7 @@ export interface BlogArticle {
 export const allBlogArticles: BlogArticle[] = [
   // Newest articles first
   ...newArticles,
+  ...remainingArticlesNew,
   frenchBulldogCompleteCostGuide,
   bestPetFoodBrandsUK,
   // Holiday articles
@@ -42,10 +44,7 @@ export const allBlogArticles: BlogArticle[] = [
   goldenRetrieverCosts,
   labradorRetrieverCosts,
   germanShepherdCosts,
-  persianCatCosts,
-  maineCoonCosts,
-  budgetFriendlyPetCare,
-  petInsuranceWorthIt,
+
   firstYearPuppyCosts,
   seniorPetCareCosts,
   emergencyVetCosts,

@@ -1,11 +1,11 @@
 import { BlogArticle } from '../blogArticles';
 
-export const remainingArticles: BlogArticle[] = [
+export const remainingArticlesNew: BlogArticle[] = [
   {
     id: 'golden-retriever-cost-us',
     title: 'How Much Does a Golden Retriever Cost Per Year in the US?',
     slug: 'golden-retriever-cost-us',
-    excerpt: 'A complete breakdown of the costs associated with owning a Golden Retriever in the United States, from adoption to ongoing care.',
+    description: 'A complete breakdown of the costs associated with owning a Golden Retriever in the United States, from adoption to ongoing care.',
     content: `
       <p>Golden Retrievers are one of the most popular dog breeds in the United States, known for their friendly and tolerant attitudes. However, their size and specific health needs mean they come with a significant financial commitment.</p>
       
@@ -33,17 +33,18 @@ export const remainingArticles: BlogArticle[] = [
       <h2>Conclusion</h2>
       <p>Owning a Golden Retriever is a rewarding experience, but it requires careful financial planning. By understanding the initial and ongoing costs, you can ensure you are prepared to provide a loving and well-cared-for home for your furry friend.</p>
     `,
-    category: 'Dogs',
+    category: 'dogs',
+    author: 'PetCost-Calculator Team',
     publishDate: '2026-05-25',
     readTime: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=1000',
-    tags: ['Golden Retriever', 'Dog Costs', 'US', 'Budgeting']
+    image: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['Golden Retriever', 'Dog Costs', 'US', 'Budgeting']
   },
   {
     id: 'cat-ownership-costs',
     title: 'Cat Ownership Costs: First Year vs Ongoing',
     slug: 'cat-ownership-costs',
-    excerpt: 'Understand the financial commitment of owning a cat, comparing the initial first-year expenses with the ongoing annual costs.',
+    description: 'Understand the financial commitment of owning a cat, comparing the initial first-year expenses with the ongoing annual costs.',
     content: `
       <p>Cats are often considered lower-maintenance pets compared to dogs, but they still require a significant financial commitment. Understanding the difference between first-year costs and ongoing expenses is crucial for prospective cat owners.</p>
       
@@ -67,17 +68,18 @@ export const remainingArticles: BlogArticle[] = [
       <h2>Conclusion</h2>
       <p>While cats may be less expensive to own than dogs, they still require a steady financial commitment. By budgeting for both the initial first-year costs and the ongoing annual expenses, you can ensure your cat receives the care they need throughout their life.</p>
     `,
-    category: 'Cats',
+    category: 'cats',
+    author: 'PetCost-Calculator Team',
     publishDate: '2026-05-24',
     readTime: 5,
-    imageUrl: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=1000',
-    tags: ['Cat Costs', 'Budgeting', 'First Year']
+    image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['Cat Costs', 'Budgeting', 'First Year']
   },
   {
     id: 'pet-insurance-explained',
     title: 'Pet Insurance Explained: Is It Worth It?',
     slug: 'pet-insurance-explained',
-    excerpt: 'A comprehensive guide to pet insurance, how it works, and whether it is a worthwhile investment for your furry friend.',
+    description: 'A comprehensive guide to pet insurance, how it works, and whether it is a worthwhile investment for your furry friend.',
     content: `
       <p>Pet insurance is becoming increasingly popular as veterinary costs continue to rise. But is it worth the monthly premium? This guide explains how pet insurance works and helps you decide if it's the right choice for you and your pet.</p>
       
@@ -105,17 +107,18 @@ export const remainingArticles: BlogArticle[] = [
       <h2>Conclusion</h2>
       <p>Whether pet insurance is worth it depends on your financial situation and risk tolerance. If a sudden $3,000 vet bill would cause significant financial hardship, pet insurance is a wise investment. Be sure to compare policies, read the fine print, and choose a plan that best meets your needs.</p>
     `,
-    category: 'Insurance',
+    category: 'insurance',
+    author: 'PetCost-Calculator Team',
     publishDate: '2026-05-23',
     readTime: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=1000',
-    tags: ['Pet Insurance', 'Vet Costs', 'Financial Planning']
+    image: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['Pet Insurance', 'Vet Costs', 'Financial Planning']
   },
   {
     id: 'hidden-dog-costs',
     title: '10 Hidden Dog Ownership Costs First-Timers Miss',
     slug: 'hidden-dog-costs',
-    excerpt: 'Discover the unexpected expenses of dog ownership that often catch first-time owners off guard.',
+    description: 'Discover the unexpected expenses of dog ownership that often catch first-time owners off guard.',
     content: `
       <p>Bringing a new dog into your home is an exciting time, but it's easy to underestimate the true cost of ownership. While most people budget for food and routine vet care, there are several hidden costs that can quickly add up.</p>
       
@@ -152,17 +155,18 @@ export const remainingArticles: BlogArticle[] = [
       <h2>Conclusion</h2>
       <p>By being aware of these hidden costs, first-time dog owners can better prepare for the financial realities of pet ownership and ensure they can provide a loving, stable home for their new companion.</p>
     `,
-    category: 'Dogs',
+    category: 'dogs',
+    author: 'PetCost-Calculator Team',
     publishDate: '2026-05-22',
     readTime: 7,
-    imageUrl: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=1000',
-    tags: ['Dog Costs', 'Hidden Costs', 'Budgeting']
+    image: 'https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['Dog Costs', 'Hidden Costs', 'Budgeting']
   },
   {
     id: 'cheapest-dog-breeds',
     title: 'Cheapest Dog Breeds to Own Long-Term',
     slug: 'cheapest-dog-breeds',
-    excerpt: 'Explore the dog breeds that are generally the most affordable to own over their lifetime, considering food, grooming, and healthcare costs.',
+    description: 'Explore the dog breeds that are generally the most affordable to own over their lifetime, considering food, grooming, and healthcare costs.',
     content: `
       <p>While the initial purchase price or adoption fee is a factor, the true cost of a dog is measured over its lifetime. Some breeds are significantly more affordable to own long-term due to their size, grooming needs, and overall health.</p>
       
@@ -192,17 +196,18 @@ export const remainingArticles: BlogArticle[] = [
       <h2>Conclusion</h2>
       <p>When choosing a dog, it's important to consider the long-term financial commitment. Opting for a smaller, healthier breed with low grooming needs can save you thousands of dollars over the dog's lifetime, ensuring you can comfortably provide for your furry friend.</p>
     `,
-    category: 'Dogs',
+    category: 'dogs',
+    author: 'PetCost-Calculator Team',
     publishDate: '2026-05-21',
     readTime: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1537151608804-ea2f1ea290d0?auto=format&fit=crop&q=80&w=1000',
-    tags: ['Dog Breeds', 'Affordable Pets', 'Budgeting']
+    image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['Dog Breeds', 'Affordable Pets', 'Budgeting']
   },
   {
     id: 'vet-costs-by-breed',
     title: 'Vet Costs by Breed: Which Dogs Cost the Most?',
     slug: 'vet-costs-by-breed',
-    excerpt: 'An analysis of how veterinary costs vary by dog breed, highlighting the breeds that typically incur the highest medical expenses.',
+    description: 'An analysis of how veterinary costs vary by dog breed, highlighting the breeds that typically incur the highest medical expenses.',
     content: `
       <p>Veterinary care is one of the most significant expenses of dog ownership. However, these costs are not uniform across all dogs. A dog's breed plays a major role in determining their lifetime medical expenses due to genetic predispositions to certain health conditions.</p>
       
@@ -230,17 +235,18 @@ export const remainingArticles: BlogArticle[] = [
       <h2>Conclusion</h2>
       <p>Understanding the potential health risks associated with specific breeds is crucial for prospective dog owners. By researching breed-specific health issues, you can make an informed decision and ensure you are financially prepared for the veterinary care your dog may need.</p>
     `,
-    category: 'Vet Costs',
+    category: 'vet-costs',
+    author: 'PetCost-Calculator Team',
     publishDate: '2026-05-20',
     readTime: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1584811644165-4d241668b01e?auto=format&fit=crop&q=80&w=1000',
-    tags: ['Vet Costs', 'Dog Breeds', 'Health Care']
+    image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['Vet Costs', 'Dog Breeds', 'Health Care']
   },
   {
     id: 'budgeting-for-puppy',
     title: 'How to Budget for a New Puppy — Month by Month',
     slug: 'budgeting-for-puppy',
-    excerpt: 'A practical, month-by-month guide to budgeting for the expenses of a new puppy during their crucial first year.',
+    description: 'A practical, month-by-month guide to budgeting for the expenses of a new puppy during their crucial first year.',
     content: `
       <p>Bringing a new puppy home is a joyous occasion, but the expenses can be overwhelming if you aren't prepared. A month-by-month budget can help you manage the costs and ensure your puppy gets everything they need during their crucial first year.</p>
       
@@ -272,17 +278,18 @@ export const remainingArticles: BlogArticle[] = [
       <h2>Conclusion</h2>
       <p>Budgeting for a puppy requires anticipating both the large initial expenses and the ongoing monthly costs. By planning ahead month by month, you can provide a wonderful life for your new companion without financial stress.</p>
     `,
-    category: 'Dogs',
+    category: 'dogs',
+    author: 'PetCost-Calculator Team',
     publishDate: '2026-05-19',
     readTime: 7,
-    imageUrl: 'https://images.unsplash.com/photo-1591160690555-5debfba289f0?auto=format&fit=crop&q=80&w=1000',
-    tags: ['Puppy', 'Budgeting', 'First Year']
+    image: 'https://images.unsplash.com/photo-1591160690555-5debfba289f0?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['Puppy', 'Budgeting', 'First Year']
   },
   {
     id: 'mixed-vs-purebred-health-costs',
     title: 'Mixed Breed vs Purebred Health Costs Compared',
     slug: 'mixed-vs-purebred-health-costs',
-    excerpt: 'A detailed comparison of the lifetime health costs associated with mixed breed dogs versus purebred dogs.',
+    description: 'A detailed comparison of the lifetime health costs associated with mixed breed dogs versus purebred dogs.',
     content: `
       <p>When deciding to bring a dog into your life, one of the biggest choices is whether to adopt a mixed breed (mutt) or purchase a purebred. Beyond the initial acquisition cost, this decision has significant implications for the dog's lifetime health and the associated veterinary expenses.</p>
       
@@ -306,17 +313,18 @@ export const remainingArticles: BlogArticle[] = [
       <h2>Conclusion</h2>
       <p>If minimizing lifetime veterinary costs is a priority, a mixed breed dog is generally the safer financial choice. While purebreds offer predictability in size and appearance, that predictability often comes with a higher risk of genetic health issues and the associated medical bills.</p>
     `,
-    category: 'Vet Costs',
+    category: 'vet-costs',
+    author: 'PetCost-Calculator Team',
     publishDate: '2026-05-18',
     readTime: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&q=80&w=1000',
-    tags: ['Mixed Breed', 'Purebred', 'Health Care', 'Vet Costs']
+    image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['Mixed Breed', 'Purebred', 'Health Care', 'Vet Costs']
   },
   {
     id: 'senior-dog-care-costs',
     title: 'The Rising Costs of Senior Dog Care',
     slug: 'senior-dog-care-costs',
-    excerpt: 'Understand the financial implications of caring for an aging dog, from increased veterinary visits to specialized diets and mobility aids.',
+    description: 'Understand the financial implications of caring for an aging dog, from increased veterinary visits to specialized diets and mobility aids.',
     content: `
       <p>As our canine companions enter their golden years, their needs change, and often, so do the costs associated with their care. Budgeting for a senior dog requires anticipating increased medical expenses and lifestyle adjustments.</p>
       
@@ -340,17 +348,18 @@ export const remainingArticles: BlogArticle[] = [
       <h2>Conclusion</h2>
       <p>Caring for a senior dog is a privilege, but it requires financial preparation. By understanding the rising costs associated with aging, you can ensure your loyal companion remains comfortable and well-cared for in their final years.</p>
     `,
-    category: 'Vet Costs',
+    category: 'vet-costs',
+    author: 'PetCost-Calculator Team',
     publishDate: '2026-05-17',
     readTime: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&q=80&w=1000',
-    tags: ['Senior Dogs', 'Vet Costs', 'Health Care']
+    image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['Senior Dogs', 'Vet Costs', 'Health Care']
   },
   {
     id: 'cost-of-adopting-a-rescue-dog',
     title: 'The True Cost of Adopting a Rescue Dog',
     slug: 'cost-of-adopting-a-rescue-dog',
-    excerpt: 'A detailed look at the costs involved in adopting a rescue dog, proving that while the initial fee is lower, ongoing costs remain the same.',
+    description: 'A detailed look at the costs involved in adopting a rescue dog, proving that while the initial fee is lower, ongoing costs remain the same.',
     content: `
       <p>Adopting a dog from a shelter or rescue organization is a wonderful way to add a furry member to your family while saving a life. It is also generally more affordable upfront than purchasing a puppy from a breeder. However, it's crucial to understand the true, long-term costs involved.</p>
       
@@ -384,10 +393,11 @@ export const remainingArticles: BlogArticle[] = [
       <h2>Conclusion</h2>
       <p>Adopting a rescue dog is a cost-effective way to bring a pet into your life, primarily due to the subsidized initial veterinary care included in the adoption fee. However, prospective adopters must be financially prepared for the standard ongoing costs of dog ownership, which remain substantial regardless of the dog's origin.</p>
     `,
-    category: 'Dogs',
+    category: 'dogs',
+    author: 'PetCost-Calculator Team',
     publishDate: '2026-05-16',
     readTime: 6,
-    imageUrl: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=1000',
-    tags: ['Adoption', 'Rescue Dogs', 'Budgeting']
+    image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['Adoption', 'Rescue Dogs', 'Budgeting']
   }
 ];

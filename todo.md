@@ -758,3 +758,14 @@
 - [ ] Rewrite NZ/AU articles to US/UK focus
 - [ ] Fix missing image for expensive breeds article
 - [ ] Create and deliver new ZIP file (v61)
+
+## AdSense Round 3 Fixes
+- [ ] Fix meta tags on Privacy Policy and About pages (canonical, viewport, etc.)
+- [ ] Implement Cookie Consent Banner
+- [ ] Generate remaining 10 high-value articles
+- [ ] Create and deliver new ZIP file (v62)
+
+## Blog Image Updates
+- [ ] Find and update image URLs in blog article files to be unique and relevant
+- [ ] Fix broken images for "Cheapest Dog Breeds" and "Vet Costs by Breed"
+- [ ] Create and deliver new ZIP file (v64)
