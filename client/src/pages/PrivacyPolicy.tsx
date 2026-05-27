@@ -13,6 +13,7 @@ export default function PrivacyPolicy() {
       <SEO
         title={`Privacy Policy & Disclaimer | ${APP_TITLE}`}
         description="Privacy Policy and Disclaimer for PetCost-Calculator.com. Learn how we collect, use, and protect your data."
+        canonical="https://www.petcost-calculator.com/privacy-policy"
       />
       <div className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-12 max-w-4xl">

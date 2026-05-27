@@ -769,3 +769,7 @@
 - [ ] Find and update image URLs in blog article files to be unique and relevant
 - [ ] Fix broken images for "Cheapest Dog Breeds" and "Vet Costs by Breed"
 - [ ] Create and deliver new ZIP file (v64)
+
+## AdSense Round 4 Fixes
+- [ ] Fix structural meta tag issue for /privacy-policy and /about pages
+- [ ] Create and deliver new ZIP file (v66)
