@@ -34,12 +34,11 @@ export default function BlogArticle() {
       <SEO
         title={article.title}
         description={article.description}
-        canonical={`https://petcost-calculator.com/blog/${article.slug}`}
-        keywords={article.keywords.join(', ')}
+        canonical={`https://www.petcost-calculator.com/blog/${article.slug}`}
         breadcrumbs={[
-          { name: 'Home', url: 'https://petcost-calculator.com' },
-          { name: 'Blog', url: 'https://petcost-calculator.com/blog' },
-          { name: article.title, url: `https://petcost-calculator.com/blog/${article.slug}` }
+          { name: 'Home', url: 'https://www.petcost-calculator.com' },
+          { name: 'Blog', url: 'https://www.petcost-calculator.com/blog' },
+          { name: article.title, url: `https://www.petcost-calculator.com/blog/${article.slug}` }
         ]}
         isBlogArticle={true}
         articleImage={article.image}

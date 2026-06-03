@@ -37,10 +37,10 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Pet Adoption Cost Reality Calculator - Free Pet Cost Estimator"
+        title="Pet Cost Calculator – Lifetime Ownership Costs by Breed"
         description="Free pet cost calculator with breed-specific data. Get accurate estimates for adoption fees, vet care, food, grooming, and lifetime costs. Used by 50,000+ prospective pet owners."
-        keywords="pet cost calculator, dog cost calculator, cat cost calculator, pet ownership costs, pet adoption costs, lifetime pet costs, petcost-calculator"
-        canonical="https://petcost-calculator.com"
+
+        canonical="https://www.petcost-calculator.com"
         isHomepage={true}
         faqSchema={{
           "@context": "https://schema.org",

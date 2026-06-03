@@ -17,6 +17,7 @@ import Shop from "./pages/Shop";
 import ProductPage from "./pages/ProductPage";
 import { CartProvider } from "./contexts/CartContext";
 import MobileNav from "./components/MobileNav";
+import BreedPage from "./pages/BreedPage";
 
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import CookieConsent from "react-cookie-consent";
@@ -32,6 +33,7 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/privacy-policy"} component={PrivacyPolicy} />
       <Route path={"/terms"} component={Terms} />
+      <Route path="/breeds/:slug" component={BreedPage} />
       <Route path={"/shop"} component={Shop} />
       <Route path={"/products/:handle"} component={ProductPage} />
       
