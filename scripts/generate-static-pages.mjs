@@ -1,9 +1,13 @@
 /**
  * Post-build static HTML generator for SEO
  *
- * Generates static HTML files for all blog articles and breed pages so that
- * Googlebot receives fully-rendered HTML on first fetch, rather than an empty
- * JavaScript shell.
+ * Generates static HTML files for all blog articles, breed pages, and static
+ * pages so that Googlebot receives fully-rendered HTML on first fetch, rather
+ * than an empty JavaScript shell.
+ *
+ * IMPORTANT: This script REPLACES (not appends) all conflicting head tags so
+ * that search engines see exactly one canonical, one title, one description,
+ * and one set of og/twitter tags per page.
  *
  * Run after `vite build`: node scripts/generate-static-pages.mjs
  */
@@ -18,7 +22,49 @@ const DIST = path.resolve(ROOT, 'dist/public');
 const BASE_URL = 'https://www.petcost-calculator.com';
 
 // Read the base index.html shell
-const indexHtml = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
+const rawIndexHtml = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
+
+/**
+ * Strip all existing SEO-related tags from the HTML shell so sub-pages
+ * don't inherit the homepage's canonical, og:url, og:title, og:description,
+ * twitter tags, or meta description.
+ */
+function stripExistingSeoTags(html) {
+  return html
+    // Remove <title>...</title>
+    .replace(/<title>[^<]*<\/title>/gi, '')
+    // Remove <link rel="canonical" ...>
+    .replace(/<link\s+rel="canonical"[^>]*>/gi, '')
+    // Remove <meta name="description" ...>
+    .replace(/<meta\s+name="description"[^>]*>/gi, '')
+    // Remove <meta name="keywords" ...>
+    .replace(/<meta\s+name="keywords"[^>]*>/gi, '')
+    // Remove <meta property="og:title" ...>
+    .replace(/<meta\s+property="og:title"[^>]*>/gi, '')
+    // Remove <meta property="og:description" ...>
+    .replace(/<meta\s+property="og:description"[^>]*>/gi, '')
+    // Remove <meta property="og:url" ...>
+    .replace(/<meta\s+property="og:url"[^>]*>/gi, '')
+    // Remove <meta property="og:image" ...>
+    .replace(/<meta\s+property="og:image"[^>]*>/gi, '')
+    // Remove <meta property="og:image:width" ...>
+    .replace(/<meta\s+property="og:image:width"[^>]*>/gi, '')
+    // Remove <meta property="og:image:height" ...>
+    .replace(/<meta\s+property="og:image:height"[^>]*>/gi, '')
+    // Remove <meta property="og:type" ...>
+    .replace(/<meta\s+property="og:type"[^>]*>/gi, '')
+    // Remove <meta name="twitter:title" ...>
+    .replace(/<meta\s+name="twitter:title"[^>]*>/gi, '')
+    // Remove <meta name="twitter:description" ...>
+    .replace(/<meta\s+name="twitter:description"[^>]*>/gi, '')
+    // Remove <meta name="twitter:image" ...>
+    .replace(/<meta\s+name="twitter:image"[^>]*>/gi, '')
+    // Remove <meta name="twitter:card" ...>
+    .replace(/<meta\s+name="twitter:card"[^>]*>/gi, '')
+    // Remove homepage schema blocks (SoftwareApplication, Organization, FAQPage)
+    // These are only valid on the homepage and must not appear on sub-pages
+    .replace(/<script\s+type="application\/ld\+json">[\s\S]*?<\/script>/gi, '');
+}
 
 // ─── Blog Articles ────────────────────────────────────────────────────────────
 
@@ -51,7 +97,7 @@ function extractArticleMetadata() {
           slug,
           title,
           description: description || '',
-          image: image || '/manus-storage/og-image_4cc3ea7e.png',
+          image: image || `${BASE_URL}/og-image.png`,
           date: date || '2026-01-01',
         });
       }
@@ -100,11 +146,13 @@ function extractBreedMetadata() {
 
 // ─── HTML Generator ───────────────────────────────────────────────────────────
 
-function generatePageHtml({ title, description, canonical, ogImage, articleSchema, breadcrumbs }) {
-  const fullTitle = `${title} | PetCost-Calculator.com`;
+function generatePageHtml({ title, description, canonical, ogImage, ogType, articleSchema, breadcrumbs }) {
+  const SITE_NAME = 'PetCost-Calculator.com';
+  const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
   const ogImageUrl = ogImage?.startsWith('http')
     ? ogImage
-    : `${BASE_URL}${ogImage || '/manus-storage/og-image_4cc3ea7e.png'}`;
+    : `${BASE_URL}/${ogImage || 'og-image.png'}`;
+  const pageOgType = ogType || (articleSchema ? 'article' : 'website');
 
   const breadcrumbSchema = breadcrumbs
     ? JSON.stringify({
@@ -129,7 +177,7 @@ function generatePageHtml({ title, description, canonical, ogImage, articleSchem
     <meta property="og:image" content="${ogImageUrl}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:type" content="${articleSchema ? 'article' : 'website'}" />
+    <meta property="og:type" content="${pageOgType}" />
     <meta property="og:site_name" content="PetCost-Calculator.com" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="${fullTitle.replace(/"/g, '&quot;')}" />
@@ -139,9 +187,10 @@ function generatePageHtml({ title, description, canonical, ogImage, articleSchem
     ${breadcrumbSchema ? `<script type="application/ld+json">${breadcrumbSchema}</script>` : ''}
   `;
 
-  return indexHtml
-    .replace(/<title>[^<]*<\/title>/, '')
-    .replace('</head>', `${seoTags}\n</head>`);
+  // Strip all existing conflicting SEO tags from the shell, then inject
+  // the page-specific tags just before </head>
+  const cleanedHtml = stripExistingSeoTags(rawIndexHtml);
+  return cleanedHtml.replace('</head>', `${seoTags}\n</head>`);
 }
 
 function writePageHtml(urlPath, html) {
@@ -188,6 +237,7 @@ for (const article of articles) {
     description: article.description,
     canonical,
     ogImage: article.image,
+    ogType: 'article',
     articleSchema,
     breadcrumbs: [
       { name: 'Home', url: BASE_URL },
@@ -208,7 +258,8 @@ for (const breed of breeds) {
     title: `${breed.name} Cost Guide – Lifetime Ownership Costs`,
     description: breed.description,
     canonical,
-    ogImage: '/manus-storage/og-image_4cc3ea7e.png',
+    ogImage: `${BASE_URL}/og-image.png`,
+    ogType: 'website',
     articleSchema: null,
     breadcrumbs: [
       { name: 'Home', url: BASE_URL },
@@ -246,14 +297,14 @@ const staticPages = [
   },
   {
     path: 'privacy-policy',
-    title: 'Privacy Policy | PetCost-Calculator.com',
+    title: 'Privacy Policy',
     description:
-      'Read our privacy policy to understand how PetCost-Calculator.com collects, uses, and protects your data.',
+      'Read our privacy policy to understand how PetCost-Calculator.com collects, uses, and protects your data when you use our free pet cost calculator.',
     canonical: `${BASE_URL}/privacy-policy`,
   },
   {
     path: 'terms',
-    title: 'Terms of Service & Disclaimer | PetCost-Calculator.com',
+    title: 'Terms of Service & Disclaimer',
     description:
       'Terms of service and cost disclaimer for PetCost-Calculator.com. All costs are estimates based on averages and will vary by region.',
     canonical: `${BASE_URL}/terms`,
@@ -265,11 +316,12 @@ for (const page of staticPages) {
     title: page.title,
     description: page.description,
     canonical: page.canonical,
-    ogImage: '/manus-storage/og-image_4cc3ea7e.png',
+    ogImage: `${BASE_URL}/og-image.png`,
+    ogType: 'website',
     articleSchema: null,
     breadcrumbs: [
       { name: 'Home', url: BASE_URL },
-      { name: page.title.split('|')[0].trim(), url: page.canonical },
+      { name: page.title.split('–')[0].trim(), url: page.canonical },
     ],
   });
   writePageHtml(page.path, html);
