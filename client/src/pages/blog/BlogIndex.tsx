@@ -41,7 +41,7 @@ export default function BlogIndex() {
       <SEO
         title="Pet Cost Calculator Blog - Expert Guides & Money-Saving Tips"
         description="Expert guides on pet ownership costs, breed-specific expenses, money-saving tips, and cost comparisons. Make informed decisions about pet care budgeting."
-        canonical="/blog"
+        canonical="https://www.petcost-calculator.com/blog"
       />
       
       <div className="min-h-screen bg-gradient-to-b from-background to-muted/20">

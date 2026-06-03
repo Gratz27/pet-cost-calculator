@@ -11,7 +11,6 @@ export default function About() {
       <SEO 
         title="About Pet Cost Calculator - Helping Pet Owners Budget Wisely"
         description="Learn about PetCost-Calculator.com and our mission to help prospective pet owners make informed financial decisions about pet adoption and ownership costs."
-        keywords="about pet cost calculator, pet budgeting tool, pet ownership planning, responsible pet adoption"
         canonical="https://www.petcost-calculator.com/about"
         breadcrumbs={[
           { name: "Home", url: "https://www.petcost-calculator.com" },

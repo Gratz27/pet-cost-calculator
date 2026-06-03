@@ -56,10 +56,10 @@ export default function Contact() {
       <SEO 
         title="Contact Pet Cost Calculator - Get Help with Pet Budgeting"
         description="Contact PetCost-Calculator.com for questions, feedback, partnership inquiries, or technical support. We're here to help you plan your pet budget."
-        keywords="contact pet cost calculator, pet budgeting help, pet cost questions, partnership inquiries"
+        canonical="https://www.petcost-calculator.com/contact"
         breadcrumbs={[
-          { name: "Home", url: "https://petcost-calculator.com" },
-          { name: "Contact", url: "https://petcost-calculator.com/contact" }
+          { name: "Home", url: "https://www.petcost-calculator.com" },
+          { name: "Contact", url: "https://www.petcost-calculator.com/contact" }
         ]}
       />
       <Header />

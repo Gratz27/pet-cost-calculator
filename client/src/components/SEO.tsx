@@ -39,8 +39,13 @@ export default function SEO({
   faqSchema
 }: SEOProps) {
   const fullTitle = `${title} | PetCost-Calculator.com`;
-  // Ensure canonical URL is always clean (no query params) and absolute
-  const canonicalUrl = canonical || `https://www.petcost-calculator.com${window.location.pathname === '/' ? '' : window.location.pathname}`;
+  // Ensure canonical URL is always absolute, www-prefixed, and clean (no query params)
+  const BASE = 'https://www.petcost-calculator.com';
+  const rawCanonical = canonical || window.location.pathname;
+  const canonicalUrl = rawCanonical.startsWith('http')
+    ? rawCanonical
+        .replace(/^https?:\/\/(www\.)?petcost-calculator\.com/, BASE)
+    : `${BASE}${rawCanonical === '/' ? '' : rawCanonical}`;
   
   // Construct full image URL for social sharing
   const fullImageUrl = articleImage 
@@ -214,11 +219,11 @@ export default function SEO({
       <link rel="canonical" href={canonicalUrl} />
       
       {/* Open Graph Meta Tags */}
-      <meta property="og:image" content={articleImage || 'https://www.petcost-calculator.com/og-image.png'} />
+      <meta property="og:image" content={articleImage || '/manus-storage/og-image_4cc3ea7e.png'} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:image" content={articleImage || 'https://www.petcost-calculator.com/og-image.png'} />
+      <meta name="twitter:image" content={articleImage || '/manus-storage/og-image_4cc3ea7e.png'} />
       <meta property="og:type" content={isBlogArticle ? "article" : "website"} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

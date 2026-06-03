@@ -11,10 +11,10 @@ export default function HowItWorks() {
       <SEO 
         title="How Our Pet Cost Calculator Works - Step-by-Step Guide"
         description="Learn how to use our free pet cost calculator to get accurate breed-specific estimates for adoption fees, vet care, food, grooming, and lifetime pet ownership costs in 8 simple steps."
-        keywords="how pet cost calculator works, pet cost estimator guide, calculate pet expenses, pet budgeting steps"
+        canonical="https://www.petcost-calculator.com/how-it-works"
         breadcrumbs={[
-          { name: "Home", url: "https://petcost-calculator.com" },
-          { name: "How It Works", url: "https://petcost-calculator.com/how-it-works" }
+          { name: "Home", url: "https://www.petcost-calculator.com" },
+          { name: "How It Works", url: "https://www.petcost-calculator.com/how-it-works" }
         ]}
       />
       <Header />

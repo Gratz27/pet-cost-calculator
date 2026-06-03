@@ -9,8 +9,7 @@ export default function Shop() {
       <SEO 
         title="Curated Pet Essentials - PetCost Calculator Shop"
         description="Shop our hand-picked selection of high-quality pet essentials. From orthopedic beds to professional grooming kits, find the best value for your pet."
-        keywords="pet shop, dog beds, cat toys, grooming supplies, pet essentials"
-        canonical="https://petcost-calculator.com/shop"
+        canonical="https://www.petcost-calculator.com/shop"
       />
       <div className="min-h-screen bg-background flex flex-col">
         <Header />

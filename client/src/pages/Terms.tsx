@@ -15,6 +15,7 @@ export default function Terms() {
       <SEO
         title={`Terms of Service & Disclaimer | ${APP_TITLE}`}
         description="Terms of Service and Disclaimer for PetCost-Calculator.com. Please read these terms carefully before using our calculator."
+        canonical="https://www.petcost-calculator.com/terms"
         breadcrumbs={[
           { name: "Home", url: "https://www.petcost-calculator.com" },
           { name: "Terms of Service", url: "https://www.petcost-calculator.com/terms" }
