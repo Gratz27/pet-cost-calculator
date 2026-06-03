@@ -108,7 +108,18 @@ export default function BlogArticle() {
         {/* Article content */}
         <div 
           className="prose prose-lg max-w-none mb-12"
-          dangerouslySetInnerHTML={{ __html: useMemo(() => marked(article.content), [article.content]) }}
+          dangerouslySetInnerHTML={{ __html: useMemo(() => {
+            // Dedent content: remove common leading whitespace so Markdown
+            // doesn't treat 4+ space-indented HTML as a code block.
+            const lines = article.content.split('\n');
+            const nonEmpty = lines.filter(l => l.trim().length > 0);
+            const minIndent = nonEmpty.reduce((min, l) => {
+              const indent = l.match(/^(\s*)/)?.[1].length ?? 0;
+              return Math.min(min, indent);
+            }, Infinity);
+            const dedented = lines.map(l => l.slice(minIndent === Infinity ? 0 : minIndent)).join('\n');
+            return marked(dedented) as string;
+          }, [article.content]) }}
         />
 
         {/* Trust Signals: Methodology */}
