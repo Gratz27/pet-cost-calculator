@@ -1,0 +1,168 @@
+import { useRoute, Link } from 'wouter';
+import { ArrowLeft, Calendar, Clock, User } from 'lucide-react';
+import { marked } from 'marked';
+import { useMemo } from 'react';
+import Header from '@/components/Header';
+import SEO from '@/components/SEO';
+import { Button } from '@/components/ui/button';
+import RelatedArticles from '@/components/RelatedArticles';
+import { allBlogArticles } from '@/data/blogArticles';
+
+export default function BlogArticle() {
+  const [, params] = useRoute('/blog/:slug');
+  const article = allBlogArticles.find(a => a.slug === params?.slug);
+
+  if (!article) {
+    return (
+      <>
+        <Header />
+        <div className="container max-w-4xl py-16 text-center">
+          <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
+          <p className="text-muted-foreground mb-8">
+            The article you're looking for doesn't exist.
+          </p>
+          <Button asChild>
+            <Link href="/blog">← Back to Blog</Link>
+          </Button>
+        </div>
+      </>
+    );
+  }
+
+  return (
+    <>
+      <SEO
+        title={article.title}
+        description={article.description}
+        canonical={`https://www.petcost-calculator.com/blog/${article.slug}`}
+        breadcrumbs={[
+          { name: 'Home', url: 'https://www.petcost-calculator.com' },
+          { name: 'Blog', url: 'https://www.petcost-calculator.com/blog' },
+          { name: article.title, url: `https://www.petcost-calculator.com/blog/${article.slug}` }
+        ]}
+        isBlogArticle={true}
+        articleImage={article.image}
+        articlePublishDate={article.publishDate}
+        articleAuthor={article.author}
+        articleTags={article.keywords}
+      />
+      <Header />
+      
+      <article className="container max-w-4xl py-8">
+        {/* Back button */}
+        <Button variant="ghost" asChild className="mb-6">
+          <Link href="/blog">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Blog
+          </Link>
+        </Button>
+
+        {/* Article header */}
+        <header className="mb-8">
+          <div className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+            {article.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            {article.title}
+          </h1>
+          
+          {/* Featured Image */}
+          <div className="aspect-video w-full rounded-lg overflow-hidden mb-6">
+            <img 
+              src={article.image} 
+              alt={article.title}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
+          
+          <p className="text-xl text-muted-foreground mb-6">
+            {article.description}
+          </p>
+
+          <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+            {article.author && (
+              <div className="flex items-center gap-2">
+                <User className="w-4 h-4" />
+                <span>By <strong className="text-foreground font-medium">{article.author}</strong></span>
+              </div>
+            )}
+            <div className="flex items-center gap-2">
+              <Calendar className="w-4 h-4" />
+              <time dateTime={article.publishDate}>
+                Published: {new Date(article.publishDate).toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+            </div>
+            <div className="flex items-center gap-2">
+              <Calendar className="w-4 h-4" />
+              <time dateTime={new Date().toISOString().split('T')[0]}>
+                Updated: {new Date().toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}
+              </time>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4" />
+              {article.readTime} min read
+            </div>
+          </div>
+        </header>
+
+        {/* Article content */}
+        <div 
+          className="prose prose-lg max-w-none mb-12"
+          dangerouslySetInnerHTML={{ __html: useMemo(() => {
+            // Dedent content: remove common leading whitespace so Markdown
+            // doesn't treat 4+ space-indented HTML as a code block.
+            const lines = article.content.split('\n');
+            const nonEmpty = lines.filter(l => l.trim().length > 0);
+            const minIndent = nonEmpty.reduce((min, l) => {
+              const indent = l.match(/^(\s*)/)?.[1].length ?? 0;
+              return Math.min(min, indent);
+            }, Infinity);
+            const dedented = lines.map(l => l.slice(minIndent === Infinity ? 0 : minIndent)).join('\n');
+            return marked(dedented) as string;
+          }, [article.content]) }}
+        />
+
+        {/* Trust Signals: Methodology */}
+        <div className="bg-muted/30 rounded-lg p-6 mb-12 border border-border">
+          <h3 className="text-lg font-semibold mb-2">Data Methodology & Sources</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            This article was created using data aggregated from veterinary clinics, pet insurance providers, and surveys of pet owners across multiple regions (including the US, UK, Australia, and New Zealand).
+          </p>
+          <p className="text-sm text-muted-foreground">
+            <strong>Sources:</strong> Data points in this article are cross-referenced with industry reports from the American Pet Products Association (APPA), the PDSA (UK), and Animal Medicines Australia (AMA). All cost estimates are indicative and subject to regional inflation.
+          </p>
+        </div>
+
+        {/* Call to action */}
+        <div className="bg-primary/5 rounded-lg p-8 text-center mb-12">
+          <h2 className="text-2xl font-bold mb-4">
+            Ready to Calculate Your Pet Costs?
+          </h2>
+          <p className="text-muted-foreground mb-6">
+            Get a personalized cost estimate for your future pet in less than 2 minutes.
+          </p>
+          <Button size="lg" asChild>
+            <Link href="/">Start Free Calculation</Link>
+          </Button>
+        </div>
+
+        {/* Related Articles - Internal Linking */}
+        <RelatedArticles 
+          currentArticleId={article.id}
+          allArticles={allBlogArticles}
+          maxArticles={3}
+        />
+      </article>
+    </>
+  );
+}
