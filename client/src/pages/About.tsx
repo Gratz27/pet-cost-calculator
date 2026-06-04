@@ -9,8 +9,8 @@ export default function About() {
   return (
     <div className="min-h-screen flex flex-col">
       <SEO 
-        title="About Pet Cost Calculator - Helping Pet Owners Budget Wisely"
-        description="Learn about PetCost-Calculator.com and our mission to help prospective pet owners make informed financial decisions about pet adoption and ownership costs."
+        title="About PetCost-Calculator – Our Data Sources & Methodology"
+        description="Learn how PetCost-Calculator.com works: our data sources, methodology, and mission to help prospective pet owners understand the true lifetime cost of dog and cat ownership."
         canonical="https://www.petcost-calculator.com/about"
         breadcrumbs={[
           { name: "Home", url: "https://www.petcost-calculator.com" },
@@ -83,7 +83,7 @@ export default function About() {
                 PetCost-Calculator.com was founded by a team of passionate pet owners and data enthusiasts who recognized a critical gap in pet adoption resources: transparent, comprehensive cost information. After volunteering at local animal shelters and seeing firsthand how many pets are surrendered simply because owners couldn't afford unexpected expenses, we decided to build a solution.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Since our launch, we have helped over 50,000 prospective pet owners worldwide make informed financial decisions. Whether you're in London, Singapore, Sydney, or New York, the reality is the same—pet ownership comes with significant ongoing expenses that extend far beyond the initial adoption fee. We believe prospective pet owners deserve access to realistic cost estimates before making this life-changing decision.
+                Since our launch, PetCost-Calculator.com has been used by prospective pet owners worldwide to make informed financial decisions. Whether you're in London, Singapore, Sydney, or New York, the reality is the same—pet ownership comes with significant ongoing expenses that extend far beyond the initial adoption fee. We believe prospective pet owners deserve access to realistic cost estimates before making this life-changing decision.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 This calculator is designed as a free educational tool to help you understand the full financial picture of pet ownership in your specific region. We've built a system that considers breed characteristics, regional cost variations, and lifestyle factors to provide personalized estimates. While we can't predict every expense you'll encounter, our goal is to give you a realistic starting point for budgeting and financial planning.
@@ -170,7 +170,7 @@ export default function About() {
               <span className="text-sm font-semibold">PetCost-Calculator.com</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              © 2025 PetCost-Calculator.com. Helping pet owners make informed decisions.
+              © 2026 PetCost-Calculator.com. Helping pet owners make informed decisions.
             </p>
           </div>
         </div>

@@ -412,9 +412,28 @@ export default function BreedPage({ params }: BreedPageProps) {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <SEO
-        title={`${breed.name} Cost Calculator – Annual & Lifetime Ownership Costs`}
-        description={`How much does a ${breed.name} cost? First-year costs: ${formatCurrency(breed.firstYearCost.low)}–${formatCurrency(breed.firstYearCost.high)}. Annual costs: ${formatCurrency(breed.annualCost.low)}–${formatCurrency(breed.annualCost.high)}. Get your personalized estimate.`}
+        title={`${breed.name} Cost Guide – Lifetime Ownership Costs`}
+        description={`How much does a ${breed.name} cost? First-year: ${formatCurrency(breed.firstYearCost.low)}–${formatCurrency(breed.firstYearCost.high)}. Annual: ${formatCurrency(breed.annualCost.low)}–${formatCurrency(breed.annualCost.high)}. Lifetime: ${formatCurrency(breed.lifetimeCost.low)}–${formatCurrency(breed.lifetimeCost.high)}. Free personalised estimate.`}
         canonical={`https://www.petcost-calculator.com/breeds/${breed.slug}`}
+        isBreedPage={true}
+        breedFAQs={[
+          {
+            question: `How much does a ${breed.name} cost per year?`,
+            answer: `A ${breed.name} typically costs ${formatCurrency(breed.annualCost.low)}–${formatCurrency(breed.annualCost.high)} per year in ongoing expenses, covering food, vet care, grooming, and insurance. First-year costs are higher at ${formatCurrency(breed.firstYearCost.low)}–${formatCurrency(breed.firstYearCost.high)} due to initial setup and vaccinations.`
+          },
+          {
+            question: `What is the lifetime cost of a ${breed.name}?`,
+            answer: `The total lifetime cost of owning a ${breed.name} is estimated at ${formatCurrency(breed.lifetimeCost.low)}–${formatCurrency(breed.lifetimeCost.high)} over a lifespan of ${breed.lifespan}. This includes all food, vet care, grooming, insurance, and supplies over the pet's life.`
+          },
+          {
+            question: `Is a ${breed.name} expensive to own?`,
+            answer: `${breed.name}s are considered a ${breed.healthRisk.startsWith('Very High') ? 'very high-cost' : breed.healthRisk.startsWith('High') ? 'higher-cost' : 'moderate-cost'} breed to own. Key ongoing expenses include food, vet care, grooming, and pet insurance. Health risks rated: ${breed.healthRisk}.`
+          },
+          {
+            question: `How much does a ${breed.name} puppy cost?`,
+            answer: `A ${breed.name} from a reputable breeder typically costs ${breed.costBreakdown[0].amount}. Rescue and adoption fees are usually significantly lower. First-year total costs including setup, vaccinations, and supplies typically reach ${formatCurrency(breed.firstYearCost.low)}–${formatCurrency(breed.firstYearCost.high)}.`
+          }
+        ]}
         breadcrumbs={[
           { name: 'Home', url: 'https://www.petcost-calculator.com' },
           { name: 'Breeds', url: 'https://www.petcost-calculator.com/breeds' },

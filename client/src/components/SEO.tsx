@@ -5,6 +5,11 @@ interface BreadcrumbItem {
   url: string;
 }
 
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 interface SEOProps {
   title: string;
   description: string;
@@ -18,6 +23,9 @@ interface SEOProps {
   articleModifiedDate?: string;
   articleAuthor?: string;
   articleTags?: string[];
+  // Breed page specific props
+  isBreedPage?: boolean;
+  breedFAQs?: FAQItem[];
 }
 
 export default function SEO({ 
@@ -31,7 +39,9 @@ export default function SEO({
   articlePublishDate,
   articleModifiedDate,
   articleAuthor = 'Pet Cost Calculator Team',
-  articleTags = []
+  articleTags = [],
+  isBreedPage = false,
+  breedFAQs = []
 }: SEOProps) {
   const fullTitle = `${title} | PetCost-Calculator.com`;
   // Ensure canonical URL is always absolute, www-prefixed, and clean (no query params)
@@ -87,6 +97,20 @@ export default function SEO({
     "keywords": articleTags.join(', ')
   } : null;
 
+  // Breed page FAQPage schema
+  const breedFAQSchema = isBreedPage && breedFAQs.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": breedFAQs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  } : null;
+
   // Homepage-specific schemas (SoftwareApplication, Organization, WebSite, FAQPage) are
   // defined statically in index.html to avoid runtime duplication detected by Google.
   return (
@@ -102,7 +126,7 @@ export default function SEO({
       <meta property="og:image:height" content="630" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={articleImage || 'https://www.petcost-calculator.com/og-image.png'} />
-      <meta property="og:type" content={isBlogArticle ? "article" : "website"} />
+      <meta property="og:type" content={(isBlogArticle || isBreedPage) ? "article" : "website"} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
@@ -140,6 +164,11 @@ export default function SEO({
       {articleSchema && (
         <script type="application/ld+json">
           {JSON.stringify(articleSchema)}
+        </script>
+      )}
+      {breedFAQSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breedFAQSchema)}
         </script>
       )}
 
