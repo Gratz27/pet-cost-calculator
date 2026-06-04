@@ -1,20 +1,12 @@
 # robots.txt for PetCost-Calculator.com
-# Allow all search engines to crawl the site
+# https://www.petcost-calculator.com
 
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Block internal/utility paths not intended for indexing
+Disallow: /api/
+Disallow: /src/
+
+# Sitemap
 Sitemap: https://www.petcost-calculator.com/sitemap.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
-
-# Allow all important pages
-Allow: /about
-Allow: /how-it-works
-Allow: /contact
-Allow: /privacy-policy
-Allow: /blog
-Allow: /blog/*
-

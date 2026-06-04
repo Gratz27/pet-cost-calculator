@@ -41,19 +41,6 @@ export default function Home() {
         description="Free pet cost calculator with breed-specific data. Get accurate estimates for adoption fees, vet care, food, grooming, and lifetime costs. Used by 50,000+ prospective pet owners."
 
         canonical="https://www.petcost-calculator.com"
-        isHomepage={true}
-        faqSchema={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": faqData.map(faq => ({
-            "@type": "Question",
-            "name": faq.question,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": faq.answer
-            }
-          }))
-        }}
       />
       <div className="min-h-screen flex flex-col">
       {/* Header */}
