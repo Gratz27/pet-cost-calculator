@@ -368,7 +368,7 @@ export const remainingArticlesNew: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-21',
     readTime: 10,
-    image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=1000',
+    image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=1000',
     keywords: ['Dog Breeds', 'Affordable Pets', 'Budgeting']
   },
   {
@@ -439,7 +439,7 @@ export const remainingArticlesNew: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-20',
     readTime: 10,
-    image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=1000',
+    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=1000',
     keywords: ['Vet Costs', 'Dog Breeds', 'Health Care']
   },
   {
@@ -637,7 +637,7 @@ export const remainingArticlesNew: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-18',
     readTime: 10,
-    image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=1000',
+    image: 'https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?auto=format&fit=crop&q=80&w=1000',
     keywords: ['Mixed Breed', 'Purebred', 'Health Care', 'Vet Costs']
   },
   {
@@ -736,7 +736,7 @@ export const remainingArticlesNew: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-17',
     readTime: 11,
-    image: 'https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&q=80&w=1000',
+    image: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&q=80&w=1000',
     keywords: ['Senior Dogs', 'Vet Costs', 'Health Care']
   },
   {

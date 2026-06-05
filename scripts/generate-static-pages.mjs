@@ -490,6 +490,22 @@ const staticPages = [
     description:
       'Learn about PetCost-Calculator.com, our mission to help pet owners budget wisely, and how we source our breed-specific cost data.',
     canonical: `${BASE_URL}/about`,
+    extraSchema: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'AboutPage',
+      'name': 'About PetCost-Calculator.com',
+      'description': 'Learn about PetCost-Calculator.com, our mission to help pet owners budget wisely, and how we source our breed-specific cost data.',
+      'url': `${BASE_URL}/about`,
+      'publisher': {
+        '@type': 'Organization',
+        'name': 'PetCost-Calculator.com',
+        'url': BASE_URL,
+        'logo': {
+          '@type': 'ImageObject',
+          'url': `${BASE_URL}/favicon.svg`
+        }
+      }
+    }),
   },
   {
     path: 'contact',
@@ -521,7 +537,7 @@ for (const page of staticPages) {
     canonical: page.canonical,
     ogImage: `${BASE_URL}/og-image.png`,
     ogType: 'website',
-    articleSchema: null,
+    articleSchema: page.extraSchema || null,
     breadcrumbs: [
       { name: 'Home', url: BASE_URL },
       { name: page.title.split('–')[0].trim(), url: page.canonical },

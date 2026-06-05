@@ -9,7 +9,7 @@ export const realCostLabradorUK: BlogArticle = {
   author: '',
   publishDate: '2026-05-20',
   readTime: 8,
-  image: '/blog-images/labrador-retriever.jpg',
+  image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=1000',
   keywords: ['labrador cost uk', 'dog ownership cost uk', 'london vet costs', 'labrador food budget'],
   content: `
 ## The True Financial Commitment of a UK Lab
@@ -71,7 +71,7 @@ export const vetCostsUS2026: BlogArticle = {
   author: '',
   publishDate: '2026-05-18',
   readTime: 7,
-  image: '/blog-images/emergency-vet.jpg',
+  image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&q=80&w=1000',
   keywords: ['us vet costs', 'american vet prices 2026', 'emergency vet us', 'dog vaccination cost us'],
   content: `
 ## Navigating Veterinary Expenses in the US
@@ -133,7 +133,7 @@ export const dogInsuranceComparisonUSUK: BlogArticle = {
   author: '',
   publishDate: '2026-05-15',
   readTime: 9,
-  image: '/blog-images/golden-retriever.jpg',
+  image: 'https://images.unsplash.com/photo-1601979031925-424e53b6caaa?auto=format&fit=crop&q=80&w=1000',
   keywords: ['pet insurance us', 'pet insurance uk', 'dog insurance cost', 'compare pet insurance'],
   content: `
 ## The Transatlantic Pet Insurance Landscape
@@ -189,7 +189,7 @@ export const mostExpensiveDogBreeds: BlogArticle = {
   author: '',
   publishDate: '2026-05-10',
   readTime: 6,
-  image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&q=80&w=1000',
+  image: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000',
   keywords: ['expensive dog breeds', 'cost of owning a bulldog', 'high maintenance dogs', 'dog breed costs'],
   content: `
 ## Beyond the Purchase Price: Lifetime Costs
@@ -233,8 +233,8 @@ export const firstYearPuppyCosts: BlogArticle = {
   author: '',
   publishDate: '2026-05-05',
   readTime: 7,
-  image: '/blog-images/labrador-retriever.jpg',
-  keywords: ['puppy costs', 'first year dog cost', 'puppy vaccination cost', 'new dog budget'],
+  image: 'https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&q=80&w=1000',
+  keywords: ['first year puppy costs', 'first year dog cost', 'puppy vaccination cost', 'new dog budget'],
   content: `
 ## The Financial Shock of Year One
 

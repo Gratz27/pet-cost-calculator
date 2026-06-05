@@ -67,12 +67,12 @@ export default function BlogArticle() {
             {article.title}
           </h1>
           
-          {/* Featured Image */}
-          <div className="aspect-video w-full rounded-lg overflow-hidden mb-6">
+          {/* Featured Image — h-auto block ensures portrait images are never cropped */}
+          <div className="w-full rounded-xl overflow-hidden mb-6 bg-muted/10">
             <img 
               src={article.image} 
               alt={article.title}
-              className="w-full h-full object-cover"
+              className="w-full h-auto block"
               loading="lazy"
             />
           </div>
