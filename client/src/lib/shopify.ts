@@ -1,6 +1,6 @@
-const domain = "5sfzj5-w1.myshopify.com";
-const storefrontAccessToken = "0b300b0140652b706f40b2bc41cd3726";
-const apiVersion = "2024-04";
+const domain = import.meta.env.VITE_SHOPIFY_DOMAIN || "5sfzj5-w1.myshopify.com";
+const storefrontAccessToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || "";
+const apiVersion = "2025-01";
 
 export async function shopifyFetch({ query, variables }: { query: string; variables?: any }) {
   const endpoint = `https://${domain}/api/${apiVersion}/graphql.json`;

@@ -106,30 +106,46 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
 
   // Pie chart data for annual costs
   const annualPieData = useMemo(() => {
+    const labels = ['Food', 'Vet Care', 'Grooming', 'Insurance', 'Supplies'];
+    const data = [
+      results.annual.food,
+      results.annual.vet,
+      results.annual.grooming,
+      results.annual.insurance,
+      results.annual.supplies,
+    ];
+    const bgColors = [
+      'rgba(34, 197, 94, 0.8)',
+      'rgba(239, 68, 68, 0.8)',
+      'rgba(14, 165, 233, 0.8)',
+      'rgba(59, 130, 246, 0.8)',
+      'rgba(236, 72, 153, 0.8)',
+    ];
+    const borderColors = [
+      'rgba(34, 197, 94, 1)',
+      'rgba(239, 68, 68, 1)',
+      'rgba(14, 165, 233, 1)',
+      'rgba(59, 130, 246, 1)',
+      'rgba(236, 72, 153, 1)',
+    ];
+    if (results.annual.daycare > 0) {
+      labels.push('Daycare');
+      data.push(results.annual.daycare);
+      bgColors.push('rgba(168, 85, 247, 0.8)');
+      borderColors.push('rgba(168, 85, 247, 1)');
+    }
+    if (results.annual.dental > 0) {
+      labels.push('Dental');
+      data.push(results.annual.dental);
+      bgColors.push('rgba(245, 158, 11, 0.8)');
+      borderColors.push('rgba(245, 158, 11, 1)');
+    }
     return {
-      labels: ['Food', 'Vet Care', 'Grooming', 'Insurance', 'Supplies'],
+      labels,
       datasets: [{
-        data: [
-          results.annual.food,
-          results.annual.vet,
-          results.annual.grooming,
-          results.annual.insurance,
-          results.annual.supplies
-        ],
-        backgroundColor: [
-          'rgba(34, 197, 94, 0.8)',   // Green - Food
-          'rgba(239, 68, 68, 0.8)',   // Red - Vet
-          'rgba(14, 165, 233, 0.8)',  // Sky - Grooming
-          'rgba(59, 130, 246, 0.8)',  // Blue - Insurance
-          'rgba(236, 72, 153, 0.8)'   // Pink - Supplies
-        ],
-        borderColor: [
-          'rgba(34, 197, 94, 1)',
-          'rgba(239, 68, 68, 1)',
-          'rgba(14, 165, 233, 1)',
-          'rgba(59, 130, 246, 1)',
-          'rgba(236, 72, 153, 1)'
-        ],
+        data,
+        backgroundColor: bgColors,
+        borderColor: borderColors,
         borderWidth: 2,
       }]
     };
@@ -307,7 +323,7 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
             <Card className="p-6">
               <h2 className="text-2xl font-bold mb-6">Annual Cost Breakdown</h2>
             <div className="max-w-md mx-auto h-[300px] md:h-auto">
-              <Pie data={annualPieData} options={chartOptions} />
+              <div role="img" aria-label="Pie chart showing cost breakdown by category"><Pie data={annualPieData} options={chartOptions} /></div>
             </div>
           </Card>
 
@@ -428,7 +444,7 @@ export default function Results({ inputs, results, onRecalculate }: ResultsProps
           <Card className="p-8 mb-12">
             <h2 className="text-2xl font-bold mb-6">Annual Ongoing Costs</h2>
           <div className="max-w-3xl mx-auto h-[300px] md:h-auto">
-            <Pie data={annualPieData} options={chartOptions} />
+            <div role="img" aria-label="Pie chart showing cost breakdown by category"><Pie data={annualPieData} options={chartOptions} /></div>
           </div>
           <div className="mt-6 text-center">
             <p className="text-muted-foreground">

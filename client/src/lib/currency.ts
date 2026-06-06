@@ -72,7 +72,6 @@ export const CURRENCIES: Record<string, CurrencyInfo> = {
   UGX: { code: 'UGX', symbol: 'USh', name: 'Ugandan Shilling', rate: 3680.0 },
   ISK: { code: 'ISK', symbol: 'kr', name: 'Icelandic Króna', rate: 138.0 },
   BGN: { code: 'BGN', symbol: 'лв', name: 'Bulgarian Lev', rate: 1.80 },
-  HRK: { code: 'HRK', symbol: 'kn', name: 'Croatian Kuna', rate: 7.0 }, // Note: Croatia uses Euro now, but keeping for legacy
   RSD: { code: 'RSD', symbol: 'дин.', name: 'Serbian Dinar', rate: 108.0 },
   JOD: { code: 'JOD', symbol: 'JD', name: 'Jordanian Dinar', rate: 0.71 },
   BHD: { code: 'BHD', symbol: 'BD', name: 'Bahraini Dinar', rate: 0.38 },
@@ -118,6 +117,28 @@ export function getAllCurrencies(): CurrencyInfo[] {
  * Detect currency from postal/ZIP code format
  * Returns the most likely currency based on postal code pattern
  */
+/**
+ * Detect currency from a resolved ISO country code (preferred, most accurate)
+ */
+export function detectCurrencyFromCountryCode(countryCode: string): string {
+  const map: Record<string, string> = {
+    US: 'USD', GB: 'GBP', AU: 'AUD', NZ: 'NZD', CA: 'CAD',
+    SG: 'SGD', JP: 'JPY', EU: 'EUR', DE: 'EUR', FR: 'EUR',
+    IT: 'EUR', ES: 'EUR', NL: 'EUR', BE: 'EUR', AT: 'EUR',
+    PT: 'EUR', IE: 'EUR', FI: 'EUR', CH: 'CHF', SE: 'SEK',
+    NO: 'NOK', DK: 'DKK', PL: 'PLN', CZ: 'CZK', HU: 'HUF',
+    RO: 'RON', IN: 'INR', CN: 'CNY', HK: 'HKD', KR: 'KRW',
+    BR: 'BRL', MX: 'MXN', ZA: 'ZAR', AE: 'AED', SA: 'SAR',
+    MY: 'MYR', TH: 'THB', ID: 'IDR', PH: 'PHP', PK: 'PKR',
+    EG: 'EGP', NG: 'NGN', KE: 'KES', QA: 'QAR', IL: 'ILS',
+  };
+  return map[countryCode.toUpperCase()] || 'USD';
+}
+
+/**
+ * Fallback: Detect currency from postal code pattern alone
+ * Prefer detectCurrencyFromCountryCode when a resolved countryCode is available.
+ */
 export function detectCurrencyFromPostalCode(postalCode: string): string {
   if (!postalCode) return 'USD';
   
@@ -133,33 +154,19 @@ export function detectCurrencyFromPostalCode(postalCode: string): string {
     return 'CAD';
   }
   
-  // Australia: 4 digits (e.g., 2000, 3000)
+  // Netherlands: 4 digits + 2 letters
+  if (/^\d{4}\s?[A-Z]{2}$/i.test(code)) {
+    return 'EUR';
+  }
+  
+  // 4 digits: ambiguous between AU, NZ, and others — default AUD (NZ resolved via countryCode)
   if (/^\d{4}$/.test(code)) {
-    // Could be many countries, but default to AUD for 4 digits if not clearly something else
-    // New Zealand also uses 4 digits
     return 'AUD';
   }
   
-  // Singapore: 6 digits (e.g., 018956, 238801)
+  // 6 digits: Singapore, India, etc. — default SGD
   if (/^\d{6}$/.test(code)) {
-    // India also uses 6 digits
     return 'SGD';
-  }
-  
-  // European countries: Various formats
-  // Germany: 5 digits (e.g., 10115)
-  // France: 5 digits (e.g., 75001)
-  // Spain: 5 digits (e.g., 28001)
-  // Italy: 5 digits (e.g., 00100)
-  // Netherlands: 4 digits + 2 letters (e.g., 1012 AB)
-  if (/^\d{5}$/.test(code) || /^\d{4}\s?[A-Z]{2}$/i.test(code)) {
-    // Could be US (5 digits) or EU (5 digits or 4+2 letters)
-    // Check if it looks more European (has letters or specific patterns)
-    if (/[A-Z]/i.test(code)) {
-      return 'EUR'; // Netherlands format
-    }
-    // For 5-digit codes, default to USD (most common)
-    return 'USD';
   }
   
   // US: 5 digits or 5+4 digits (e.g., 90210, 90210-1234)
@@ -169,4 +176,47 @@ export function detectCurrencyFromPostalCode(postalCode: string): string {
   
   // Default to USD if no pattern matches
   return 'USD';
+}
+
+const RATES_CACHE_KEY = 'petcost_exchange_rates';
+const RATES_CACHE_TTL = 24 * 60 * 60 * 1000; // 24 hours
+
+interface RatesCache {
+  rates: Record<string, number>;
+  timestamp: number;
+}
+
+/**
+ * Fetch live exchange rates from Frankfurter (free, no key required, ECB data).
+ * Falls back to hardcoded rates on failure. Caches for 24h in localStorage.
+ */
+export async function fetchAndCacheExchangeRates(): Promise<void> {
+  try {
+    const cached = localStorage.getItem(RATES_CACHE_KEY);
+    if (cached) {
+      const parsed: RatesCache = JSON.parse(cached);
+      if (Date.now() - parsed.timestamp < RATES_CACHE_TTL) {
+        applyRates(parsed.rates);
+        return;
+      }
+    }
+
+    const res = await fetch('https://api.frankfurter.app/latest?from=USD');
+    if (!res.ok) throw new Error('Rate fetch failed');
+    const data = await res.json();
+    const rates: Record<string, number> = { USD: 1, ...data.rates };
+
+    localStorage.setItem(RATES_CACHE_KEY, JSON.stringify({ rates, timestamp: Date.now() }));
+    applyRates(rates);
+  } catch {
+    // Silently fall back to hardcoded rates — no disruption to the user
+  }
+}
+
+function applyRates(rates: Record<string, number>): void {
+  for (const code of Object.keys(rates)) {
+    if (CURRENCIES[code]) {
+      CURRENCIES[code].rate = rates[code];
+    }
+  }
 }

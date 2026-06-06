@@ -18,7 +18,6 @@ import ProductPage from "./pages/ProductPage";
 import { CartProvider } from "./contexts/CartContext";
 import MobileNav from "./components/MobileNav";
 import BreedPage from "./pages/BreedPage";
-
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import CookieConsent from "react-cookie-consent";
 
@@ -36,50 +35,41 @@ function Router() {
       <Route path="/breeds/:slug" component={BreedPage} />
       <Route path={"/shop"} component={Shop} />
       <Route path={"/products/:handle"} component={ProductPage} />
-      
       <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
       <Route component={NotFound} />
     </Switch>
   );
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
         <GoogleAnalytics />
         <CurrencyProvider>
           <CartProvider>
-        <TooltipProvider>
-            <Toaster />
-            <div className="pb-16 md:pb-0">
-              <Router />
-            </div>
-            <MobileNav />
-            <CookieConsent
-              location="bottom"
-              buttonText="I Accept"
-              declineButtonText="Decline"
-              enableDeclineButton
-              cookieName="petcost_adsense_consent"
-              style={{ background: "#2B373B", zIndex: 9999 }}
-              buttonStyle={{ background: "#639922", color: "white", fontSize: "13px", borderRadius: "4px", padding: "8px 16px" }}
-              declineButtonStyle={{ background: "transparent", color: "#fff", fontSize: "13px", border: "1px solid #fff", borderRadius: "4px", padding: "8px 16px" }}
-              expires={150}
-            >
-              We use cookies to personalize content and ads, to provide social media features and to analyze our traffic. We also share information about your use of our site with our social media, advertising and analytics partners. By clicking "I Accept", you consent to our use of cookies for advertising personalization. <a href="/privacy-policy" style={{ color: "#fff", textDecoration: "underline" }}>Learn more</a>.
-            </CookieConsent>
-          </TooltipProvider>
-      </CartProvider>
+            <TooltipProvider>
+              <Toaster />
+              <div className="pb-16 md:pb-0">
+                <Router />
+              </div>
+              <MobileNav />
+              <CookieConsent
+                location="bottom"
+                buttonText="I Accept"
+                declineButtonText="Decline"
+                enableDeclineButton
+                cookieName="petcost_adsense_consent"
+                style={{ background: "#2B373B", zIndex: 9999 }}
+                buttonStyle={{ background: "#639922", color: "white", fontSize: "13px", borderRadius: "4px", padding: "8px 16px" }}
+                declineButtonStyle={{ background: "transparent", color: "#fff", fontSize: "13px", border: "1px solid #fff", borderRadius: "4px", padding: "8px 16px" }}
+                expires={150}
+              >
+                We use cookies to personalize content and ads, to provide social media features and to analyze our traffic. We also share information about your use of our site with our social media, advertising and analytics partners. By clicking "I Accept", you consent to our use of cookies for advertising personalization.{" "}
+                <a href="/privacy-policy" style={{ color: "#fff", textDecoration: "underline" }}>Learn more</a>.
+              </CookieConsent>
+            </TooltipProvider>
+          </CartProvider>
         </CurrencyProvider>
       </ThemeProvider>
     </ErrorBoundary>

@@ -356,7 +356,7 @@ export default function Home() {
                 Terms of Service
               </Link>
               <p className="text-sm text-muted-foreground">
-                © 2025 PetCost-Calculator.com. Helping pet owners make informed decisions.
+                © {new Date().getFullYear()} PetCost-Calculator.com. Helping pet owners make informed decisions.
               </p>
             </div>
           </div>

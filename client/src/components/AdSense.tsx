@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 interface AdSenseProps {
-  slot?: string;
+  slot: string; // Required — use your real AdSense slot ID. Never use '1234567890'.
   format?: string;
   responsive?: boolean;
   style?: React.CSSProperties;
@@ -45,7 +45,7 @@ function ensureAdSenseScript(): Promise<void> {
 }
 
 export default function AdSense({
-  slot = '1234567890',
+  slot,
   format = 'auto',
   responsive = true,
   style = { display: 'block', minHeight: '250px' },

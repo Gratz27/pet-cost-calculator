@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { CURRENCIES, CurrencyInfo, detectCurrencyFromPostalCode } from '@/lib/currency';
+import { CURRENCIES, CurrencyInfo, detectCurrencyFromPostalCode, detectCurrencyFromCountryCode, fetchAndCacheExchangeRates } from '@/lib/currency';
 
 interface CurrencyContextType {
   currency: string;
   setCurrency: (code: string) => void;
   currencyInfo: CurrencyInfo;
-  autoDetectCurrency: (postalCode: string) => void;
+  autoDetectCurrency: (postalCode: string, countryCode?: string) => void;
 }
 
 const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined);
@@ -14,12 +14,14 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
   // Default to USD
   const [currency, setCurrencyState] = useState<string>('USD');
 
-  // Load saved currency from localStorage on mount
+  // Load saved currency and fetch live rates on mount
   useEffect(() => {
     const savedCurrency = localStorage.getItem('pet-cost-currency');
     if (savedCurrency && CURRENCIES[savedCurrency]) {
       setCurrencyState(savedCurrency);
     }
+    // Fetch live rates in the background (24h cache)
+    fetchAndCacheExchangeRates();
   }, []);
 
   const setCurrency = (code: string) => {
@@ -29,10 +31,11 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  const autoDetectCurrency = (postalCode: string) => {
-    // Only auto-detect if user hasn't manually set a preference (optional logic, 
-    // but for now let's just detect based on input to be helpful)
-    const detected = detectCurrencyFromPostalCode(postalCode);
+  const autoDetectCurrency = (postalCode: string, countryCode?: string) => {
+    // Prefer countryCode if available (resolved from API), fall back to postal pattern
+    const detected = countryCode
+      ? detectCurrencyFromCountryCode(countryCode)
+      : detectCurrencyFromPostalCode(postalCode);
     if (detected && CURRENCIES[detected] && detected !== currency) {
       setCurrency(detected);
     }

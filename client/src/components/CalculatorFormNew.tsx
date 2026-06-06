@@ -504,7 +504,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                 <p className="text-muted-foreground">This helps us estimate housing-related costs</p>
               </div>
               
-              <RadioGroup value={livingSituation} onValueChange={(value: any) => setLivingSituation(value)}>
+              <RadioGroup value={livingSituation} onValueChange={(value) => setLivingSituation(value as 'own-home' | 'rent-apartment' | 'rent-house' | 'other')}>
                 <div className="space-y-3">
                   {[
                     { value: 'own-home', label: 'Own Home' },
@@ -531,7 +531,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
               {(livingSituation === 'rent-apartment' || livingSituation === 'rent-house') && (
                 <div className="mt-6 p-6 bg-muted rounded-lg space-y-4">
                   <Label className="text-base font-semibold">Does your rental require a pet deposit?</Label>
-                  <RadioGroup value={hasPetDeposit} onValueChange={(value: any) => setHasPetDeposit(value)}>
+                  <RadioGroup value={hasPetDeposit} onValueChange={(value) => setHasPetDeposit(value as 'yes' | 'no' | 'not-sure')}>
                     <div className="space-y-2">
                       <label className="flex items-center">
                         <RadioGroupItem value="yes" id="deposit-yes" className="mr-2" />
@@ -631,7 +631,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                   </p>
                 )}
                 <p className="text-sm text-muted-foreground mb-3">Will you get pet insurance?</p>
-                <RadioGroup value={insurance} onValueChange={(value: any) => setInsurance(value)}>
+                <RadioGroup value={insurance} onValueChange={(value) => setInsurance(value as 'yes' | 'maybe' | 'no')}>
                   <div className="grid gap-3">
                     {[
                       { value: 'yes', label: 'Yes, definitely', desc: '~$40-60/month for your pet', popular: true, percentage: breedRec?.insuranceRate || generalStatistics.insurance.yes },
@@ -675,7 +675,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                   </p>
                 )}
                 <p className="text-sm text-muted-foreground mb-3">Do you plan to do professional training?</p>
-                <RadioGroup value={training} onValueChange={(value: any) => setTraining(value)}>
+                <RadioGroup value={training} onValueChange={(value) => setTraining(value as 'yes' | 'maybe' | 'no')}>
                   <div className="grid gap-3">
                     {[
                       { value: 'yes', label: 'Yes, definitely', desc: '~$200-500 for basic obedience', popular: true, percentage: breedRec?.trainingRate || generalStatistics.training.yes },
@@ -716,7 +716,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                 <p className="text-sm text-muted-foreground mb-3">
                   Have you budgeted for initial vet costs? (vaccinations, spay/neuter, microchip)
                 </p>
-                <RadioGroup value={initialVet} onValueChange={(value: any) => setInitialVet(value)}>
+                <RadioGroup value={initialVet} onValueChange={(value) => setInitialVet(value as 'known' | 'estimate')}>
                   <div className="space-y-3">
                     <div
                       className={`p-4 rounded-lg border-2 transition-all ${
@@ -885,7 +885,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                     💡 Most {breeds.find(b => b.id === breedId)?.name} owners choose {breedRec.popularFood} food
                   </p>
                 )}
-                <RadioGroup value={foodType} onValueChange={(value: any) => setFoodType(value)}>
+                <RadioGroup value={foodType} onValueChange={(value) => setFoodType(value as 'premium' | 'standard')}>
                   <div className="grid grid-cols-2 gap-3">
                     <label
                       className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${
@@ -919,7 +919,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
                   <Scissors className="w-5 h-5 text-pink-600" />
                   <Label className="text-base font-semibold">Professional Grooming</Label>
                 </div>
-                <RadioGroup value={groomingFrequency} onValueChange={(value: any) => setGroomingFrequency(value)}>
+                <RadioGroup value={groomingFrequency} onValueChange={(value) => setGroomingFrequency(value as '1-2-weeks' | 'monthly' | '3-months' | 'diy')}>
                   <div className="space-y-2">
                     {[
                       { value: '1-2-weeks', label: 'Every 1-2 weeks', desc: 'High-maintenance breeds' },
@@ -950,7 +950,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
               {petType === 'dog' && (
                 <div className="space-y-3">
                   <Label className="text-base font-semibold">Daycare/Walking Services</Label>
-                  <RadioGroup value={daycareFrequency} onValueChange={(value: any) => setDaycareFrequency(value)}>
+                  <RadioGroup value={daycareFrequency} onValueChange={(value) => setDaycareFrequency(value as 'daily' | '2-3-week' | 'occasionally' | 'never')}>
                     <div className="space-y-2">
                       {[
                         { value: 'daily', label: 'Daily', desc: '$400-600/month' },
@@ -981,7 +981,7 @@ export default function CalculatorForm({ onCalculate }: CalculatorFormProps) {
               {/* Dental Care */}
               <div className="space-y-3">
                 <Label className="text-base font-semibold">Preventive Dental Care</Label>
-                <RadioGroup value={dentalCare} onValueChange={(value: any) => setDentalCare(value)}>
+                <RadioGroup value={dentalCare} onValueChange={(value) => setDentalCare(value as 'annual' | 'as-needed')}>
                   <div className="grid grid-cols-2 gap-3">
                     <label
                       className={`p-4 rounded-lg border-2 cursor-pointer transition-all ${

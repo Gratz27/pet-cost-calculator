@@ -55,6 +55,8 @@ export interface CostBreakdown {
     grooming: number;
     insurance: number;
     supplies: number;
+    daycare: number;
+    dental: number;
     total: number;
   };
   lifetime: {
@@ -135,6 +137,24 @@ export function calculateCosts(inputs: CalculatorInputs): CostBreakdown | null {
   }
   // If 'no', insurance = 0
 
+  // Daycare - calculate based on frequency
+  let annualDaycare = 0;
+  const daycareSessionCost = breed.size === 'large' ? 45 : breed.size === 'medium' ? 38 : 30;
+  if (inputs.daycareFrequency === 'daily') {
+    annualDaycare = daycareSessionCost * 250; // ~250 working days
+  } else if (inputs.daycareFrequency === '2-3-week') {
+    annualDaycare = daycareSessionCost * 104; // ~2 days/week
+  } else if (inputs.daycareFrequency === 'occasionally') {
+    annualDaycare = daycareSessionCost * 24; // ~2 days/month
+  }
+  // 'never' = 0
+  annualDaycare = annualDaycare * locationMultiplier;
+
+  // Dental care
+  const annualDental = inputs.dentalCare === 'annual'
+    ? 300 * locationMultiplier  // Annual professional cleaning
+    : 75 * locationMultiplier;  // As-needed / basic home care costs
+
   const firstYear = {
     adoptionFee,
     initialVet,
@@ -164,6 +184,8 @@ export function calculateCosts(inputs: CalculatorInputs): CostBreakdown | null {
     grooming: breed.annualGrooming * locationMultiplier * groomingMultiplier,
     insurance: (inputs.insurance === 'yes' || inputs.insurance === 'maybe') ? breed.annualInsurance : 0,
     supplies: breed.annualSupplies,
+    daycare: annualDaycare,
+    dental: annualDental,
     total: 0
   };
 
@@ -172,7 +194,9 @@ export function calculateCosts(inputs: CalculatorInputs): CostBreakdown | null {
     annual.vet +
     annual.grooming +
     annual.insurance +
-    annual.supplies;
+    annual.supplies +
+    annual.daycare +
+    annual.dental;
 
   // Lifetime costs
   const lifetimeYears = breed.lifespan;
@@ -200,27 +224,60 @@ export function calculateCosts(inputs: CalculatorInputs): CostBreakdown | null {
 }
 
 function getLocationMultiplier(location: string): number {
-  // Simplified location-based cost adjustment
   const lowerLocation = location.toLowerCase();
-  
-  // High-cost cities
-  if (lowerLocation.includes('new york') || 
+
+  // --- International country-level multipliers ---
+  // United Kingdom
+  if (lowerLocation.includes('united kingdom') || lowerLocation.includes(', uk') ||
+      lowerLocation.includes(', gb') || lowerLocation.includes('england') ||
+      lowerLocation.includes('scotland') || lowerLocation.includes('wales')) {
+    return 1.25;
+  }
+  // Australia
+  if (lowerLocation.includes('australia') || lowerLocation.includes(', au') ||
+      lowerLocation.includes('sydney') || lowerLocation.includes('melbourne') ||
+      lowerLocation.includes('brisbane') || lowerLocation.includes('perth')) {
+    return 1.20;
+  }
+  // New Zealand
+  if (lowerLocation.includes('new zealand') || lowerLocation.includes(', nz') ||
+      lowerLocation.includes('auckland') || lowerLocation.includes('wellington') ||
+      lowerLocation.includes('christchurch')) {
+    return 1.15;
+  }
+  // Singapore
+  if (lowerLocation.includes('singapore') || lowerLocation.includes(', sg')) {
+    return 1.35;
+  }
+  // Canada
+  if (lowerLocation.includes('canada') || lowerLocation.includes(', ca') ||
+      lowerLocation.includes('toronto') || lowerLocation.includes('vancouver')) {
+    return 1.10;
+  }
+  // Germany / Western Europe
+  if (lowerLocation.includes('germany') || lowerLocation.includes('france') ||
+      lowerLocation.includes('netherlands') || lowerLocation.includes('switzerland')) {
+    return 1.20;
+  }
+
+  // --- US city-level multipliers ---
+  // High-cost US cities
+  if (lowerLocation.includes('new york') ||
       lowerLocation.includes('san francisco') ||
       lowerLocation.includes('los angeles') ||
       lowerLocation.includes('seattle') ||
       lowerLocation.includes('boston')) {
     return 1.3;
   }
-  
-  // Medium-cost cities
+  // Medium-cost US cities
   if (lowerLocation.includes('chicago') ||
       lowerLocation.includes('austin') ||
       lowerLocation.includes('denver') ||
       lowerLocation.includes('portland')) {
     return 1.15;
   }
-  
-  // Default/lower-cost areas
+
+  // Default
   return 1.0;
 }
 

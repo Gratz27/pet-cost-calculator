@@ -92,21 +92,38 @@ function detectCountryFromPostalCode(code: string): string[] {
   return ["us", "gb", "ca", "au", "nz"];
 }
 
+interface ZippopotamPlace {
+  "place name": string;
+  "state abbreviation"?: string;
+  "state"?: string;
+}
+
+interface ZippopotamResponse {
+  "country abbreviation": string;
+  "places": ZippopotamPlace[];
+}
+
 /**
  * Parse Zippopotam API response
  */
-function parseZippopotamResponse(data: any): LocationData | null {
+function parseZippopotamResponse(data: ZippopotamResponse): LocationData | null {
   try {
     const place = data.places?.[0];
     if (!place) {
       return null;
     }
 
+    const countryCode = data["country abbreviation"] || "";
+    const city = place["place name"] || "";
+    const state = place["state abbreviation"] || place["state"] || "";
+    const country = getCountryName(countryCode);
+
     return {
-      city: place["place name"] || "",
-      state: place["state abbreviation"] || place["state"] || "",
-      country: getCountryName(data["country abbreviation"]),
-      countryCode: data["country abbreviation"],
+      city,
+      state,
+      // Include country in a searchable format for the location multiplier
+      country: country,
+      countryCode,
     };
   } catch (error) {
     return null;

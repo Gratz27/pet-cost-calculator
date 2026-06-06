@@ -21,13 +21,18 @@ export default function EmailCapture() {
 
     try {
       // Send email to Web3Forms (free email service)
+      const web3FormsKey = import.meta.env.VITE_WEB3FORMS_KEY;
+      if (!web3FormsKey) {
+        throw new Error('Web3Forms key not configured');
+      }
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_KEY', // You'll need to replace this
+          access_key: web3FormsKey,
           subject: 'New Pet Budget Checklist Request',
           from_name: 'PetCost-Calculator.com',
           email: email,
