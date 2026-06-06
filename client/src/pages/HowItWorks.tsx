@@ -1,4 +1,5 @@
 import { PawPrint, CheckCircle2, TrendingUp, Download, Share2, Calculator, Shield } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import Header from '@/components/Header';
@@ -17,6 +18,28 @@ export default function HowItWorks() {
           { name: "How It Works", url: "https://www.petcost-calculator.com/how-it-works" }
         ]}
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "HowTo",
+          "name": "How to Use the Pet Cost Calculator",
+          "description": "Calculate accurate, personalised pet ownership costs for any dog or cat breed in 8 steps.",
+          "url": "https://www.petcost-calculator.com/how-it-works",
+          "totalTime": "PT3M",
+          "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
+          "tool": [{ "@type": "HowToTool", "name": "PetCost-Calculator.com" }],
+          "step": [
+            { "@type": "HowToStep", "position": 1, "name": "Choose Your Pet Type", "text": "Select dog or cat to begin your personalised cost estimate. Each has different cost profiles based on size, care needs, and lifespan.", "url": "https://www.petcost-calculator.com/" },
+            { "@type": "HowToStep", "position": 2, "name": "Select Your Breed", "text": "Choose from 213 dog breeds or 81 cat breeds, covering all UK Kennel Club recognised dog breeds and TICA recognised cat breeds.", "url": "https://www.petcost-calculator.com/" },
+            { "@type": "HowToStep", "position": 3, "name": "Enter Your Location", "text": "Provide your postal or ZIP code. We adjust cost estimates based on regional price differences for vet care, grooming, and services.", "url": "https://www.petcost-calculator.com/" },
+            { "@type": "HowToStep", "position": 4, "name": "Describe Your Living Situation", "text": "Tell us if you own or rent, and whether you live in an apartment or house. This accounts for pet deposits and space-related costs.", "url": "https://www.petcost-calculator.com/" },
+            { "@type": "HowToStep", "position": 5, "name": "Provide Initial Cost Details", "text": "Enter your adoption or purchase fee, choose pet insurance, training plans, and initial vet care budget. We use breed averages if you don't have exact figures.", "url": "https://www.petcost-calculator.com/" },
+            { "@type": "HowToStep", "position": 6, "name": "Share Your Lifestyle", "text": "Tell us about your work schedule, travel frequency, and activity level to estimate costs for daycare, boarding, and exercise-related needs.", "url": "https://www.petcost-calculator.com/" },
+            { "@type": "HowToStep", "position": 7, "name": "Select Ongoing Services", "text": "Choose your food type, grooming frequency, daycare needs, and dental care preferences. These choices directly determine your annual cost estimates.", "url": "https://www.petcost-calculator.com/" },
+            { "@type": "HowToStep", "position": 8, "name": "Review & Calculate", "text": "Review all your inputs in a summary screen, make any changes, then click Calculate My Costs to receive your fully personalised pet cost breakdown.", "url": "https://www.petcost-calculator.com/" }
+          ]
+        })}</script>
+      </Helmet>
       <Header />
 
       {/* Hero Section */}

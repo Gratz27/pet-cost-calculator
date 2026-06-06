@@ -84,17 +84,29 @@ function extractArticleMetadata() {
     const slugMatches = [...content.matchAll(/slug:\s*['"]([^'"]+)['"]/g)];
     const titleMatches = [...content.matchAll(/title:\s*['"]([^'"]+)['"]/g)];
     const descMatches = [...content.matchAll(/description:\s*['"]([^'"]+)['"]/g)];
+    const excerptMatches = [...content.matchAll(/excerpt:\s*['"]([^'"]+)['"]/g)];
     const imageMatches = [...content.matchAll(/image:\s*['"]([^'"]+)['"]/g)];
     const dateMatches = [...content.matchAll(/publishDate:\s*['"]([^'"]+)['"]/g)];
     const authorMatches = [...content.matchAll(/author:\s*['"]([^'"]+)['"]/g)];
 
+    // Extract content snippets for richer noscript blocks
+    const contentBlocks = [...content.matchAll(/content:\s*`([\s\S]*?)`[,\s]/g)];
+
     for (let i = 0; i < slugMatches.length; i++) {
       const slug = slugMatches[i]?.[1];
       const title = titleMatches[i]?.[1];
-      const description = descMatches[i]?.[1];
+      const description = descMatches[i]?.[1] || excerptMatches[i]?.[1];
       const image = imageMatches[i]?.[1];
       const date = dateMatches[i]?.[1];
       const author = authorMatches[i]?.[1];
+      // Extract plain text snippet from article content
+      const rawContent = contentBlocks[i]?.[1] || '';
+      const textSnippet = rawContent
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/&[a-z]+;/gi, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 500);
 
       if (slug && title && !seenSlugs.has(slug)) {
         seenSlugs.add(slug);
@@ -102,6 +114,7 @@ function extractArticleMetadata() {
           slug,
           title,
           description: description || '',
+          textSnippet,
           image: image || `${BASE_URL}/og-image.png`,
           date: date || '2026-01-01',
           author: author || 'PetCost-Calculator.com Editorial Team',
@@ -179,6 +192,7 @@ function buildBlogNoscript(article) {
           <h1>${article.title}</h1>
           ${formattedDate ? `<p><time datetime="${article.date}">Published: ${formattedDate}</time> &mdash; By ${article.author || 'PetCost-Calculator.com Editorial Team'}</p>` : ''}
           <p>${article.description}</p>
+          ${article.textSnippet ? `<p>${article.textSnippet}</p>` : ''}
           <p>Use our free <a href="${BASE_URL}/">pet cost calculator</a> to get a personalised breakdown for your chosen breed.</p>
         </article>
         <aside>
@@ -245,7 +259,26 @@ function buildBreedNoscript(breed) {
     </noscript>`;
 }
 
-function buildStaticNoscript(page) {
+function buildStaticNoscript(page, allArticles = []) {
+  const articleList = page.isBlogIndex && allArticles.length > 0
+    ? `<h2>Latest Articles</h2><ul>${allArticles.slice(0, 20).map(a =>
+        `<li><a href="${BASE_URL}/blog/${a.slug}">${a.title}</a>${a.description ? ` – ${a.description}` : ''}</li>`
+      ).join('\n')}</ul>`
+    : '';
+
+  const howItWorksContent = page.path === 'how-it-works'
+    ? `<ol>
+        <li><strong>Choose Your Pet Type</strong> – Select dog or cat to begin your personalised cost estimate.</li>
+        <li><strong>Select Your Breed</strong> – Choose from 213 dog breeds or 81 cat breeds in our database.</li>
+        <li><strong>Enter Your Location</strong> – Provide your postal/ZIP code for regional price adjustments.</li>
+        <li><strong>Describe Your Living Situation</strong> – Own or rent, apartment or house, to account for deposits and space costs.</li>
+        <li><strong>Provide Initial Cost Details</strong> – Enter adoption fee, pet insurance choice, and initial vet care budget.</li>
+        <li><strong>Share Your Lifestyle</strong> – Work schedule, travel frequency, and activity level for daycare and boarding estimates.</li>
+        <li><strong>Select Ongoing Services</strong> – Food type, grooming frequency, dental care, and training preferences.</li>
+        <li><strong>Review &amp; Calculate</strong> – Review your inputs and get your personalised cost breakdown instantly.</li>
+      </ol>`
+    : '';
+
   return `<noscript>
       <header>
         <nav>
@@ -262,6 +295,8 @@ function buildStaticNoscript(page) {
       <main>
         <h1>${page.title}</h1>
         <p>${page.description}</p>
+        ${howItWorksContent}
+        ${articleList}
         <p><a href="${BASE_URL}/">Use our free pet cost calculator</a> to get a personalised cost breakdown for any dog or cat breed.</p>
       </main>
       <footer>
@@ -483,6 +518,7 @@ const staticPages = [
     description:
       'Read expert guides on pet ownership costs, breed-specific expenses, vet bills, insurance, and more. Real data to help you budget for your pet.',
     canonical: `${BASE_URL}/blog`,
+    isBlogIndex: true,
   },
   {
     path: 'about',
@@ -528,6 +564,33 @@ const staticPages = [
       'Terms of service and cost disclaimer for PetCost-Calculator.com. All costs are estimates based on averages and will vary by region.',
     canonical: `${BASE_URL}/terms`,
   },
+  {
+    path: 'how-it-works',
+    title: 'How Our Pet Cost Calculator Works – Step-by-Step Guide',
+    description:
+      'Learn how to use our free pet cost calculator in 8 simple steps to get accurate breed-specific estimates for adoption fees, vet care, food, grooming, and lifetime ownership costs.',
+    canonical: `${BASE_URL}/how-it-works`,
+    extraSchema: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'HowTo',
+      'name': 'How to Use the Pet Cost Calculator',
+      'description': 'Calculate accurate, personalised pet ownership costs for any dog or cat breed in 8 steps.',
+      'url': `${BASE_URL}/how-it-works`,
+      'totalTime': 'PT3M',
+      'estimatedCost': { '@type': 'MonetaryAmount', 'currency': 'USD', 'value': '0' },
+      'tool': [{ '@type': 'HowToTool', 'name': 'PetCost-Calculator.com' }],
+      'step': [
+        { '@type': 'HowToStep', 'position': 1, 'name': 'Choose Your Pet Type', 'text': 'Select dog or cat to begin your personalised cost estimate. Each pet type has different cost profiles based on size, care needs, and lifespan.', 'url': `${BASE_URL}/` },
+        { '@type': 'HowToStep', 'position': 2, 'name': 'Select Your Breed', 'text': 'Choose from 213 dog breeds or 81 cat breeds. Our database covers all UK Kennel Club recognised dog breeds and TICA recognised cat breeds with breed-specific cost data.', 'url': `${BASE_URL}/` },
+        { '@type': 'HowToStep', 'position': 3, 'name': 'Enter Your Location', 'text': 'Provide your postal or ZIP code. We adjust cost estimates based on regional price differences for vet care, grooming, and other services.', 'url': `${BASE_URL}/` },
+        { '@type': 'HowToStep', 'position': 4, 'name': 'Describe Your Living Situation', 'text': 'Tell us if you own or rent, and whether you live in an apartment or house. This helps account for pet deposits and space-related costs.', 'url': `${BASE_URL}/` },
+        { '@type': 'HowToStep', 'position': 5, 'name': 'Provide Initial Cost Details', 'text': 'Enter your adoption or purchase fee, decide on pet insurance, training plans, and initial vet care budget. We use breed averages if you don't have exact figures.', 'url': `${BASE_URL}/` },
+        { '@type': 'HowToStep', 'position': 6, 'name': 'Share Your Lifestyle', 'text': 'Tell us about your work schedule, travel frequency, and activity level to estimate costs for daycare, boarding, and exercise-related needs.', 'url': `${BASE_URL}/` },
+        { '@type': 'HowToStep', 'position': 7, 'name': 'Select Ongoing Services', 'text': 'Choose your preferred food type, grooming frequency, daycare needs, and dental care preferences. These choices directly determine your annual cost estimates.', 'url': `${BASE_URL}/` },
+        { '@type': 'HowToStep', 'position': 8, 'name': 'Review & Calculate', 'text': 'Review all your inputs in a summary screen, make any changes needed, then click "Calculate My Costs" to receive your fully personalised pet cost breakdown.', 'url': `${BASE_URL}/` }
+      ]
+    }),
+  },
 ];
 
 for (const page of staticPages) {
@@ -542,7 +605,7 @@ for (const page of staticPages) {
       { name: 'Home', url: BASE_URL },
       { name: page.title.split('–')[0].trim(), url: page.canonical },
     ],
-    noscriptBlock: buildStaticNoscript(page),
+    noscriptBlock: buildStaticNoscript(page, page.isBlogIndex ? articles : []),
   });
   writePageHtml(page.path, html);
 }

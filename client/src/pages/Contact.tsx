@@ -29,7 +29,7 @@ export default function Contact() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: 'YOUR_WEB3FORMS_ACCESS_KEY', // Replace with actual key
+          access_key: '5c68e724-95e2-4289-8ec6-d95eb756db42',
           name: formData.name,
           email: formData.email,
           subject: formData.subject,
