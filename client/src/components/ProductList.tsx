@@ -5,6 +5,24 @@ import { Button } from "@/components/ui/button";
 import { Loader2, ShoppingCart } from "lucide-react";
 import { Link } from "wouter";
 import { useCart } from "@/contexts/CartContext";
+import { products as staticProducts } from "@/data/products";
+
+// Shape static products to match the Shopify API shape so the same
+// render code works whether we're showing live or fallback products.
+const STATIC_FALLBACK = staticProducts.map(p => ({
+  node: {
+    id: p.id,
+    title: p.name,
+    handle: p.id,          // used for /products/:handle route
+    description: p.description,
+    priceRange: {
+      minVariantPrice: { amount: String(p.price), currencyCode: "USD" }
+    },
+    variants: { edges: [] },   // no Shopify variant → cart checkout will surface a message
+    images: { edges: p.image ? [{ node: { url: p.image, altText: p.name } }] : [] },
+    _isStaticFallback: true,
+  }
+}));
 
 export default function ProductList() {
   const [products, setProducts] = useState<any[]>([]);
@@ -14,10 +32,22 @@ export default function ProductList() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const fetchedProducts = await getProducts();
-        setProducts(fetchedProducts);
+        const fetched = await getProducts();
+        if (fetched && fetched.length > 0) {
+          setProducts(fetched);
+        } else {
+          // Shopify returned nothing — show curated static products instead
+          console.warn(
+            "[Shop] Shopify returned 0 products. Showing static fallback. " +
+            "Check: (1) Storefront API is enabled in Shopify Admin → Apps → Develop Apps, " +
+            "(2) products are published to the Online Store sales channel, " +
+            "(3) VITE_SHOPIFY_STOREFRONT_TOKEN is set correctly in Vercel."
+          );
+          setProducts(STATIC_FALLBACK);
+        }
       } catch (error) {
-        console.error("Failed to fetch products:", error);
+        console.error("[Shop] Shopify fetch failed — showing static fallback:", error);
+        setProducts(STATIC_FALLBACK);
       } finally {
         setLoading(false);
       }
@@ -37,7 +67,7 @@ export default function ProductList() {
   if (products.length === 0) {
     return (
       <div className="text-center py-12 text-muted-foreground">
-        No products found. Please check your Shopify store.
+        No products found. Please check your Shopify store configuration.
       </div>
     );
   }
@@ -47,6 +77,7 @@ export default function ProductList() {
       {products.map(({ node: product }) => {
         const price = product.priceRange.minVariantPrice;
         const image = product.images.edges[0]?.node;
+        const variantId = product.variants?.edges[0]?.node.id;
 
         return (
           <Card key={product.id} className="flex flex-col overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -76,14 +107,13 @@ export default function ProductList() {
               <Button
                 className="flex-1 gap-2"
                 onClick={() => {
-                  const variantId = product.variants?.edges[0]?.node.id;
                   addItem({
                     id: product.id,
                     name: product.title,
-                    description: product.description || '',
+                    description: product.description || "",
                     price: parseFloat(price.amount),
-                    category: 'essentials',
-                    image: image?.url || '',
+                    category: "essentials",
+                    image: image?.url || "",
                     rating: 0,
                     reviews: 0,
                     shopifyVariantId: variantId,

@@ -1,6 +1,6 @@
 const domain = import.meta.env.VITE_SHOPIFY_DOMAIN || "5sfzj5-w1.myshopify.com";
 // Storefront API token is intentionally public — it only allows reading products and creating carts
-const storefrontAccessToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || "d5a3fe1c989280f7e710347ff13e2a39";
+const storefrontAccessToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || "0b300b0140652b706f40b2bc41cd3726";
 const apiVersion = "2025-01";
 
 export async function shopifyFetch({ query, variables }: { query: string; variables?: any }) {
