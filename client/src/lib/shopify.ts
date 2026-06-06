@@ -1,5 +1,6 @@
 const domain = import.meta.env.VITE_SHOPIFY_DOMAIN || "5sfzj5-w1.myshopify.com";
-const storefrontAccessToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || "";
+// Storefront API token is intentionally public — it only allows reading products and creating carts
+const storefrontAccessToken = import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || "d5a3fe1c989280f7e710347ff13e2a39";
 const apiVersion = "2025-01";
 
 export async function shopifyFetch({ query, variables }: { query: string; variables?: any }) {
@@ -42,6 +43,13 @@ export async function getProducts() {
               minVariantPrice {
                 amount
                 currencyCode
+              }
+            }
+            variants(first: 1) {
+              edges {
+                node {
+                  id
+                }
               }
             }
             images(first: 1) {
@@ -100,7 +108,7 @@ export async function getProduct(handle: string) {
   return response.body?.data?.product || null;
 }
 
-export async function createCheckout(variantId: string) {
+export async function createCheckout(lines: { variantId: string; quantity: number }[]) {
   const query = `
     mutation cartCreate($input: CartInput) {
       cartCreate(input: $input) {
@@ -118,7 +126,7 @@ export async function createCheckout(variantId: string) {
 
   const variables = {
     input: {
-      lines: [{ merchandiseId: variantId, quantity: 1 }]
+      lines: lines.map(l => ({ merchandiseId: l.variantId, quantity: l.quantity }))
     }
   };
 

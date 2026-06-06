@@ -122,7 +122,7 @@ export default function ProductPage() {
                 try {
                   const variantId = product.variants.edges[0]?.node.id;
                   if (variantId) {
-                    const checkoutUrl = await createCheckout(variantId);
+                    const checkoutUrl = await createCheckout([{ variantId, quantity: 1 }]);
                     if (checkoutUrl) {
                       // Open checkout in a new tab to avoid iframe/security issues
                       window.open(checkoutUrl, '_blank', 'noopener,noreferrer');

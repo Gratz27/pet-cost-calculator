@@ -1,13 +1,15 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetFooter } from '@/components/ui/sheet';
+import { createCheckout } from '@/lib/shopify';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { useCart } from '@/contexts/CartContext';
 import { Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
-import { Link } from 'wouter';
 
 export function CartDrawer() {
   const { isCartOpen, setIsCartOpen, items, removeItem, updateQuantity, subtotal, clearCart } = useCart();
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   return (
     <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
@@ -83,10 +85,35 @@ export function CartDrawer() {
               <p className="text-xs text-muted-foreground text-center">
                 Shipping and taxes calculated at checkout.
               </p>
-              <Button className="w-full size-lg text-lg" asChild>
-                <Link href="/checkout">
-                  Proceed to Checkout
-                </Link>
+              <Button
+                className="w-full size-lg text-lg"
+                disabled={isCheckingOut}
+                onClick={async () => {
+                  setIsCheckingOut(true);
+                  try {
+                    const lines = items
+                      .filter(item => item.shopifyVariantId)
+                      .map(item => ({ variantId: item.shopifyVariantId!, quantity: item.quantity }));
+                    if (lines.length === 0) {
+                      alert('No checkout-ready items in cart. Please try adding products from the shop again.');
+                      return;
+                    }
+                    const checkoutUrl = await createCheckout(lines);
+                    if (checkoutUrl) {
+                      window.open(checkoutUrl, '_blank', 'noopener,noreferrer');
+                      setIsCartOpen(false);
+                    } else {
+                      alert('Failed to create checkout. Please try again.');
+                    }
+                  } catch (e) {
+                    console.error('Checkout error:', e);
+                    alert('An error occurred. Please try again.');
+                  } finally {
+                    setIsCheckingOut(false);
+                  }
+                }}
+              >
+                {isCheckingOut ? 'Creating checkout...' : 'Proceed to Checkout'}
               </Button>
               <Button variant="outline" className="w-full" onClick={clearCart}>
                 Clear Cart

@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { getProducts } from "@/lib/shopify";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
+import { Loader2, ShoppingCart } from "lucide-react";
 import { Link } from "wouter";
+import { useCart } from "@/contexts/CartContext";
 
 export default function ProductList() {
   const [products, setProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const { addItem } = useCart();
 
   useEffect(() => {
     async function fetchProducts() {
@@ -70,10 +72,30 @@ export default function ProductList() {
                 }).format(parseFloat(price.amount))}
               </p>
             </CardContent>
-            <CardFooter className="p-4 pt-0">
-              <Link href={`/products/${product.handle}`} className="w-full">
-                <Button className="w-full">
-                  View Product
+            <CardFooter className="p-4 pt-0 flex gap-2">
+              <Button
+                className="flex-1 gap-2"
+                onClick={() => {
+                  const variantId = product.variants?.edges[0]?.node.id;
+                  addItem({
+                    id: product.id,
+                    name: product.title,
+                    description: product.description || '',
+                    price: parseFloat(price.amount),
+                    category: 'essentials',
+                    image: image?.url || '',
+                    rating: 0,
+                    reviews: 0,
+                    shopifyVariantId: variantId,
+                  });
+                }}
+              >
+                <ShoppingCart className="w-4 h-4" />
+                Add to Cart
+              </Button>
+              <Link href={`/products/${product.handle}`}>
+                <Button variant="outline" size="icon" title="View product details">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
                 </Button>
               </Link>
             </CardFooter>

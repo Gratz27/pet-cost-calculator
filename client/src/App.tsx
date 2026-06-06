@@ -16,6 +16,7 @@ import Terms from "./pages/Terms";
 import Shop from "./pages/Shop";
 import ProductPage from "./pages/ProductPage";
 import { CartProvider } from "./contexts/CartContext";
+import { CartDrawer } from "./components/CartDrawer";
 import MobileNav from "./components/MobileNav";
 import BreedPage from "./pages/BreedPage";
 import GoogleAnalytics from "./components/GoogleAnalytics";
@@ -69,6 +70,7 @@ function App() {
                 <a href="/privacy-policy" style={{ color: "#fff", textDecoration: "underline" }}>Learn more</a>.
               </CookieConsent>
             </TooltipProvider>
+            <CartDrawer />
           </CartProvider>
         </CurrencyProvider>
       </ThemeProvider>

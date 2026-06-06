@@ -4,11 +4,12 @@ import { toast } from 'sonner';
 
 interface CartItem extends Product {
   quantity: number;
+  shopifyVariantId?: string;
 }
 
 interface CartContextType {
   items: CartItem[];
-  addItem: (product: Product) => void;
+  addItem: (product: Product & { shopifyVariantId?: string }) => void;
   removeItem: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
@@ -41,7 +42,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('pet-cost-cart', JSON.stringify(items));
   }, [items]);
 
-  const addItem = (product: Product) => {
+  const addItem = (product: Product & { shopifyVariantId?: string }) => {
     setItems(currentItems => {
       const existingItem = currentItems.find(item => item.id === product.id);
       if (existingItem) {
