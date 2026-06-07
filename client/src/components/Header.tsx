@@ -1,10 +1,12 @@
-import { PawPrint, Menu, X } from 'lucide-react';
+import { PawPrint, Menu, X, ShoppingCart } from 'lucide-react';
 import { Link } from 'wouter';
 import { useState } from 'react';
 import { CurrencySelector } from '@/components/CurrencySelector';
+import { useCart } from '@/contexts/CartContext';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { totalItems, setIsCartOpen } = useCart();
 
   return (
     <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
@@ -41,33 +43,46 @@ export default function Header() {
             >
               How It Works
             </Link>
-            
             <Link 
               href="/contact"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               Contact
             </Link>
-            <Link 
-              href="/privacy-policy"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link 
-              href="/terms"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Terms
-            </Link>
-            <div className="ml-2">
+            <div className="ml-2 flex items-center gap-3">
               <CurrencySelector />
+              {/* Cart Button */}
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className="relative p-2 hover:bg-accent rounded-lg transition-colors"
+                aria-label={`Open cart${totalItems > 0 ? `, ${totalItems} items` : ''}`}
+              >
+                <ShoppingCart className="h-5 w-5 text-foreground" />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                    {totalItems > 9 ? '9+' : totalItems}
+                  </span>
+                )}
+              </button>
             </div>
           </nav>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
             <CurrencySelector />
+            {/* Cart Button (mobile) */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 hover:bg-accent rounded-lg transition-colors"
+              aria-label={`Open cart${totalItems > 0 ? `, ${totalItems} items` : ''}`}
+            >
+              <ShoppingCart className="h-5 w-5 text-foreground" />
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  {totalItems > 9 ? '9+' : totalItems}
+                </span>
+              )}
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 hover:bg-accent rounded-lg transition-colors"
@@ -114,7 +129,6 @@ export default function Header() {
             >
               How It Works
             </Link>
-            
             <Link 
               href="/contact"
               className="text-base font-medium text-muted-foreground hover:text-foreground transition-colors py-2"
