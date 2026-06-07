@@ -7,7 +7,7 @@ import BreedImage from "@/components/BreedImage";
 
 export const metadata: Metadata = {
   title: "Dog & Cat Breed Cost Guide",
-  description: "Browse cost estimates for 200+ dog and cat breeds. See first-year costs, annual expenses, and lifetime ownership costs for every breed.",
+  description: "Browse cost estimates for 300+ dog and cat breeds. See first-year costs, annual expenses, and lifetime ownership costs for every breed.",
 };
 
 export default function BreedsPage({ searchParams }: { searchParams: { type?: string } }) {
@@ -18,7 +18,7 @@ export default function BreedsPage({ searchParams }: { searchParams: { type?: st
     <div className="bg-[#F1F8F1] min-h-screen">
       <div className="bg-white border-b border-[#C8E6C9]">
         <div className="container-xl py-12">
-          <div className="badge badge-green mb-3">200+ Breeds</div>
+          <div className="badge badge-green mb-3">300+ Breeds</div>
           <h1 className="text-3xl md:text-4xl font-bold text-[#1B2B1B] mb-3">
             {petType === "dog" ? "Dog" : "Cat"} Breed Cost Guide
           </h1>

@@ -12,7 +12,7 @@ const steps = [
     step: "Step 1",
     icon: Calculator,
     title: "Choose your pet type and breed",
-    description: "Select from 200+ dog and cat breeds. Each breed has its own cost profile built from thousands of real-world data points. Can't decide? Browse breeds or use our comparison tool.",
+    description: "Select from 300+ dog and cat breeds. Each breed has its own cost profile built from thousands of real-world data points. Can't decide? Browse breeds or use our comparison tool.",
   },
   {
     step: "Step 2",

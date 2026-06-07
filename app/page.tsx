@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRight, Shield, TrendingUp, Clock, Star, ChevronRight, Calculator, BarChart3, Users, Mail, BookOpen } from "lucide-react";
 import { getAllBreeds } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
+import EmailCapture from "@/components/EmailCapture";
 import HeroSearch from "@/components/HeroSearch";
 
 const featuredBreeds = [
@@ -34,7 +35,7 @@ const trustFeatures = [
 ];
 
 const steps = [
-  { number: "01", title: "Pick your breed", description: "Search from 200+ dog and cat breeds. Each one has detailed cost profiles built from real market data." },
+  { number: "01", title: "Pick your breed", description: "Search from 300+ dog and cat breeds. Each one has detailed cost profiles built from real market data." },
   { number: "02", title: "Tell us about yourself", description: "Answer a few questions about your location, lifestyle, and preferences. Takes under 2 minutes." },
   { number: "03", title: "Get your full cost report", description: "Receive a detailed breakdown: first-year costs, annual ongoing costs, lifetime total, and hidden expenses." },
 ];
@@ -74,7 +75,7 @@ export default function HomePage() {
         <div className="container-xl py-16 md:py-24 text-center">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-green-100 mb-5 border border-white/20">
             <span className="h-2 w-2 rounded-full bg-[#A5D6A7] animate-pulse" />
-            Updated June 2026 · 200+ breeds covered
+            Updated June 2026 · 300+ breeds covered
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-4 max-w-3xl mx-auto">
             Which pet are you considering?
@@ -216,18 +217,9 @@ export default function HomePage() {
             <Mail className="h-8 w-8 text-[#A5D6A7] mx-auto mb-4" />
             <h2 className="text-2xl md:text-3xl font-bold mb-3">Get the Annual Pet Cost Report 2026</h2>
             <p className="text-green-200 mb-6 text-sm leading-relaxed">
-              Our 2026 report covers cost trends across 200+ breeds, regional price differences across the US, UK, and Australia, and the most expensive hidden costs most owners miss.
+              Our 2026 report covers cost trends across 300+ breeds, regional price differences across the US, UK, and Australia, and the most expensive hidden costs most owners miss.
             </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Your email address"
-                className="flex-1 rounded-xl px-4 py-3 text-sm text-[#1B2B1B] bg-white placeholder-slate-400 outline-none focus:ring-2 focus:ring-[#A5D6A7]"
-              />
-              <button type="submit" className="btn-green text-sm px-6 py-3 flex-shrink-0">
-                Get Free Report
-              </button>
-            </form>
+            <EmailCapture />
             <p className="mt-3 text-xs text-green-400">No spam. Unsubscribe any time.</p>
           </div>
         </div>
@@ -374,7 +366,7 @@ export default function HomePage() {
             {[
               { icon: BookOpen, label: "Cost Guides", desc: "In-depth guides on every aspect of pet ownership costs.", href: "/guides", cta: "Browse guides" },
               { icon: Calculator, label: "Tools", desc: "Insurance comparator, budget tracker, and more free tools.", href: "/tools", cta: "View tools" },
-              { icon: BarChart3, label: "Annual Report", desc: "Our 2026 Pet Cost Report — data from 200+ breeds worldwide.", href: "/report", cta: "Read report" },
+              { icon: BarChart3, label: "Annual Report", desc: "Our 2026 Pet Cost Report — data from 300+ breeds worldwide.", href: "/report", cta: "Read report" },
             ].map(({ icon: Icon, label, desc, href, cta }) => (
               <Link key={label} href={href} className="card p-6 group hover:border-[#4CAF50]/50">
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#E8F5E9] mb-4">

@@ -11,7 +11,7 @@ const footerLinks = {
   ],
   "Guides & Data": [
     { label: "Cost Guides", href: "/guides" },
-    { label: "Blog & Articles", href: "/blog" },
+    { label: "News & Articles", href: "/blog" },
     { label: "Annual Report 2026", href: "/report" },
     { label: "Our Methodology", href: "/methodology" },
   ],
@@ -56,7 +56,7 @@ export default function Footer() {
             <div className="mt-6 flex items-center gap-2 text-xs text-slate-500">
               <span>Data updated regularly</span>
               <span>·</span>
-              <span>200+ breeds</span>
+              <span>300+ breeds</span>
             </div>
           </div>
 

@@ -4,7 +4,7 @@ import { ChevronRight, Database, MapPin, RefreshCw, Calculator, AlertTriangle } 
 
 export const metadata: Metadata = {
   title: "Our Methodology – How We Calculate Pet Costs | PetCost-Calculator",
-  description: "How PetCost-Calculator sources, adjusts, and validates pet ownership cost data across 200+ breeds in the US, UK, and Australia.",
+  description: "How PetCost-Calculator sources, adjusts, and validates pet ownership cost data across 300+ breeds in the US, UK, and Australia.",
 };
 
 const sources = [
@@ -145,7 +145,7 @@ export default function MethodologyPage() {
             <div className="article-content">
               <p>The calculator combines five inputs: your chosen breed, location, living situation, work schedule, and cost preferences. Here is how each affects the output:</p>
               <ul>
-                <li><strong>Breed</strong> — Sets base costs for food, vet care, grooming, insurance, and lifespan from our breed database of 200+ profiles.</li>
+                <li><strong>Breed</strong> — Sets base costs for food, vet care, grooming, insurance, and lifespan from our breed database of 300+ profiles.</li>
                 <li><strong>Location</strong> — Applies a regional multiplier to all variable costs (vet, food, grooming, daycare).</li>
                 <li><strong>Living situation</strong> — Renting adds an estimated pet deposit of $400 to first-year costs.</li>
                 <li><strong>Work schedule</strong> — Full-time office workers who choose daily daycare see higher annual costs than remote workers.</li>

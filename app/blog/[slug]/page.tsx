@@ -163,7 +163,7 @@ export default function BlogArticlePage({ params }: Props) {
             {/* Browse breeds */}
             <div className="card p-5">
               <h3 className="text-sm font-bold text-[#1B2B1B] mb-2">Browse breed costs</h3>
-              <p className="text-xs text-[#5a7a5a] mb-3">See first-year, annual, and lifetime costs for 200+ breeds.</p>
+              <p className="text-xs text-[#5a7a5a] mb-3">See first-year, annual, and lifetime costs for 300+ breeds.</p>
               <Link href="/breeds" className="btn-secondary w-full text-sm text-center block">
                 View All Breeds
               </Link>

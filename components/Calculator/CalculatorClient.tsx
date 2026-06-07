@@ -77,6 +77,11 @@ export default function CalculatorClient() {
       const next = STEPS[idx + 1];
       if (next === "results") {
         const calc = calculateCosts(inputs as CalculatorInputs);
+        if (!calc) {
+          // Breed not found — go back to breed step
+          setStep("breed");
+          return;
+        }
         setResults(calc);
       }
       setStep(next);
@@ -143,7 +148,7 @@ export default function CalculatorClient() {
                 >
                   <div className="text-4xl mb-3">{type === "dog" ? "🐕" : "🐈"}</div>
                   <div className="text-lg font-bold text-[#0f172a] capitalize">{type}</div>
-                  <div className="text-sm text-slate-500 mt-1">{type === "dog" ? "100+ breeds" : "30+ breeds"}</div>
+                  <div className="text-sm text-slate-500 mt-1">{type === "dog" ? "219 breeds" : "81 breeds"}</div>
                   {inputs.petType === type && <CheckCircle2 className="h-5 w-5 text-[#16A34A] mt-3" />}
                 </button>
               ))}
@@ -200,6 +205,21 @@ export default function CalculatorClient() {
         {/* Step 3: Location */}
         {step === "location" && (
           <div>
+            {/* Breed pre-population confirmation */}
+            {inputs.breedId && (
+              <div className="flex items-center gap-2.5 rounded-xl bg-[#E8F5E9] border border-[#C8E6C9] px-4 py-3 mb-5">
+                <CheckCircle2 className="h-4 w-4 text-[#2E7D32] flex-shrink-0" />
+                <span className="text-sm text-[#1B5E20] font-medium">
+                  {allBreeds.find(b => b.id === inputs.breedId)?.name ?? "Breed"} selected — just a few more details needed.
+                </span>
+                <button
+                  onClick={() => setStep("breed")}
+                  className="ml-auto text-xs text-[#2E7D32] underline hover:no-underline flex-shrink-0"
+                >
+                  Change
+                </button>
+              </div>
+            )}
             <h2 className="text-2xl font-bold text-[#0f172a] mb-2">Where are you located?</h2>
             <p className="text-slate-500 mb-6">Costs vary significantly by city and country. We adjust all estimates to your local market.</p>
             <input

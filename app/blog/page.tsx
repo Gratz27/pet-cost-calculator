@@ -5,8 +5,8 @@ import { Clock, ChevronRight } from "lucide-react";
 import { allBlogArticles, type BlogCategory } from "@/data/blogArticles";
 
 export const metadata: Metadata = {
-  title: "Pet Cost Blog – Guides, Tips & Breed Cost Guides",
-  description: "Expert guides on dog and cat ownership costs, breed cost breakdowns, money-saving tips, and pet insurance advice from PetCost-Calculator.",
+  title: "Pet Ownership News & Articles | PetCost-Calculator",
+  description: "The latest articles on pet ownership costs, vet fee trends, breed spotlights, insurance news, and money-saving tips from PetCost-Calculator.",
 };
 
 const CATEGORY_LABELS: Record<BlogCategory, string> = {
@@ -50,10 +50,10 @@ export default function BlogPage({ searchParams }: { searchParams: { category?: 
       {/* Header */}
       <div className="bg-white border-b border-[#C8E6C9]">
         <div className="container-xl py-12">
-          <div className="badge badge-green mb-3">Expert Guides</div>
-          <h1 className="text-3xl md:text-4xl font-bold text-[#1B2B1B] mb-3">Pet Cost Blog</h1>
+          <div className="badge badge-green mb-3">News &amp; Articles</div>
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1B2B1B] mb-3">Pet Ownership News &amp; Articles</h1>
           <p className="text-[#5a7a5a] text-lg max-w-2xl">
-            Real cost data, breed guides, and money-saving strategies for UK, US, and Australian pet owners.
+            Timely articles on vet fee trends, breed spotlights, insurance news, and money-saving tips for US, UK, and Australian pet owners. For evergreen how-to guides, see our <a href="/guides" className="text-[#2E7D32] underline hover:no-underline">Cost Guides</a>.
           </p>
 
           <div className="flex flex-wrap gap-2 mt-6">

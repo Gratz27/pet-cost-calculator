@@ -23,11 +23,31 @@ export default function GuidePage({ params }: Props) {
   const guide = getGuideBySlug(params.slug);
   if (!guide) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: guide.title,
+    description: guide.description,
+    url: `https://petcost-calculator.com/guides/${guide.slug}`,
+    dateModified: guide.lastUpdated,
+    publisher: { "@type": "Organization", name: "PetCost-Calculator", url: "https://petcost-calculator.com" },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://petcost-calculator.com" },
+        { "@type": "ListItem", position: 2, name: "Guides", item: "https://petcost-calculator.com/guides" },
+        { "@type": "ListItem", position: 3, name: guide.title, item: `https://petcost-calculator.com/guides/${guide.slug}` },
+      ],
+    },
+  };
+
   const relatedGuides = guide.relatedSlugs
     .map((s) => guides.find((g) => g.slug === s))
     .filter(Boolean);
 
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div className="bg-[#F1F8F1] min-h-screen">
       {/* Breadcrumb */}
       <div className="bg-white border-b border-[#C8E6C9]">
@@ -161,5 +181,6 @@ export default function GuidePage({ params }: Props) {
         </div>
       </div>
     </div>
+    </>
   );
 }

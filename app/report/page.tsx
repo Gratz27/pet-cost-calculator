@@ -4,7 +4,7 @@ import { ChevronRight, TrendingUp, BarChart3, Download, ArrowRight } from "lucid
 
 export const metadata: Metadata = {
   title: "Annual Pet Cost Report 2026 | PetCost-Calculator",
-  description: "The definitive 2026 report on pet ownership costs across 200+ breeds in the US, UK, and Australia. Key findings, trends, and breed-by-breed data.",
+  description: "The definitive 2026 report on pet ownership costs across 300+ breeds in the US, UK, and Australia. Key findings, trends, and breed-by-breed data.",
 };
 
 const keyFindings = [
@@ -74,12 +74,12 @@ export default function ReportPage() {
           <div className="badge bg-white/20 text-green-100 mb-4">2026 Report</div>
           <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">Annual Pet Cost Report 2026</h1>
           <p className="text-green-200 text-lg leading-relaxed max-w-2xl mb-6">
-            The most comprehensive analysis of pet ownership costs across 200+ breeds in the United States, United Kingdom, and Australia. Based on data from 50,000+ cost data points collected throughout 2025.
+            The most comprehensive analysis of pet ownership costs across 300+ breeds in the United States, United Kingdom, and Australia. Based on data from 50,000+ cost data points collected throughout 2025.
           </p>
           <div className="flex flex-wrap gap-3">
             <div className="inline-flex items-center gap-2 bg-white/15 rounded-xl px-4 py-2 text-sm text-green-100">
               <BarChart3 className="h-4 w-4" />
-              200+ breeds analysed
+              300+ breeds analysed
             </div>
             <div className="inline-flex items-center gap-2 bg-white/15 rounded-xl px-4 py-2 text-sm text-green-100">
               <BarChart3 className="h-4 w-4" />

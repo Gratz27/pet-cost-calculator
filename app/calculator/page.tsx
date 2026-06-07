@@ -2,6 +2,18 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import CalculatorClient from "@/components/Calculator/CalculatorClient";
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  name: "Pet Cost Calculator",
+  url: "https://petcost-calculator.com/calculator",
+  description: "Calculate the complete cost of owning a dog or cat. First-year costs, annual expenses, lifetime total, and hidden costs — personalised to your breed, location, and lifestyle.",
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "Any",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  publisher: { "@type": "Organization", name: "PetCost-Calculator", url: "https://petcost-calculator.com" },
+};
+
 export const metadata: Metadata = {
   title: "Pet Cost Calculator – Personalised Cost Report",
   description: "Calculate the complete cost of owning a dog or cat. First-year costs, annual expenses, lifetime total, and hidden costs — personalised to your breed, location, and lifestyle.",
@@ -9,6 +21,8 @@ export const metadata: Metadata = {
 
 export default function CalculatorPage() {
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div className="bg-[#F1F8F1] min-h-screen">
       {/* Page header */}
       <div className="bg-white border-b border-[#C8E6C9]">
@@ -26,5 +40,6 @@ export default function CalculatorPage() {
         </Suspense>
       </div>
     </div>
+    </>
   );
 }

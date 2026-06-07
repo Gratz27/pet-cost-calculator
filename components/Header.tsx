@@ -17,11 +17,11 @@ const navLinks = [
     ],
   },
   {
-    label: "Guides",
+    label: "Learn",
     href: "/guides",
     children: [
       { label: "Cost Guides", href: "/guides" },
-      { label: "Blog & Articles", href: "/blog" },
+      { label: "News & Articles", href: "/blog" },
       { label: "Annual Report 2026", href: "/report" },
       { label: "Our Methodology", href: "/methodology" },
     ],
@@ -33,6 +33,17 @@ const navLinks = [
       { label: "All Tools", href: "/tools" },
       { label: "Insurance Compare", href: "/tools/insurance-compare" },
       { label: "Budget Tracker", href: "/tools/budget-tracker" },
+    ],
+  },
+  {
+    label: "Costs",
+    href: "/costs/us/national-average",
+    children: [
+      { label: "US National Average", href: "/costs/us/national-average" },
+      { label: "New York", href: "/costs/us/new-york" },
+      { label: "Los Angeles", href: "/costs/us/los-angeles" },
+      { label: "London, UK", href: "/costs/uk/london" },
+      { label: "Sydney, AU", href: "/costs/au/sydney" },
     ],
   },
   { label: "How It Works", href: "/how-it-works" },

@@ -31,7 +31,26 @@ export default function BreedPage({ params }: Props) {
   const annualTotal = breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualInsurance + breed.annualSupplies;
   const lifetimeTotal = firstYearTotal + annualTotal * (breed.lifespan - 1);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: `${breed.name} Cost Guide – How Much Does a ${breed.name} Cost?`,
+    description: `Complete ${breed.name} cost guide with first-year costs, annual expenses, and lifetime ownership costs.`,
+    url: `https://petcost-calculator.com/breeds/${breed.id}`,
+    publisher: { "@type": "Organization", name: "PetCost-Calculator", url: "https://petcost-calculator.com" },
+    breadcrumb: {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://petcost-calculator.com" },
+        { "@type": "ListItem", position: 2, name: "Breeds", item: "https://petcost-calculator.com/breeds" },
+        { "@type": "ListItem", position: 3, name: breed.name, item: `https://petcost-calculator.com/breeds/${breed.id}` },
+      ],
+    },
+  };
+
   return (
+    <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
     <div className="bg-[#F1F8F1] min-h-screen">
       <div className="bg-white border-b border-[#C8E6C9]">
         <div className="container-xl py-3">
@@ -150,7 +169,7 @@ export default function BreedPage({ params }: Props) {
           <div className="card p-5 bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white border-0">
             <h3 className="text-base font-bold mb-2">Get a personalised estimate</h3>
             <p className="text-green-200 text-sm mb-4">These are baseline costs. Your actual costs depend on your location, lifestyle, and choices.</p>
-            <Link href="/calculator" className="btn-green w-full text-sm text-center block">Start the Calculator</Link>
+            <Link href={`/calculator?breedId=${breed.id}&petType=${petType}`} className="btn-green w-full text-sm text-center block">Start the Calculator</Link>
           </div>
 
           <div className="card p-5">
@@ -179,5 +198,6 @@ export default function BreedPage({ params }: Props) {
         </div>
       </div>
     </div>
+    </>
   );
 }

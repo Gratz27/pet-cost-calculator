@@ -26,14 +26,28 @@ function buildProjectionData(annual: number, firstYear: number, years = 10, infl
   return rows;
 }
 
-// National average annual costs (dog + cat blended, medium size, US)
-const NATIONAL_AVG_ANNUAL = { dog: 2600, cat: 1400 };
+// National average annual costs by region
+const NATIONAL_AVG_ANNUAL: Record<string, { dog: number; cat: number; label: string; currency: string }> = {
+  us:  { dog: 2600, cat: 1400, label: "US national average",  currency: "USD" },
+  uk:  { dog: 1800, cat: 950,  label: "UK national average",  currency: "GBP" },
+  au:  { dog: 2200, cat: 1200, label: "AU national average",  currency: "AUD" },
+  ca:  { dog: 2400, cat: 1300, label: "CA national average",  currency: "CAD" },
+  sg:  { dog: 3200, cat: 1800, label: "SG national average",  currency: "SGD" },
+};
+
+function detectRegion(location: string): string {
+  const loc = location.toLowerCase();
+  if (/london|manchester|edinburgh|uk|united kingdom|england|scotland|wales/.test(loc)) return "uk";
+  if (/sydney|melbourne|brisbane|perth|adelaide|australia|au\b/.test(loc)) return "au";
+  if (/toronto|vancouver|montreal|calgary|canada/.test(loc)) return "ca";
+  if (/singapore/.test(loc)) return "sg";
+  return "us";
+}
 
 export default function CostResults({ results, inputs, onReset }: Props) {
   const [activeTab, setActiveTab] = useState<"overview" | "annual" | "lifetime" | "projection">("overview");
   const [inflationRate, setInflationRate] = useState(4);
   const [emailSaved, setEmailSaved] = useState(false);
-  const [emailInput, setEmailInput] = useState("");
   const breed = getBreedById(inputs.petType, inputs.breedId);
 
   // Cheaper alternatives: same pet type, same size, lower base annual costs
@@ -142,7 +156,9 @@ export default function CostResults({ results, inputs, onReset }: Props) {
 
       {/* National average comparison */}
       {(() => {
-        const avg = NATIONAL_AVG_ANNUAL[inputs.petType] ?? 2600;
+        const region = detectRegion(inputs.location ?? "");
+        const regionData = NATIONAL_AVG_ANNUAL[region];
+        const avg = regionData[inputs.petType];
         const yours = results.annual.total;
         const diff = yours - avg;
         const maxVal = Math.max(yours, avg) * 1.1;
@@ -150,7 +166,7 @@ export default function CostResults({ results, inputs, onReset }: Props) {
         const avgPct = Math.round((avg / maxVal) * 100);
         return (
           <div className="card p-5">
-            <h3 className="text-sm font-bold text-[#1B2B1B] mb-4">Your cost vs national average</h3>
+            <h3 className="text-sm font-bold text-[#1B2B1B] mb-4">Your cost vs {regionData.label}</h3>
             <div className="space-y-3">
               <div>
                 <div className="flex justify-between text-xs text-[#5a7a5a] mb-1.5">
@@ -163,7 +179,7 @@ export default function CostResults({ results, inputs, onReset }: Props) {
               </div>
               <div>
                 <div className="flex justify-between text-xs text-[#5a7a5a] mb-1.5">
-                  <span>National average ({inputs.petType})</span>
+                  <span>{regionData.label} ({inputs.petType})</span>
                   <span className="font-semibold text-[#1B2B1B]">{formatCurrency(avg)}/yr</span>
                 </div>
                 <div className="h-3 bg-[#E8F5E9] rounded-full overflow-hidden">
@@ -173,41 +189,43 @@ export default function CostResults({ results, inputs, onReset }: Props) {
             </div>
             <p className="text-xs text-[#5a7a5a] mt-3">
               {diff > 0
-                ? `Your ${breed?.name ?? "pet"} costs ${formatCurrency(diff)}/yr more than the national average — mainly due to ${breed?.size === "large" ? "large breed" : "breed-specific"} food, vet, and grooming costs.`
+                ? `Your ${breed?.name ?? "pet"} costs ${formatCurrency(diff)}/yr more than the ${regionData.label.toLowerCase()} — mainly due to ${breed?.size === "large" ? "large breed" : "breed-specific"} food, vet, and grooming costs.`
                 : diff < 0
-                ? `Your ${breed?.name ?? "pet"} costs ${formatCurrency(Math.abs(diff))}/yr less than the national average.`
-                : "Your cost matches the national average."}
+                ? `Your ${breed?.name ?? "pet"} costs ${formatCurrency(Math.abs(diff))}/yr less than the ${regionData.label.toLowerCase()}.`
+                : `Your cost matches the ${regionData.label.toLowerCase()}.`}
             </p>
           </div>
         );
       })()}
 
-      {/* Save results via email */}
+      {/* Save results — copy summary to clipboard */}
       <div className="card p-5">
         <div className="flex items-start gap-3">
           <Mail className="h-5 w-5 text-[#2E7D32] flex-shrink-0 mt-0.5" />
           <div className="flex-1">
             <h3 className="text-sm font-bold text-[#1B2B1B] mb-1">Save your results</h3>
-            <p className="text-xs text-[#5a7a5a] mb-3">Get your cost breakdown emailed to you, plus our quarterly cost update newsletter.</p>
+            <p className="text-xs text-[#5a7a5a] mb-3">Copy a plain-text summary to paste into notes, or use the Print button below to save as a PDF.</p>
             {emailSaved ? (
-              <p className="text-sm font-semibold text-[#2E7D32]">✓ Results sent! Check your inbox.</p>
+              <p className="text-sm font-semibold text-[#2E7D32]">✓ Summary copied to clipboard!</p>
             ) : (
-              <form
-                onSubmit={(e) => { e.preventDefault(); if (emailInput.includes("@")) setEmailSaved(true); }}
-                className="flex gap-2"
+              <button
+                onClick={() => {
+                  const summary = [
+                    `Pet Cost Report — ${breed?.name ?? "Your Pet"}`,
+                    `Location: ${inputs.location}`,
+                    ``,
+                    `First Year Total: ${formatCurrency(results.firstYear.total)}`,
+                    `Annual Ongoing:   ${formatCurrency(results.annual.total)} (${formatCurrency(results.annual.total / 12)}/mo)`,
+                    `Lifetime Total:   ${formatCurrency(results.lifetime.total)} over ${results.lifetime.years} years`,
+                    ``,
+                    `Generated by PetCost-Calculator.com`,
+                  ].join("\n");
+                  navigator.clipboard.writeText(summary).then(() => setEmailSaved(true));
+                }}
+                className="rounded-xl bg-[#2E7D32] text-white text-sm font-semibold px-4 py-2 hover:bg-[#1B5E20] transition-colors"
               >
-                <input
-                  type="email"
-                  placeholder="Your email address"
-                  value={emailInput}
-                  onChange={(e) => setEmailInput(e.target.value)}
-                  className="flex-1 rounded-xl border border-[#C8E6C9] px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#2E7D32]/30 focus:border-[#2E7D32]"
-                  required
-                />
-                <button type="submit" className="rounded-xl bg-[#2E7D32] text-white text-sm font-semibold px-4 py-2 hover:bg-[#1B5E20] transition-colors">
-                  Send
-                </button>
-              </form>
+                Copy Summary
+              </button>
             )}
           </div>
         </div>

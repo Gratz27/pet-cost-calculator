@@ -1,7 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { PlusCircle, TrendingUp, TrendingDown, Minus } from "lucide-react";
+import { useState, useEffect } from "react";
+import { TrendingUp, TrendingDown, Minus } from "lucide-react";
+
+const STORAGE_KEY = "petcost_budget_tracker_v1";
 
 interface Category {
   id: string;
@@ -23,6 +25,27 @@ const DEFAULTS: Category[] = [
 
 export default function BudgetTrackerClient() {
   const [categories, setCategories] = useState<Category[]>(DEFAULTS);
+  const [loaded, setLoaded] = useState(false);
+
+  // Load from localStorage on mount
+  useEffect(() => {
+    try {
+      const saved = typeof window !== "undefined" ? localStorage.getItem(STORAGE_KEY) : null;
+      if (saved) {
+        const parsed = JSON.parse(saved) as Category[];
+        if (Array.isArray(parsed) && parsed.length > 0) setCategories(parsed);
+      }
+    } catch { /* ignore parse errors */ }
+    setLoaded(true);
+  }, []);
+
+  // Persist to localStorage whenever categories change (after initial load)
+  useEffect(() => {
+    if (!loaded) return;
+    try {
+      if (typeof window !== "undefined") localStorage.setItem(STORAGE_KEY, JSON.stringify(categories));
+    } catch { /* ignore storage errors */ }
+  }, [categories, loaded]);
 
   const totalBudget = categories.reduce((s, c) => s + c.budget, 0);
   const totalActual = categories.reduce((s, c) => s + c.actual, 0);
@@ -35,6 +58,11 @@ export default function BudgetTrackerClient() {
 
   function resetActual() {
     setCategories(prev => prev.map(c => ({ ...c, actual: 0 })));
+  }
+
+  function resetAll() {
+    setCategories(DEFAULTS);
+    if (typeof window !== "undefined") localStorage.removeItem(STORAGE_KEY);
   }
 
   return (
@@ -159,8 +187,17 @@ export default function BudgetTrackerClient() {
         </div>
       </div>
 
-      <div className="flex gap-3">
-        <button onClick={resetActual} className="btn-secondary text-sm">Reset actual spending</button>
+      <div className="flex items-center justify-between gap-3 flex-wrap">
+        <div className="flex gap-3">
+          <button onClick={resetActual} className="btn-secondary text-sm">Reset actual spending</button>
+          <button onClick={resetAll} className="rounded-xl border border-red-200 text-red-600 hover:bg-red-50 px-4 py-2 text-sm font-medium transition-colors">Reset all</button>
+        </div>
+        {loaded && (
+          <p className="text-xs text-[#5a7a5a] flex items-center gap-1">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#4CAF50] inline-block" />
+            Auto-saved to your browser
+          </p>
+        )}
       </div>
     </div>
   );

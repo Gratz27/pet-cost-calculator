@@ -115,7 +115,7 @@ export default function HeroSearch() {
       {/* Quick stats */}
       <div className="mt-4 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-green-200">
         <span>✓ Free, no signup</span>
-        <span>✓ 200+ breeds</span>
+        <span>✓ 300+ breeds</span>
         <span>✓ US · UK · AU prices</span>
       </div>
     </div>
