@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Mail, MessageSquare, ChevronRight } from "lucide-react";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Us – PetCost-Calculator",
@@ -10,7 +11,6 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="bg-[#F1F8F1] min-h-screen">
-      {/* Breadcrumb */}
       <div className="bg-white border-b border-[#C8E6C9]">
         <div className="container-xl py-3">
           <nav className="flex items-center gap-2 text-sm text-[#5a7a5a]">
@@ -21,7 +21,6 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Hero */}
       <div className="bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] text-white py-14">
         <div className="container-xl max-w-3xl">
           <h1 className="text-4xl font-bold mb-3">Contact Us</h1>
@@ -61,22 +60,7 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="card p-6">
-          <h2 className="text-base font-bold text-[#1B2B1B] mb-4">Send a Message</h2>
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <input type="text" placeholder="Your name" className="input-field" />
-            <input type="email" placeholder="Your email" className="input-field" />
-            <select className="input-field">
-              <option value="">Topic — select one</option>
-              <option value="data">Data correction</option>
-              <option value="feedback">General feedback</option>
-              <option value="partnership">Partnership enquiry</option>
-              <option value="other">Other</option>
-            </select>
-            <textarea placeholder="Your message..." rows={4} className="input-field resize-none" />
-            <button type="submit" className="btn-primary w-full">Send Message</button>
-          </form>
-        </div>
+        <ContactForm />
       </div>
     </div>
   );

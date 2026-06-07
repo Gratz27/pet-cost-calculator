@@ -192,7 +192,7 @@ export default function ReportPage() {
           <Download className="h-8 w-8 text-green-300 mx-auto mb-4" />
           <h2 className="text-xl font-bold mb-2">Get the Full Report (PDF)</h2>
           <p className="text-green-200 text-sm mb-5">92-page detailed report with breed-by-breed tables, regional breakdowns, and 5-year trend data.</p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <input type="email" placeholder="Your email address" className="flex-1 rounded-xl px-4 py-3 text-sm text-[#1B2B1B] bg-white outline-none" />
             <button type="submit" className="btn-green text-sm px-6 flex-shrink-0">
               Download Free <ArrowRight className="h-4 w-4 inline ml-1" />

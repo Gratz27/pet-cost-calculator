@@ -143,7 +143,7 @@ export default function HomePage() {
             <p className="text-green-200 mb-6 text-sm leading-relaxed">
               Our 2026 report covers cost trends across 200+ breeds, regional price differences across the US, UK, and Australia, and the most expensive hidden costs most owners miss.
             </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Your email address"
