@@ -88,7 +88,7 @@ const DOG_BREED_PATH: Record<string, string> = {
   // E
   "english-bulldog":                  "bulldog-english",
   "english-setter":                   "setter-english",
-  "english-springer-spaniel":         "spaniel-springer",
+  "english-springer-spaniel":         "springer-english",
   "english-toy-terrier-black-tan":    "terrier-toy",
   "entlebucher-mountain-dog":         "entlebucher",
   "estrela-mountain-dog":             "mountain-bernese",
@@ -333,6 +333,7 @@ const CAT_IMAGES: Record<string, string> = {
 };
 
 const DEFAULT_DOG_PATH = "retriever-labrador";
+const DEFAULT_DOG_IMG = "https://images.dog.ceo/breeds/retriever-labrador/n02099712_4323.jpg";
 const DEFAULT_CAT_IMG = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Cat_August_2010-4.jpg/600px-Cat_August_2010-4.jpg";
 
 interface Props {
@@ -355,13 +356,21 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
     const path = DOG_BREED_PATH[breedId] ?? DEFAULT_DOG_PATH;
     fetch(`https://dog.ceo/api/breed/${path}/images/random`)
       .then(r => r.json())
-      .then(d => setSrc(d.message))
-      .catch(() => setSrc(`https://dog.ceo/api/breed/${DEFAULT_DOG_PATH}/images/random`));
+      .then(d => {
+        if (d.status === "success" && d.message) {
+          setSrc(d.message);
+        } else {
+          setSrc(DEFAULT_DOG_IMG);
+        }
+      })
+      .catch(() => setSrc(DEFAULT_DOG_IMG));
   }, [breedId, petType]);
 
   if (!src) {
     return <div className="absolute inset-0 bg-[#E8F5E9] animate-pulse" />;
   }
+
+  const fallback = petType === "cat" ? DEFAULT_CAT_IMG : DEFAULT_DOG_IMG;
 
   return (
     <Image
@@ -371,6 +380,7 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
       unoptimized
       className={className}
       sizes={sizes}
+      onError={() => setSrc(fallback)}
     />
   );
 }
