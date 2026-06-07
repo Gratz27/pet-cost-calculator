@@ -91,7 +91,7 @@ export default function BlogPage({ searchParams }: { searchParams: { category?: 
                     src={featured.image}
                     alt={featured.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 50vw"
                     unoptimized
                   />
@@ -124,7 +124,7 @@ export default function BlogPage({ searchParams }: { searchParams: { category?: 
                   src={article.image}
                   alt={article.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   unoptimized
                 />

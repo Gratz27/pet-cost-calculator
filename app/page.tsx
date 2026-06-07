@@ -112,7 +112,7 @@ export default function HomePage() {
             <Link key={breed.id} href={`/breeds/${breed.id}`}
               className="card overflow-hidden group hover:border-[#4CAF50]/50">
               <div className="relative h-48 bg-[#E8F5E9] overflow-hidden">
-                <Image src={breed.img} alt={breed.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, 33vw" unoptimized />
+                <Image src={breed.img} alt={breed.name} fill unoptimized className="object-cover object-top group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, 33vw" unoptimized />
                 <span className="absolute top-3 right-3 badge badge-green shadow-sm">{breed.tag}</span>
               </div>
               <div className="p-5 flex items-center justify-between">

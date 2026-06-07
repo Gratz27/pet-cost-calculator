@@ -55,8 +55,8 @@ export default function BreedsPage({ searchParams }: { searchParams: { type?: st
 
             return (
               <Link key={breed.id} href={`/breeds/${breed.id}`} className="card overflow-hidden group hover:border-[#4CAF50]/50">
-                <div className="relative h-40 bg-[#E8F5E9] overflow-hidden">
-                  <Image src={img} alt={breed.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+                <div className="relative h-52 bg-[#E8F5E9] overflow-hidden">
+                  <Image src={img} alt={breed.name} fill unoptimized className="object-cover object-top group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
                 </div>
                 <div className="p-4">
                   <div className="flex items-start justify-between mb-2">

@@ -51,7 +51,7 @@ export default function BreedPage({ params }: Props) {
         <div className="container-xl py-10 md:py-14">
           <div className="flex flex-col md:flex-row md:items-start gap-8">
             <div className="relative w-full md:w-72 h-52 rounded-2xl overflow-hidden flex-shrink-0 border border-[#C8E6C9]">
-              <Image src={img} alt={`${breed.name}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, 288px" />
+              <Image src={img} alt={`${breed.name}`} fill unoptimized className="object-cover object-top" sizes="(max-width: 768px) 100vw, 288px" />
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-3 flex-wrap">
