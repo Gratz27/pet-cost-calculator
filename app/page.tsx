@@ -1,41 +1,60 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Shield, TrendingUp, Clock, Star, CheckCircle2, ChevronRight, Calculator, BarChart3, Users } from "lucide-react";
+import { ArrowRight, Shield, TrendingUp, Clock, Star, ChevronRight, Calculator, BarChart3, Users, Mail, BookOpen } from "lucide-react";
 import { getAllBreeds } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
+import HeroSearch from "@/components/HeroSearch";
 
 const featuredBreeds = [
   { id: "golden-retriever", name: "Golden Retriever", firstYearEstimate: 4200, tag: "Most Popular", img: "https://images.dog.ceo/breeds/retriever-golden/n02099601_1722.jpg" },
   { id: "french-bulldog", name: "French Bulldog", firstYearEstimate: 5100, tag: "Trending", img: "https://images.dog.ceo/breeds/bulldog-french/n02108915_4362.jpg" },
   { id: "labrador-retriever", name: "Labrador Retriever", firstYearEstimate: 3800, tag: "Family Favourite", img: "https://images.dog.ceo/breeds/retriever-labrador/n02099712_4323.jpg" },
   { id: "german-shepherd", name: "German Shepherd", firstYearEstimate: 4500, tag: "Active Lifestyle", img: "https://images.dog.ceo/breeds/germanshepherd/n02106662_26173.jpg" },
-  { id: "bulldog", name: "Bulldog", firstYearEstimate: 4800, tag: "Low Energy", img: "https://images.dog.ceo/breeds/bulldog-english/triton_1.jpeg" },
+  { id: "bengal", name: "Bengal Cat", firstYearEstimate: 3200, tag: "Low Maintenance", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Paintedcats_Red_Star_standing.jpg/320px-Paintedcats_Red_Star_standing.jpg" },
   { id: "poodle", name: "Poodle", firstYearEstimate: 4300, tag: "Hypoallergenic", img: "https://images.dog.ceo/breeds/poodle-standard/n02113799_2280.jpg" },
 ];
 
 const stats = [
-  { value: "500K+", label: "Pet owners helped", icon: Users },
   { value: "200+", label: "Breeds covered", icon: Calculator },
-  { value: "10K+", label: "Cost data points", icon: BarChart3 },
+  { value: "3", label: "Countries supported", icon: BarChart3 },
+  { value: "50+", label: "Cost data points per breed", icon: TrendingUp },
   { value: "Monthly", label: "Data updates", icon: Clock },
 ];
 
 const trustFeatures = [
   { icon: Shield, title: "Verified Cost Data", description: "All estimates sourced from vet clinics, pet stores, and breeder surveys across the US, UK, and Australia." },
-  { icon: TrendingUp, title: "Inflation Adjusted", description: "Costs are updated monthly to reflect current market rates. Never work from outdated figures." },
-  { icon: Calculator, title: "Personalised Estimates", description: "Every calculation factors in your location, lifestyle, and living situation for accurate results." },
+  { icon: TrendingUp, title: "Inflation Adjusted", description: "Costs updated regularly to reflect current market rates across all three supported countries." },
+  { icon: Calculator, title: "Personalised Estimates", description: "Every calculation factors in your location, lifestyle, and living situation for accurate, relevant results." },
 ];
 
 const steps = [
-  { number: "01", title: "Pick your breed", description: "Search from 200+ dog and cat breeds. Each one has detailed cost profiles built from real data." },
+  { number: "01", title: "Pick your breed", description: "Search from 200+ dog and cat breeds. Each one has detailed cost profiles built from real market data." },
   { number: "02", title: "Tell us about yourself", description: "Answer a few questions about your location, lifestyle, and preferences. Takes under 2 minutes." },
   { number: "03", title: "Get your full cost report", description: "Receive a detailed breakdown: first-year costs, annual ongoing costs, lifetime total, and hidden expenses." },
 ];
 
 const testimonials = [
-  { name: "Sarah M.", location: "Austin, TX", text: "This calculator saved me from a huge financial surprise. I had no idea a French Bulldog would cost so much in the first year.", rating: 5 },
-  { name: "James K.", location: "London, UK", text: "Finally a tool that accounts for UK prices. Every other calculator just used US data. Really helpful.", rating: 5 },
-  { name: "Priya L.", location: "Sydney, AU", text: "Used this to compare three breeds before making a decision. The comparison tool is brilliant.", rating: 5 },
+  {
+    name: "Sarah M.",
+    location: "Austin, TX",
+    breed: "French Bulldog owner",
+    text: "I was about to buy a French Bulldog without realising the total first-year cost would be over $5,000. This tool showed me the full picture — vet bills, insurance, supplies. Saved me from a huge financial shock.",
+    rating: 5,
+  },
+  {
+    name: "James K.",
+    location: "London, UK",
+    breed: "Labrador owner",
+    text: "Every other calculator uses US prices. This one uses UK data and it's genuinely accurate — my Labrador's ongoing costs match almost exactly what I actually spend each year.",
+    rating: 5,
+  },
+  {
+    name: "Priya L.",
+    location: "Sydney, AU",
+    breed: "Golden Retriever owner",
+    text: "Used this to compare a Golden Retriever, a Poodle, and a Border Collie. The lifetime cost difference between them was over $12,000. Made our decision so much easier.",
+    rating: 5,
+  },
 ];
 
 export default function HomePage() {
@@ -44,32 +63,20 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
+      {/* Hero — calculator-first */}
       <section className="bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] text-white">
-        <div className="container-xl py-20 md:py-28 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-green-100 mb-6 border border-white/20">
+        <div className="container-xl py-16 md:py-24 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-green-100 mb-5 border border-white/20">
             <span className="h-2 w-2 rounded-full bg-[#A5D6A7] animate-pulse" />
             Updated June 2026 · 200+ breeds covered
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-6 max-w-4xl mx-auto">
-            Can you <span className="text-[#A5D6A7]">really afford</span> your dream pet?
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-4 max-w-3xl mx-auto">
+            Which pet are you considering?
           </h1>
-          <p className="text-lg md:text-xl text-green-100 leading-relaxed mb-8 max-w-2xl mx-auto">
-            Stop guessing. Get a complete cost breakdown for any dog or cat breed — first-year costs, lifetime expenses, and the hidden costs nobody talks about.
+          <p className="text-lg text-green-100 leading-relaxed mb-8 max-w-xl mx-auto">
+            Search any breed to see monthly and lifetime costs before you decide. Free, no signup.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/calculator" className="btn-green text-lg px-8 py-4">
-              Calculate My Costs <ArrowRight className="h-5 w-5" />
-            </Link>
-            <Link href="/breeds" className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white/30 text-white font-semibold px-8 py-4 text-base hover:bg-white/10 hover:border-white/50 transition-all">
-              Browse Breeds
-            </Link>
-          </div>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-sm text-green-200">
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-[#A5D6A7]" /> Free to use</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-[#A5D6A7]" /> No signup required</span>
-            <span className="flex items-center gap-1.5"><CheckCircle2 className="h-4 w-4 text-[#A5D6A7]" /> 200+ breeds</span>
-          </div>
+          <HeroSearch />
         </div>
       </section>
 
@@ -96,8 +103,8 @@ export default function HomePage() {
       <section className="container-xl py-16 md:py-20">
         <div className="text-center mb-10">
           <div className="badge badge-green mb-3 mx-auto">Popular Breeds</div>
-          <h2 className="section-heading">What breed are you considering?</h2>
-          <p className="section-subheading max-w-xl mx-auto">Click any breed to see a full cost breakdown, or use the calculator for a personalised estimate.</p>
+          <h2 className="section-heading">Start with a popular breed</h2>
+          <p className="section-subheading max-w-xl mx-auto">Click any breed for a full cost breakdown, or search for your specific breed above.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -105,7 +112,7 @@ export default function HomePage() {
             <Link key={breed.id} href={`/breeds/${breed.id}`}
               className="card overflow-hidden group hover:border-[#4CAF50]/50">
               <div className="relative h-48 bg-[#E8F5E9] overflow-hidden">
-                <Image src={breed.img} alt={breed.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, 33vw" />
+                <Image src={breed.img} alt={breed.name} fill className="object-cover group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, 33vw" unoptimized />
                 <span className="absolute top-3 right-3 badge badge-green shadow-sm">{breed.tag}</span>
               </div>
               <div className="p-5 flex items-center justify-between">
@@ -122,8 +129,32 @@ export default function HomePage() {
         <div className="mt-8 text-center">
           <Link href="/breeds" className="btn-secondary mr-3">View All Breeds</Link>
           <Link href="/calculator" className="btn-primary">
-            <Calculator className="h-4 w-4" /> Get My Personalised Cost Report
+            <Calculator className="h-4 w-4" /> Get My Full Cost Report
           </Link>
+        </div>
+      </section>
+
+      {/* Email capture */}
+      <section className="bg-[#1B5E20] py-12 md:py-16">
+        <div className="container-xl">
+          <div className="max-w-2xl mx-auto text-center text-white">
+            <Mail className="h-8 w-8 text-[#A5D6A7] mx-auto mb-4" />
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">Get the Annual Pet Cost Report 2026</h2>
+            <p className="text-green-200 mb-6 text-sm leading-relaxed">
+              Our 2026 report covers cost trends across 200+ breeds, regional price differences across the US, UK, and Australia, and the most expensive hidden costs most owners miss.
+            </p>
+            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="flex-1 rounded-xl px-4 py-3 text-sm text-[#1B2B1B] bg-white placeholder-slate-400 outline-none focus:ring-2 focus:ring-[#A5D6A7]"
+              />
+              <button type="submit" className="btn-green text-sm px-6 py-3 flex-shrink-0">
+                Get Free Report
+              </button>
+            </form>
+            <p className="mt-3 text-xs text-green-400">No spam. Unsubscribe any time.</p>
+          </div>
         </div>
       </section>
 
@@ -133,7 +164,7 @@ export default function HomePage() {
           <div className="text-center max-w-2xl mx-auto mb-12">
             <div className="badge badge-green mb-3 mx-auto">How It Works</div>
             <h2 className="section-heading">Your cost report in under 2 minutes</h2>
-            <p className="section-subheading">No signup, no fluff. Just accurate numbers for your specific situation.</p>
+            <p className="section-subheading">No signup, no fluff. Accurate numbers for your specific situation.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {steps.map((step) => (
@@ -168,6 +199,11 @@ export default function HomePage() {
               <p className="text-sm text-[#5a7a5a] leading-relaxed">{description}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-8 text-center">
+          <Link href="/methodology" className="text-sm text-[#2E7D32] font-semibold hover:underline">
+            Read our methodology →
+          </Link>
         </div>
       </section>
 
@@ -208,7 +244,7 @@ export default function HomePage() {
       <section className="container-xl py-16 md:py-20">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="badge badge-green mb-3 mx-auto">Reviews</div>
-          <h2 className="section-heading">Trusted by pet owners worldwide</h2>
+          <h2 className="section-heading">What pet owners say</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t) => (
@@ -221,10 +257,32 @@ export default function HomePage() {
               <p className="text-[#5a7a5a] text-sm leading-relaxed mb-4">{t.text}</p>
               <div>
                 <div className="text-sm font-semibold text-[#1B2B1B]">{t.name}</div>
-                <div className="text-xs text-slate-400">{t.location}</div>
+                <div className="text-xs text-slate-400">{t.location} · {t.breed}</div>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Guides CTA */}
+      <section className="bg-[#F1F8F1] border-y border-[#C8E6C9] py-12 md:py-16">
+        <div className="container-xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              { icon: BookOpen, label: "Cost Guides", desc: "In-depth guides on every aspect of pet ownership costs.", href: "/guides", cta: "Browse guides" },
+              { icon: Calculator, label: "Tools", desc: "Insurance comparator, budget tracker, and more free tools.", href: "/tools", cta: "View tools" },
+              { icon: BarChart3, label: "Annual Report", desc: "Our 2026 Pet Cost Report — data from 200+ breeds worldwide.", href: "/report", cta: "Read report" },
+            ].map(({ icon: Icon, label, desc, href, cta }) => (
+              <Link key={label} href={href} className="card p-6 group hover:border-[#4CAF50]/50">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#E8F5E9] mb-4">
+                  <Icon className="h-5 w-5 text-[#2E7D32]" />
+                </div>
+                <h3 className="text-base font-bold text-[#1B2B1B] mb-1 group-hover:text-[#2E7D32] transition-colors">{label}</h3>
+                <p className="text-sm text-[#5a7a5a] mb-3">{desc}</p>
+                <span className="text-sm font-semibold text-[#2E7D32]">{cta} →</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -5,19 +5,32 @@ const footerLinks = {
   Tools: [
     { label: "Cost Calculator", href: "/calculator" },
     { label: "Breed Comparison", href: "/compare" },
-    { label: "All Breeds", href: "/breeds" },
+    { label: "Insurance Compare", href: "/tools/insurance-compare" },
+    { label: "Budget Tracker", href: "/tools/budget-tracker" },
+    { label: "All Tools", href: "/tools" },
   ],
-  "Cost Guides": [
-    { label: "Dog Cost Guides", href: "/blog" },
-    { label: "Cat Cost Guides", href: "/blog" },
-    { label: "All Articles", href: "/blog" },
+  "Guides & Data": [
+    { label: "Cost Guides", href: "/guides" },
+    { label: "Blog & Articles", href: "/blog" },
+    { label: "Annual Report 2026", href: "/report" },
+    { label: "Our Methodology", href: "/methodology" },
+  ],
+  Breeds: [
+    { label: "All Breeds", href: "/breeds" },
+    { label: "Dogs", href: "/breeds?type=dog" },
+    { label: "Cats", href: "/breeds?type=cat" },
+    { label: "Compare Breeds", href: "/compare" },
+  ],
+  "Regional Costs": [
+    { label: "US National Average", href: "/costs/us/national-average" },
+    { label: "New York", href: "/costs/us/new-york" },
+    { label: "London, UK", href: "/costs/uk/london" },
+    { label: "Sydney, AU", href: "/costs/au/sydney" },
   ],
   Company: [
     { label: "About Us", href: "/about" },
     { label: "How It Works", href: "/how-it-works" },
     { label: "Contact", href: "/contact" },
-  ],
-  Legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms of Service", href: "/terms" },
   ],
@@ -27,8 +40,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#1B2B1B] text-slate-300">
       <div className="container-xl py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-          <div className="lg:col-span-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 mb-12">
+          <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-4">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#4CAF50] text-white">
                 <Calculator className="h-4 w-4" />
@@ -38,12 +51,12 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
-              The definitive platform for pet ownership cost planning. Helping over 500,000 pet owners make informed decisions.
+              The definitive platform for pet ownership cost planning. Helping pet owners make informed decisions.
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-slate-500">
-              <span>Data updated monthly</span>
+              <span>Data updated regularly</span>
               <span>·</span>
-              <span>10,000+ cost data points</span>
+              <span>200+ breeds</span>
             </div>
           </div>
 
@@ -63,7 +76,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-[#2E7D32]/30 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-[#2E7D32]/30 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500">
             © {new Date().getFullYear()} PetCost-Calculator.com. All rights reserved.
           </p>
