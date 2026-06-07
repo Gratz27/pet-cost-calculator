@@ -6,12 +6,12 @@ import { formatCurrency } from "@/lib/utils";
 import HeroSearch from "@/components/HeroSearch";
 
 const featuredBreeds = [
-  { id: "golden-retriever", name: "Golden Retriever", firstYearEstimate: 4200, tag: "Most Popular", img: "https://images.dog.ceo/breeds/retriever-golden/n02099601_1722.jpg" },
-  { id: "french-bulldog", name: "French Bulldog", firstYearEstimate: 5100, tag: "Trending", img: "https://images.dog.ceo/breeds/bulldog-french/n02108915_4362.jpg" },
-  { id: "labrador-retriever", name: "Labrador Retriever", firstYearEstimate: 3800, tag: "Family Favourite", img: "https://images.dog.ceo/breeds/retriever-labrador/n02099712_4323.jpg" },
-  { id: "german-shepherd", name: "German Shepherd", firstYearEstimate: 4500, tag: "Active Lifestyle", img: "https://images.dog.ceo/breeds/germanshepherd/n02106662_26173.jpg" },
-  { id: "bengal", name: "Bengal Cat", firstYearEstimate: 3200, tag: "Low Maintenance", img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Paintedcats_Red_Star_standing.jpg/320px-Paintedcats_Red_Star_standing.jpg" },
-  { id: "poodle", name: "Poodle", firstYearEstimate: 4300, tag: "Hypoallergenic", img: "https://images.dog.ceo/breeds/poodle-standard/n02113799_2280.jpg" },
+  { id: "golden-retriever",     name: "Golden Retriever",  firstYearEstimate: 4200, tag: "Most Popular",     img: "https://images.dog.ceo/breeds/retriever-golden/n02099601_1743.jpg" },
+  { id: "french-bulldog",       name: "French Bulldog",    firstYearEstimate: 5100, tag: "Trending",         img: "https://images.dog.ceo/breeds/bulldog-french/n02108915_4372.jpg" },
+  { id: "labrador-retriever",   name: "Labrador Retriever",firstYearEstimate: 3800, tag: "Family Favourite", img: "https://images.dog.ceo/breeds/labrador/n02099712_4354.jpg" },
+  { id: "german-shepherd-dog",  name: "German Shepherd",   firstYearEstimate: 4500, tag: "Active Lifestyle", img: "https://images.dog.ceo/breeds/german-shepherd/n02106662_18113.jpg" },
+  { id: "bengal",               name: "Bengal Cat",        firstYearEstimate: 3200, tag: "Low Maintenance",  img: "https://cdn2.thecatapi.com/images/IFXsxmXLm.jpg" },
+  { id: "poodle-standard",      name: "Poodle",            firstYearEstimate: 4300, tag: "Hypoallergenic",   img: "https://images.dog.ceo/breeds/poodle-standard/n02113799_2280.jpg" },
 ];
 
 const stats = [
