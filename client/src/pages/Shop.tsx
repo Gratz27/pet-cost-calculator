@@ -30,7 +30,9 @@ export default function Shop() {
               <p className="text-muted-foreground text-sm">Everything you need for your new dog or cat — curated for value and longevity.</p>
             </div>
             <a
-              href="/shop"
+              href="https://shop.petcost-calculator.com/collections/new-pet-parent-starter-kit"
+              target="_blank"
+              rel="noopener noreferrer"
               className="shrink-0 inline-flex items-center px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
             >
               Shop the Kit →
