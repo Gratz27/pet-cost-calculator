@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import CalculatorClient from "@/components/Calculator/CalculatorClient";
 
 export const metadata: Metadata = {
@@ -20,7 +21,9 @@ export default function CalculatorPage() {
         </div>
       </div>
       <div className="container-xl max-w-4xl py-8">
-        <CalculatorClient />
+        <Suspense fallback={<div className="h-96 flex items-center justify-center text-[#5a7a5a]">Loading calculator…</div>}>
+          <CalculatorClient />
+        </Suspense>
       </div>
     </div>
   );
