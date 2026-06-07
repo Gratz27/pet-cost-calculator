@@ -24,21 +24,6 @@ export default function Shop() {
             </div>
           </div>
 
-          <div className="rounded-xl bg-primary/10 border border-primary/20 p-6 mb-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div>
-              <h2 className="text-xl font-semibold mb-1">🐾 New Pet Parent Starter Kit</h2>
-              <p className="text-muted-foreground text-sm">Everything you need for your new dog or cat — curated for value and longevity.</p>
-            </div>
-            <a
-              href="https://shop.petcost-calculator.com/collections/new-pet-parent-starter-kit"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 inline-flex items-center px-5 py-2.5 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-colors"
-            >
-              Shop the Kit →
-            </a>
-          </div>
-
           <ProductList />
         </main>
       </div>
