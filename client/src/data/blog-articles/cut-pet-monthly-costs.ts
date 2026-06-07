@@ -9,7 +9,7 @@ export const cutPetMonthlyCosts: BlogArticle = {
   author: 'Pet Cost Calculator Team',
   publishDate: '2026-06-07',
   readTime: 7,
-  image: '/blog-images/cut-pet-costs.jpg',
+  image: '/blog-images/budget-pet-care.jpg',
   keywords: [
     'reduce pet monthly costs',
     'cut pet expenses',
