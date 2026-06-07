@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
-import { ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { getAllBreeds } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
-import { getBreedImage } from "@/lib/breedImages";
+import BreedImage from "@/components/BreedImage";
 
 export const metadata: Metadata = {
   title: "Dog & Cat Breed Cost Guide",
@@ -51,12 +50,10 @@ export default function BreedsPage({ searchParams }: { searchParams: { type?: st
           {breeds.map((breed) => {
             const firstYearEst = breed.adoptionFee + breed.initialVet + breed.initialSupplies + breed.annualFood + breed.annualVet + breed.annualGrooming;
             const annualEst = breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualInsurance + breed.annualSupplies;
-            const img = getBreedImage(breed.id, petType);
-
             return (
               <Link key={breed.id} href={`/breeds/${breed.id}`} className="card overflow-hidden group hover:border-[#4CAF50]/50">
                 <div className="relative h-52 bg-[#E8F5E9] overflow-hidden">
-                  <Image src={img} alt={breed.name} fill unoptimized className="object-cover object-top group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+                  <BreedImage breedId={breed.id} petType={petType} alt={breed.name} fill className="object-cover object-top group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
                 </div>
                 <div className="p-4">
                   <div className="flex items-start justify-between mb-2">

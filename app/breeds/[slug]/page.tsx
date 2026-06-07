@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calculator, ChevronRight, TrendingUp, Shield, Clock, AlertTriangle } from "lucide-react";
+import { Calculator, ChevronRight, TrendingUp, Shield, Clock, AlertTriangle } from "lucide-react";
 import { getAllBreeds, getBreedById } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
-import { getBreedImage } from "@/lib/breedImages";
+import BreedImage from "@/components/BreedImage";
 
 interface Props { params: { slug: string } }
 
@@ -26,8 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default function BreedPage({ params }: Props) {
   const petType = getBreedById("dog", params.slug) ? "dog" as const : getBreedById("cat", params.slug) ? "cat" as const : null;
   if (!petType) notFound();
-  const breed = getBreedById(petType, params.slug)!;
-  const img = getBreedImage(breed.id, petType);
+  const breed = getBreedById(petType, params.slug)!
 
   const firstYearTotal = breed.adoptionFee + breed.initialVet + breed.initialSupplies + breed.training + breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualInsurance;
   const annualTotal = breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualInsurance + breed.annualSupplies;
@@ -51,7 +49,7 @@ export default function BreedPage({ params }: Props) {
         <div className="container-xl py-10 md:py-14">
           <div className="flex flex-col md:flex-row md:items-start gap-8">
             <div className="relative w-full md:w-72 h-52 rounded-2xl overflow-hidden flex-shrink-0 border border-[#C8E6C9]">
-              <Image src={img} alt={`${breed.name}`} fill unoptimized className="object-cover object-top" sizes="(max-width: 768px) 100vw, 288px" />
+              <BreedImage breedId={breed.id} petType={petType} alt={breed.name} fill className="object-cover object-top" sizes="(max-width: 768px) 100vw, 288px" />
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-3 flex-wrap">
