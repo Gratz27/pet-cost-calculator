@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Search, ArrowRight } from "lucide-react";
 import { getAllBreeds, type Breed } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 
@@ -45,7 +45,7 @@ export default function CompareClient() {
       <div className="flex gap-2 justify-center">
         {(["dog", "cat"] as const).map(t => (
           <button key={t} onClick={() => { setPetType(t); setBreed1(null); setBreed2(null); setSearch1(""); setSearch2(""); }}
-            className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition-all ${petType === t ? "bg-[#1E3A5F] text-white" : "bg-white border border-slate-200 text-slate-600 hover:border-[#1E3A5F]"}`}>
+            className={`rounded-xl px-5 py-2.5 text-sm font-semibold transition-all ${petType === t ? "bg-[#2E7D32] text-white" : "bg-white border border-[#C8E6C9] text-[#5a7a5a] hover:border-[#2E7D32]"}`}>
             {t === "dog" ? "🐕 Dogs" : "🐈 Cats"}
           </button>
         ))}
@@ -57,31 +57,31 @@ export default function CompareClient() {
           { label: "Breed 1", search: search1, setSearch: setSearch1, selected: breed1, setSelected: setBreed1, filtered: filtered1 },
           { label: "Breed 2", search: search2, setSearch: setSearch2, selected: breed2, setSelected: setBreed2, filtered: filtered2 },
         ].map(({ label, search, setSearch, selected, setSelected, filtered }) => (
-          <div key={label} className="bg-white rounded-2xl border border-slate-200 p-4">
-            <p className="text-xs font-semibold text-slate-500 mb-2">{label}</p>
+          <div key={label} className="bg-white rounded-2xl border border-[#C8E6C9] p-4">
+            <p className="text-xs font-semibold text-[#5a7a5a] mb-2">{label}</p>
             {selected ? (
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="font-bold text-[#0f172a]">{selected.name}</div>
-                  <div className="text-xs text-slate-400 capitalize">{selected.size} · {selected.lifespan}yr</div>
+                  <div className="font-bold text-[#1B2B1B]">{selected.name}</div>
+                  <div className="text-xs text-[#5a7a5a] capitalize">{selected.size} · {selected.lifespan}yr</div>
                 </div>
-                <button onClick={() => setSelected(null)} className="text-xs text-slate-400 hover:text-red-500 underline">Change</button>
+                <button onClick={() => setSelected(null)} className="text-xs text-[#5a7a5a] hover:text-red-500 underline">Change</button>
               </div>
             ) : (
               <div>
                 <div className="relative mb-2">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-slate-400" />
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-[#5a7a5a]" />
                   <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Search breeds..." className="input-field pl-9 text-sm py-2" />
                 </div>
                 <div className="max-h-44 overflow-y-auto space-y-1">
                   {filtered.map(b => (
                     <button key={b.id} onClick={() => { setSelected(b); setSearch(""); }}
-                      className="w-full flex items-center justify-between rounded-lg px-3 py-2 text-left text-sm hover:bg-slate-50 transition-colors">
-                      <span className="font-medium text-[#0f172a]">{b.name}</span>
-                      <span className="text-xs text-slate-400 capitalize">{b.size}</span>
+                      className="w-full flex items-center justify-between rounded-lg px-3 py-2 text-left text-sm hover:bg-[#F1F8F1] transition-colors">
+                      <span className="font-medium text-[#1B2B1B]">{b.name}</span>
+                      <span className="text-xs text-[#5a7a5a] capitalize">{b.size}</span>
                     </button>
                   ))}
-                  {filtered.length === 0 && <p className="text-center py-4 text-sm text-slate-400">No matches</p>}
+                  {filtered.length === 0 && <p className="text-center py-4 text-sm text-[#5a7a5a]">No matches</p>}
                 </div>
               </div>
             )}
@@ -91,26 +91,26 @@ export default function CompareClient() {
 
       {/* Comparison table */}
       {breed1 && breed2 && (
-        <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden">
-          <div className="grid grid-cols-3 bg-[#0f172a] text-white">
-            <div className="p-4 text-sm font-medium text-slate-400">Cost Category</div>
+        <div className="bg-white rounded-2xl border border-[#C8E6C9] overflow-hidden">
+          <div className="grid grid-cols-3 bg-[#1B5E20] text-white">
+            <div className="p-4 text-sm font-medium text-green-200">Cost Category</div>
             <div className="p-4 text-center">
               <div className="font-bold">{breed1.name}</div>
-              <div className="text-xs text-blue-300 capitalize">{breed1.size}</div>
+              <div className="text-xs text-green-200 capitalize">{breed1.size}</div>
             </div>
             <div className="p-4 text-center">
               <div className="font-bold">{breed2.name}</div>
-              <div className="text-xs text-blue-300 capitalize">{breed2.size}</div>
+              <div className="text-xs text-green-200 capitalize">{breed2.size}</div>
             </div>
           </div>
           {rows.map((row, i) => {
             const val1 = row.key(breed1);
             const val2 = row.key(breed2);
             return (
-              <div key={row.label} className={`grid grid-cols-3 border-b border-slate-100 ${row.highlight ? "bg-blue-50" : i % 2 === 0 ? "bg-white" : "bg-slate-50/50"}`}>
-                <div className={`p-4 text-sm ${row.bold ? "font-bold text-[#0f172a]" : "text-slate-600"}`}>{row.label}</div>
-                <div className={`p-4 text-sm text-center ${row.bold ? "font-bold text-[#1E3A5F]" : "font-medium text-[#0f172a]"}`}>{val1}</div>
-                <div className={`p-4 text-sm text-center ${row.bold ? "font-bold text-[#1E3A5F]" : "font-medium text-[#0f172a]"}`}>{val2}</div>
+              <div key={row.label} className={`grid grid-cols-3 border-b border-[#C8E6C9] ${row.highlight ? "bg-[#E8F5E9]" : i % 2 === 0 ? "bg-white" : "bg-[#F1F8F1]"}`}>
+                <div className={`p-4 text-sm ${row.bold ? "font-bold text-[#1B2B1B]" : "text-[#5a7a5a]"}`}>{row.label}</div>
+                <div className={`p-4 text-sm text-center ${row.bold ? "font-bold text-[#2E7D32]" : "font-medium text-[#1B2B1B]"}`}>{val1}</div>
+                <div className={`p-4 text-sm text-center ${row.bold ? "font-bold text-[#2E7D32]" : "font-medium text-[#1B2B1B]"}`}>{val2}</div>
               </div>
             );
           })}
@@ -118,7 +118,7 @@ export default function CompareClient() {
       )}
 
       {!breed1 || !breed2 ? (
-        <div className="text-center py-12 text-slate-400">
+        <div className="text-center py-12 text-[#5a7a5a]">
           <p className="text-sm">Select two breeds above to see your comparison</p>
         </div>
       ) : (
