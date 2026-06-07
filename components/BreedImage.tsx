@@ -3,252 +3,253 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-// Dog CEO API breed paths — confirmed valid paths only
-const DOG_BREED_PATH: Record<string, string> = {
+// Dog CEO API paths — format: "breed" (no sub) or "breed/sub" (with sub)
+// Verified against https://dog.ceo/api/breeds/list/all
+const DOG_PATH: Record<string, string> = {
   // A
   "affenpinscher":                    "affenpinscher",
-  "afghan-hound":                     "hound-afghan",
+  "afghan-hound":                     "hound/afghan",
   "airedale-terrier":                 "airedale",
   "akita":                            "akita",
   "alaskan-malamute":                 "malamute",
-  "anatolian-shepherd-dog":           "germanshepherd",
-  "australian-cattle-dog":            "cattledog-australian",
-  "australian-shepherd":              "australian-shepherd",
-  "australian-silky-terrier":         "terrier-silky",
-  "australian-terrier":               "terrier-australian",
+  "anatolian-shepherd-dog":           "german/shepherd",
+  "australian-cattle-dog":            "cattledog/australian",
+  "australian-shepherd":              "australian/shepherd",
+  "australian-silky-terrier":         "terrier/silky",
+  "australian-terrier":               "terrier/australian",
   "azawakh":                          "saluki",
   // B
-  "barbet":                           "frise",
+  "barbet":                           "frise/bichon",
   "basenji":                          "basenji",
-  "basset-bleu-de-gascogne":          "hound-basset",
-  "basset-fauve-de-bretagne":         "hound-basset",
-  "basset-griffon-vendeen-grand":     "hound-basset",
-  "basset-griffon-vendeen-petit":     "hound-basset",
-  "basset-hound":                     "hound-basset",
-  "bavarian-mountain-hound":          "hound-blood",
+  "basset-bleu-de-gascogne":          "hound/basset",
+  "basset-fauve-de-bretagne":         "hound/basset",
+  "basset-griffon-vendeen-grand":     "hound/basset",
+  "basset-griffon-vendeen-petit":     "hound/basset",
+  "basset-hound":                     "hound/basset",
+  "bavarian-mountain-hound":          "hound/blood",
   "beagle":                           "beagle",
-  "bearded-collie":                   "collie-border",
-  "beauceron":                        "germanshepherd",
-  "bedlington-terrier":               "terrier-bedlington",
+  "bearded-collie":                   "rough/collie",
+  "beauceron":                        "german/shepherd",
+  "bedlington-terrier":               "terrier/bedlington",
   "belgian-shepherd-dog-groenendael": "groenendael",
   "belgian-shepherd-dog-laekenois":   "malinois",
   "belgian-shepherd-dog-malinois":    "malinois",
   "belgian-shepherd-dog-tervueren":   "tervuren",
   "bergamasco-shepherd-dog":          "komondor",
-  "bernese-mountain-dog":             "mountain-bernese",
-  "bichon-frise":                     "frise",
-  "bloodhound":                       "hound-blood",
+  "bernese-mountain-dog":             "mountain/bernese",
+  "bichon-frise":                     "frise/bichon",
+  "bloodhound":                       "hound/blood",
   "bolognese":                        "maltese",
-  "border-collie":                    "collie-border",
-  "border-terrier":                   "terrier-border",
+  "border-collie":                    "collie/border",
+  "border-terrier":                   "terrier/border",
   "borzoi":                           "borzoi",
-  "boston-terrier":                   "terrier-boston",
+  "boston-terrier":                   "terrier/boston",
   "bouvier-des-flandres":             "bouvier",
   "boxer":                            "boxer",
-  "bracco-italiano":                  "pointer-germanlonghair",
+  "bracco-italiano":                  "pointer/germanlonghair",
   "briard":                           "briard",
-  "british-bulldog":                  "bulldog-english",
-  "brittany":                         "spaniel-brittany",
-  "bull-terrier":                     "bullterrier",
-  "bull-terrier-miniature":           "bullterrier",
-  "bulldog":                          "bulldog-english",
-  "bullmastiff":                      "mastiff-bull",
+  "british-bulldog":                  "bulldog/english",
+  "brittany":                         "spaniel/brittany",
+  "bull-terrier":                     "bullterrier/staffordshire",
+  "bull-terrier-miniature":           "bullterrier/staffordshire",
+  "bulldog":                          "bulldog/english",
+  "bullmastiff":                      "mastiff/bull",
   // C
-  "cairn-terrier":                    "terrier-cairn",
+  "cairn-terrier":                    "terrier/cairn",
   "canaan-dog":                       "basenji",
-  "cane-corso":                       "mastiff-bull",
-  "cardigan-welsh-corgi":             "corgi-cardigan",
-  "cavalier-king-charles-spaniel":    "spaniel-cocker",
-  "central-asian-shepherd-dog":       "mastiff-bull",
-  "cesky-terrier":                    "terrier-scottish",
-  "chesapeake-bay-retriever":         "retriever-chesapeake",
+  "cane-corso":                       "mastiff/bull",
+  "cardigan-welsh-corgi":             "corgi/cardigan",
+  "cavalier-king-charles-spaniel":    "spaniel/cocker",
+  "central-asian-shepherd-dog":       "mastiff/bull",
+  "cesky-terrier":                    "terrier/scottish",
+  "chesapeake-bay-retriever":         "retriever/chesapeake",
   "chihuahua-long-coat":              "chihuahua",
   "chihuahua-smooth-coat":            "chihuahua",
   "chinese-crested":                  "chihuahua",
   "chow-chow":                        "chow",
-  "clumber-spaniel":                  "spaniel-clumber",
-  "cocker-spaniel":                   "spaniel-cocker",
-  "collie-rough":                     "collie-border",
-  "collie-smooth":                    "collie-border",
+  "clumber-spaniel":                  "clumber",
+  "cocker-spaniel":                   "spaniel/cocker",
+  "collie-rough":                     "rough/collie",
+  "collie-smooth":                    "rough/collie",
   "coton-de-tulear":                  "cotondetulear",
-  "curly-coated-retriever":           "retriever-curly",
+  "curly-coated-retriever":           "retriever/curly",
   // D
   "dachshund-long-haired":            "dachshund",
-  "dachshund-miniature-long-haired":  "dachshund-miniature",
-  "dachshund-miniature-smooth-haired":"dachshund-miniature",
-  "dachshund-miniature-wire-haired":  "dachshund-miniature",
+  "dachshund-miniature-long-haired":  "dachshund",
+  "dachshund-miniature-smooth-haired":"dachshund",
+  "dachshund-miniature-wire-haired":  "dachshund",
   "dachshund-smooth-haired":          "dachshund",
   "dachshund-wire-haired":            "dachshund",
   "dalmatian":                        "dalmatian",
-  "dandie-dinmont-terrier":           "terrier-dandie",
-  "deerhound":                        "deerhound-scottish",
+  "dandie-dinmont-terrier":           "terrier/dandie",
+  "deerhound":                        "deerhound/scottish",
   "dobermann":                        "doberman",
-  "dogue-de-bordeaux":                "mastiff-bull",
+  "dogue-de-bordeaux":                "mastiff/bull",
   "dutch-shepherd-dog":               "malinois",
   // E
-  "english-bulldog":                  "bulldog-english",
-  "english-setter":                   "setter-english",
-  "english-springer-spaniel":         "springer-english",
-  "english-toy-terrier-black-tan":    "terrier-toy",
+  "english-bulldog":                  "bulldog/english",
+  "english-setter":                   "setter/english",
+  "english-springer-spaniel":         "springer/english",
+  "english-toy-terrier-black-tan":    "terrier/toy",
   "entlebucher-mountain-dog":         "entlebucher",
-  "estrela-mountain-dog":             "mountain-bernese",
+  "estrela-mountain-dog":             "mountain/bernese",
   "eurasier":                         "keeshond",
   // F
-  "field-spaniel":                    "spaniel-field",
-  "finnish-lapphund":                 "finnish-lapphund",
+  "field-spaniel":                    "spaniel/irish",
+  "finnish-lapphund":                 "finnish/lapphund",
   "finnish-spitz":                    "keeshond",
-  "flat-coated-retriever":            "retriever-flatcoated",
-  "fox-terrier-smooth":               "terrier-fox",
-  "fox-terrier-wire":                 "terrier-fox",
-  "french-bulldog":                   "bulldog-french",
+  "flat-coated-retriever":            "retriever/flatcoated",
+  "fox-terrier-smooth":               "terrier/fox",
+  "fox-terrier-wire":                 "terrier/fox",
+  "french-bulldog":                   "bulldog/french",
   // G
-  "german-pinscher":                  "pinscher-miniature",
-  "german-shepherd-dog":              "germanshepherd",
-  "german-shorthaired-pointer":       "pointer-germanlonghair",
+  "german-pinscher":                  "pinscher/miniature",
+  "german-shepherd-dog":              "german/shepherd",
+  "german-shorthaired-pointer":       "pointer/germanlonghair",
   "german-spitz-klein":               "pomeranian",
   "german-spitz-mittel":              "pomeranian",
-  "german-wirehaired-pointer":        "pointer-germanlonghair",
-  "giant-schnauzer":                  "schnauzer-giant",
-  "glen-of-imaal-terrier":            "terrier-cairn",
-  "golden-retriever":                 "retriever-golden",
-  "gordon-setter":                    "setter-gordon",
-  "grand-basset-griffon-vendeen":     "hound-basset",
-  "great-dane":                       "dane-great",
-  "greyhound":                        "greyhound-italian",
-  "griffon-bruxellois":               "terrier-norfolk",
+  "german-wirehaired-pointer":        "pointer/germanlonghair",
+  "giant-schnauzer":                  "schnauzer/giant",
+  "glen-of-imaal-terrier":            "terrier/cairn",
+  "golden-retriever":                 "retriever/golden",
+  "gordon-setter":                    "setter/gordon",
+  "grand-basset-griffon-vendeen":     "hound/basset",
+  "great-dane":                       "dane/great",
+  "greyhound":                        "greyhound/italian",
+  "griffon-bruxellois":               "terrier/norfolk",
   // H
-  "hamiltonstovare":                  "hound-basset",
+  "hamiltonstovare":                  "hound/basset",
   "havanese":                         "havanese",
-  "hovawart":                         "retriever-golden",
+  "hovawart":                         "retriever/golden",
   "hungarian-kuvasz":                 "kuvasz",
   "hungarian-puli":                   "puli",
-  "hungarian-pumi":                   "poodle-miniature",
+  "hungarian-pumi":                   "poodle/miniature",
   "hungarian-vizsla":                 "vizsla",
   "hungarian-wire-haired-vizsla":     "vizsla",
   "husky":                            "husky",
   // I
-  "ibizan-hound":                     "hound-ibizan",
-  "icelandic-sheepdog":               "sheepdog-shetland",
-  "irish-red-and-white-setter":       "setter-irish",
-  "irish-setter":                     "setter-irish",
-  "irish-terrier":                    "terrier-irish",
-  "irish-water-spaniel":              "spaniel-irish",
-  "irish-wolfhound":                  "wolfhound-irish",
-  "italian-greyhound":                "greyhound-italian",
-  "italian-spinone":                  "pointer-germanlonghair",
+  "ibizan-hound":                     "hound/ibizan",
+  "icelandic-sheepdog":               "sheepdog/shetland",
+  "irish-red-and-white-setter":       "setter/irish",
+  "irish-setter":                     "setter/irish",
+  "irish-terrier":                    "terrier/irish",
+  "irish-water-spaniel":              "spaniel/irish",
+  "irish-wolfhound":                  "wolfhound/irish",
+  "italian-greyhound":                "greyhound/italian",
+  "italian-spinone":                  "pointer/germanlonghair",
   // J
-  "jack-russell-terrier":             "terrier-russell",
+  "jack-russell-terrier":             "terrier/russell",
   "japanese-akita":                   "akita",
   "japanese-chin":                    "pekinese",
   "japanese-shiba-inu":               "shiba",
-  "japanese-spitz":                   "samoyed",
+  "japanese-spitz":                   "spitz/japanese",
   // K
   "keeshond":                         "keeshond",
-  "kerry-blue-terrier":               "terrier-kerryblue",
-  "king-charles-spaniel":             "spaniel-cocker",
+  "kerry-blue-terrier":               "terrier/kerryblue",
+  "king-charles-spaniel":             "spaniel/cocker",
   "komondor":                         "komondor",
-  "kooikerhondje":                    "spaniel-cocker",
+  "kooikerhondje":                    "spaniel/cocker",
   "korean-jindo":                     "shiba",
   // L
-  "labrador-retriever":               "retriever-labrador",
-  "lagotto-romagnolo":                "spaniel-cocker",
-  "lakeland-terrier":                 "terrier-lakeland",
-  "lancashire-heeler":                "terrier-yorkshire",
+  "labrador-retriever":               "labrador",
+  "lagotto-romagnolo":                "spaniel/cocker",
+  "lakeland-terrier":                 "terrier/lakeland",
+  "lancashire-heeler":                "terrier/yorkshire",
   "leonberger":                       "leonberg",
   "lhasa-apso":                       "lhasa",
   "lowchen":                          "maltese",
   // M
   "maltese":                          "maltese",
-  "manchester-terrier":               "terrier-yorkshire",
+  "manchester-terrier":               "terrier/yorkshire",
   "maremma-sheepdog":                 "samoyed",
-  "mastiff":                          "mastiff-bull",
-  "miniature-pinscher":               "pinscher-miniature",
-  "miniature-schnauzer":              "schnauzer-miniature",
-  "mixed-breed-dog":                  "retriever-labrador",
+  "mastiff":                          "mastiff/bull",
+  "miniature-pinscher":               "pinscher/miniature",
+  "miniature-schnauzer":              "schnauzer/miniature",
+  "mixed-breed-dog":                  "labrador",
   // N
-  "neapolitan-mastiff":               "mastiff-bull",
+  "neapolitan-mastiff":               "mastiff/bull",
   "newfoundland":                     "newfoundland",
-  "norfolk-terrier":                  "terrier-norfolk",
-  "norwegian-buhund":                 "buhund-norwegian",
-  "norwegian-elkhound":               "elkhound-norwegian",
-  "norwegian-lundehund":              "elkhound-norwegian",
-  "norwich-terrier":                  "terrier-norwich",
-  "nova-scotia-duck-tolling-retriever":"retriever-golden",
+  "norfolk-terrier":                  "terrier/norfolk",
+  "norwegian-buhund":                 "buhund/norwegian",
+  "norwegian-elkhound":               "elkhound/norwegian",
+  "norwegian-lundehund":              "elkhound/norwegian",
+  "norwich-terrier":                  "terrier/norwich",
+  "nova-scotia-duck-tolling-retriever":"retriever/flatcoated",
   // O
-  "old-english-sheepdog":             "sheepdog-english",
-  "other-breed-not-listed":           "retriever-labrador",
+  "old-english-sheepdog":             "sheepdog/english",
+  "other-breed-not-listed":           "labrador",
   "otterhound":                       "otterhound",
   // P
   "papillon":                         "papillon",
-  "parson-russell-terrier":           "terrier-russell",
+  "parson-russell-terrier":           "terrier/russell",
   "pekingese":                        "pekinese",
-  "pembroke-welsh-corgi":             "corgi-cardigan",
-  "perro-de-presa-canario":           "mastiff-bull",
-  "pharaoh-hound":                    "hound-ibizan",
+  "pembroke-welsh-corgi":             "pembroke",
+  "perro-de-presa-canario":           "mastiff/bull",
+  "pharaoh-hound":                    "hound/ibizan",
   "pitbull":                          "pitbull",
-  "pointer":                          "pointer",
-  "polish-lowland-sheepdog":          "sheepdog-english",
+  "pointer":                          "pointer/german",
+  "polish-lowland-sheepdog":          "sheepdog/english",
   "pomeranian":                       "pomeranian",
-  "poodle-miniature":                 "poodle-miniature",
-  "poodle-standard":                  "poodle-standard",
-  "poodle-toy":                       "poodle-toy",
-  "portuguese-podengo":               "hound-ibizan",
-  "portuguese-pointer":               "pointer",
-  "portuguese-water-dog":             "waterdog-spanish",
+  "poodle-miniature":                 "poodle/miniature",
+  "poodle-standard":                  "poodle/standard",
+  "poodle-toy":                       "poodle/toy",
+  "portuguese-podengo":               "hound/ibizan",
+  "portuguese-pointer":               "pointer/german",
+  "portuguese-water-dog":             "waterdog/spanish",
   "pug":                              "pug",
   "puli":                             "puli",
   "pyrenean-mastiff":                 "pyrenees",
   "pyrenean-mountain-dog":            "pyrenees",
-  "pyrenean-sheepdog-long-haired":    "sheepdog-shetland",
-  "pyrenean-sheepdog-smooth-faced":   "sheepdog-shetland",
+  "pyrenean-sheepdog-long-haired":    "sheepdog/shetland",
+  "pyrenean-sheepdog-smooth-faced":   "sheepdog/shetland",
   // R
-  "rhodesian-ridgeback":              "ridgeback-rhodesian",
+  "rhodesian-ridgeback":              "ridgeback/rhodesian",
   "rottweiler":                       "rottweiler",
-  "russian-black-terrier":            "schnauzer-giant",
+  "russian-black-terrier":            "schnauzer/giant",
   "russian-toy":                      "chihuahua",
   // S
   "saluki":                           "saluki",
   "samoyed":                          "samoyed",
   "schipperke":                       "schipperke",
-  "schnauzer":                        "schnauzer-miniature",
-  "scottish-terrier":                 "terrier-scottish",
-  "sealyham-terrier":                 "terrier-sealyham",
-  "segugio-italiano":                 "hound-basset",
-  "shar-pei":                         "chow",
-  "shetland-sheepdog":                "sheepdog-shetland",
+  "schnauzer":                        "schnauzer/miniature",
+  "scottish-terrier":                 "terrier/scottish",
+  "sealyham-terrier":                 "terrier/sealyham",
+  "segugio-italiano":                 "segugio/italian",
+  "shar-pei":                         "sharpei",
+  "shetland-sheepdog":                "sheepdog/shetland",
   "shih-tzu":                         "shihtzu",
   "siberian-husky":                   "husky",
-  "skye-terrier":                     "terrier-skye",
+  "skye-terrier":                     "terrier/skye",
   "sloughi":                          "saluki",
-  "slovakian-rough-haired-pointer":   "pointer-germanlonghair",
-  "soft-coated-wheaten-terrier":      "terrier-wheaten",
-  "spanish-water-dog":                "waterdog-spanish",
+  "slovakian-rough-haired-pointer":   "pointer/germanlonghair",
+  "soft-coated-wheaten-terrier":      "terrier/wheaten",
+  "spanish-water-dog":                "waterdog/spanish",
   "st-bernard":                       "stbernard",
-  "staffordshire-bull-terrier":       "bullterrier-staffordshire",
-  "staffy":                           "bullterrier-staffordshire",
-  "sussex-spaniel":                   "spaniel-sussex",
-  "swedish-lapphund":                 "finnish-lapphund",
-  "swedish-vallhund":                 "sheepdog-shetland",
+  "staffordshire-bull-terrier":       "bullterrier/staffordshire",
+  "staffy":                           "bullterrier/staffordshire",
+  "sussex-spaniel":                   "spaniel/sussex",
+  "swedish-lapphund":                 "finnish/lapphund",
+  "swedish-vallhund":                 "sheepdog/shetland",
   // T
-  "tibetan-mastiff":                  "mastiff-tibetan",
+  "tibetan-mastiff":                  "mastiff/tibetan",
   "tibetan-spaniel":                  "pekinese",
-  "tibetan-terrier":                  "terrier-tibetan",
-  "tosa":                             "mastiff-bull",
+  "tibetan-terrier":                  "terrier/tibetan",
+  "tosa":                             "mastiff/bull",
   // V/W
   "weimaraner":                       "weimaraner",
-  "welsh-springer-spaniel":           "spaniel-welsh",
-  "welsh-terrier":                    "terrier-welsh",
-  "west-highland-white-terrier":      "terrier-westhighland",
+  "welsh-springer-spaniel":           "spaniel/welsh",
+  "welsh-terrier":                    "terrier/welsh",
+  "west-highland-white-terrier":      "terrier/westhighland",
   "whippet":                          "whippet",
-  "white-swiss-shepherd-dog":         "germanshepherd",
+  "white-swiss-shepherd-dog":         "german/shepherd",
   // X/Y
   "xoloitzcuintle-mexican-hairless":  "mexicanhairless",
-  "yorkie":                           "terrier-yorkshire",
-  "yorkshire-terrier":                "terrier-yorkshire",
+  "yorkie":                           "terrier/yorkshire",
+  "yorkshire-terrier":                "terrier/yorkshire",
 };
 
-// Cat images — verified Wikimedia URLs
-const CAT_IMAGES: Record<string, string> = {
+// Cat images — Wikimedia Commons verified URLs
+const CAT_IMG: Record<string, string> = {
   "abyssinian":                "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Gustav_chocolate.jpg/600px-Gustav_chocolate.jpg",
   "american-bobtail":          "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Cat_August_2010-4.jpg/600px-Cat_August_2010-4.jpg",
   "american-bobtail-shorthair":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Cat_August_2010-4.jpg/600px-Cat_August_2010-4.jpg",
@@ -332,9 +333,9 @@ const CAT_IMAGES: Record<string, string> = {
   "turkish-van":               "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/White_Persian_Cat.jpg/600px-White_Persian_Cat.jpg",
 };
 
-const DEFAULT_DOG_PATH = "retriever-labrador";
-const DEFAULT_DOG_IMG = "https://images.dog.ceo/breeds/retriever-labrador/n02099712_4323.jpg";
-const DEFAULT_CAT_IMG = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Cat_August_2010-4.jpg/600px-Cat_August_2010-4.jpg";
+// Fallbacks — known-good static URLs
+const FALLBACK_DOG = "https://images.dog.ceo/breeds/labrador/n02099712_4354.jpg";
+const FALLBACK_CAT = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Cat_August_2010-4.jpg/600px-Cat_August_2010-4.jpg";
 
 interface Props {
   breedId: string;
@@ -350,27 +351,21 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
 
   useEffect(() => {
     if (petType === "cat") {
-      setSrc(CAT_IMAGES[breedId] ?? DEFAULT_CAT_IMG);
+      setSrc(CAT_IMG[breedId] ?? FALLBACK_CAT);
       return;
     }
-    const path = DOG_BREED_PATH[breedId] ?? DEFAULT_DOG_PATH;
+    // Dog: fetch random image from Dog CEO API using verified slash-format path
+    const path = DOG_PATH[breedId] ?? "labrador";
     fetch(`https://dog.ceo/api/breed/${path}/images/random`)
       .then(r => r.json())
-      .then(d => {
-        if (d.status === "success" && d.message) {
-          setSrc(d.message);
-        } else {
-          setSrc(DEFAULT_DOG_IMG);
-        }
-      })
-      .catch(() => setSrc(DEFAULT_DOG_IMG));
+      .then(d => setSrc(d.status === "success" ? d.message : FALLBACK_DOG))
+      .catch(() => setSrc(FALLBACK_DOG));
   }, [breedId, petType]);
 
   if (!src) {
+    // Green pulse placeholder while image loads
     return <div className="absolute inset-0 bg-[#E8F5E9] animate-pulse" />;
   }
-
-  const fallback = petType === "cat" ? DEFAULT_CAT_IMG : DEFAULT_DOG_IMG;
 
   return (
     <Image
@@ -380,7 +375,7 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
       unoptimized
       className={className}
       sizes={sizes}
-      onError={() => setSrc(fallback)}
+      onError={() => setSrc(petType === "cat" ? FALLBACK_CAT : FALLBACK_DOG)}
     />
   );
 }
