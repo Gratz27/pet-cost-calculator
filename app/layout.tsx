@@ -1,0 +1,53 @@
+import type { Metadata } from "next";
+import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Pet Cost Calculator – Can You Afford Your Dream Pet?",
+    template: "%s | PetCost Calculator",
+  },
+  description:
+    "The most comprehensive pet cost calculator online. Calculate first-year costs, lifetime ownership costs, and breed-specific expenses for dogs and cats. Trusted by 500,000+ pet owners.",
+  keywords: ["pet cost calculator", "dog cost calculator", "cat cost calculator", "pet ownership cost", "how much does a dog cost"],
+  authors: [{ name: "PetCost Calculator" }],
+  creator: "PetCost Calculator",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://petcost-calculator.com",
+    siteName: "PetCost Calculator",
+    title: "Pet Cost Calculator – Can You Afford Your Dream Pet?",
+    description: "Calculate the real cost of pet ownership. First-year costs, lifetime expenses, breed comparisons, and personalised budgets.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pet Cost Calculator",
+    description: "Calculate the real cost of pet ownership.",
+    images: ["/og-image.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  metadataBase: new URL("https://petcost-calculator.com"),
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
+      <body className="min-h-screen flex flex-col bg-white antialiased">
+        <Header />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}

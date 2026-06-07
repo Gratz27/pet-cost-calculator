@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 214 60% 24%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 142.1 76.2% 36.3%;
+    --accent-foreground: 0 0% 100%;
+    --border: 214.3 31.8% 91.4%;
+    --ring: 214 60% 24%;
+    --radius: 0.75rem;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #0f172a;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0f172a;
+  }
+}
+
+@layer components {
+  .container-xl {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#1E3A5F] text-white font-semibold px-6 py-3 text-base transition-all hover:bg-[#172554] hover:shadow-lg active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F] focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#1E3A5F] text-[#1E3A5F] font-semibold px-6 py-3 text-base transition-all hover:bg-[#1E3A5F] hover:text-white active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F] focus:ring-offset-2;
+  }
+
+  .btn-green {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-[#16A34A] text-white font-semibold px-6 py-3 text-base transition-all hover:bg-[#15803D] hover:shadow-lg active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#16A34A] focus:ring-offset-2;
+  }
+
+  .card {
+    @apply bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow;
+  }
+
+  .section-heading {
+    @apply text-3xl md:text-4xl font-bold text-[#0f172a] leading-tight;
+  }
+
+  .section-subheading {
+    @apply text-lg text-slate-600 leading-relaxed mt-3;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full;
+  }
+
+  .badge-green {
+    @apply badge bg-green-100 text-green-700;
+  }
+
+  .badge-blue {
+    @apply badge bg-blue-100 text-blue-700;
+  }
+
+  .badge-orange {
+    @apply badge bg-orange-100 text-orange-700;
+  }
+
+  .input-field {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 placeholder-slate-400 transition-all focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20;
+  }
+
+  .select-field {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-base text-slate-900 transition-all focus:border-[#1E3A5F] focus:outline-none focus:ring-2 focus:ring-[#1E3A5F]/20 appearance-none cursor-pointer;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#1E3A5F] to-[#3B82F6] bg-clip-text text-transparent;
+  }
+
+  .gradient-green {
+    @apply bg-gradient-to-r from-[#16A34A] to-[#22C55E] bg-clip-text text-transparent;
+  }
+}
