@@ -1,54 +1,167 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Clock } from "lucide-react";
+import Image from "next/image";
+import { Clock, ChevronRight } from "lucide-react";
+import { allBlogArticles, type BlogCategory } from "@/data/blogArticles";
 
 export const metadata: Metadata = {
-  title: "Pet Cost Guides & Articles",
-  description: "Expert guides on pet ownership costs. Learn how much different breeds cost, how to save on pet expenses, and how to budget for a new pet.",
+  title: "Pet Cost Blog – Guides, Tips & Breed Cost Guides",
+  description: "Expert guides on dog and cat ownership costs, breed cost breakdowns, money-saving tips, and pet insurance advice from PetCost-Calculator.",
 };
 
-const articles = [
-  { slug: "golden-retriever-cost-guide", title: "How Much Does a Golden Retriever Cost? Complete 2026 Guide", excerpt: "Golden Retrievers are one of the most popular breeds — but the costs go far beyond the purchase price. Here's the complete breakdown.", category: "Dog Costs", readTime: "8 min", date: "Jun 2026" },
-  { slug: "french-bulldog-cost-guide", title: "French Bulldog Ownership Costs: The Full Picture", excerpt: "French Bulldogs are charming but expensive. Health issues, breathing problems, and C-section births mean higher-than-average costs.", category: "Dog Costs", readTime: "7 min", date: "Jun 2026" },
-  { slug: "cat-vs-dog-cost", title: "Cat vs Dog: Which Is Really Cheaper to Own?", excerpt: "The classic debate, finally answered with real data. We break down the costs across purchase, feeding, vet care, and more.", category: "Comparison", readTime: "6 min", date: "May 2026" },
-  { slug: "pet-insurance-worth-it", title: "Is Pet Insurance Worth It? A Data-Driven Answer", excerpt: "We analysed 10,000+ pet insurance claims to answer whether insurance pays off — and which breeds benefit most.", category: "Insurance", readTime: "9 min", date: "May 2026" },
-  { slug: "first-year-pet-costs", title: "The True Cost of Owning a Pet in Year One", excerpt: "The first year is always the most expensive. Here's exactly what to budget for so there are no surprises.", category: "Budgeting", readTime: "7 min", date: "Apr 2026" },
-  { slug: "save-money-pet-owner", title: "12 Proven Ways to Cut Your Pet Costs Without Cutting Quality", excerpt: "Smart pet owners spend 20-30% less without compromising their pet's health or happiness. Here's how.", category: "Budgeting", readTime: "8 min", date: "Apr 2026" },
-];
-
-const categoryColors: Record<string, string> = {
-  "Dog Costs": "badge-blue",
-  "Cat Costs": "badge-green",
-  "Comparison": "badge-orange",
-  "Insurance": "badge-blue",
-  "Budgeting": "badge-green",
+const CATEGORY_LABELS: Record<BlogCategory, string> = {
+  "breed-guide": "Breed Guide",
+  "cost-saving": "Cost Saving",
+  comparison: "Comparison",
+  guide: "Guide",
+  dogs: "Dogs",
+  cats: "Cats",
+  insurance: "Insurance",
+  "vet-costs": "Vet Costs",
 };
 
-export default function BlogPage() {
+const CATEGORY_COLORS: Record<BlogCategory, string> = {
+  "breed-guide": "badge-green",
+  "cost-saving": "badge-blue",
+  comparison: "badge-orange",
+  guide: "badge-green",
+  dogs: "badge-blue",
+  cats: "badge-orange",
+  insurance: "badge-green",
+  "vet-costs": "badge-orange",
+};
+
+export default function BlogPage({ searchParams }: { searchParams: { category?: string } }) {
+  const activeCategory = searchParams.category as BlogCategory | undefined;
+  const articles = activeCategory
+    ? allBlogArticles.filter((a) => a.category === activeCategory)
+    : allBlogArticles;
+
+  const featured = allBlogArticles[0];
+  const rest = activeCategory ? articles : articles.slice(1);
+
+  const categories: BlogCategory[] = [
+    "breed-guide", "dogs", "cats", "cost-saving",
+    "comparison", "insurance", "vet-costs", "guide",
+  ];
+
   return (
-    <div className="bg-slate-50 min-h-screen">
-      <div className="bg-white border-b border-slate-100">
+    <div className="bg-[#F1F8F1] min-h-screen">
+      {/* Header */}
+      <div className="bg-white border-b border-[#C8E6C9]">
         <div className="container-xl py-12">
-          <div className="badge badge-green mb-3">Cost Guides</div>
-          <h1 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-3">Pet Cost Guides & Articles</h1>
-          <p className="text-slate-600 text-lg max-w-2xl">Data-driven guides to help you understand, plan, and manage the real cost of pet ownership.</p>
+          <div className="badge badge-green mb-3">Expert Guides</div>
+          <h1 className="text-3xl md:text-4xl font-bold text-[#1B2B1B] mb-3">Pet Cost Blog</h1>
+          <p className="text-[#5a7a5a] text-lg max-w-2xl">
+            Real cost data, breed guides, and money-saving strategies for UK, US, and Australian pet owners.
+          </p>
+
+          <div className="flex flex-wrap gap-2 mt-6">
+            <Link
+              href="/blog"
+              className={`rounded-xl px-4 py-2 text-sm font-semibold transition-all ${!activeCategory ? "bg-[#2E7D32] text-white" : "bg-white border border-[#C8E6C9] text-[#5a7a5a] hover:border-[#2E7D32]"}`}
+            >
+              All ({allBlogArticles.length})
+            </Link>
+            {categories.map((cat) => {
+              const count = allBlogArticles.filter((a) => a.category === cat).length;
+              if (!count) return null;
+              return (
+                <Link
+                  key={cat}
+                  href={`/blog?category=${cat}`}
+                  className={`rounded-xl px-4 py-2 text-sm font-semibold transition-all ${activeCategory === cat ? "bg-[#2E7D32] text-white" : "bg-white border border-[#C8E6C9] text-[#5a7a5a] hover:border-[#2E7D32]"}`}
+                >
+                  {CATEGORY_LABELS[cat]} ({count})
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
+
       <div className="container-xl py-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-          {articles.map((article) => (
-            <Link key={article.slug} href={`/blog/${article.slug}`} className="card p-6 group flex flex-col">
-              <div className="flex items-center justify-between mb-3">
-                <span className={`badge ${categoryColors[article.category] ?? "badge-blue"} text-xs`}>{article.category}</span>
-                <span className="text-xs text-slate-400 flex items-center gap-1"><Clock className="h-3 w-3" />{article.readTime}</span>
+        {/* Featured article */}
+        {!activeCategory && (
+          <Link href={`/blog/${featured.slug}`} className="group block mb-10">
+            <div className="bg-white rounded-2xl overflow-hidden border border-[#C8E6C9] hover:border-[#4CAF50]/50 transition-all">
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                <div className="relative h-60 md:h-auto min-h-[240px] bg-[#E8F5E9] overflow-hidden">
+                  <Image
+                    src={featured.image}
+                    alt={featured.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    unoptimized
+                  />
+                </div>
+                <div className="p-6 md:p-8 flex flex-col justify-center">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className={`badge ${CATEGORY_COLORS[featured.category]}`}>{CATEGORY_LABELS[featured.category]}</span>
+                    <span className="badge badge-green">Featured</span>
+                  </div>
+                  <h2 className="text-xl md:text-2xl font-bold text-[#1B2B1B] mb-3 group-hover:text-[#2E7D32] transition-colors">
+                    {featured.title}
+                  </h2>
+                  <p className="text-[#5a7a5a] text-sm leading-relaxed mb-4 line-clamp-3">{featured.description}</p>
+                  <div className="flex items-center gap-3 text-xs text-slate-400">
+                    <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" /> {featured.readTime} min read</span>
+                    <span>{new Date(featured.publishDate).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" })}</span>
+                  </div>
+                </div>
               </div>
-              <h2 className="text-base font-bold text-[#0f172a] group-hover:text-[#1E3A5F] transition-colors mb-2 leading-snug">{article.title}</h2>
-              <p className="text-sm text-slate-500 leading-relaxed flex-1">{article.excerpt}</p>
-              <div className="mt-4 flex items-center gap-1.5 text-xs font-semibold text-[#1E3A5F] opacity-0 group-hover:opacity-100 transition-opacity">
-                Read more <ArrowRight className="h-3 w-3" />
+            </div>
+          </Link>
+        )}
+
+        {/* Article grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {rest.map((article) => (
+            <Link key={article.id} href={`/blog/${article.slug}`} className="group card overflow-hidden hover:border-[#4CAF50]/50">
+              <div className="relative h-44 bg-[#E8F5E9] overflow-hidden">
+                <Image
+                  src={article.image}
+                  alt={article.title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  unoptimized
+                />
+              </div>
+              <div className="p-5">
+                <span className={`badge ${CATEGORY_COLORS[article.category]} mb-2 inline-block`}>
+                  {CATEGORY_LABELS[article.category]}
+                </span>
+                <h2 className="text-sm font-bold text-[#1B2B1B] mb-2 group-hover:text-[#2E7D32] transition-colors leading-tight line-clamp-2">
+                  {article.title}
+                </h2>
+                <p className="text-xs text-[#5a7a5a] leading-relaxed mb-3 line-clamp-2">{article.description}</p>
+                <div className="flex items-center gap-3 text-xs text-slate-400">
+                  <span className="flex items-center gap-1"><Clock className="h-3 w-3" /> {article.readTime} min</span>
+                  <span>
+                    {new Date(article.publishDate).toLocaleDateString("en-GB", {
+                      day: "numeric", month: "short", year: "numeric",
+                    })}
+                  </span>
+                </div>
               </div>
             </Link>
           ))}
+        </div>
+
+        {articles.length === 0 && (
+          <p className="text-center text-[#5a7a5a] py-16">No articles in this category yet.</p>
+        )}
+
+        <div className="mt-14 bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] rounded-2xl p-8 text-center text-white">
+          <h2 className="text-xl font-bold mb-2">Get a personalised cost estimate</h2>
+          <p className="text-green-200 text-sm mb-5">
+            Use our free calculator to see exact costs for your breed, location, and lifestyle.
+          </p>
+          <Link href="/calculator" className="btn-green inline-flex items-center gap-1.5">
+            Start the Calculator <ChevronRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </div>

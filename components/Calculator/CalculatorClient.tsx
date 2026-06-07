@@ -4,7 +4,8 @@ import { useState, useMemo } from "react";
 import { ChevronRight, ChevronLeft, Search, CheckCircle2, AlertCircle, Info } from "lucide-react";
 import { getAllBreeds, calculateCosts, type CalculatorInputs, type CostBreakdown } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
-import CostResults from "./CostResults";
+import dynamic from "next/dynamic";
+const CostResults = dynamic(() => import("./CostResults"), { ssr: false });
 
 type Step = "pet-type" | "breed" | "location" | "lifestyle" | "costs" | "results";
 
@@ -41,9 +42,10 @@ export default function CalculatorClient() {
   const [breedSearch, setBreedSearch] = useState("");
   const [results, setResults] = useState<CostBreakdown | null>(null);
 
+  const allBreeds = useMemo(() => getAllBreeds(inputs.petType ?? "dog"), [inputs.petType]);
   const breeds = useMemo(
-    () => getAllBreeds(inputs.petType ?? "dog").filter((b) => b.name.toLowerCase().includes(breedSearch.toLowerCase())),
-    [inputs.petType, breedSearch]
+    () => allBreeds.filter((b) => b.name.toLowerCase().includes(breedSearch.toLowerCase())),
+    [allBreeds, breedSearch]
   );
 
   const update = (key: keyof CalculatorInputs, value: unknown) => {
@@ -112,7 +114,12 @@ export default function CalculatorClient() {
               {(["dog", "cat"] as const).map((type) => (
                 <button
                   key={type}
-                  onClick={() => update("petType", type)}
+                  onClick={() => {
+                    update("petType", type);
+                    // Reset breed selection when switching pet type
+                    setInputs((prev) => ({ ...prev, petType: type, breedId: undefined }));
+                    setBreedSearch("");
+                  }}
                   className={`rounded-2xl border-2 p-6 text-left transition-all hover:border-[#1E3A5F] ${inputs.petType === type ? "border-[#1E3A5F] bg-[#1E3A5F]/5" : "border-slate-200"}`}
                 >
                   <div className="text-4xl mb-3">{type === "dog" ? "🐕" : "🐈"}</div>
@@ -165,7 +172,7 @@ export default function CalculatorClient() {
             {inputs.breedId && (
               <p className="mt-3 text-sm text-[#16A34A] font-medium flex items-center gap-1.5">
                 <CheckCircle2 className="h-4 w-4" />
-                {breeds.find(b => b.id === inputs.breedId)?.name} selected
+                {allBreeds.find(b => b.id === inputs.breedId)?.name} selected
               </p>
             )}
           </div>

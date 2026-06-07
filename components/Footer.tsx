@@ -8,8 +8,8 @@ const footerLinks = {
     { label: "All Breeds", href: "/breeds" },
   ],
   "Cost Guides": [
-    { label: "Dog Cost Guides", href: "/blog?type=dog" },
-    { label: "Cat Cost Guides", href: "/blog?type=cat" },
+    { label: "Dog Cost Guides", href: "/blog" },
+    { label: "Cat Cost Guides", href: "/blog" },
     { label: "All Articles", href: "/blog" },
   ],
   Company: [
@@ -25,17 +25,16 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0f172a] text-slate-300">
+    <footer className="bg-[#1B2B1B] text-slate-300">
       <div className="container-xl py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
-          {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2.5 mb-4">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#16A34A] text-white">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#4CAF50] text-white">
                 <Calculator className="h-4 w-4" />
               </div>
               <span className="text-lg font-bold text-white">
-                PetCost<span className="text-[#22C55E]">Calculator</span>
+                PetCost<span className="text-[#81C784]">-Calculator</span>
               </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">
@@ -48,14 +47,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
               <h3 className="text-sm font-semibold text-white mb-3">{category}</h3>
               <ul className="space-y-2">
                 {links.map((link) => (
-                  <li key={link.href}>
-                    <Link href={link.href} className="text-sm text-slate-400 hover:text-white transition-colors">
+                  <li key={link.href + link.label}>
+                    <Link href={link.href} className="text-sm text-slate-400 hover:text-[#81C784] transition-colors">
                       {link.label}
                     </Link>
                   </li>
@@ -65,9 +63,9 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-[#2E7D32]/30 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} PetCost Calculator. All rights reserved.
+            © {new Date().getFullYear()} PetCost-Calculator.com. All rights reserved.
           </p>
           <p className="text-xs text-slate-500 flex items-center gap-1">
             Made with <Heart className="h-3 w-3 text-red-400 fill-red-400" /> for pet owners worldwide
