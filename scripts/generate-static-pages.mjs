@@ -373,6 +373,18 @@ function writePageHtml(urlPath, html) {
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
 
+// ─── Clean stale generated directories ───────────────────────────────────────
+// Vercel's build cache can preserve old generated HTML files even after a clean
+// rebuild. Explicitly remove all directories we're about to regenerate to ensure
+// there are no stale pages left over from previous deployments.
+const GENERATED_DIRS = ['blog', 'breeds', 'about', 'contact', 'privacy-policy', 'terms', 'how-it-works'];
+for (const dir of GENERATED_DIRS) {
+  const dirPath = path.join(DIST, dir);
+  if (fs.existsSync(dirPath)) {
+    fs.rmSync(dirPath, { recursive: true, force: true });
+  }
+}
+
 console.log('\n🔧 Generating static HTML pages for SEO...\n');
 
 // 1. Blog articles
