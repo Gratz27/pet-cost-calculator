@@ -107,7 +107,7 @@ export default function GuidesPage() {
                 {guides.map((guide) => (
                   <Link
                     key={guide.slug}
-                    href={`/blog/${guide.slug}`}
+                    href={`/guides/${guide.slug}`}
                     className="card p-5 group hover:border-[#4CAF50]/50"
                   >
                     <div className="flex items-start gap-3">

@@ -6,16 +6,22 @@ import { formatCurrency } from "@/lib/utils";
 import HeroSearch from "@/components/HeroSearch";
 
 const featuredBreeds = [
-  { id: "golden-retriever",     name: "Golden Retriever",  firstYearEstimate: 4200, tag: "Most Popular",     img: "https://images.dog.ceo/breeds/retriever-golden/n02099601_1743.jpg" },
-  { id: "french-bulldog",       name: "French Bulldog",    firstYearEstimate: 5100, tag: "Trending",         img: "https://images.dog.ceo/breeds/bulldog-french/n02108915_4372.jpg" },
-  { id: "labrador-retriever",   name: "Labrador Retriever",firstYearEstimate: 3800, tag: "Family Favourite", img: "https://images.dog.ceo/breeds/labrador/n02099712_4354.jpg" },
-  { id: "german-shepherd-dog",  name: "German Shepherd",   firstYearEstimate: 4500, tag: "Active Lifestyle", img: "https://images.dog.ceo/breeds/german-shepherd/n02106662_18113.jpg" },
-  { id: "bengal",               name: "Bengal Cat",        firstYearEstimate: 3200, tag: "Low Maintenance",  img: "https://cdn2.thecatapi.com/images/IFXsxmXLm.jpg" },
-  { id: "poodle-standard",      name: "Poodle",            firstYearEstimate: 4300, tag: "Hypoallergenic",   img: "https://images.dog.ceo/breeds/poodle-standard/n02113799_2280.jpg" },
+  { id: "golden-retriever",         name: "Golden Retriever",   firstYearEstimate: 4200, tag: "Most Popular",      img: "https://images.dog.ceo/breeds/retriever-golden/n02099601_1743.jpg" },
+  { id: "french-bulldog",           name: "French Bulldog",     firstYearEstimate: 5100, tag: "Trending",          img: "https://images.dog.ceo/breeds/bulldog-french/n02108915_4372.jpg" },
+  { id: "labrador-retriever",       name: "Labrador Retriever", firstYearEstimate: 3800, tag: "Family Favourite",  img: "https://images.dog.ceo/breeds/labrador/n02099712_4354.jpg" },
+  { id: "german-shepherd-dog",      name: "German Shepherd",    firstYearEstimate: 4500, tag: "Active Lifestyle",  img: "https://images.dog.ceo/breeds/german-shepherd/n02106662_18113.jpg" },
+  { id: "bengal",                   name: "Bengal Cat",         firstYearEstimate: 3200, tag: "Low Maintenance",   img: "https://cdn2.thecatapi.com/images/IFXsxmXLm.jpg" },
+  { id: "poodle-standard",          name: "Poodle",             firstYearEstimate: 4300, tag: "Hypoallergenic",    img: "https://images.dog.ceo/breeds/poodle-standard/n02113799_2280.jpg" },
+  { id: "beagle",                   name: "Beagle",             firstYearEstimate: 3100, tag: "Budget-Friendly",   img: "https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg" },
+  { id: "pembroke-welsh-corgi",     name: "Corgi",              firstYearEstimate: 3900, tag: "Social Media Fave", img: "https://images.dog.ceo/breeds/corgi-cardigan/n02113186_1030.jpg" },
+  { id: "siberian-husky",           name: "Siberian Husky",     firstYearEstimate: 4100, tag: "High Energy",       img: "https://images.dog.ceo/breeds/husky/n02110185_10695.jpg" },
+  { id: "ragdoll",                  name: "Ragdoll Cat",        firstYearEstimate: 2800, tag: "Indoor Cat",        img: "https://cdn2.thecatapi.com/images/PHs9Vi7q-.jpg" },
+  { id: "yorkshire-terrier",        name: "Yorkshire Terrier",  firstYearEstimate: 3600, tag: "Small & Loyal",     img: "https://images.dog.ceo/breeds/terrier-yorkshire/n02094433_2179.jpg" },
+  { id: "australian-shepherd",      name: "Australian Shepherd",firstYearEstimate: 4000, tag: "Working Dog",       img: "https://images.dog.ceo/breeds/australian-shepherd/pepper.jpg" },
 ];
 
 const stats = [
-  { value: "200+", label: "Breeds covered", icon: Calculator },
+  { value: "300+", label: "Breeds covered", icon: Calculator },
   { value: "3", label: "Countries supported", icon: BarChart3 },
   { value: "50+", label: "Cost data points per breed", icon: TrendingUp },
   { value: "Monthly", label: "Data updates", icon: Clock },
@@ -107,18 +113,18 @@ export default function HomePage() {
           <p className="section-subheading max-w-xl mx-auto">Click any breed for a full cost breakdown, or search for your specific breed above.</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {featuredBreeds.map((breed) => (
             <Link key={breed.id} href={`/breeds/${breed.id}`}
               className="card overflow-hidden group hover:border-[#4CAF50]/50">
-              <div className="relative h-48 bg-[#E8F5E9] overflow-hidden">
-                <Image src={breed.img} alt={breed.name} fill unoptimized className="object-cover object-center group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 768px) 100vw, 33vw" />
-                <span className="absolute top-3 right-3 badge badge-green shadow-sm">{breed.tag}</span>
+              <div className="relative h-44 bg-[#E8F5E9] overflow-hidden">
+                <Image src={breed.img} alt={breed.name} fill unoptimized className="object-cover object-center group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+                <span className="absolute top-3 right-3 badge badge-green shadow-sm text-xs">{breed.tag}</span>
               </div>
-              <div className="p-5 flex items-center justify-between">
+              <div className="p-4 flex items-center justify-between">
                 <div>
-                  <h3 className="font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] transition-colors">{breed.name}</h3>
-                  <p className="text-sm text-[#5a7a5a] mt-0.5">From {formatCurrency(breed.firstYearEstimate)}/first year</p>
+                  <h3 className="font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] transition-colors text-sm">{breed.name}</h3>
+                  <p className="text-xs text-[#5a7a5a] mt-0.5">From {formatCurrency(breed.firstYearEstimate)}/yr 1</p>
                 </div>
                 <ChevronRight className="h-5 w-5 text-[#C8E6C9] group-hover:text-[#2E7D32] transition-colors" />
               </div>
@@ -131,6 +137,75 @@ export default function HomePage() {
           <Link href="/calculator" className="btn-primary">
             <Calculator className="h-4 w-4" /> Get My Full Cost Report
           </Link>
+        </div>
+      </section>
+
+      {/* Affordability Reality Check */}
+      <section className="bg-white border-y border-[#C8E6C9] py-16 md:py-20">
+        <div className="container-xl">
+          <div className="text-center mb-10">
+            <div className="badge badge-green mb-3 mx-auto">The Numbers Don&apos;t Lie</div>
+            <h2 className="section-heading">What does a pet actually cost?</h2>
+            <p className="section-subheading max-w-2xl mx-auto">
+              Year 1 is always the most expensive — setup costs, initial vet visits, training, and supplies stack up fast. Here&apos;s what five of the most popular breeds actually cost.
+            </p>
+          </div>
+          <div className="overflow-x-auto rounded-2xl border border-[#C8E6C9]">
+            <table className="w-full min-w-[600px]">
+              <thead>
+                <tr className="bg-[#E8F5E9]">
+                  <th className="text-left px-5 py-4 text-sm font-bold text-[#1B2B1B]">Breed</th>
+                  <th className="text-right px-5 py-4 text-sm font-bold text-[#1B2B1B]">Year 1 Total</th>
+                  <th className="text-right px-5 py-4 text-sm font-bold text-[#1B2B1B]">Annual (yr 2+)</th>
+                  <th className="text-right px-5 py-4 text-sm font-bold text-[#1B2B1B]">15-yr Lifetime</th>
+                  <th className="text-right px-5 py-4 text-sm font-bold text-[#1B2B1B]">Per Month</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { name: "Golden Retriever", emoji: "🐕", year1: 4200, annual: 2800, years: 11, href: "/breeds/golden-retriever" },
+                  { name: "French Bulldog",   emoji: "🐕", year1: 5100, annual: 3400, years: 10, href: "/breeds/french-bulldog" },
+                  { name: "Labrador",         emoji: "🐕", year1: 3800, annual: 2600, years: 12, href: "/breeds/labrador-retriever" },
+                  { name: "Maine Coon",       emoji: "🐈", year1: 2900, annual: 1800, years: 14, href: "/breeds/maine-coon" },
+                  { name: "Poodle (Standard)",emoji: "🐕", year1: 4300, annual: 3200, years: 12, href: "/breeds/poodle-standard" },
+                ].map((breed, i) => {
+                  const lifetime = breed.year1 + breed.annual * (breed.years - 1);
+                  const monthly = Math.round(breed.annual / 12);
+                  return (
+                    <tr key={breed.name} className={`border-t border-[#E8F5E9] hover:bg-[#F1F8F1] transition-colors ${i % 2 === 0 ? "" : "bg-[#F9FDF9]"}`}>
+                      <td className="px-5 py-4">
+                        <Link href={breed.href} className="flex items-center gap-2 group">
+                          <span className="text-xl">{breed.emoji}</span>
+                          <span className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32] transition-colors">{breed.name}</span>
+                        </Link>
+                      </td>
+                      <td className="px-5 py-4 text-right">
+                        <span className="text-sm font-bold text-[#EF4444]">{formatCurrency(breed.year1)}</span>
+                      </td>
+                      <td className="px-5 py-4 text-right">
+                        <span className="text-sm font-semibold text-[#1B2B1B]">{formatCurrency(breed.annual)}</span>
+                      </td>
+                      <td className="px-5 py-4 text-right">
+                        <span className="text-sm font-bold text-[#2E7D32]">{formatCurrency(lifetime)}</span>
+                      </td>
+                      <td className="px-5 py-4 text-right">
+                        <span className="text-sm text-[#5a7a5a]">{formatCurrency(monthly)}/mo</span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-[#5a7a5a] mt-3 text-center">
+            Estimates based on national averages. Actual costs vary by location, lifestyle, and choices.{" "}
+            <Link href="/methodology" className="underline hover:text-[#2E7D32]">See our methodology →</Link>
+          </p>
+          <div className="mt-8 text-center">
+            <Link href="/calculator" className="btn-green">
+              <Calculator className="h-4 w-4" /> Calculate Your Specific Cost
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -261,6 +336,34 @@ export default function HomePage() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* Insurance CTA */}
+      <section className="bg-gradient-to-r from-[#1565C0] to-[#1976D2] py-12 md:py-16">
+        <div className="container-xl">
+          <div className="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
+            <div className="flex-1 text-white">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-blue-100 mb-4 border border-white/20">
+                <Shield className="h-3.5 w-3.5" /> Financial Protection
+              </div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">
+                Emergency vet bills average $1,400 — are you covered?
+              </h2>
+              <p className="text-blue-100 text-sm leading-relaxed mb-2">
+                Most pet owners only find out how expensive emergency care is when they&apos;re already in the waiting room. Pet insurance for the average dog costs $40–80/month and can cover up to 90% of vet bills.
+              </p>
+              <p className="text-blue-200 text-xs">We earn a commission if you purchase. This does not affect our recommendations.</p>
+            </div>
+            <div className="flex flex-col gap-3 min-w-[200px]">
+              <Link href="/tools/insurance-compare" className="rounded-xl bg-white text-[#1565C0] font-bold text-sm px-6 py-3.5 text-center hover:bg-blue-50 transition-colors shadow-sm">
+                Compare Insurance Plans
+              </Link>
+              <Link href="/guides" className="rounded-xl border border-white/30 text-white font-medium text-sm px-6 py-3 text-center hover:bg-white/10 transition-colors">
+                Is insurance worth it? →
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -95,7 +95,7 @@ export default function CalculatorClient() {
       <div className="px-6 pt-6 pb-0">
         <div className="flex items-center justify-between mb-2">
           <span className="text-xs font-medium text-slate-500">Step {stepNum} of {totalSteps}</span>
-          <span className="text-xs font-medium text-[#1E3A5F]">{STEP_LABELS[step]}</span>
+          <span className="text-xs font-medium text-[#2E7D32]">{STEP_LABELS[step]}</span>
         </div>
         <div className="flex gap-1.5">
           {STEPS.slice(0, -1).map((s, i) => (
@@ -120,7 +120,7 @@ export default function CalculatorClient() {
                     setInputs((prev) => ({ ...prev, petType: type, breedId: undefined }));
                     setBreedSearch("");
                   }}
-                  className={`rounded-2xl border-2 p-6 text-left transition-all hover:border-[#1E3A5F] ${inputs.petType === type ? "border-[#1E3A5F] bg-[#1E3A5F]/5" : "border-slate-200"}`}
+                  className={`rounded-2xl border-2 p-6 text-left transition-all hover:border-[#2E7D32] ${inputs.petType === type ? "border-[#2E7D32] bg-[#2E7D32]/5" : "border-slate-200"}`}
                 >
                   <div className="text-4xl mb-3">{type === "dog" ? "🐕" : "🐈"}</div>
                   <div className="text-lg font-bold text-[#0f172a] capitalize">{type}</div>
@@ -155,14 +155,14 @@ export default function CalculatorClient() {
                   <button
                     key={breed.id}
                     onClick={() => update("breedId", breed.id)}
-                    className={`w-full flex items-center justify-between rounded-xl px-4 py-3 text-left transition-all hover:bg-slate-50 ${inputs.breedId === breed.id ? "bg-[#1E3A5F]/5 border border-[#1E3A5F]/20" : ""}`}
+                    className={`w-full flex items-center justify-between rounded-xl px-4 py-3 text-left transition-all hover:bg-slate-50 ${inputs.breedId === breed.id ? "bg-[#2E7D32]/5 border border-[#2E7D32]/20" : ""}`}
                   >
                     <div>
                       <div className="text-sm font-medium text-[#0f172a]">{breed.name}</div>
                       <div className="text-xs text-slate-400 capitalize">{breed.size} · {breed.lifespan} yr lifespan</div>
                     </div>
                     <div className="text-right">
-                      <div className="text-sm font-semibold text-[#1E3A5F]">{formatCurrency(breed.annualFood + breed.annualVet + breed.annualGrooming)}/yr</div>
+                      <div className="text-sm font-semibold text-[#2E7D32]">{formatCurrency(breed.annualFood + breed.annualVet + breed.annualGrooming)}/yr</div>
                       {inputs.breedId === breed.id && <CheckCircle2 className="h-4 w-4 text-[#16A34A] ml-auto mt-1" />}
                     </div>
                   </button>
@@ -198,7 +198,7 @@ export default function CalculatorClient() {
               <p className="text-xs text-slate-500 mb-2">Quick select:</p>
               <div className="flex flex-wrap gap-2">
                 {["New York", "Los Angeles", "London", "Sydney", "Toronto", "Singapore"].map((city) => (
-                  <button key={city} onClick={() => update("location", city)} className={`rounded-lg px-3 py-1.5 text-xs font-medium border transition-all ${inputs.location === city ? "bg-[#1E3A5F] text-white border-[#1E3A5F]" : "bg-white text-slate-600 border-slate-200 hover:border-[#1E3A5F]"}`}>
+                  <button key={city} onClick={() => update("location", city)} className={`rounded-lg px-3 py-1.5 text-xs font-medium border transition-all ${inputs.location === city ? "bg-[#2E7D32] text-white border-[#2E7D32]" : "bg-white text-slate-600 border-slate-200 hover:border-[#2E7D32]"}`}>
                     {city}
                   </button>
                 ))}
@@ -213,7 +213,7 @@ export default function CalculatorClient() {
                   { value: "rent-apartment", label: "Rent an apartment" },
                   { value: "other", label: "Other" },
                 ].map(({ value, label }) => (
-                  <button key={value} onClick={() => update("livingSituation", value)} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.livingSituation === value ? "border-[#1E3A5F] bg-[#1E3A5F]/5 text-[#1E3A5F]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
+                  <button key={value} onClick={() => update("livingSituation", value)} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.livingSituation === value ? "border-[#2E7D32] bg-[#2E7D32]/5 text-[#2E7D32]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
                     {label}
                   </button>
                 ))}
@@ -237,7 +237,7 @@ export default function CalculatorClient() {
                   { value: "hybrid", label: "Hybrid" },
                   { value: "work-from-home", label: "Work from home" },
                 ].map(({ value, label }) => (
-                  <button key={value} onClick={() => update("workSchedule", value)} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.workSchedule === value ? "border-[#1E3A5F] bg-[#1E3A5F]/5 text-[#1E3A5F]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
+                  <button key={value} onClick={() => update("workSchedule", value)} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.workSchedule === value ? "border-[#2E7D32] bg-[#2E7D32]/5 text-[#2E7D32]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
                     {label}
                   </button>
                 ))}
@@ -251,7 +251,7 @@ export default function CalculatorClient() {
                   { value: "occasionally", label: "Occasionally" },
                   { value: "frequently", label: "Frequently" },
                 ].map(({ value, label }) => (
-                  <button key={value} onClick={() => update("travelFrequency", value)} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.travelFrequency === value ? "border-[#1E3A5F] bg-[#1E3A5F]/5 text-[#1E3A5F]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
+                  <button key={value} onClick={() => update("travelFrequency", value)} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.travelFrequency === value ? "border-[#2E7D32] bg-[#2E7D32]/5 text-[#2E7D32]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
                     {label}
                   </button>
                 ))}
@@ -265,7 +265,7 @@ export default function CalculatorClient() {
                   { value: "moderate", label: "Moderate" },
                   { value: "high", label: "High" },
                 ].map(({ value, label }) => (
-                  <button key={value} onClick={() => update("activityLevel", value)} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.activityLevel === value ? "border-[#1E3A5F] bg-[#1E3A5F]/5 text-[#1E3A5F]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
+                  <button key={value} onClick={() => update("activityLevel", value)} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.activityLevel === value ? "border-[#2E7D32] bg-[#2E7D32]/5 text-[#2E7D32]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
                     {label}
                   </button>
                 ))}
@@ -280,7 +280,7 @@ export default function CalculatorClient() {
                   { value: "occasionally", label: "Occasionally" },
                   { value: "never", label: "Never" },
                 ].map(({ value, label }) => (
-                  <button key={value} onClick={() => update("daycareFrequency", value as CalculatorInputs["daycareFrequency"])} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.daycareFrequency === value ? "border-[#1E3A5F] bg-[#1E3A5F]/5 text-[#1E3A5F]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
+                  <button key={value} onClick={() => update("daycareFrequency", value as CalculatorInputs["daycareFrequency"])} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.daycareFrequency === value ? "border-[#2E7D32] bg-[#2E7D32]/5 text-[#2E7D32]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
                     {label}
                   </button>
                 ))}
@@ -303,7 +303,7 @@ export default function CalculatorClient() {
                   { value: "standard", label: "Standard", sub: "Good quality supermarket brands" },
                   { value: "premium", label: "Premium", sub: "Raw diet, organic, or vet-recommended" },
                 ].map(({ value, label, sub }) => (
-                  <button key={value} onClick={() => update("foodType", value as CalculatorInputs["foodType"])} className={`rounded-xl border p-4 text-left transition-all ${inputs.foodType === value ? "border-[#1E3A5F] bg-[#1E3A5F]/5" : "border-slate-200 hover:border-slate-300"}`}>
+                  <button key={value} onClick={() => update("foodType", value as CalculatorInputs["foodType"])} className={`rounded-xl border p-4 text-left transition-all ${inputs.foodType === value ? "border-[#2E7D32] bg-[#2E7D32]/5" : "border-slate-200 hover:border-slate-300"}`}>
                     <div className="text-sm font-semibold text-[#0f172a]">{label}</div>
                     <div className="text-xs text-slate-400 mt-0.5">{sub}</div>
                   </button>
@@ -318,7 +318,7 @@ export default function CalculatorClient() {
                   { value: "maybe", label: "Possibly" },
                   { value: "no", label: "No" },
                 ].map(({ value, label }) => (
-                  <button key={value} onClick={() => update("insurance", value as CalculatorInputs["insurance"])} className={`rounded-xl border px-3 py-3 text-sm font-medium text-left transition-all ${inputs.insurance === value ? "border-[#1E3A5F] bg-[#1E3A5F]/5 text-[#1E3A5F]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
+                  <button key={value} onClick={() => update("insurance", value as CalculatorInputs["insurance"])} className={`rounded-xl border px-3 py-3 text-sm font-medium text-left transition-all ${inputs.insurance === value ? "border-[#2E7D32] bg-[#2E7D32]/5 text-[#2E7D32]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
                     {label}
                   </button>
                 ))}
@@ -332,7 +332,7 @@ export default function CalculatorClient() {
                   { value: "maybe", label: "Possibly" },
                   { value: "no", label: "No" },
                 ].map(({ value, label }) => (
-                  <button key={value} onClick={() => update("training", value as CalculatorInputs["training"])} className={`rounded-xl border px-3 py-3 text-sm font-medium text-left transition-all ${inputs.training === value ? "border-[#1E3A5F] bg-[#1E3A5F]/5 text-[#1E3A5F]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
+                  <button key={value} onClick={() => update("training", value as CalculatorInputs["training"])} className={`rounded-xl border px-3 py-3 text-sm font-medium text-left transition-all ${inputs.training === value ? "border-[#2E7D32] bg-[#2E7D32]/5 text-[#2E7D32]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
                     {label}
                   </button>
                 ))}
@@ -347,7 +347,7 @@ export default function CalculatorClient() {
                   { value: "3-months", label: "Every 3 months" },
                   { value: "diy", label: "DIY only" },
                 ].map(({ value, label }) => (
-                  <button key={value} onClick={() => update("groomingFrequency", value as CalculatorInputs["groomingFrequency"])} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.groomingFrequency === value ? "border-[#1E3A5F] bg-[#1E3A5F]/5 text-[#1E3A5F]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
+                  <button key={value} onClick={() => update("groomingFrequency", value as CalculatorInputs["groomingFrequency"])} className={`rounded-xl border px-4 py-3 text-sm font-medium text-left transition-all ${inputs.groomingFrequency === value ? "border-[#2E7D32] bg-[#2E7D32]/5 text-[#2E7D32]" : "border-slate-200 text-slate-600 hover:border-slate-300"}`}>
                     {label}
                   </button>
                 ))}
@@ -368,7 +368,7 @@ export default function CalculatorClient() {
         <button
           onClick={goNext}
           disabled={!canContinue()}
-          className={`flex items-center gap-2 rounded-xl px-6 py-2.5 text-sm font-semibold transition-all ${canContinue() ? "bg-[#1E3A5F] text-white hover:bg-[#172554] shadow-sm" : "bg-slate-100 text-slate-400 cursor-not-allowed"}`}
+          className={`flex items-center gap-2 rounded-xl px-6 py-2.5 text-sm font-semibold transition-all ${canContinue() ? "bg-[#2E7D32] text-white hover:bg-[#1B5E20] shadow-sm" : "bg-slate-100 text-slate-400 cursor-not-allowed"}`}
         >
           {step === "costs" ? "Get My Results" : "Continue"}
           <ChevronRight className="h-4 w-4" />

@@ -7,36 +7,74 @@ import { formatCurrency } from "@/lib/utils";
 
 interface Props { params: { slug: string } }
 
-const POPULAR_COMPARISONS = [
-  ["golden-retriever", "labrador-retriever"],
-  ["french-bulldog", "english-bulldog"],
-  ["golden-retriever", "german-shepherd"],
-  ["poodle", "labrador-retriever"],
-  ["border-collie", "australian-shepherd"],
-  ["labrador-retriever", "beagle"],
-  ["french-bulldog", "boston-terrier"],
-  ["golden-retriever", "border-collie"],
+// Top breeds by search volume — used to generate the highest-value comparison pairs
+const TOP_DOG_BREEDS = [
+  "golden-retriever", "labrador-retriever", "french-bulldog", "german-shepherd-dog",
+  "poodle-standard", "bulldog", "beagle", "rottweiler", "german-shorthaired-pointer",
+  "dachshund", "pembroke-welsh-corgi", "yorkshire-terrier", "australian-shepherd",
+  "boxer", "border-collie", "siberian-husky", "great-dane", "doberman-pinscher",
+  "cavalier-king-charles-spaniel", "shih-tzu", "boston-terrier", "bernese-mountain-dog",
+  "pomeranian", "miniature-schnauzer", "english-cocker-spaniel", "bichon-frise",
+  "maltese", "weimaraner", "brittany", "english-setter",
+];
+
+const TOP_CAT_BREEDS = [
+  "persian", "maine-coon", "ragdoll", "bengal", "siamese", "british-shorthair",
+  "abyssinian", "russian-blue", "scottish-fold", "sphynx", "norwegian-forest",
+  "devon-rex", "american-shorthair", "birman", "burmese",
 ];
 
 export async function generateStaticParams() {
   const dogs = getAllBreeds("dog");
   const cats = getAllBreeds("cat");
-  const all = [...dogs, ...cats];
 
-  // Generate popular comparisons + a cross-section of others
+  // Build lookup sets of valid IDs
+  const dogIds = new Set(dogs.map(d => d.id));
+  const catIds = new Set(cats.map(c => c.id));
+
   const params: { slug: string }[] = [];
-  for (const [a, b] of POPULAR_COMPARISONS) {
+  const seen = new Set<string>();
+
+  function addPair(a: string, b: string) {
+    if (a === b) return;
+    const key = [a, b].sort().join("|");
+    if (seen.has(key)) return;
+    seen.add(key);
     params.push({ slug: `${a}-vs-${b}` });
   }
-  // Also generate first 5 same-size pairs
-  const smallDogs = dogs.filter(d => d.size === "small").slice(0, 3);
-  const medDogs = dogs.filter(d => d.size === "medium").slice(0, 3);
-  for (let i = 0; i < Math.min(smallDogs.length - 1, 2); i++) {
-    params.push({ slug: `${smallDogs[i].id}-vs-${smallDogs[i + 1].id}` });
+
+  // 1. All pairs within top dog breeds (29×28/2 = 406 pairs)
+  const validTopDogs = TOP_DOG_BREEDS.filter(id => dogIds.has(id));
+  for (let i = 0; i < validTopDogs.length; i++) {
+    for (let j = i + 1; j < validTopDogs.length; j++) {
+      addPair(validTopDogs[i], validTopDogs[j]);
+    }
   }
-  for (let i = 0; i < Math.min(medDogs.length - 1, 2); i++) {
-    params.push({ slug: `${medDogs[i].id}-vs-${medDogs[i + 1].id}` });
+
+  // 2. All pairs within top cat breeds (15×14/2 = 105 pairs)
+  const validTopCats = TOP_CAT_BREEDS.filter(id => catIds.has(id));
+  for (let i = 0; i < validTopCats.length; i++) {
+    for (let j = i + 1; j < validTopCats.length; j++) {
+      addPair(validTopCats[i], validTopCats[j]);
+    }
   }
+
+  // 3. Each top dog vs the next 5 dogs in the full list (same-size pairs, adds ~100)
+  const allDogIds = dogs.map(d => d.id);
+  for (const topId of validTopDogs) {
+    const idx = allDogIds.indexOf(topId);
+    const neighbours = allDogIds.slice(idx + 1, idx + 6);
+    for (const neighbour of neighbours) addPair(topId, neighbour);
+  }
+
+  // 4. Each top cat vs the next 4 cats (adds ~60)
+  const allCatIds = cats.map(c => c.id);
+  for (const topId of validTopCats) {
+    const idx = allCatIds.indexOf(topId);
+    const neighbours = allCatIds.slice(idx + 1, idx + 5);
+    for (const neighbour of neighbours) addPair(topId, neighbour);
+  }
+
   return params;
 }
 

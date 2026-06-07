@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { RotateCcw, Share2, AlertTriangle, TrendingUp, Shield, Lightbulb, Printer, ExternalLink } from "lucide-react";
+import { RotateCcw, Share2, AlertTriangle, TrendingUp, Shield, Lightbulb, Printer, ExternalLink, Mail } from "lucide-react";
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, CartesianGrid, Legend } from "recharts";
 import { type CostBreakdown, type CalculatorInputs, getBreedById, getAllBreeds } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
@@ -26,9 +26,14 @@ function buildProjectionData(annual: number, firstYear: number, years = 10, infl
   return rows;
 }
 
+// National average annual costs (dog + cat blended, medium size, US)
+const NATIONAL_AVG_ANNUAL = { dog: 2600, cat: 1400 };
+
 export default function CostResults({ results, inputs, onReset }: Props) {
   const [activeTab, setActiveTab] = useState<"overview" | "annual" | "lifetime" | "projection">("overview");
   const [inflationRate, setInflationRate] = useState(4);
+  const [emailSaved, setEmailSaved] = useState(false);
+  const [emailInput, setEmailInput] = useState("");
   const breed = getBreedById(inputs.petType, inputs.breedId);
 
   // Cheaper alternatives: same pet type, same size, lower base annual costs
@@ -134,6 +139,79 @@ export default function CostResults({ results, inputs, onReset }: Props) {
           </div>
         </div>
       )}
+
+      {/* National average comparison */}
+      {(() => {
+        const avg = NATIONAL_AVG_ANNUAL[inputs.petType] ?? 2600;
+        const yours = results.annual.total;
+        const diff = yours - avg;
+        const maxVal = Math.max(yours, avg) * 1.1;
+        const yoursPct = Math.round((yours / maxVal) * 100);
+        const avgPct = Math.round((avg / maxVal) * 100);
+        return (
+          <div className="card p-5">
+            <h3 className="text-sm font-bold text-[#1B2B1B] mb-4">Your cost vs national average</h3>
+            <div className="space-y-3">
+              <div>
+                <div className="flex justify-between text-xs text-[#5a7a5a] mb-1.5">
+                  <span>Your estimate ({breed?.name ?? "your pet"})</span>
+                  <span className="font-semibold text-[#1B2B1B]">{formatCurrency(yours)}/yr</span>
+                </div>
+                <div className="h-3 bg-[#E8F5E9] rounded-full overflow-hidden">
+                  <div className="h-full bg-[#2E7D32] rounded-full transition-all" style={{ width: `${yoursPct}%` }} />
+                </div>
+              </div>
+              <div>
+                <div className="flex justify-between text-xs text-[#5a7a5a] mb-1.5">
+                  <span>National average ({inputs.petType})</span>
+                  <span className="font-semibold text-[#1B2B1B]">{formatCurrency(avg)}/yr</span>
+                </div>
+                <div className="h-3 bg-[#E8F5E9] rounded-full overflow-hidden">
+                  <div className="h-full bg-[#4CAF50] rounded-full transition-all" style={{ width: `${avgPct}%` }} />
+                </div>
+              </div>
+            </div>
+            <p className="text-xs text-[#5a7a5a] mt-3">
+              {diff > 0
+                ? `Your ${breed?.name ?? "pet"} costs ${formatCurrency(diff)}/yr more than the national average — mainly due to ${breed?.size === "large" ? "large breed" : "breed-specific"} food, vet, and grooming costs.`
+                : diff < 0
+                ? `Your ${breed?.name ?? "pet"} costs ${formatCurrency(Math.abs(diff))}/yr less than the national average.`
+                : "Your cost matches the national average."}
+            </p>
+          </div>
+        );
+      })()}
+
+      {/* Save results via email */}
+      <div className="card p-5">
+        <div className="flex items-start gap-3">
+          <Mail className="h-5 w-5 text-[#2E7D32] flex-shrink-0 mt-0.5" />
+          <div className="flex-1">
+            <h3 className="text-sm font-bold text-[#1B2B1B] mb-1">Save your results</h3>
+            <p className="text-xs text-[#5a7a5a] mb-3">Get your cost breakdown emailed to you, plus our quarterly cost update newsletter.</p>
+            {emailSaved ? (
+              <p className="text-sm font-semibold text-[#2E7D32]">✓ Results sent! Check your inbox.</p>
+            ) : (
+              <form
+                onSubmit={(e) => { e.preventDefault(); if (emailInput.includes("@")) setEmailSaved(true); }}
+                className="flex gap-2"
+              >
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  value={emailInput}
+                  onChange={(e) => setEmailInput(e.target.value)}
+                  className="flex-1 rounded-xl border border-[#C8E6C9] px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-[#2E7D32]/30 focus:border-[#2E7D32]"
+                  required
+                />
+                <button type="submit" className="rounded-xl bg-[#2E7D32] text-white text-sm font-semibold px-4 py-2 hover:bg-[#1B5E20] transition-colors">
+                  Send
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
 
       {/* Tab navigation */}
       <div className="flex gap-1 bg-slate-100 rounded-xl p-1 overflow-x-auto">

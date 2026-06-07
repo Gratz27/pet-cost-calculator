@@ -76,7 +76,14 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="pt-8 border-t border-[#2E7D32]/30 flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* Affiliate disclosure */}
+        <div className="mb-6 rounded-xl bg-[#1B5E20]/30 border border-[#2E7D32]/20 px-4 py-3">
+          <p className="text-xs text-slate-400 leading-relaxed">
+            <span className="font-semibold text-slate-300">Affiliate disclosure:</span> Some links on this site are affiliate links. If you purchase a product or service through one of these links, we may earn a commission at no additional cost to you. This does not influence our recommendations, cost data, or editorial content. We only link to products and services we believe are genuinely useful to pet owners.
+          </p>
+        </div>
+
+        <div className="pt-6 border-t border-[#2E7D32]/30 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-500">
             © {new Date().getFullYear()} PetCost-Calculator.com. All rights reserved.
           </p>
