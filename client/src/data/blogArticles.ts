@@ -3,6 +3,7 @@ import { labradorRetrieverCosts } from './blog-articles/labrador-retriever-costs
 import { germanShepherdCosts } from './blog-articles/german-shepherd-costs';
 
 import { firstYearPuppyCosts, seniorPetCareCosts, emergencyVetCosts, dogVsCatCosts } from './blog-articles/cost-saving-articles';
+import { cutPetMonthlyCosts } from './blog-articles/cut-pet-monthly-costs';
 import { purebredVsMixedCosts, smallVsLargeDogCosts, puppyVsAdultDogCosts, petCostsByLocation } from './blog-articles/comparison-articles';
 import { holidayPetCareTravel } from './blog-articles/holiday-pet-care-travel';
 import { petsAsHolidayGifts } from './blog-articles/pets-as-holiday-gifts';
@@ -32,6 +33,7 @@ export interface BlogArticle {
 
 export const allBlogArticles: BlogArticle[] = [
   // Newest articles first
+  cutPetMonthlyCosts,
   ...newArticles,
   ...remainingArticlesNew,
   frenchBulldogCompleteCostGuide,
