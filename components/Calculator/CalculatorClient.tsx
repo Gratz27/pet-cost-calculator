@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { ChevronRight, ChevronLeft, Search, CheckCircle2, AlertCircle, Info } from "lucide-react";
-import { getAllBreeds, calculateCosts, type CalculatorInputs, type CostBreakdown } from "@/lib/calculator";
+import { getAllBreeds, getBreedById, calculateCosts, type CalculatorInputs, type CostBreakdown } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import dynamic from "next/dynamic";
 const CostResults = dynamic(() => import("./CostResults"), { ssr: false });
@@ -25,6 +26,7 @@ const STEP_NUMBERS: Record<Step, number> = {
 };
 
 export default function CalculatorClient() {
+  const searchParams = useSearchParams();
   const [step, setStep] = useState<Step>("pet-type");
   const [inputs, setInputs] = useState<Partial<CalculatorInputs>>({
     petType: "dog",
@@ -40,6 +42,23 @@ export default function CalculatorClient() {
     activityLevel: "moderate",
   });
   const [breedSearch, setBreedSearch] = useState("");
+
+  // Pre-populate from URL params (e.g. ?breedId=golden-retriever&petType=dog)
+  useEffect(() => {
+    const urlBreedId = searchParams.get("breedId");
+    const urlPetType = searchParams.get("petType") as "dog" | "cat" | null;
+    if (urlBreedId && urlPetType) {
+      const breed = getBreedById(urlPetType, urlBreedId);
+      setInputs((prev) => ({
+        ...prev,
+        petType: urlPetType,
+        breedId: urlBreedId,
+      }));
+      if (breed) setBreedSearch(breed.name);
+      setStep("location");
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [results, setResults] = useState<CostBreakdown | null>(null);
 
   const allBreeds = useMemo(() => getAllBreeds(inputs.petType ?? "dog"), [inputs.petType]);

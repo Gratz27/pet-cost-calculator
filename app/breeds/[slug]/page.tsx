@@ -61,7 +61,7 @@ export default function BreedPage({ params }: Props) {
                 How Much Does a {breed.name} Cost?
               </h1>
               <p className="text-[#5a7a5a] text-lg leading-relaxed mb-5">{breed.description}</p>
-              <Link href="/calculator" className="btn-green">
+              <Link href={`/calculator?breedId=${breed.id}&petType=${petType}`} className="btn-green">
                 <Calculator className="h-4 w-4" /> Get My Personalised Estimate
               </Link>
             </div>

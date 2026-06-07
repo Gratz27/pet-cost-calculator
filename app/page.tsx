@@ -6,18 +6,18 @@ import { formatCurrency } from "@/lib/utils";
 import HeroSearch from "@/components/HeroSearch";
 
 const featuredBreeds = [
-  { id: "golden-retriever",         name: "Golden Retriever",   firstYearEstimate: 4200, tag: "Most Popular",      img: "https://images.dog.ceo/breeds/retriever-golden/n02099601_1743.jpg" },
-  { id: "french-bulldog",           name: "French Bulldog",     firstYearEstimate: 5100, tag: "Trending",          img: "https://images.dog.ceo/breeds/bulldog-french/n02108915_4372.jpg" },
-  { id: "labrador-retriever",       name: "Labrador Retriever", firstYearEstimate: 3800, tag: "Family Favourite",  img: "https://images.dog.ceo/breeds/labrador/n02099712_4354.jpg" },
-  { id: "german-shepherd-dog",      name: "German Shepherd",    firstYearEstimate: 4500, tag: "Active Lifestyle",  img: "https://images.dog.ceo/breeds/german-shepherd/n02106662_18113.jpg" },
-  { id: "bengal",                   name: "Bengal Cat",         firstYearEstimate: 3200, tag: "Low Maintenance",   img: "https://cdn2.thecatapi.com/images/IFXsxmXLm.jpg" },
-  { id: "poodle-standard",          name: "Poodle",             firstYearEstimate: 4300, tag: "Hypoallergenic",    img: "https://images.dog.ceo/breeds/poodle-standard/n02113799_2280.jpg" },
-  { id: "beagle",                   name: "Beagle",             firstYearEstimate: 3100, tag: "Budget-Friendly",   img: "https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg" },
-  { id: "pembroke-welsh-corgi",     name: "Corgi",              firstYearEstimate: 3900, tag: "Social Media Fave", img: "https://images.dog.ceo/breeds/corgi-cardigan/n02113186_1030.jpg" },
-  { id: "siberian-husky",           name: "Siberian Husky",     firstYearEstimate: 4100, tag: "High Energy",       img: "https://images.dog.ceo/breeds/husky/n02110185_10695.jpg" },
-  { id: "ragdoll",                  name: "Ragdoll Cat",        firstYearEstimate: 2800, tag: "Indoor Cat",        img: "https://cdn2.thecatapi.com/images/PHs9Vi7q-.jpg" },
-  { id: "yorkshire-terrier",        name: "Yorkshire Terrier",  firstYearEstimate: 3600, tag: "Small & Loyal",     img: "https://images.dog.ceo/breeds/terrier-yorkshire/n02094433_2179.jpg" },
-  { id: "australian-shepherd",      name: "Australian Shepherd",firstYearEstimate: 4000, tag: "Working Dog",       img: "https://images.dog.ceo/breeds/australian-shepherd/pepper.jpg" },
+  { id: "golden-retriever",     name: "Golden Retriever",    firstYearEstimate: 4200, tag: "Most Popular",      img: "https://images.dog.ceo/breeds/retriever-golden/n02099601_1743.jpg" },
+  { id: "french-bulldog",       name: "French Bulldog",      firstYearEstimate: 5100, tag: "Trending",          img: "https://images.dog.ceo/breeds/bulldog-french/n02108915_4372.jpg" },
+  { id: "labrador-retriever",   name: "Labrador Retriever",  firstYearEstimate: 3800, tag: "Family Favourite",  img: "https://images.dog.ceo/breeds/labrador/n02099712_4354.jpg" },
+  { id: "german-shepherd-dog",  name: "German Shepherd",     firstYearEstimate: 4500, tag: "Active Lifestyle",  img: "https://images.dog.ceo/breeds/german-shepherd/n02106662_18113.jpg" },
+  { id: "bengal",               name: "Bengal Cat",          firstYearEstimate: 3200, tag: "Low Maintenance",   img: "https://cdn2.thecatapi.com/images/IFXsxmXLm.jpg" },
+  { id: "poodle-standard",      name: "Poodle",              firstYearEstimate: 4300, tag: "Hypoallergenic",    img: "https://images.dog.ceo/breeds/poodle-standard/n02113799_5975.jpg" },
+  { id: "beagle",               name: "Beagle",              firstYearEstimate: 3100, tag: "Budget-Friendly",   img: "https://images.dog.ceo/breeds/beagle/n02088364_12973.jpg" },
+  { id: "pembroke-welsh-corgi", name: "Corgi",               firstYearEstimate: 3900, tag: "Social Media Fave", img: "https://images.dog.ceo/breeds/corgi-cardigan/n02113186_10535.jpg" },
+  { id: "siberian-husky",       name: "Siberian Husky",      firstYearEstimate: 4100, tag: "High Energy",       img: "https://images.dog.ceo/breeds/husky/n02110185_1598.jpg" },
+  { id: "ragdoll",              name: "Ragdoll Cat",         firstYearEstimate: 2800, tag: "Indoor Cat",        img: "https://cdn2.thecatapi.com/images/Sy9SgPE0B.jpg" },
+  { id: "yorkshire-terrier",    name: "Yorkshire Terrier",   firstYearEstimate: 3600, tag: "Small & Loyal",     img: "https://images.dog.ceo/breeds/terrier-yorkshire/n02094433_2328.jpg" },
+  { id: "australian-shepherd",  name: "Australian Shepherd", firstYearEstimate: 4000, tag: "Working Dog",       img: "https://images.dog.ceo/breeds/australian-shepherd/sadie.jpg" },
 ];
 
 const stats = [
