@@ -188,19 +188,41 @@ export default function ReportPage() {
         </div>
 
         {/* Download CTA */}
-        <div className="bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] rounded-2xl p-8 text-white text-center">
-          <Download className="h-8 w-8 text-green-300 mx-auto mb-4" />
-          <h2 className="text-xl font-bold mb-2">Download the 2026 Pet Cost Data Summary (PDF)</h2>
-          <p className="text-green-200 text-sm mb-5">10-page PDF with breed cost tables, regional breakdowns, insurance guide, and a pre-purchase budget checklist. Free.</p>
-          <a
-            href="/PetCost-Report-2026.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-green inline-flex items-center gap-2 text-sm px-8 py-3"
-          >
-            <Download className="h-4 w-4" /> Download Free PDF
-          </a>
-          <p className="mt-3 text-xs text-green-400">No spam. Unsubscribe any time.</p>
+        <div className="bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] rounded-2xl p-8 text-white">
+          <h2 className="text-xl font-bold mb-2 text-center">Free downloads — from one pet lover to another</h2>
+          <p className="text-green-200 text-sm mb-6 text-center">Everything below is free to download, print and share. No sign-up required.</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <a
+              href="/PetCost-Report-2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-2 bg-white/10 hover:bg-white/20 transition rounded-xl p-5 text-center"
+            >
+              <Download className="h-6 w-6 text-green-300" />
+              <span className="font-bold text-sm">2026 Cost Data Summary</span>
+              <span className="text-xs text-green-300">10-page PDF · breed tables, regional costs, insurance guide</span>
+            </a>
+            <a
+              href="/PetCost-Readiness-Checklist.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-2 bg-white/10 hover:bg-white/20 transition rounded-xl p-5 text-center"
+            >
+              <Download className="h-6 w-6 text-green-300" />
+              <span className="font-bold text-sm">Am I Ready? Checklist</span>
+              <span className="text-xs text-green-300">1-page printable · financial, lifestyle &amp; commitment</span>
+            </a>
+            <a
+              href="/PetCost-Budget-Tracker.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center gap-2 bg-white/10 hover:bg-white/20 transition rounded-xl p-5 text-center"
+            >
+              <Download className="h-6 w-6 text-green-300" />
+              <span className="font-bold text-sm">Monthly Budget Tracker</span>
+              <span className="text-xs text-green-300">1-page printable · track every expense month by month</span>
+            </a>
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-3 justify-center">
