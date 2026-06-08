@@ -51,7 +51,7 @@ export default function BlogArticlePage({ params }: Props) {
           <nav className="flex items-center gap-2 text-sm text-[#5a7a5a]">
             <Link href="/" className="hover:text-[#2E7D32]">Home</Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <Link href="/blog" className="hover:text-[#2E7D32]">Blog</Link>
+            <Link href="/blog" className="hover:text-[#2E7D32]">News &amp; Articles</Link>
             <ChevronRight className="h-3.5 w-3.5" />
             <span className="text-[#1B2B1B] font-medium truncate max-w-[200px] md:max-w-none">{article.title}</span>
           </nav>

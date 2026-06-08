@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | PetCost Calculator",
   },
   description:
-    "The most comprehensive pet cost calculator online. Calculate first-year costs, lifetime ownership costs, and breed-specific expenses for dogs and cats. Trusted by 500,000+ pet owners.",
+    "The most comprehensive pet cost calculator online. Calculate first-year costs, lifetime ownership costs, and breed-specific expenses for 300+ dog and cat breeds.",
   keywords: ["pet cost calculator", "dog cost calculator", "cat cost calculator", "pet ownership cost", "how much does a dog cost"],
   authors: [{ name: "PetCost Calculator" }],
   creator: "PetCost Calculator",
@@ -34,6 +34,14 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   metadataBase: new URL("https://petcost-calculator.com"),
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
