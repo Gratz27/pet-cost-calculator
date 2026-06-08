@@ -149,20 +149,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero — calculator-first */}
       <section className="relative bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] text-white overflow-hidden">
-        {/* Mascot — right side, desktop only */}
-        <div className="absolute inset-y-0 right-0 w-5/12 hidden lg:flex items-end justify-center pointer-events-none pr-8">
-          <div className="relative w-full h-full">
-            <BreedImage
-              breedId="golden-retriever"
-              petType="dog"
-              alt="Golden Retriever mascot"
-              fill
-              priority
-              sizes="40vw"
-              className="drop-shadow-2xl"
-            />
-          </div>
-        </div>
+        {/* Mascot hero — re-enable once clean white-background images are ready */}
         <div className="relative container-xl py-16 md:py-24 text-center lg:text-left lg:max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-green-100 mb-5 border border-white/20">
             <span className="h-2 w-2 rounded-full bg-[#A5D6A7] animate-pulse" />
