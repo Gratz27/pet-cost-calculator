@@ -57,7 +57,7 @@ app/                     Next.js App Router pages
 components/
   Header.tsx             Nav with breeds dropdown, regional costs link
   Footer.tsx             Full footer with all links
-  BreedImage.tsx         Fetches images from Dog CEO API / TheCatAPI
+  BreedImage.tsx         Loads /breeds/[slug].png (local mascot); falls back to branded placeholder
 
 data/
   breeds.ts              All breed data (costs, metadata)
@@ -84,10 +84,58 @@ public/
 - First 4 breed cards on homepage have `priority` prop (LCP optimisation)
 - Sitemap lastModified dates reflect page update frequency
 
-## Images
-External image domains whitelisted in next.config.mjs:
-- images.dog.ceo
-- cdn2.thecatapi.com
+## Images — Mascot Illustration Strategy
+
+### Brand direction (decided June 2026)
+All breed images on the site use a **consistent modern mascot illustration style** — NOT stock photos or API images.
+Style: Modern mascot + slight Pixar influence + flat vector colouring. Friendly, professional, breed-specific.
+Think: "friendly veterinary clinic meets Pixar" — clean vector, bright but not childish.
+
+### Where images live
+`/public/breeds/[slug].png` — e.g. `/public/breeds/golden-retriever.png`
+Images are served at `/breeds/[slug].png` in the browser.
+
+Future poses (when generated): `/public/breeds/[slug]-playful.png`, `/public/breeds/[slug]-eating.png`, etc.
+
+### BreedImage component behaviour
+1. Tries to load `/breeds/[slug].png` (local mascot)
+2. If not found (404) → shows a branded green/cream paw placeholder with breed name
+3. Do NOT fall back to Dog CEO API or TheCatAPI — those are deprecated for breed images
+
+### DALL-E / ChatGPT image prompt template
+Use this prompt to generate each breed mascot. Replace `[BREED NAME]` and `[TYPE]`:
+
+```
+A friendly cartoon mascot illustration of a [BREED NAME] [TYPE] in a modern mascot style.
+Slightly oversized expressive eyes, friendly smile, rounded features, clean outlines, soft shading,
+breed-specific details. Flat vector colouring, bright but professional. White/transparent background.
+Style: friendly veterinary clinic meets Pixar — clean, warm, not childish. Square format, PNG.
+No text, no background scenery. The [TYPE] is sitting, facing slightly forward, happy expression.
+```
+
+Example for Golden Retriever:
+```
+A friendly cartoon mascot illustration of a Golden Retriever dog in a modern mascot style.
+Slightly oversized expressive eyes, friendly smile, rounded features, clean outlines, soft shading,
+breed-specific fur colour and details. Flat vector colouring, bright but professional.
+Transparent background. Style: friendly veterinary clinic meets Pixar — clean, warm, not childish.
+Square format, PNG. No text, no background scenery. The dog is sitting, facing slightly forward,
+happy expression, wearing a simple blue collar.
+```
+
+### Priority breeds to generate first (most traffic)
+Dogs: golden-retriever, labrador-retriever, french-bulldog, german-shepherd, poodle, beagle,
+      border-collie, chihuahua, siberian-husky, cavoodle, dachshund, shih-tzu
+Cats: domestic-shorthair, persian, maine-coon, ragdoll, siamese, british-shorthair, bengal, sphynx
+
+### Naming convention
+- File name = breed slug (same as URL slug) + `.png`
+- e.g. `golden-retriever.png`, `french-bulldog.png`, `domestic-shorthair.png`
+- All lowercase, hyphens only, no spaces
+
+### External image domains (still whitelisted in next.config.mjs — can be removed once all breeds have local images)
+- images.dog.ceo (deprecated for breed images)
+- cdn2.thecatapi.com (deprecated for breed images)
 - upload.wikimedia.org
 - images.unsplash.com
 
