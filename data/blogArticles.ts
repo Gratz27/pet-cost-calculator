@@ -17,6 +17,95 @@ export interface BlogArticle {
 export const allBlogArticles: BlogArticle[] = [
   // ── Newest / Authority Articles ──────────────────────────────────────────
   {
+    id: 'maine-coon-cost-guide-2026',
+    slug: 'how-much-does-a-maine-coon-cat-cost',
+    title: 'How Much Does a Maine Coon Cat Cost? Complete 2026 Guide',
+    description: 'A full breakdown of Maine Coon ownership costs in 2026 — purchase price, annual expenses, vet care, and lifetime totals with money-saving tips.',
+    category: 'cats',
+    author: 'PetCost-Calculator Team',
+    publishDate: '2026-06-08',
+    readTime: 8,
+    image: 'https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['maine coon cost', 'how much does a maine coon cost', 'maine coon expenses', 'maine coon annual costs'],
+    content: `
+<h2>The Financial Reality of Owning a Maine Coon</h2>
+<p>Maine Coons are the gentle giants of the cat world — affectionate, intelligent, and strikingly beautiful. They're also one of the most popular pedigree cat breeds globally, and their popularity comes with a price tag that surprises many prospective owners. If you're considering bringing a Maine Coon into your home in 2026, here's everything you need to know about the true cost of ownership.</p>
+
+<h2>Purchase Price: What to Expect</h2>
+<p>Maine Coon kittens from reputable, health-tested breeders are significantly more expensive than the average moggy. In 2026, expect to pay the following from registered breeders:</p>
+
+<table>
+  <thead><tr><th>Region</th><th>Pet-Quality Kitten</th><th>Show-Quality Kitten</th></tr></thead>
+  <tbody>
+    <tr><td>United Kingdom</td><td>£800 – £1,500</td><td>£1,500 – £3,000+</td></tr>
+    <tr><td>United States</td><td>$1,000 – $2,000</td><td>$2,000 – $4,000+</td></tr>
+    <tr><td>Australia</td><td>AUD $1,500 – $2,500</td><td>AUD $2,500 – $4,500+</td></tr>
+  </tbody>
+</table>
+
+<p>Adopting a Maine Coon or Maine Coon cross from a rescue organisation costs £150–£400 / $150–$400, typically including spay/neuter, initial vaccinations, and microchipping. This is far rarer than with common breeds — Maine Coons are in demand and don't sit in shelters long — but breed-specific rescues do exist.</p>
+
+<p><strong>Be wary of suspiciously cheap prices.</strong> Maine Coon kittens advertised for under £500 / $600 are frequently from unregistered breeders who skip genetic health testing, particularly for Hypertrophic Cardiomyopathy (HCM) — the breed's most serious hereditary condition.</p>
+
+<h2>First-Year Costs After Acquisition</h2>
+<p>The purchase price is only the beginning. The first year includes a cluster of one-time setup and veterinary costs that won't recur annually.</p>
+
+<table>
+  <thead><tr><th>Expense</th><th>UK Cost (£)</th><th>US Cost ($)</th></tr></thead>
+  <tbody>
+    <tr><td>Initial vet check and vaccinations</td><td>£80 – £150</td><td>$100 – $200</td></tr>
+    <tr><td>Spay or neuter (if not included)</td><td>£100 – £250</td><td>$150 – $350</td></tr>
+    <tr><td>Microchipping (if not included)</td><td>£20 – £40</td><td>$45 – $75</td></tr>
+    <tr><td>Starter supplies (bed, bowls, litter box, scratcher, toys)</td><td>£150 – £300</td><td>$200 – $400</td></tr>
+    <tr><td>Food (first year — Maine Coons eat more than average cats)</td><td>£350 – £700</td><td>$400 – $800</td></tr>
+    <tr><td>Litter (first year)</td><td>£120 – £240</td><td>$150 – $300</td></tr>
+    <tr><td>Pet insurance (first year)</td><td>£150 – £400</td><td>$200 – $600</td></tr>
+    <tr><td><strong>Total First Year (excl. purchase)</strong></td><td><strong>£970 – £2,080</strong></td><td><strong>$1,245 – $2,725</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>Annual Ongoing Costs (Year 2 and Beyond)</h2>
+<p>Maine Coons are large cats — males typically weigh 6–9 kg (13–20 lbs), females 4–6 kg. Their size drives slightly higher food, medication, and insurance costs compared to the average domestic cat.</p>
+
+<h3>Food: £350–£700 / $400–$800 per year</h3>
+<p>Maine Coons benefit from a high-protein diet. Premium wet and dry food formulated for large or active cats costs more than supermarket-brand alternatives, but supports their muscular build and long-term urinary health. Budget £30–£60 per month for quality nutrition.</p>
+
+<h3>Routine Veterinary Care: £100–£250 / $120–$300 per year</h3>
+<p>Annual booster vaccinations, a wellness check, and flea, tick, and worming prevention are the baseline. Maine Coons should ideally receive a cardiac screening (echocardiogram) every 1–2 years given their HCM risk — this adds £100–£200 / $120–$250 per screening.</p>
+
+<h3>Grooming: £50–£200 / $60–$250 per year</h3>
+<p>Maine Coons have a thick, semi-long coat that requires regular brushing — 2–3 times per week minimum to prevent matting. Most owners handle this at home with the right tools (a slicker brush and wide-toothed comb: £20–£50 one-time cost). Occasional professional grooming for de-matting or seasonal heavy shed management costs £40–£80 per session.</p>
+
+<h3>Pet Insurance: £150–£450 / $200–$600 per year</h3>
+<p>Insurance is particularly important for Maine Coons due to their susceptibility to HCM and Hip Dysplasia (yes — cats get this too, and Maine Coons are predisposed). Lifetime comprehensive policies are strongly recommended over cheaper time-limited alternatives.</p>
+
+<h2>Maine Coon-Specific Health Costs</h2>
+<p>Two hereditary conditions drive the majority of Maine Coon veterinary costs:</p>
+
+<h3>Hypertrophic Cardiomyopathy (HCM)</h3>
+<p>HCM is the most common heart disease in cats and Maine Coons are genetically predisposed. While not all Maine Coons develop clinical HCM, those that do face significant costs. Cardiac medication for a diagnosed cat runs <strong>£50–£200 / $60–$250 per month</strong>. Echocardiographic monitoring every 6–12 months: <strong>£100–£200 / $120–$250 per scan</strong>. A cat with severe HCM may cost £1,000–£3,000 / $1,200–$3,500 annually in management costs alone.</p>
+
+<h3>Hip Dysplasia</h3>
+<p>Maine Coons have a higher-than-average rate of feline hip dysplasia. Mild cases require pain management (£30–£100/month). Severe cases may require surgical intervention (£2,000–£4,000 / $2,500–$5,000). This is another reason comprehensive lifetime insurance is critical for this breed.</p>
+
+<h3>Spinal Muscular Atrophy (SMA)</h3>
+<p>A genetic condition affecting muscle development in kittens. Reputable breeders test for the SMA gene — always request evidence of this testing. Management is supportive rather than curative; costs vary widely based on severity.</p>
+
+<h2>Lifetime Cost of a Maine Coon</h2>
+<p>Maine Coons are long-lived cats — a healthy individual commonly reaches 12–15 years, with some living to 18+. Over a 13-year average lifespan, the total cost of ownership is estimated at:</p>
+<ul>
+  <li><strong>UK owners:</strong> £14,000 – £28,000 depending on health outcomes and location</li>
+  <li><strong>US owners:</strong> $18,000 – $35,000</li>
+</ul>
+<p>If your Maine Coon develops clinical HCM or requires orthopaedic surgery, lifetime costs can approach £30,000–£40,000 / $38,000–$50,000. This is why insuring this breed while young and healthy — before any cardiac abnormalities are detected — is absolutely essential.</p>
+
+<h2>How to Reduce Maine Coon Ownership Costs</h2>
+<p>There are several smart strategies to keep costs manageable without compromising your cat's welfare. Brush your Maine Coon regularly at home to avoid costly professional de-matting appointments. Buy food and litter in bulk — Maine Coons consume both at a higher-than-average rate, so subscriptions from suppliers like Zooplus, Chewy, or Amazon Save & Subscribe offer meaningful savings. Learn to trim your cat's nails at home (it's easier than it sounds with a relaxed Maine Coon). Most importantly, get comprehensive pet insurance before your first vet appointment — before any potential cardiac findings appear on the medical record.</p>
+
+<p>Use our <a href="/calculator">free pet cost calculator</a> to model your specific Maine Coon's costs based on your location and lifestyle.</p>
+    `,
+  },
+  {
     id: 'real-cost-labrador-uk',
     slug: 'real-cost-owning-labrador-uk',
     title: 'The Real Cost of Owning a Labrador in the UK (2026 Data)',
