@@ -11,15 +11,15 @@ const featuredBreeds = [
   { id: "golden-retriever",     name: "Golden Retriever",    firstYearEstimate: 4200, tag: "Most Popular",      petType: "dog" as const },
   { id: "french-bulldog",       name: "French Bulldog",      firstYearEstimate: 5100, tag: "Trending",          petType: "dog" as const },
   { id: "labrador-retriever",   name: "Labrador Retriever",  firstYearEstimate: 3800, tag: "Family Favourite",  petType: "dog" as const },
+  { id: "domestic-shorthair",   name: "Domestic Shorthair",  firstYearEstimate: 1600, tag: "Most Affordable",   petType: "cat" as const },
   { id: "german-shepherd-dog",  name: "German Shepherd",     firstYearEstimate: 4500, tag: "Active Lifestyle",  petType: "dog" as const },
+  { id: "ragdoll",              name: "Ragdoll Cat",         firstYearEstimate: 2800, tag: "Indoor Cat",        petType: "cat" as const },
+  { id: "beagle",               name: "Beagle",              firstYearEstimate: 3100, tag: "Budget-Friendly",   petType: "dog" as const },
+  { id: "maine-coon",           name: "Maine Coon",          firstYearEstimate: 2600, tag: "Gentle Giant",      petType: "cat" as const },
+  { id: "siberian-husky",       name: "Siberian Husky",      firstYearEstimate: 4100, tag: "High Energy",       petType: "dog" as const },
   { id: "bengal",               name: "Bengal Cat",          firstYearEstimate: 3200, tag: "Low Maintenance",   petType: "cat" as const },
   { id: "poodle-standard",      name: "Poodle",              firstYearEstimate: 4300, tag: "Hypoallergenic",    petType: "dog" as const },
-  { id: "beagle",               name: "Beagle",              firstYearEstimate: 3100, tag: "Budget-Friendly",   petType: "dog" as const },
-  { id: "pembroke-welsh-corgi", name: "Corgi",               firstYearEstimate: 3900, tag: "Social Media Fave", petType: "dog" as const },
-  { id: "siberian-husky",       name: "Siberian Husky",      firstYearEstimate: 4100, tag: "High Energy",       petType: "dog" as const },
-  { id: "ragdoll",              name: "Ragdoll Cat",         firstYearEstimate: 2800, tag: "Indoor Cat",        petType: "cat" as const },
-  { id: "yorkshire-terrier",    name: "Yorkshire Terrier",   firstYearEstimate: 3600, tag: "Small & Loyal",     petType: "dog" as const },
-  { id: "australian-shepherd",  name: "Australian Shepherd", firstYearEstimate: 4000, tag: "Working Dog",       petType: "dog" as const },
+  { id: "border-collie",        name: "Border Collie",       firstYearEstimate: 3700, tag: "Working Dog",       petType: "dog" as const },
 ];
 
 const stats = [
@@ -149,7 +149,17 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero — calculator-first */}
       <section className="relative bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] text-white overflow-hidden">
-        {/* Mascot hero — re-enable once clean white-background images are ready */}
+        {/* Hero mascot — desktop only, positioned right */}
+        <div className="hidden lg:block absolute right-0 bottom-0 w-[380px] h-full pointer-events-none select-none">
+          <BreedImage
+            breedId="golden-retriever"
+            petType="dog"
+            alt="Golden Retriever mascot"
+            fill
+            sizes="380px"
+            className="object-contain object-bottom opacity-90"
+          />
+        </div>
         <div className="relative container-xl py-16 md:py-24 text-center lg:text-left lg:max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-green-100 mb-5 border border-white/20">
             <span className="h-2 w-2 rounded-full bg-[#A5D6A7] animate-pulse" />
