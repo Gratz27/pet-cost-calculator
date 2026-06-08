@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Calculator, ChevronDown } from "lucide-react";
+import { Menu, X, PawPrint, ChevronDown } from "lucide-react";
 
 const navLinks = [
   { label: "Calculator", href: "/calculator" },
@@ -58,7 +58,7 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#2E7D32] text-white transition-transform group-hover:scale-105">
-              <Calculator className="h-4 w-4" />
+              <PawPrint className="h-4 w-4" />
             </div>
             <span className="text-lg font-bold text-[#1B2B1B]">
               Pet<span className="text-[#4CAF50]">Cost</span>

@@ -68,6 +68,15 @@ const testimonials = [
     text: "Compared a Golden Retriever, Poodle, and Border Collie side by side. The lifetime cost gap was over $14,000 between cheapest and most expensive. We went with the Poodle — great decision.",
     rating: 5,
   },
+  {
+    name: "Tom B.",
+    initials: "TB",
+    location: "Chicago, IL",
+    breed: "First-time dog owner",
+    date: "February 2026",
+    text: "Solid tool. The vet cost estimates were slightly under what I paid in Chicago — city prices are higher — but it got me in the right ballpark and the insurance section is genuinely useful.",
+    rating: 4,
+  },
 ];
 
 export default function HomePage() {
@@ -146,7 +155,7 @@ export default function HomePage() {
             alt="Happy golden retriever dog"
             fill
             priority
-            className="object-cover object-center opacity-20"
+            className="object-cover object-center opacity-40"
             sizes="50vw"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#2E7D32] to-transparent" />
@@ -319,9 +328,9 @@ export default function HomePage() {
         <div className="container-xl">
           <div className="max-w-2xl mx-auto text-center text-white">
             <Mail className="h-8 w-8 text-[#A5D6A7] mx-auto mb-4" />
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">Get the Annual Pet Cost Report 2026</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">Get the 2026 Pet Cost Data Summary</h2>
             <p className="text-green-200 mb-6 text-sm leading-relaxed">
-              Our 2026 report covers cost trends across 300+ breeds, regional price differences across the US, UK, and Australia, and the most expensive hidden costs most owners miss.
+              Cost tables for 50+ popular breeds, regional price comparisons across the US, UK, and Australia, and the hidden expenses most new owners miss. Free PDF, straight to your inbox.
             </p>
             <EmailCapture />
             <p className="mt-3 text-xs text-green-400">No spam. Unsubscribe any time.</p>
@@ -392,7 +401,7 @@ export default function HomePage() {
           <div className="badge badge-green mb-3 mx-auto">Reviews</div>
           <h2 className="section-heading">What pet owners say</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {testimonials.map((t) => (
             <div key={t.name} className="card p-6 flex flex-col">
               <div className="flex gap-0.5 mb-3">

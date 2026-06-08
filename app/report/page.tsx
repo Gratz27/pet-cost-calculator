@@ -190,14 +190,16 @@ export default function ReportPage() {
         {/* Download CTA */}
         <div className="bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] rounded-2xl p-8 text-white text-center">
           <Download className="h-8 w-8 text-green-300 mx-auto mb-4" />
-          <h2 className="text-xl font-bold mb-2">Get the Full Report (PDF)</h2>
-          <p className="text-green-200 text-sm mb-5">92-page detailed report with breed-by-breed tables, regional breakdowns, and 5-year trend data.</p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input type="email" placeholder="Your email address" className="flex-1 rounded-xl px-4 py-3 text-sm text-[#1B2B1B] bg-white outline-none" />
-            <button type="submit" className="btn-green text-sm px-6 flex-shrink-0">
-              Download Free <ArrowRight className="h-4 w-4 inline ml-1" />
-            </button>
-          </form>
+          <h2 className="text-xl font-bold mb-2">Download the 2026 Pet Cost Data Summary (PDF)</h2>
+          <p className="text-green-200 text-sm mb-5">10-page PDF with breed cost tables, regional breakdowns, insurance guide, and a pre-purchase budget checklist. Free.</p>
+          <a
+            href="/PetCost-Report-2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-green inline-flex items-center gap-2 text-sm px-8 py-3"
+          >
+            <Download className="h-4 w-4" /> Download Free PDF
+          </a>
           <p className="mt-3 text-xs text-green-400">No spam. Unsubscribe any time.</p>
         </div>
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Calculator, Heart } from "lucide-react";
+import { PawPrint, Heart } from "lucide-react";
 
 const footerLinks = {
   Tools: [
@@ -44,7 +44,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2.5 mb-4">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#4CAF50] text-white">
-                <Calculator className="h-4 w-4" />
+                <PawPrint className="h-4 w-4" />
               </div>
               <span className="text-lg font-bold text-white">
                 Pet<span className="text-[#81C784]">Cost</span>
