@@ -16,6 +16,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${guide.title} | PetCost-Calculator`,
     description: guide.description,
+    alternates: { canonical: `https://petcost-calculator.com/guides/${guide.slug}` },
+    openGraph: {
+      title: guide.title,
+      description: guide.description,
+      url: `https://petcost-calculator.com/guides/${guide.slug}`,
+    },
   };
 }
 

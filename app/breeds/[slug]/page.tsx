@@ -19,6 +19,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${breed.name} Cost Guide – How Much Does a ${breed.name} Cost?`,
     description: `Complete ${breed.name} cost guide. First-year costs from ${formatCurrency(firstYear)}, annual expenses, lifetime ownership costs, and money-saving tips.`,
+    alternates: { canonical: `https://petcost-calculator.com/breeds/${breed.id}` },
+    openGraph: {
+      title: `${breed.name} Cost Guide – How Much Does a ${breed.name} Cost?`,
+      description: `Complete ${breed.name} cost guide. First-year costs from ${formatCurrency(firstYear)}, annual expenses, and lifetime costs.`,
+      url: `https://petcost-calculator.com/breeds/${breed.id}`,
+    },
   };
 }
 
@@ -31,22 +37,55 @@ export default function BreedPage({ params }: Props) {
   const annualTotal = breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualInsurance + breed.annualSupplies;
   const lifetimeTotal = firstYearTotal + annualTotal * (breed.lifespan - 1);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: `${breed.name} Cost Guide – How Much Does a ${breed.name} Cost?`,
-    description: `Complete ${breed.name} cost guide with first-year costs, annual expenses, and lifetime ownership costs.`,
-    url: `https://petcost-calculator.com/breeds/${breed.id}`,
-    publisher: { "@type": "Organization", name: "PetCost-Calculator", url: "https://petcost-calculator.com" },
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://petcost-calculator.com" },
-        { "@type": "ListItem", position: 2, name: "Breeds", item: "https://petcost-calculator.com/breeds" },
-        { "@type": "ListItem", position: 3, name: breed.name, item: `https://petcost-calculator.com/breeds/${breed.id}` },
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: `${breed.name} Cost Guide – How Much Does a ${breed.name} Cost?`,
+      description: `Complete ${breed.name} cost guide with first-year costs, annual expenses, and lifetime ownership costs.`,
+      url: `https://petcost-calculator.com/breeds/${breed.id}`,
+      dateModified: new Date().toISOString().split("T")[0],
+      publisher: { "@type": "Organization", name: "PetCost-Calculator", url: "https://petcost-calculator.com" },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://petcost-calculator.com" },
+          { "@type": "ListItem", position: 2, name: "Breeds", item: "https://petcost-calculator.com/breeds" },
+          { "@type": "ListItem", position: 3, name: breed.name, item: `https://petcost-calculator.com/breeds/${breed.id}` },
+        ],
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: `How much does a ${breed.name} cost?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `A ${breed.name} typically costs ${formatCurrency(firstYearTotal)} in the first year, including purchase/adoption, vet care, food, and supplies. Annual ongoing costs average ${formatCurrency(annualTotal)}/yr, and the lifetime total over ${breed.lifespan} years is around ${formatCurrency(lifetimeTotal)}.`,
+          },
+        },
+        {
+          "@type": "Question",
+          name: `How much does a ${breed.name} cost per year?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `After the first year, a ${breed.name} costs approximately ${formatCurrency(annualTotal)} per year on average, covering food (${formatCurrency(breed.annualFood)}), vet care (${formatCurrency(breed.annualVet)}), grooming (${formatCurrency(breed.annualGrooming)}), and insurance (${formatCurrency(breed.annualInsurance)}).`,
+          },
+        },
+        {
+          "@type": "Question",
+          name: `Is a ${breed.name} expensive to own?`,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: `${breed.name}s have a lifetime ownership cost of approximately ${formatCurrency(lifetimeTotal)} over ${breed.lifespan} years. The US national average for dog ownership is around $2,600/yr, so ${breed.name}s are ${annualTotal > 2600 ? "above" : "below"} average in annual running costs.`,
+          },
+        },
       ],
     },
-  };
+  ];
 
   return (
     <>
@@ -192,8 +231,28 @@ export default function BreedPage({ params }: Props) {
           </div>
 
           <div className="card p-5">
-            <h3 className="text-sm font-bold text-[#1B2B1B] mb-2">Compare breeds</h3>
-            <Link href="/compare" className="btn-secondary w-full text-sm text-center block">Compare Breeds</Link>
+            <h3 className="text-sm font-bold text-[#1B2B1B] mb-3">Compare {breed.name} with</h3>
+            <div className="space-y-2">
+              {[
+                petType === "dog" ? "labrador-retriever" : "persian",
+                petType === "dog" ? "golden-retriever" : "maine-coon",
+                petType === "dog" ? "french-bulldog" : "ragdoll",
+              ]
+                .filter(id => id !== breed.id)
+                .slice(0, 2)
+                .map(otherId => {
+                  const other = getBreedById(petType, otherId);
+                  if (!other) return null;
+                  const [a, b] = [breed.id, otherId].sort();
+                  return (
+                    <Link key={otherId} href={`/compare/${a}-vs-${b}`}
+                      className="block text-sm text-[#2E7D32] hover:underline font-medium">
+                      {breed.name} vs {other.name} →
+                    </Link>
+                  );
+                })}
+            </div>
+            <Link href="/compare" className="btn-secondary w-full text-sm text-center block mt-3">All Comparisons</Link>
           </div>
         </div>
       </div>

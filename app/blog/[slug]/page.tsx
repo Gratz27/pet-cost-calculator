@@ -23,6 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: article.title,
     description: article.description,
     keywords: article.keywords,
+    alternates: { canonical: `https://petcost-calculator.com/blog/${article.slug}` },
+    openGraph: {
+      title: article.title,
+      description: article.description,
+      url: `https://petcost-calculator.com/blog/${article.slug}`,
+    },
   };
 }
 
@@ -86,7 +92,6 @@ export default function BlogArticlePage({ params }: Props) {
           className="object-cover"
           sizes="100vw"
           priority
-          unoptimized
         />
       </div>
 
@@ -143,8 +148,7 @@ export default function BlogArticlePage({ params }: Props) {
                           fill
                           className="object-cover"
                           sizes="64px"
-                          unoptimized
-                        />
+                                        />
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="text-xs font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32] transition-colors line-clamp-2 leading-tight">

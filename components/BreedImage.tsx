@@ -378,7 +378,6 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
       src={src}
       alt={alt}
       fill={fill}
-      unoptimized
       className={className}
       sizes={sizes}
       onError={() => setSrc(petType === "cat" ? FALLBACK_CAT : FALLBACK_DOG)}

@@ -68,8 +68,69 @@ export default function HomePage() {
   const dogs = getAllBreeds("dog");
   const cats = getAllBreeds("cat");
 
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PetCost Calculator",
+      "url": "https://petcost-calculator.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://petcost-calculator.com/breeds?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does it cost to own a dog per year?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The average annual cost of owning a dog in the US is around $2,600, covering food, vet care, grooming, insurance, and supplies. Costs vary significantly by breed — large breeds like Great Danes average $3,500+/yr while smaller breeds like Beagles average $2,000–$2,500/yr."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does it cost to own a cat per year?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The average annual cost of owning a cat in the US is around $1,400, including food, vet visits, litter, grooming, and insurance. First-year costs are higher due to vaccinations and spaying/neutering, typically totalling $1,800–$2,500."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the first-year costs of getting a dog?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "First-year dog ownership costs typically range from $2,500 to $6,000 depending on the breed. This includes the purchase or adoption fee, vaccinations, spaying/neutering, supplies, food, and training. Breeds like French Bulldogs can cost $5,000+ in the first year."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which dog breed is the cheapest to own?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Generally the cheapest dog breeds to own include Beagles, Chihuahuas, and mixed-breed dogs. These breeds have lower purchase prices, fewer health issues, and modest grooming needs. Annual costs can be as low as $1,500–$2,000."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does pet insurance cost per month?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pet insurance typically costs $30–$70/month for dogs and $20–$40/month for cats in the US, depending on the breed, age, location, and coverage level. High-risk breeds like French Bulldogs can cost $80–$100/month to insure."
+          }
+        }
+      ]
+    }
+  ];
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero — calculator-first */}
       <section className="bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] text-white">
         <div className="container-xl py-16 md:py-24 text-center">
@@ -115,11 +176,11 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {featuredBreeds.map((breed) => (
+          {featuredBreeds.map((breed, idx) => (
             <Link key={breed.id} href={`/breeds/${breed.id}`}
               className="card overflow-hidden group hover:border-[#4CAF50]/50">
               <div className="relative h-44 bg-[#E8F5E9] overflow-hidden">
-                <Image src={breed.img} alt={breed.name} fill unoptimized className="object-cover object-center group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+                <Image src={breed.img} alt={breed.name} fill priority={idx < 4} className="object-cover object-center group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
                 <span className="absolute top-3 right-3 badge badge-green shadow-sm text-xs">{breed.tag}</span>
               </div>
               <div className="p-4 flex items-center justify-between">

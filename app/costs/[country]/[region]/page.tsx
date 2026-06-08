@@ -46,6 +46,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `Pet Ownership Costs in ${regionData.label}, ${countryLabel} (2026) | PetCost-Calculator`,
     description: `How much does it cost to own a dog or cat in ${regionData.label}? Breed-by-breed cost data for ${regionData.label} pet owners, updated for 2026.`,
+    alternates: { canonical: `https://petcost-calculator.com/costs/${params.country}/${params.region}` },
+    openGraph: {
+      title: `Pet Ownership Costs in ${regionData.label}, ${countryLabel} (2026)`,
+      description: `How much does it cost to own a dog or cat in ${regionData.label}?`,
+      url: `https://petcost-calculator.com/costs/${params.country}/${params.region}`,
+    },
   };
 }
 

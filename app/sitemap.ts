@@ -71,24 +71,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const comparePairs = buildComparePairs();
 
   const now = new Date();
+  const launched = new Date("2026-06-07"); // site launch date
+  const stable   = new Date("2026-01-01"); // rarely-changing pages
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE,                              lastModified: now, priority: 1.0, changeFrequency: "weekly" },
-    { url: `${BASE}/calculator`,              lastModified: now, priority: 0.9, changeFrequency: "monthly" },
-    { url: `${BASE}/breeds`,                  lastModified: now, priority: 0.8, changeFrequency: "weekly" },
-    { url: `${BASE}/compare`,                 lastModified: now, priority: 0.8, changeFrequency: "monthly" },
-    { url: `${BASE}/guides`,                  lastModified: now, priority: 0.8, changeFrequency: "weekly" },
-    { url: `${BASE}/blog`,                    lastModified: now, priority: 0.7, changeFrequency: "weekly" },
-    { url: `${BASE}/report`,                  lastModified: now, priority: 0.7, changeFrequency: "yearly" },
-    { url: `${BASE}/methodology`,             lastModified: now, priority: 0.6, changeFrequency: "yearly" },
-    { url: `${BASE}/tools`,                   lastModified: now, priority: 0.6, changeFrequency: "monthly" },
-    { url: `${BASE}/tools/insurance-compare`, lastModified: now, priority: 0.6, changeFrequency: "monthly" },
-    { url: `${BASE}/tools/budget-tracker`,    lastModified: now, priority: 0.5, changeFrequency: "monthly" },
-    { url: `${BASE}/about`,                   lastModified: now, priority: 0.5, changeFrequency: "yearly" },
-    { url: `${BASE}/how-it-works`,            lastModified: now, priority: 0.5, changeFrequency: "yearly" },
-    { url: `${BASE}/contact`,                 lastModified: now, priority: 0.4, changeFrequency: "yearly" },
-    { url: `${BASE}/privacy-policy`,          lastModified: now, priority: 0.3, changeFrequency: "yearly" },
-    { url: `${BASE}/terms`,                   lastModified: now, priority: 0.3, changeFrequency: "yearly" },
+    { url: BASE,                              lastModified: now,      priority: 1.0, changeFrequency: "weekly" },
+    { url: `${BASE}/calculator`,              lastModified: now,      priority: 0.9, changeFrequency: "monthly" },
+    { url: `${BASE}/breeds`,                  lastModified: now,      priority: 0.8, changeFrequency: "weekly" },
+    { url: `${BASE}/compare`,                 lastModified: launched, priority: 0.8, changeFrequency: "monthly" },
+    { url: `${BASE}/guides`,                  lastModified: now,      priority: 0.8, changeFrequency: "weekly" },
+    { url: `${BASE}/blog`,                    lastModified: now,      priority: 0.7, changeFrequency: "weekly" },
+    { url: `${BASE}/report`,                  lastModified: launched, priority: 0.7, changeFrequency: "yearly" },
+    { url: `${BASE}/methodology`,             lastModified: stable,   priority: 0.6, changeFrequency: "yearly" },
+    { url: `${BASE}/tools`,                   lastModified: launched, priority: 0.6, changeFrequency: "monthly" },
+    { url: `${BASE}/tools/insurance-compare`, lastModified: launched, priority: 0.6, changeFrequency: "monthly" },
+    { url: `${BASE}/tools/budget-tracker`,    lastModified: launched, priority: 0.5, changeFrequency: "monthly" },
+    { url: `${BASE}/about`,                   lastModified: stable,   priority: 0.5, changeFrequency: "yearly" },
+    { url: `${BASE}/how-it-works`,            lastModified: stable,   priority: 0.5, changeFrequency: "yearly" },
+    { url: `${BASE}/contact`,                 lastModified: stable,   priority: 0.4, changeFrequency: "yearly" },
+    { url: `${BASE}/privacy-policy`,          lastModified: stable,   priority: 0.3, changeFrequency: "yearly" },
+    { url: `${BASE}/terms`,                   lastModified: stable,   priority: 0.3, changeFrequency: "yearly" },
   ];
 
   const breedPages: MetadataRoute.Sitemap = [...dogs, ...cats].map((b) => ({

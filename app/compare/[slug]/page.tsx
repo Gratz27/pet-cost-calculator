@@ -99,9 +99,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const b1 = findBreed(id1);
   const b2 = findBreed(id2);
   if (!b1 || !b2) return { title: "Breed Comparison" };
+  // Canonical always uses alphabetical order to avoid duplicate content
+  const [sortedId1, sortedId2] = [id1, id2].sort();
+  const canonicalSlug = `${sortedId1}-vs-${sortedId2}`;
   return {
     title: `${b1.breed.name} vs ${b2.breed.name} – Cost Comparison | PetCost-Calculator`,
     description: `Compare the full cost of owning a ${b1.breed.name} vs a ${b2.breed.name}. First-year costs, annual expenses, lifetime totals, and key differences.`,
+    alternates: { canonical: `https://petcost-calculator.com/compare/${canonicalSlug}` },
+    openGraph: {
+      title: `${b1.breed.name} vs ${b2.breed.name} – Cost Comparison`,
+      description: `Compare the full cost of owning a ${b1.breed.name} vs a ${b2.breed.name}.`,
+      url: `https://petcost-calculator.com/compare/${canonicalSlug}`,
+    },
   };
 }
 
