@@ -64,12 +64,21 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
     return <PawPlaceholder petType={petType} alt={alt} fill={fill} className={className} />;
   }
 
+  // Mascot illustrations must use object-contain (not object-cover) so the
+  // full animal is always visible. We strip any object-cover class the caller
+  // passes and enforce object-contain with bottom-alignment so the dog/cat
+  // appears to "sit" in the card rather than being letterboxed in the middle.
+  const safeClass = (className ?? "")
+    .replace(/object-cover/g, "")
+    .replace(/object-center/g, "")
+    .trim();
+
   return (
     <Image
       src={localSrc}
       alt={alt}
       fill={fill}
-      className={className}
+      className={`object-contain object-bottom ${safeClass}`}
       sizes={sizes}
       onError={() => setFailed(true)}
     />

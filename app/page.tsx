@@ -5,20 +5,21 @@ import { getAllBreeds } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import EmailCapture from "@/components/EmailCapture";
 import HeroSearch from "@/components/HeroSearch";
+import BreedImage from "@/components/BreedImage";
 
 const featuredBreeds = [
-  { id: "golden-retriever",     name: "Golden Retriever",    firstYearEstimate: 4200, tag: "Most Popular",      img: "https://images.dog.ceo/breeds/retriever-golden/n02099601_1743.jpg" },
-  { id: "french-bulldog",       name: "French Bulldog",      firstYearEstimate: 5100, tag: "Trending",          img: "https://images.dog.ceo/breeds/bulldog-french/n02108915_4372.jpg" },
-  { id: "labrador-retriever",   name: "Labrador Retriever",  firstYearEstimate: 3800, tag: "Family Favourite",  img: "https://images.dog.ceo/breeds/labrador/n02099712_4354.jpg" },
-  { id: "german-shepherd-dog",  name: "German Shepherd",     firstYearEstimate: 4500, tag: "Active Lifestyle",  img: "https://images.dog.ceo/breeds/german-shepherd/n02106662_18113.jpg" },
-  { id: "bengal",               name: "Bengal Cat",          firstYearEstimate: 3200, tag: "Low Maintenance",   img: "https://cdn2.thecatapi.com/images/IFXsxmXLm.jpg" },
-  { id: "poodle-standard",      name: "Poodle",              firstYearEstimate: 4300, tag: "Hypoallergenic",    img: "https://images.dog.ceo/breeds/poodle-standard/n02113799_5975.jpg" },
-  { id: "beagle",               name: "Beagle",              firstYearEstimate: 3100, tag: "Budget-Friendly",   img: "https://images.dog.ceo/breeds/beagle/n02088364_12973.jpg" },
-  { id: "pembroke-welsh-corgi", name: "Corgi",               firstYearEstimate: 3900, tag: "Social Media Fave", img: "https://images.dog.ceo/breeds/corgi-cardigan/n02113186_10535.jpg" },
-  { id: "siberian-husky",       name: "Siberian Husky",      firstYearEstimate: 4100, tag: "High Energy",       img: "https://images.dog.ceo/breeds/husky/n02110185_1598.jpg" },
-  { id: "ragdoll",              name: "Ragdoll Cat",         firstYearEstimate: 2800, tag: "Indoor Cat",        img: "https://cdn2.thecatapi.com/images/Sy9SgPE0B.jpg" },
-  { id: "yorkshire-terrier",    name: "Yorkshire Terrier",   firstYearEstimate: 3600, tag: "Small & Loyal",     img: "https://images.dog.ceo/breeds/terrier-yorkshire/n02094433_2328.jpg" },
-  { id: "australian-shepherd",  name: "Australian Shepherd", firstYearEstimate: 4000, tag: "Working Dog",       img: "https://images.dog.ceo/breeds/australian-shepherd/sadie.jpg" },
+  { id: "golden-retriever",     name: "Golden Retriever",    firstYearEstimate: 4200, tag: "Most Popular",      petType: "dog" as const },
+  { id: "french-bulldog",       name: "French Bulldog",      firstYearEstimate: 5100, tag: "Trending",          petType: "dog" as const },
+  { id: "labrador-retriever",   name: "Labrador Retriever",  firstYearEstimate: 3800, tag: "Family Favourite",  petType: "dog" as const },
+  { id: "german-shepherd-dog",  name: "German Shepherd",     firstYearEstimate: 4500, tag: "Active Lifestyle",  petType: "dog" as const },
+  { id: "bengal",               name: "Bengal Cat",          firstYearEstimate: 3200, tag: "Low Maintenance",   petType: "cat" as const },
+  { id: "poodle-standard",      name: "Poodle",              firstYearEstimate: 4300, tag: "Hypoallergenic",    petType: "dog" as const },
+  { id: "beagle",               name: "Beagle",              firstYearEstimate: 3100, tag: "Budget-Friendly",   petType: "dog" as const },
+  { id: "pembroke-welsh-corgi", name: "Corgi",               firstYearEstimate: 3900, tag: "Social Media Fave", petType: "dog" as const },
+  { id: "siberian-husky",       name: "Siberian Husky",      firstYearEstimate: 4100, tag: "High Energy",       petType: "dog" as const },
+  { id: "ragdoll",              name: "Ragdoll Cat",         firstYearEstimate: 2800, tag: "Indoor Cat",        petType: "cat" as const },
+  { id: "yorkshire-terrier",    name: "Yorkshire Terrier",   firstYearEstimate: 3600, tag: "Small & Loyal",     petType: "dog" as const },
+  { id: "australian-shepherd",  name: "Australian Shepherd", firstYearEstimate: 4000, tag: "Working Dog",       petType: "dog" as const },
 ];
 
 const stats = [
@@ -148,17 +149,19 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero — calculator-first */}
       <section className="relative bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] text-white overflow-hidden">
-        {/* Pet image — right side, desktop only */}
-        <div className="absolute inset-y-0 right-0 w-1/2 hidden lg:block pointer-events-none">
-          <Image
-            src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=900"
-            alt="Happy golden retriever dog"
-            fill
-            priority
-            className="object-cover object-center opacity-40"
-            sizes="50vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#2E7D32] to-transparent" />
+        {/* Mascot — right side, desktop only */}
+        <div className="absolute inset-y-0 right-0 w-5/12 hidden lg:flex items-end justify-center pointer-events-none pr-8">
+          <div className="relative w-full h-full">
+            <BreedImage
+              breedId="golden-retriever"
+              petType="dog"
+              alt="Golden Retriever mascot"
+              fill
+              priority
+              sizes="40vw"
+              className="drop-shadow-2xl"
+            />
+          </div>
         </div>
         <div className="relative container-xl py-16 md:py-24 text-center lg:text-left lg:max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-green-100 mb-5 border border-white/20">
@@ -206,8 +209,15 @@ export default function HomePage() {
           {featuredBreeds.map((breed, idx) => (
             <Link key={breed.id} href={`/breeds/${breed.id}`}
               className="card overflow-hidden group hover:border-[#4CAF50]/50">
-              <div className="relative h-44 bg-[#E8F5E9] overflow-hidden">
-                <Image src={breed.img} alt={breed.name} fill priority={idx < 4} className="object-cover object-center group-hover:scale-105 transition-transform duration-300" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+              <div className="relative h-48 bg-[#E8F5E9] overflow-hidden">
+                <BreedImage
+                  breedId={breed.id}
+                  petType={breed.petType}
+                  alt={breed.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="group-hover:scale-105 transition-transform duration-300 p-2"
+                />
                 <span className="absolute top-3 right-3 badge badge-green shadow-sm text-xs">{breed.tag}</span>
               </div>
               <div className="p-4 flex items-center justify-between">
