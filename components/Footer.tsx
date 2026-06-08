@@ -47,7 +47,7 @@ export default function Footer() {
                 <Calculator className="h-4 w-4" />
               </div>
               <span className="text-lg font-bold text-white">
-                PetCost<span className="text-[#81C784]">-Calculator</span>
+                Pet<span className="text-[#81C784]">Cost</span>
               </span>
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed max-w-xs">

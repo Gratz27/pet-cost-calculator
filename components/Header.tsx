@@ -46,7 +46,6 @@ const navLinks = [
       { label: "Sydney, AU", href: "/costs/au/sydney" },
     ],
   },
-  { label: "How It Works", href: "/how-it-works" },
 ];
 
 export default function Header() {
@@ -62,7 +61,7 @@ export default function Header() {
               <Calculator className="h-4 w-4" />
             </div>
             <span className="text-lg font-bold text-[#1B2B1B]">
-              PetCost<span className="text-[#4CAF50]">-Calculator</span>
+              Pet<span className="text-[#4CAF50]">Cost</span>
             </span>
           </Link>
 

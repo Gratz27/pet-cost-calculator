@@ -5,19 +5,19 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Pet Cost Calculator – Can You Afford Your Dream Pet?",
-    template: "%s | PetCost Calculator",
+    default: "PetCost – Know the Real Cost Before You Commit",
+    template: "%s | PetCost",
   },
   description:
     "The most comprehensive pet cost calculator online. Calculate first-year costs, lifetime ownership costs, and breed-specific expenses for 300+ dog and cat breeds.",
   keywords: ["pet cost calculator", "dog cost calculator", "cat cost calculator", "pet ownership cost", "how much does a dog cost"],
-  authors: [{ name: "PetCost Calculator" }],
-  creator: "PetCost Calculator",
+  authors: [{ name: "PetCost" }],
+  creator: "PetCost",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://petcost-calculator.com",
-    siteName: "PetCost Calculator",
+    siteName: "PetCost",
     title: "Pet Cost Calculator – Can You Afford Your Dream Pet?",
     description: "Calculate the real cost of pet ownership. First-year costs, lifetime expenses, breed comparisons, and personalised budgets.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],

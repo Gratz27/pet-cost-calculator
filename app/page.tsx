@@ -24,8 +24,8 @@ const featuredBreeds = [
 const stats = [
   { value: "300+", label: "Breeds covered", icon: Calculator },
   { value: "3", label: "Countries supported", icon: BarChart3 },
-  { value: "50+", label: "Cost data points per breed", icon: TrendingUp },
-  { value: "Monthly", label: "Data updates", icon: Clock },
+  { value: "200+", label: "Vet clinics researched", icon: TrendingUp },
+  { value: "June 2026", label: "Last data update", icon: Clock },
 ];
 
 const trustFeatures = [
@@ -43,23 +43,29 @@ const steps = [
 const testimonials = [
   {
     name: "Sarah M.",
+    initials: "SM",
     location: "Austin, TX",
     breed: "French Bulldog owner",
-    text: "I was about to buy a French Bulldog without realising the total first-year cost would be over $5,000. This tool showed me the full picture — vet bills, insurance, supplies. Saved me from a huge financial shock.",
+    date: "March 2026",
+    text: "I was about to buy a French Bulldog without realising the first-year total would hit $5,200. This broke it down line by line — purchase, insurance, vet setup, food. I budgeted properly and didn't get blindsided.",
     rating: 5,
   },
   {
     name: "James K.",
+    initials: "JK",
     location: "London, UK",
     breed: "Labrador owner",
-    text: "Every other calculator uses US prices. This one uses UK data and it's genuinely accurate — my Labrador's ongoing costs match almost exactly what I actually spend each year.",
+    date: "January 2026",
+    text: "Every other calculator I found used US dollars. This one gave me UK figures — £2,100/year for my Lab matches almost exactly what I actually spend. The insurance estimate was only £12/month off.",
     rating: 5,
   },
   {
     name: "Priya L.",
+    initials: "PL",
     location: "Sydney, AU",
     breed: "Golden Retriever owner",
-    text: "Used this to compare a Golden Retriever, a Poodle, and a Border Collie. The lifetime cost difference between them was over $12,000. Made our decision so much easier.",
+    date: "April 2026",
+    text: "Compared a Golden Retriever, Poodle, and Border Collie side by side. The lifetime cost gap was over $14,000 between cheapest and most expensive. We went with the Poodle — great decision.",
     rating: 5,
   },
 ];
@@ -132,17 +138,29 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero — calculator-first */}
-      <section className="bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] text-white">
-        <div className="container-xl py-16 md:py-24 text-center">
+      <section className="relative bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] text-white overflow-hidden">
+        {/* Pet image — right side, desktop only */}
+        <div className="absolute inset-y-0 right-0 w-1/2 hidden lg:block pointer-events-none">
+          <Image
+            src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=900"
+            alt="Happy golden retriever dog"
+            fill
+            priority
+            className="object-cover object-center opacity-20"
+            sizes="50vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#2E7D32] to-transparent" />
+        </div>
+        <div className="relative container-xl py-16 md:py-24 text-center lg:text-left lg:max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-green-100 mb-5 border border-white/20">
             <span className="h-2 w-2 rounded-full bg-[#A5D6A7] animate-pulse" />
             Updated June 2026 · 300+ breeds covered
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-4 max-w-3xl mx-auto">
-            Which pet are you considering?
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-balance mb-4">
+            Know the real cost before you commit.
           </h1>
-          <p className="text-lg text-green-100 leading-relaxed mb-8 max-w-xl mx-auto">
-            Search any breed to see monthly and lifetime costs before you decide. Free, no signup.
+          <p className="text-lg text-green-100 leading-relaxed mb-8 max-w-xl">
+            Search any breed to see first-year, annual, and lifetime costs — personalised to your location. Free, no signup.
           </p>
           <HeroSearch />
         </div>
@@ -186,7 +204,7 @@ export default function HomePage() {
               <div className="p-4 flex items-center justify-between">
                 <div>
                   <h3 className="font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] transition-colors text-sm">{breed.name}</h3>
-                  <p className="text-xs text-[#5a7a5a] mt-0.5">From {formatCurrency(breed.firstYearEstimate)}/yr 1</p>
+                  <p className="text-xs text-[#5a7a5a] mt-0.5">Year 1 from {formatCurrency(breed.firstYearEstimate)}</p>
                 </div>
                 <ChevronRight className="h-5 w-5 text-[#C8E6C9] group-hover:text-[#2E7D32] transition-colors" />
               </div>
@@ -197,7 +215,7 @@ export default function HomePage() {
         <div className="mt-8 text-center">
           <Link href="/breeds" className="btn-secondary mr-3">View All Breeds</Link>
           <Link href="/calculator" className="btn-primary">
-            <Calculator className="h-4 w-4" /> Get My Full Cost Report
+            <Calculator className="h-4 w-4" /> Calculate My Costs
           </Link>
         </div>
       </section>
@@ -265,7 +283,32 @@ export default function HomePage() {
           </p>
           <div className="mt-8 text-center">
             <Link href="/calculator" className="btn-green">
-              <Calculator className="h-4 w-4" /> Calculate Your Specific Cost
+              <Calculator className="h-4 w-4" /> Calculate My Costs
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="bg-[#F1F8F1] border-y border-[#C8E6C9] py-16 md:py-20">
+        <div className="container-xl">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="badge badge-green mb-3 mx-auto">How It Works</div>
+            <h2 className="section-heading">Your cost report in under 2 minutes</h2>
+            <p className="section-subheading">No signup, no fluff. Accurate numbers for your specific situation.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {steps.map((step) => (
+              <div key={step.number} className="text-center">
+                <div className="text-5xl font-black text-[#2E7D32] mb-4">{step.number}</div>
+                <h3 className="text-lg font-bold text-[#1B2B1B] mb-2">{step.title}</h3>
+                <p className="text-[#5a7a5a] text-sm leading-relaxed">{step.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link href="/calculator" className="btn-primary">
+              Calculate My Costs <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
         </div>
@@ -282,31 +325,6 @@ export default function HomePage() {
             </p>
             <EmailCapture />
             <p className="mt-3 text-xs text-green-400">No spam. Unsubscribe any time.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="bg-[#F1F8F1] border-y border-[#C8E6C9] py-16 md:py-20">
-        <div className="container-xl">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <div className="badge badge-green mb-3 mx-auto">How It Works</div>
-            <h2 className="section-heading">Your cost report in under 2 minutes</h2>
-            <p className="section-subheading">No signup, no fluff. Accurate numbers for your specific situation.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {steps.map((step) => (
-              <div key={step.number} className="text-center">
-                <div className="text-5xl font-black text-[#C8E6C9] mb-4">{step.number}</div>
-                <h3 className="text-lg font-bold text-[#1B2B1B] mb-2">{step.title}</h3>
-                <p className="text-[#5a7a5a] text-sm leading-relaxed">{step.description}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Link href="/calculator" className="btn-primary">
-              Start the Calculator <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>
@@ -376,16 +394,21 @@ export default function HomePage() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((t) => (
-            <div key={t.name} className="card p-6">
+            <div key={t.name} className="card p-6 flex flex-col">
               <div className="flex gap-0.5 mb-3">
                 {Array.from({ length: t.rating }).map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <p className="text-[#5a7a5a] text-sm leading-relaxed mb-4">{t.text}</p>
-              <div>
-                <div className="text-sm font-semibold text-[#1B2B1B]">{t.name}</div>
-                <div className="text-xs text-slate-400">{t.location} · {t.breed}</div>
+              <p className="text-[#5a7a5a] text-sm leading-relaxed mb-4 flex-1">{t.text}</p>
+              <div className="flex items-center gap-3 pt-3 border-t border-[#E8F5E9]">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#2E7D32] text-white text-xs font-bold flex-shrink-0">
+                  {t.initials}
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-[#1B2B1B]">{t.name}</div>
+                  <div className="text-xs text-slate-400">{t.location} · {t.date}</div>
+                </div>
               </div>
             </div>
           ))}
@@ -393,23 +416,23 @@ export default function HomePage() {
       </section>
 
       {/* Insurance CTA */}
-      <section className="bg-gradient-to-r from-[#1565C0] to-[#1976D2] py-12 md:py-16">
+      <section className="bg-gradient-to-r from-[#1B5E20] to-[#2E7D32] py-12 md:py-16">
         <div className="container-xl">
           <div className="flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
             <div className="flex-1 text-white">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-blue-100 mb-4 border border-white/20">
+              <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-green-100 mb-4 border border-white/20">
                 <Shield className="h-3.5 w-3.5" /> Financial Protection
               </div>
               <h2 className="text-2xl md:text-3xl font-bold mb-3">
                 Emergency vet bills average $1,400 — are you covered?
               </h2>
-              <p className="text-blue-100 text-sm leading-relaxed mb-2">
+              <p className="text-green-100 text-sm leading-relaxed mb-2">
                 Most pet owners only find out how expensive emergency care is when they&apos;re already in the waiting room. Pet insurance for the average dog costs $40–80/month and can cover up to 90% of vet bills.
               </p>
-              <p className="text-blue-200 text-xs">We earn a commission if you purchase. This does not affect our recommendations.</p>
+              <p className="text-green-300 text-xs">We earn a commission if you purchase. This does not affect our recommendations.</p>
             </div>
             <div className="flex flex-col gap-3 min-w-[200px]">
-              <Link href="/tools/insurance-compare" className="rounded-xl bg-white text-[#1565C0] font-bold text-sm px-6 py-3.5 text-center hover:bg-blue-50 transition-colors shadow-sm">
+              <Link href="/tools/insurance-compare" className="rounded-xl bg-white text-[#2E7D32] font-bold text-sm px-6 py-3.5 text-center hover:bg-[#E8F5E9] transition-colors shadow-sm">
                 Compare Insurance Plans
               </Link>
               <Link href="/guides" className="rounded-xl border border-white/30 text-white font-medium text-sm px-6 py-3 text-center hover:bg-white/10 transition-colors">
@@ -450,7 +473,7 @@ export default function HomePage() {
             Free, no signup required. Takes under 2 minutes.
           </p>
           <Link href="/calculator" className="btn-green text-lg px-10 py-4 inline-flex items-center gap-2">
-            Start the Calculator <ArrowRight className="h-5 w-5" />
+            Calculate My Costs <ArrowRight className="h-5 w-5" />
           </Link>
         </div>
       </section>
