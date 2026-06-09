@@ -85,15 +85,17 @@ export default function BlogArticlePage({ params }: Props) {
       </div>
 
       {/* Hero image */}
-      <div className="bg-[#1a2b1a] border-b border-[#C8E6C9] relative h-56 md:h-72 overflow-hidden">
-        <Image
-          src={article.image}
-          alt={article.title}
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-          priority
-        />
+      <div className="bg-[#E8F5E9] border-b border-[#C8E6C9] flex justify-center py-6">
+        <div className="relative w-64 h-64 md:w-80 md:h-80">
+          <Image
+            src={article.image}
+            alt={article.title}
+            fill
+            className="object-contain"
+            sizes="320px"
+            priority
+          />
+        </div>
       </div>
 
       {/* Content + Sidebar */}
@@ -145,12 +147,12 @@ export default function BlogArticlePage({ params }: Props) {
                 <div className="space-y-4">
                   {related.map((rel) => (
                     <Link key={rel.id} href={`/blog/${rel.slug}`} className="group flex gap-3">
-                      <div className="relative w-16 h-14 rounded-lg overflow-hidden flex-shrink-0 bg-[#1a2b1a]">
+                      <div className="relative w-16 h-14 rounded-lg overflow-hidden flex-shrink-0 bg-[#E8F5E9]">
                         <Image
                           src={rel.image}
                           alt={rel.title}
                           fill
-                          className="object-cover object-center"
+                          className="object-contain p-1"
                           sizes="64px"
                                         />
                       </div>

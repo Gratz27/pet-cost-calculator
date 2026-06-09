@@ -86,12 +86,12 @@ export default function BlogPage({ searchParams }: { searchParams: { category?: 
           <Link href={`/blog/${featured.slug}`} className="group block mb-10">
             <div className="bg-white rounded-2xl overflow-hidden border border-[#C8E6C9] hover:border-[#4CAF50]/50 transition-all">
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="relative aspect-square bg-[#1a2b1a] overflow-hidden">
+                <div className="relative aspect-square bg-[#E8F5E9] overflow-hidden">
                   <Image
                     src={featured.image}
                     alt={featured.title}
                     fill
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
@@ -118,12 +118,12 @@ export default function BlogPage({ searchParams }: { searchParams: { category?: 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {rest.map((article) => (
             <Link key={article.id} href={`/blog/${article.slug}`} className="group card overflow-hidden hover:border-[#4CAF50]/50">
-              <div className="relative aspect-square bg-[#1a2b1a] overflow-hidden">
+              <div className="relative aspect-square bg-[#E8F5E9] overflow-hidden">
                 <Image
                   src={article.image}
                   alt={article.title}
                   fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                  className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
