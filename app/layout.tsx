@@ -68,6 +68,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="min-h-screen flex flex-col bg-white antialiased">
+        {/* Hidden forms for Netlify Forms detection at build time */}
+        <form name="email-subscribe" data-netlify="true" hidden>
+          <input type="email" name="email" />
+          <input type="hidden" name="source" />
+        </form>
+        <form name="contact" data-netlify="true" hidden>
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <input type="text" name="topic" />
+          <textarea name="message" />
+        </form>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

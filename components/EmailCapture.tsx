@@ -31,14 +31,15 @@ export default function EmailCapture({ source = "homepage" }: { source?: string 
 
   if (status === "done") {
     return (
-      <div className="flex flex-col items-center gap-3 max-w-md mx-auto">
+      <div className="flex flex-col items-center gap-4 max-w-md mx-auto">
         <div className="flex items-center gap-2 rounded-xl bg-[#2E7D32] px-6 py-3 text-white font-semibold text-sm">
-          ✓ Check your inbox — download link sent!
+          ✓ You&apos;re on the list — thanks!
         </div>
+        <p className="text-green-300 text-xs text-center">Download your free resources below:</p>
         <div className="flex flex-wrap justify-center gap-3 text-xs">
-          <a href="/PetCost-Report-2026.pdf" target="_blank" rel="noopener noreferrer" className="text-green-300 underline">Cost Data Summary →</a>
-          <a href="/PetCost-Readiness-Checklist.pdf" target="_blank" rel="noopener noreferrer" className="text-green-300 underline">Readiness Checklist →</a>
-          <a href="/PetCost-Budget-Tracker.pdf" target="_blank" rel="noopener noreferrer" className="text-green-300 underline">Budget Tracker →</a>
+          <a href="/PetCost-Report-2026.pdf" target="_blank" rel="noopener noreferrer" className="text-green-300 underline hover:text-white transition-colors">Cost Data Summary →</a>
+          <a href="/PetCost-Readiness-Checklist.pdf" target="_blank" rel="noopener noreferrer" className="text-green-300 underline hover:text-white transition-colors">Readiness Checklist →</a>
+          <a href="/PetCost-Budget-Tracker.pdf" target="_blank" rel="noopener noreferrer" className="text-green-300 underline hover:text-white transition-colors">Budget Tracker →</a>
         </div>
       </div>
     );
@@ -59,7 +60,7 @@ export default function EmailCapture({ source = "homepage" }: { source?: string 
         disabled={status === "submitting"}
         className="btn-green text-sm px-6 py-3 flex-shrink-0 disabled:opacity-60"
       >
-        {status === "submitting" ? "Sending…" : "Get Free Report"}
+        {status === "submitting" ? "Saving…" : "Get Free Resources"}
       </button>
     </form>
   );
