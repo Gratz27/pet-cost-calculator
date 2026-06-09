@@ -85,12 +85,12 @@ export default function BlogArticlePage({ params }: Props) {
       </div>
 
       {/* Hero image */}
-      <div className="relative h-48 md:h-72 bg-[#E8F5E9] border-b border-[#C8E6C9]">
+      <div className="relative h-48 md:h-64 bg-[#E8F5E9] border-b border-[#C8E6C9] flex items-center justify-center">
         <Image
           src={article.image}
           alt={article.title}
           fill
-          className="object-cover"
+          className="object-contain p-6 md:p-10"
           sizes="100vw"
           priority
         />
@@ -150,7 +150,7 @@ export default function BlogArticlePage({ params }: Props) {
                           src={rel.image}
                           alt={rel.title}
                           fill
-                          className="object-cover"
+                          className="object-contain p-1"
                           sizes="64px"
                                         />
                       </div>
