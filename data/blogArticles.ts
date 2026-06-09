@@ -25,7 +25,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-06-08',
     readTime: 8,
-    image: 'https://images.unsplash.com/photo-1533743983669-94fa5c4338ec?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/maine-coon.png',
     keywords: ['maine coon cost', 'how much does a maine coon cost', 'maine coon expenses', 'maine coon annual costs'],
     content: `
 <h2>The Financial Reality of Owning a Maine Coon</h2>
@@ -114,7 +114,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-20',
     readTime: 8,
-    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/labrador-retriever.png',
     keywords: ['labrador cost uk', 'dog ownership cost uk', 'london vet costs', 'labrador food budget'],
     content: `
 <h2>The True Financial Commitment of a UK Lab</h2>
@@ -167,7 +167,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-18',
     readTime: 7,
-    image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/vet-costs.png',
     keywords: ['us vet costs', 'american vet prices 2026', 'emergency vet us', 'dog vaccination cost us'],
     content: `
 <h2>Navigating Veterinary Expenses in the US</h2>
@@ -220,7 +220,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-15',
     readTime: 9,
-    image: 'https://images.unsplash.com/photo-1601979031925-424e53b6caaa?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/pet-insurance.png',
     keywords: ['pet insurance us', 'pet insurance uk', 'dog insurance cost', 'compare pet insurance'],
     content: `
 <h2>The Transatlantic Pet Insurance Landscape</h2>
@@ -262,7 +262,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-10',
     readTime: 6,
-    image: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/french-bulldog.png',
     keywords: ['expensive dog breeds', 'cost of owning a bulldog', 'high maintenance dogs', 'dog breed costs'],
     content: `
 <h2>Beyond the Purchase Price: Lifetime Costs</h2>
@@ -302,7 +302,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-25',
     readTime: 9,
-    image: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/golden-retriever.png',
     keywords: ['Golden Retriever cost US', 'annual dog costs', 'Golden Retriever expenses', 'pet budget US'],
     content: `
 <h2>Golden Retriever Costs in the US: The Complete Picture</h2>
@@ -356,7 +356,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-24',
     readTime: 8,
-    image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/cat-costs.png',
     keywords: ['cat ownership costs', 'cat annual expenses', 'how much does a cat cost', 'cat budget'],
     content: `
 <h2>The True Cost of Cat Ownership</h2>
@@ -407,7 +407,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-23',
     readTime: 10,
-    image: 'https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/pet-insurance.png',
     keywords: ['pet insurance worth it', 'pet insurance explained', 'how does pet insurance work', 'best pet insurance 2026'],
     content: `
 <h2>What Is Pet Insurance and How Does It Work?</h2>
@@ -449,7 +449,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-22',
     readTime: 10,
-    image: 'https://images.unsplash.com/photo-1541599540903-216a46ca1dc0?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/hidden-costs.png',
     keywords: ['hidden dog costs', 'unexpected pet expenses', 'dog ownership surprises', 'true cost of a dog'],
     content: `
 <h2>The Costs Nobody Warns You About</h2>
@@ -495,7 +495,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-21',
     readTime: 10,
-    image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/beagle.png',
     keywords: ['cheapest dog breeds', 'affordable dog breeds', 'low cost dogs', 'budget friendly pets'],
     content: `
 <h2>What Makes a Dog Breed Affordable?</h2>
@@ -537,7 +537,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-20',
     readTime: 10,
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/vet-by-breed.png',
     keywords: ['vet costs by breed', 'dog health costs', 'most expensive dogs at vet', 'dog breed health issues'],
     content: `
 <h2>Why Breed Matters for Vet Bills</h2>
@@ -582,7 +582,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-19',
     readTime: 11,
-    image: 'https://images.unsplash.com/photo-1591160690555-5debfba289f0?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/puppy-budget.png',
     keywords: ['puppy budget', 'new puppy costs', 'puppy month by month', 'first year puppy expenses'],
     content: `
 <h2>Why You Need a Month-by-Month Budget</h2>
@@ -622,7 +622,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-18',
     readTime: 10,
-    image: 'https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/mixed-vs-purebred.png',
     keywords: ['mixed breed vs purebred health', 'hybrid vigour dogs', 'purebred health costs', 'rescue dog costs'],
     content: `
 <h2>The Hybrid Vigour Reality</h2>
@@ -660,7 +660,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-17',
     readTime: 11,
-    image: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/senior-dog.png',
     keywords: ['senior dog care costs', 'old dog vet bills', 'aging dog expenses', 'geriatric pet care'],
     content: `
 <h2>When Does a Dog Become "Senior"?</h2>
@@ -708,7 +708,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-16',
     readTime: 11,
-    image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/rescue-adoption.png',
     keywords: ['rescue dog costs', 'adopting a rescue dog', 'dog adoption fees', 'shelter dog expenses'],
     content: `
 <h2>Why "Free" Rescue Dogs Aren't Free</h2>
@@ -756,7 +756,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-11-08',
     readTime: 12,
-    image: 'https://images.unsplash.com/photo-1612774412771-005ed8e861d2?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/golden-retriever.png',
     keywords: ['golden retriever cost', 'how much does a golden retriever cost', 'golden retriever lifetime costs'],
     content: `
 <h2>The True Cost of a Golden Retriever</h2>
@@ -795,7 +795,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-11-07',
     readTime: 11,
-    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/labrador-retriever.png',
     keywords: ['labrador retriever cost', 'how much does a lab cost', 'labrador expenses'],
     content: `
 <h2>Labrador Retriever Costs: The Complete Picture</h2>
@@ -826,7 +826,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-11-06',
     readTime: 10,
-    image: 'https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/german-shepherd-dog.png',
     keywords: ['german shepherd cost', 'how much does a german shepherd cost', 'german shepherd expenses'],
     content: `
 <h2>German Shepherd Costs: What Every Owner Should Know</h2>
@@ -857,7 +857,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-12-20',
     readTime: 14,
-    image: 'https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/french-bulldog.png',
     keywords: ['french bulldog cost', 'frenchie expenses', 'brachycephalic dog costs', 'french bulldog health costs'],
     content: `
 <h2>The True Cost of a French Bulldog</h2>
@@ -900,7 +900,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-11-01',
     readTime: 9,
-    image: 'https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/first-year-costs.png',
     keywords: ['first year puppy costs', 'puppy expenses', 'cost of raising a puppy', 'puppy budget'],
     content: `
 <h2>The Financial Shock of Year One</h2>
@@ -941,7 +941,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-31',
     readTime: 9,
-    image: 'https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/senior-pet-care.png',
     keywords: ['senior pet care costs', 'old dog expenses', 'senior cat costs', 'aging pet budget'],
     content: `
 <h2>When Pets Become Senior</h2>
@@ -982,7 +982,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-30',
     readTime: 8,
-    image: 'https://images.unsplash.com/photo-1628009368231-7bb7cfcb0def?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/emergency-vet.png',
     keywords: ['emergency vet costs', 'vet emergency prices', 'how much does emergency vet cost', 'pet emergency fund'],
     content: `
 <h2>Emergency Vet Costs in the UK and US</h2>
@@ -1023,7 +1023,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-29',
     readTime: 8,
-    image: 'https://images.unsplash.com/photo-1415369629372-26f2fe60c467?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/dog-vs-cat.png',
     keywords: ['dog vs cat costs', 'cat cheaper than dog', 'comparing pet costs', 'dog or cat more expensive'],
     content: `
 <h2>The Bottom Line Upfront</h2>
@@ -1072,7 +1072,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-28',
     readTime: 8,
-    image: 'https://images.unsplash.com/photo-1477884213360-7e9d7dcc1e48?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/purebred-vs-mixed.png',
     keywords: ['purebred vs mixed breed cost', 'purebred vs mutt', 'mixed breed health', 'purebred dog costs'],
     content: `
 <h2>Initial Purchase Costs</h2>
@@ -1108,7 +1108,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-27',
     readTime: 7,
-    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/small-vs-large.png',
     keywords: ['small vs large dog costs', 'cost of big dog', 'small dog expenses', 'dog size and cost'],
     content: `
 <h2>How Dog Size Affects Every Cost Category</h2>
@@ -1149,7 +1149,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-26',
     readTime: 7,
-    image: 'https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/puppy-vs-adult.png',
     keywords: ['puppy vs adult dog cost', 'adopting adult dog', 'puppy expenses vs rescue', 'should I get a puppy or adult dog'],
     content: `
 <h2>The Cost Comparison</h2>
@@ -1190,7 +1190,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-25',
     readTime: 8,
-    image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/costs-by-location.png',
     keywords: ['pet costs by city', 'vet fees by location', 'dog ownership cost UK vs US', 'city pet expenses'],
     content: `
 <h2>Why Location Dramatically Affects Pet Costs</h2>
@@ -1237,7 +1237,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-12-10',
     readTime: 9,
-    image: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/holiday-emergency.png',
     keywords: ['holiday pet safety', 'pet emergency costs', 'toxic foods for pets', 'Christmas hazards pets'],
     content: `
 <h2>Why Holidays Are Dangerous for Pets</h2>
@@ -1281,7 +1281,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-12-05',
     readTime: 11,
-    image: 'https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/pet-as-gift.png',
     keywords: ['pets as gifts', 'holiday pet adoption', 'Christmas puppy', 'responsible pet gifting'],
     content: `
 <h2>The "Surprise Pet" Problem</h2>
@@ -1324,7 +1324,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-12-01',
     readTime: 10,
-    image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/holiday-travel.png',
     keywords: ['holiday pet care costs', 'pet boarding prices', 'pet sitting rates', 'holiday travel with pets'],
     content: `
 <h2>Holiday Pet Care Costs: The Seasonal Premium</h2>
@@ -1368,7 +1368,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-12-15',
     readTime: 12,
-    image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/dog-food.png',
     keywords: ['pet food brands UK', 'best dog food UK', 'best cat food UK', 'Royal Canin', 'pet food comparison'],
     content: `
 <h2>Choosing the Right Food: Why It Matters Financially</h2>
@@ -1414,7 +1414,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     author: 'PetCost Team',
     publishDate: '2026-06-09',
     readTime: 9,
-    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=1000',
+    image: '/blog/goldendoodle.png',
     keywords: ['goldendoodle cost', 'how much does a goldendoodle cost', 'goldendoodle price', 'goldendoodle expenses', 'goldendoodle annual cost'],
     content: `
 <h2>The Real Cost of Owning a Goldendoodle</h2>
@@ -1511,7 +1511,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     author: 'PetCost Team',
     publishDate: '2026-06-09',
     readTime: 8,
-    image: 'https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/ragdoll.png',
     keywords: ['ragdoll cat cost', 'how much does a ragdoll cost', 'ragdoll kitten price', 'ragdoll cat expenses', 'ragdoll annual cost'],
     content: `
 <h2>What Does It Actually Cost to Own a Ragdoll Cat?</h2>
@@ -1607,7 +1607,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     author: 'PetCost Team',
     publishDate: '2026-06-09',
     readTime: 9,
-    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=1000',
+    image: '/breeds/poodle-standard.png',
     keywords: ['poodle cost', 'how much does a poodle cost', 'standard poodle cost', 'miniature poodle cost', 'toy poodle cost', 'poodle price 2026'],
     content: `
 <h2>Poodle Ownership Costs in 2026</h2>
