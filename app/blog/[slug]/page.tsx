@@ -85,15 +85,17 @@ export default function BlogArticlePage({ params }: Props) {
       </div>
 
       {/* Hero image */}
-      <div className="relative h-48 md:h-64 bg-[#E8F5E9] border-b border-[#C8E6C9] flex items-center justify-center">
-        <Image
-          src={article.image}
-          alt={article.title}
-          fill
-          className="object-contain p-6 md:p-10"
-          sizes="100vw"
-          priority
-        />
+      <div className="bg-[#E8F5E9] border-b border-[#C8E6C9] flex justify-center">
+        <div className="relative w-48 h-48 md:w-64 md:h-64">
+          <Image
+            src={article.image}
+            alt={article.title}
+            fill
+            className="object-cover object-center"
+            sizes="256px"
+            priority
+          />
+        </div>
       </div>
 
       {/* Content + Sidebar */}
