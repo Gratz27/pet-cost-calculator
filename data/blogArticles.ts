@@ -1403,6 +1403,284 @@ Solid budget options that meet all nutritional requirements without the premium 
 <p>Dogs fed poor-quality diets over their lifetime show higher rates of obesity, dental disease, and digestive issues — all of which generate significant vet bills. A £200/year saving on food can be wiped out by a single dental cleaning (£300–£800) or a prescription diet transition (often unavoidable after years of poor nutrition).</p>
     `,
   },
+
+  // ── New high-intent articles (June 2026) ────────────────────────────────
+  {
+    id: 'goldendoodle-cost-guide-2026',
+    slug: 'how-much-does-a-goldendoodle-cost',
+    title: 'How Much Does a Goldendoodle Cost? Complete 2026 Guide',
+    description: 'Full Goldendoodle cost breakdown for 2026 — purchase price, annual expenses, grooming costs, and lifetime ownership total with money-saving tips.',
+    category: 'breed-guide',
+    author: 'PetCost Team',
+    publishDate: '2026-06-09',
+    readTime: 9,
+    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['goldendoodle cost', 'how much does a goldendoodle cost', 'goldendoodle price', 'goldendoodle expenses', 'goldendoodle annual cost'],
+    content: `
+<h2>The Real Cost of Owning a Goldendoodle</h2>
+<p>Goldendoodles — the Golden Retriever/Poodle cross — have become one of the most popular family dogs in the US, UK, and Australia over the past decade. Their low-shedding coats, friendly temperaments, and adaptability make them appealing to a wide range of households. But the "designer dog" premium is real, and many buyers are caught off-guard by costs that extend well beyond the purchase price.</p>
+
+<h2>Purchase Price in 2026</h2>
+<p>Goldendoodles are not a recognised pedigree breed, so prices vary enormously depending on the breeder's reputation, the generation (F1, F1b, F2), and the size variant (standard, medium, mini, petite).</p>
+
+<table>
+  <thead><tr><th>Variant</th><th>US Price Range</th><th>UK Price Range</th><th>AU Price Range</th></tr></thead>
+  <tbody>
+    <tr><td>Standard Goldendoodle</td><td>$2,000 – $4,000</td><td>£1,500 – £3,500</td><td>AUD $3,000 – $5,500</td></tr>
+    <tr><td>Medium / Mini Goldendoodle</td><td>$2,500 – $4,500</td><td>£2,000 – £4,000</td><td>AUD $3,500 – $6,000</td></tr>
+    <tr><td>Petite / Toy Goldendoodle</td><td>$3,000 – $5,500</td><td>£2,500 – £5,000</td><td>AUD $4,000 – $7,000</td></tr>
+  </tbody>
+</table>
+
+<p>Mini and petite variants consistently fetch higher prices due to the breeding complexity involved in producing reliably small dogs. Multi-generational (F2+) Goldendoodles bred specifically for non-shedding coats command premiums of 15–25% over standard F1 crosses.</p>
+
+<p><strong>Red flags to watch for:</strong> Any Goldendoodle advertised under $1,500 / £1,200 should be approached with caution. Reputable breeders health-test both parents for hip dysplasia, elbow dysplasia, Progressive Retinal Atrophy (PRA), and cardiac conditions. These tests cost money, and that's reflected in the price.</p>
+
+<h2>First-Year Costs</h2>
+<p>The purchase price is the biggest single line item, but the first 12 months include several additional one-time and recurring costs.</p>
+
+<table>
+  <thead><tr><th>Expense</th><th>US Cost</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase price</td><td>$2,000 – $4,500</td><td>Varies by size and generation</td></tr>
+    <tr><td>Initial vet check + vaccinations</td><td>$150 – $300</td><td>Puppy series typically requires 3 visits</td></tr>
+    <tr><td>Spay / neuter</td><td>$200 – $500</td><td>Often recommended at 12–18 months for large breeds</td></tr>
+    <tr><td>Microchipping</td><td>$45 – $75</td><td>Often included by breeder</td></tr>
+    <tr><td>Starter supplies</td><td>$300 – $600</td><td>Crate, bed, leads, bowls, toys, collar, harness</td></tr>
+    <tr><td>Puppy training classes</td><td>$150 – $400</td><td>6–8 week group class; strongly recommended</td></tr>
+    <tr><td>First-year food</td><td>$600 – $1,000</td><td>Large breed puppy formula; approx $60–$80/month</td></tr>
+    <tr><td>First-year grooming</td><td>$600 – $1,200</td><td>Every 6–8 weeks; $80–$150 per session</td></tr>
+    <tr><td>Pet insurance (first year)</td><td>$600 – $1,200</td><td>$50–$100/month; higher for Goldendoodles due to breed risk</td></tr>
+    <tr><td><strong>First-year total</strong></td><td><strong>$4,500 – $8,500+</strong></td><td>Including purchase price</td></tr>
+  </tbody>
+</table>
+
+<h2>Annual Ongoing Costs (Year 2+)</h2>
+<p>Once you're through the first year, costs stabilise — but Goldendoodles are not a cheap breed to maintain, primarily because of their grooming requirements.</p>
+
+<table>
+  <thead><tr><th>Annual Expense</th><th>US Cost</th></tr></thead>
+  <tbody>
+    <tr><td>Food (premium dry, medium-large dog)</td><td>$700 – $1,200</td></tr>
+    <tr><td>Routine vet care (annual check, boosters)</td><td>$300 – $600</td></tr>
+    <tr><td>Professional grooming (6–8 week cycles)</td><td>$800 – $1,400</td></tr>
+    <tr><td>Pet insurance</td><td>$600 – $1,400</td></tr>
+    <tr><td>Supplies, toys, treats, accessories</td><td>$200 – $400</td></tr>
+    <tr><td><strong>Annual total (year 2+)</strong></td><td><strong>$2,600 – $5,000</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>The Grooming Cost Problem</h2>
+<p>Grooming is the budget item that most Goldendoodle owners underestimate. Unlike short-coated breeds, Goldendoodles require professional grooming every 6–8 weeks without exception. Skip appointments and the coat mats — badly enough that shaving is the only option, which then takes months to grow back.</p>
+
+<p>At $80–$150 per session every 6–8 weeks, that's $600–$1,300/year in grooming alone. Over a 12–15 year lifespan, grooming costs can reach $9,000–$18,000.</p>
+
+<p><strong>Money-saving tip:</strong> Learn to brush your Goldendoodle daily (5–10 minutes) and extend professional appointments from 6 to 8 weeks. This small habit can save $200–$400/year and prevent matting emergencies that cost $100–$200 to fix.</p>
+
+<h2>Lifetime Cost Estimate</h2>
+<p>With an average lifespan of 10–15 years (12 years is a reasonable planning figure), total lifetime costs for a Goldendoodle typically land between:</p>
+
+<ul>
+  <li><strong>Budget scenario:</strong> ~$35,000–$45,000 (adopting or lower-cost breeder, home grooming skills, no major health events)</li>
+  <li><strong>Mid-range scenario:</strong> ~$50,000–$65,000 (reputable breeder, professional grooming throughout, standard insurance)</li>
+  <li><strong>High scenario:</strong> ~$70,000–$90,000+ (premium breeder, full grooming, specialist vet care for any hereditary conditions)</li>
+</ul>
+
+<h2>Health Costs to Watch</h2>
+<p>Goldendoodles are generally healthy, but they inherit health risks from both parent breeds:</p>
+<ul>
+  <li><strong>Hip and elbow dysplasia</strong> (from Golden Retriever side) — surgical treatment: $3,500–$8,000 per hip</li>
+  <li><strong>Progressive Retinal Atrophy (PRA)</strong> — genetic; no treatment, but health-tested parents dramatically reduce risk</li>
+  <li><strong>Ear infections</strong> — the floppy, hairy ear canal traps moisture; budget $100–$300/year for recurring treatments</li>
+  <li><strong>Allergies and skin conditions</strong> — more common in Doodle crosses; can cost $500–$2,000/year to manage</li>
+</ul>
+
+<h2>Is a Goldendoodle Worth the Cost?</h2>
+<p>Goldendoodles consistently rank among the most family-friendly dogs, and their temperaments genuinely justify the premium for many owners. But they are not a budget breed. Between the purchase price, grooming, and health risks, the total cost of ownership is notably higher than a standard Labrador or Golden Retriever.</p>
+
+<p>If you're set on a Goldendoodle, budget for it properly. Use our <a href="/calculator?breedId=goldendoodle&petType=dog">Goldendoodle cost calculator</a> to get a personalised estimate based on your location and lifestyle, and factor grooming costs into your monthly budget from day one.</p>
+    `,
+  },
+
+  {
+    id: 'ragdoll-cat-cost-guide-2026',
+    slug: 'how-much-does-a-ragdoll-cat-cost',
+    title: 'How Much Does a Ragdoll Cat Cost? 2026 Complete Guide',
+    description: 'Full Ragdoll cat cost guide for 2026 — kitten price, annual care costs, health risks, and lifetime ownership total with tips to save money.',
+    category: 'cats',
+    author: 'PetCost Team',
+    publishDate: '2026-06-09',
+    readTime: 8,
+    image: 'https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['ragdoll cat cost', 'how much does a ragdoll cost', 'ragdoll kitten price', 'ragdoll cat expenses', 'ragdoll annual cost'],
+    content: `
+<h2>What Does It Actually Cost to Own a Ragdoll Cat?</h2>
+<p>Ragdolls are one of the world's most beloved cat breeds — calm, affectionate, and strikingly beautiful with their silky semi-long coats and vivid blue eyes. They're also one of the more expensive cats to purchase and maintain. If you're considering a Ragdoll in 2026, here's a complete, honest breakdown of what ownership will cost you.</p>
+
+<h2>Ragdoll Kitten Price in 2026</h2>
+<p>Ragdolls from TICA or GCCF-registered breeders who health-test for Hypertrophic Cardiomyopathy (HCM) and Polycystic Kidney Disease (PKD) typically cost:</p>
+
+<table>
+  <thead><tr><th>Region</th><th>Pet-Quality Kitten</th><th>Show/Breed Quality</th></tr></thead>
+  <tbody>
+    <tr><td>United States</td><td>$1,200 – $2,500</td><td>$2,500 – $5,000+</td></tr>
+    <tr><td>United Kingdom</td><td>£800 – £1,800</td><td>£1,800 – £3,500+</td></tr>
+    <tr><td>Australia</td><td>AUD $1,500 – $2,800</td><td>AUD $2,800 – $5,000+</td></tr>
+  </tbody>
+</table>
+
+<p>Kittens sold as "pet quality" are typically sold with desexing contracts — breeders want to control breeding to protect the breed's health standards. Any Ragdoll kitten offered without papers for under $800 / £600 should raise immediate concern, as legitimate breeding programmes cannot produce healthy, health-tested kittens at that price point.</p>
+
+<h2>First-Year Cost Breakdown</h2>
+
+<table>
+  <thead><tr><th>Expense</th><th>US Cost</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Kitten purchase price</td><td>$1,200 – $2,500</td><td>Pet quality from health-testing breeder</td></tr>
+    <tr><td>Initial vet check + vaccinations</td><td>$100 – $200</td><td>Core vaccines (FVRCP, rabies)</td></tr>
+    <tr><td>Spay / neuter</td><td>$200 – $450</td><td>If not included; recommended at 4–6 months</td></tr>
+    <tr><td>Microchipping</td><td>$45 – $75</td><td>Often done at desexing</td></tr>
+    <tr><td>Starter supplies</td><td>$200 – $400</td><td>Litter box, bed, scratcher, toys, food bowls, carrier</td></tr>
+    <tr><td>First-year food</td><td>$400 – $800</td><td>Ragdolls are large cats; high-quality wet/dry mix</td></tr>
+    <tr><td>Grooming (first year)</td><td>$200 – $400</td><td>Twice-yearly professional grooming + home brushing</td></tr>
+    <tr><td>Pet insurance (first year)</td><td>$400 – $800</td><td>$35–$70/month; HCM risk elevates premiums</td></tr>
+    <tr><td><strong>First-year total</strong></td><td><strong>$2,700 – $5,600+</strong></td><td>Including purchase price</td></tr>
+  </tbody>
+</table>
+
+<h2>Annual Ongoing Costs (Year 2+)</h2>
+
+<table>
+  <thead><tr><th>Expense</th><th>Annual Cost (US)</th></tr></thead>
+  <tbody>
+    <tr><td>Food (quality wet/dry mix)</td><td>$500 – $900</td></tr>
+    <tr><td>Routine vet care (annual check, boosters)</td><td>$200 – $400</td></tr>
+    <tr><td>Litter</td><td>$150 – $300</td></tr>
+    <tr><td>Professional grooming (2–4 times/year)</td><td>$200 – $500</td></tr>
+    <tr><td>Pet insurance</td><td>$400 – $900</td></tr>
+    <tr><td>Supplies, toys, accessories</td><td>$100 – $250</td></tr>
+    <tr><td><strong>Annual total (year 2+)</strong></td><td><strong>$1,550 – $3,250</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>The HCM Risk and What It Means for Your Budget</h2>
+<p>Hypertrophic Cardiomyopathy (HCM) — a progressive thickening of the heart muscle — is the most significant health risk for Ragdolls. It's the leading cause of sudden cardiac death in cats, and Ragdolls are genetically predisposed.</p>
+
+<p>A responsible breeder will DNA-test both parents for the known HCM gene mutations and perform echocardiograms annually. Even with health-tested parents, the disease can develop — HCM screening is not a guarantee of a clear kitten, only a risk reduction.</p>
+
+<p><strong>Budget implications:</strong></p>
+<ul>
+  <li>Annual cardiac echocardiogram screening: $150–$350 (highly recommended for the breed)</li>
+  <li>Cardiac medication if HCM develops: $50–$200/month ongoing</li>
+  <li>Specialist cardiology consultations: $300–$600 per visit</li>
+  <li>Emergency intervention for heart failure: $2,000–$5,000+</li>
+</ul>
+
+<p>This is the primary reason pet insurance is strongly recommended for Ragdolls — and why you should get it the day you bring your kitten home, before any pre-existing conditions can be identified.</p>
+
+<h2>Lifetime Cost Estimate</h2>
+<p>Ragdolls are a long-lived breed, typically reaching 12–17 years (15 years is a reasonable planning figure).</p>
+
+<ul>
+  <li><strong>No major health events:</strong> $22,000 – $35,000 over 15 years</li>
+  <li><strong>With HCM management:</strong> $40,000 – $60,000+ over 15 years</li>
+</ul>
+
+<h2>Money-Saving Tips for Ragdoll Owners</h2>
+<ul>
+  <li><strong>Buy insurance immediately.</strong> Day-one coverage is critical. Any cardiac symptoms noted before you insure will become a permanent exclusion.</li>
+  <li><strong>Brush at home regularly.</strong> Ragdolls shed moderately. Daily brushing (5 minutes) prevents matting and reduces professional grooming needs to 2–3 times per year.</li>
+  <li><strong>Choose a quality wet food.</strong> Ragdolls are prone to urinary issues. A high-protein, moisture-rich diet costs more upfront but reduces vet bills over the lifetime of the cat.</li>
+  <li><strong>Ask the breeder for health records.</strong> Confirming both parents are HCM-tested and clear is the single most important thing you can do to protect your budget long-term.</li>
+</ul>
+
+<p>Use our <a href="/breeds/ragdoll">Ragdoll cost calculator</a> for a personalised estimate based on your location and circumstances.</p>
+    `,
+  },
+
+  {
+    id: 'poodle-cost-guide-2026',
+    slug: 'how-much-does-a-poodle-cost',
+    title: 'How Much Does a Poodle Cost? Standard, Miniature & Toy (2026)',
+    description: 'Complete Poodle cost guide for 2026 — purchase price by size, annual expenses, grooming costs, and lifetime ownership total across Standard, Miniature, and Toy Poodles.',
+    category: 'breed-guide',
+    author: 'PetCost Team',
+    publishDate: '2026-06-09',
+    readTime: 9,
+    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['poodle cost', 'how much does a poodle cost', 'standard poodle cost', 'miniature poodle cost', 'toy poodle cost', 'poodle price 2026'],
+    content: `
+<h2>Poodle Ownership Costs in 2026</h2>
+<p>Poodles consistently rank among the most popular dog breeds globally — and for good reason. They're intelligent, low-shedding, athletic, and come in three distinct sizes to suit different households. But "Poodle" covers a wide range of ownership costs depending on which size you're considering. Here's a complete, size-specific breakdown for 2026.</p>
+
+<h2>Purchase Price by Size</h2>
+
+<table>
+  <thead><tr><th>Size</th><th>US Price</th><th>UK Price</th><th>AU Price</th><th>Weight</th></tr></thead>
+  <tbody>
+    <tr><td>Standard Poodle</td><td>$1,500 – $3,000</td><td>£1,000 – £2,500</td><td>AUD $2,500 – $4,500</td><td>20–32 kg</td></tr>
+    <tr><td>Miniature Poodle</td><td>$1,800 – $3,500</td><td>£1,200 – £3,000</td><td>AUD $2,800 – $5,000</td><td>7–12 kg</td></tr>
+    <tr><td>Toy Poodle</td><td>$2,000 – $4,000</td><td>£1,500 – £3,500</td><td>AUD $3,000 – $5,500</td><td>2–4 kg</td></tr>
+  </tbody>
+</table>
+
+<p>Smaller sizes command higher prices despite — or because of — the added complexity of breeding reliably small, healthy dogs. Health-tested parents (hips, elbows, eyes, heart, and von Willebrand's disease) is the mark of a responsible breeder and will be reflected in the price. Avoid any Poodle puppy advertised without health screening documentation.</p>
+
+<h2>First-Year Costs by Size</h2>
+
+<table>
+  <thead><tr><th>Expense</th><th>Standard</th><th>Miniature</th><th>Toy</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase price (mid-range)</td><td>$2,200</td><td>$2,600</td><td>$3,000</td></tr>
+    <tr><td>Initial vet + vaccines</td><td>$200 – $400</td><td>$150 – $300</td><td>$150 – $300</td></tr>
+    <tr><td>Spay / neuter</td><td>$300 – $600</td><td>$200 – $400</td><td>$150 – $350</td></tr>
+    <tr><td>Starter supplies</td><td>$400 – $700</td><td>$300 – $500</td><td>$200 – $400</td></tr>
+    <tr><td>Puppy training</td><td>$200 – $500</td><td>$150 – $400</td><td>$150 – $400</td></tr>
+    <tr><td>First-year food</td><td>$700 – $1,200</td><td>$400 – $700</td><td>$200 – $400</td></tr>
+    <tr><td>Grooming (first year)</td><td>$700 – $1,200</td><td>$600 – $1,000</td><td>$500 – $900</td></tr>
+    <tr><td>Pet insurance</td><td>$600 – $1,200</td><td>$500 – $900</td><td>$400 – $800</td></tr>
+    <tr><td><strong>First-year total</strong></td><td><strong>$5,300 – $8,000</strong></td><td><strong>$5,000 – $7,300</strong></td><td><strong>$4,750 – $6,550</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>Annual Ongoing Costs (Year 2+)</h2>
+
+<table>
+  <thead><tr><th>Annual Expense</th><th>Standard</th><th>Miniature</th><th>Toy</th></tr></thead>
+  <tbody>
+    <tr><td>Food</td><td>$800 – $1,300</td><td>$500 – $800</td><td>$300 – $500</td></tr>
+    <tr><td>Routine vet care</td><td>$400 – $700</td><td>$300 – $600</td><td>$300 – $500</td></tr>
+    <tr><td>Professional grooming</td><td>$800 – $1,400</td><td>$700 – $1,200</td><td>$600 – $1,000</td></tr>
+    <tr><td>Pet insurance</td><td>$700 – $1,400</td><td>$600 – $1,100</td><td>$500 – $1,000</td></tr>
+    <tr><td>Supplies, toys, treats</td><td>$300 – $500</td><td>$200 – $400</td><td>$150 – $300</td></tr>
+    <tr><td><strong>Annual total</strong></td><td><strong>$3,000 – $5,300</strong></td><td><strong>$2,300 – $4,100</strong></td><td><strong>$1,850 – $3,300</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>The Grooming Commitment</h2>
+<p>Poodles have a single-layer, continuously-growing coat that doesn't shed (making them popular with allergy sufferers) but requires consistent maintenance. Without regular grooming, the coat mats severely — matted Poodle coats require shaving down and months to grow back.</p>
+
+<p>Professional grooming every 6–8 weeks is non-negotiable. At $80–$150 per standard session, this adds up to $600–$1,300 per year. Learning to maintain the coat between appointments — daily or every-other-day brushing — is essential and reduces professional grooming frequency.</p>
+
+<h2>Why Poodles Are a Wise Long-Term Investment</h2>
+<p>Despite higher-than-average grooming costs, Poodles are genuinely one of the more cost-efficient large breeds over a lifetime for several reasons:</p>
+<ul>
+  <li><strong>Longevity:</strong> Standard Poodles live 12–15 years; Miniatures and Toys routinely reach 14–18 years. More years of healthy life means a lower average annual cost.</li>
+  <li><strong>Generally robust health:</strong> While bloat (GDV) is a risk in Standards, Poodles lack many of the structural health problems common in brachycephalic or extreme-conformation breeds.</li>
+  <li><strong>Intelligence reduces training costs:</strong> Poodles learn commands faster than almost any other breed. A single good puppy class is usually sufficient; many owners skip specialist training entirely.</li>
+  <li><strong>No shedding = lower cleaning costs:</strong> No specialist vacuums, no lint-rolling furniture, no professional upholstery cleaning.</li>
+</ul>
+
+<h2>Lifetime Cost Estimate</h2>
+<ul>
+  <li><strong>Standard Poodle (12-year lifespan):</strong> $40,000 – $65,000</li>
+  <li><strong>Miniature Poodle (14-year lifespan):</strong> $37,000 – $58,000</li>
+  <li><strong>Toy Poodle (15-year lifespan):</strong> $32,000 – $52,000</li>
+</ul>
+
+<p>Use our <a href="/calculator?breedId=poodle-standard&petType=dog">Poodle cost calculator</a> for a personalised estimate tailored to your location and lifestyle.</p>
+    `,
+  },
 ];
 
 export const getBlogArticleBySlug = (slug: string): BlogArticle | undefined =>

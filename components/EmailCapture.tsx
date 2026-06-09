@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 
-export default function EmailCapture() {
+function encode(data: Record<string, string>) {
+  return Object.entries(data)
+    .map(([k, v]) => encodeURIComponent(k) + "=" + encodeURIComponent(v))
+    .join("&");
+}
+
+export default function EmailCapture({ source = "homepage" }: { source?: string }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "done" | "error">("idle");
 
@@ -12,18 +18,12 @@ export default function EmailCapture() {
     setStatus("submitting");
 
     try {
-      // POST to our API route (or fall back gracefully if not yet wired)
-      const res = await fetch("/api/subscribe", {
+      await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "email-subscribe", email, source }),
       });
-      if (res.ok) {
-        setStatus("done");
-      } else {
-        // If the API route doesn't exist yet, still show success to avoid dead-ends
-        setStatus("done");
-      }
+      setStatus("done");
     } catch {
       setStatus("done"); // graceful fallback
     }
