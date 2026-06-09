@@ -5,6 +5,7 @@ import { Calculator, ChevronRight, TrendingUp, Shield, Clock, AlertTriangle, Lig
 import { getAllBreeds, getBreedById } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import BreedImage from "@/components/BreedImage";
+import AdUnit from "@/components/AdUnit";
 
 interface Props { params: { slug: string } }
 
@@ -208,6 +209,9 @@ export default function BreedPage({ params }: Props) {
             </div>
           </div>
 
+          {/* Ad — between cost tables and content */}
+          <AdUnit slot="2847391056" format="horizontal" className="my-2" />
+
           {/* About section */}
           <div className="card p-6">
             <h2 className="text-lg font-bold text-[#1B2B1B] mb-3">About the {breed.name}</h2>
@@ -342,6 +346,9 @@ export default function BreedPage({ params }: Props) {
             </div>
             <Link href="/compare" className="btn-secondary w-full text-sm text-center block mt-3">All Comparisons</Link>
           </div>
+
+          {/* Ad — bottom of sidebar */}
+          <AdUnit slot="6193847205" format="rectangle" className="mt-2" />
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Clock, Calendar, ChevronRight, Calculator } from "lucide-react";
+import AdUnit from "@/components/AdUnit";
 import {
   allBlogArticles,
   getBlogArticleBySlug,
@@ -105,6 +106,9 @@ export default function BlogArticlePage({ params }: Props) {
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
 
+            {/* Ad — below article body */}
+            <AdUnit slot="5038291746" format="horizontal" className="mt-6" />
+
             {/* Keywords */}
             {article.keywords.length > 0 && (
               <div className="mt-8 pt-5 border-t border-[#C8E6C9]">
@@ -172,6 +176,9 @@ export default function BlogArticlePage({ params }: Props) {
                 View All Breeds
               </Link>
             </div>
+
+            {/* Ad — bottom of sidebar */}
+            <AdUnit slot="7492038156" format="rectangle" />
           </aside>
         </div>
       </div>
