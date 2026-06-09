@@ -9,12 +9,42 @@ export const metadata: Metadata = {
   description: "Evergreen how-to guides on budgeting for a pet, understanding pet insurance, grooming costs, vet costs, and breed-by-breed cost guides.",
 };
 
+// Image for every guide slug
+const guideImages: Record<string, string> = {
+  // Budgeting & Planning
+  "how-to-budget-for-a-new-pet":        "/blog/puppy-budget.png",
+  "first-year-pet-costs-everything":    "/blog/first-year-costs.png",
+  "emergency-pet-fund-how-much":        "/blog/holiday-emergency.png",
+  "rescue-vs-breeder-cost-comparison":  "/blog/rescue-adoption.png",
+  "how-pet-costs-change-with-age":      "/blog/puppy-vs-adult.png",
+  // Pet Insurance
+  "is-pet-insurance-worth-it":          "/blog/pet-insurance.png",
+  "what-pet-insurance-doesnt-cover":    "/blog/hidden-costs.png",
+  "best-time-to-get-pet-insurance":     "/blog/pet-insurance.png",
+  "pet-insurance-uk-us-australia":      "/blog/costs-by-location.png",
+  // Vet Costs
+  "average-vet-costs-by-procedure":     "/blog/vet-costs.png",
+  "how-to-reduce-vet-bills":            "/blog/vet-by-breed.png",
+  "vet-visit-vs-home-treatment":        "/blog/emergency-vet.png",
+  "emergency-vet-costs-what-to-expect": "/blog/holiday-emergency.png",
+  // Grooming
+  "professional-vs-diy-grooming-costs": "/breeds/poodle-standard.png",
+  "high-maintenance-coat-breeds-cost":  "/breeds/golden-retriever.png",
+  "how-often-to-groom-dog-by-breed":    "/breeds/shih-tzu.png",
+  // Choosing the Right Breed
+  "cheap-vs-expensive-dog-breeds":      "/blog/dog-vs-cat.png",
+  "dog-vs-cat-which-is-cheaper":        "/blog/dog-vs-cat.png",
+  "small-dog-vs-large-dog-cost":        "/blog/small-vs-large.png",
+  "most-expensive-cat-breeds":          "/blog/cat-costs.png",
+  "hidden-costs-popular-breeds":        "/blog/hidden-costs.png",
+};
+
 const categories = [
   {
     title: "Budgeting & Planning",
     description: "Plan your pet budget before you bring them home — and avoid the surprises that catch most owners off guard.",
     image: "/blog/puppy-budget.png",
-    color: "from-green-600 to-green-800",
+    gradient: "from-[#1B5E20] to-[#2E7D32]",
     slugs: [
       "how-to-budget-for-a-new-pet",
       "first-year-pet-costs-everything",
@@ -27,7 +57,7 @@ const categories = [
     title: "Pet Insurance",
     description: "Is it worth it? What does it actually cover? Everything you need to make an informed decision.",
     image: "/blog/pet-insurance.png",
-    color: "from-blue-600 to-blue-800",
+    gradient: "from-[#1a3d2b] to-[#2E7D5A]",
     slugs: [
       "is-pet-insurance-worth-it",
       "what-pet-insurance-doesnt-cover",
@@ -39,7 +69,7 @@ const categories = [
     title: "Vet Costs",
     description: "Real procedure prices, how to reduce bills, and what to do when the emergency arrives.",
     image: "/blog/vet-costs.png",
-    color: "from-red-600 to-red-800",
+    gradient: "from-[#33691E] to-[#558B2F]",
     slugs: [
       "average-vet-costs-by-procedure",
       "how-to-reduce-vet-bills",
@@ -51,7 +81,7 @@ const categories = [
     title: "Grooming",
     description: "Professional vs DIY, breed-specific needs, and how to stop overpaying for coat maintenance.",
     image: "/breeds/poodle-standard.png",
-    color: "from-purple-600 to-purple-800",
+    gradient: "from-[#1B5E20] to-[#388E3C]",
     slugs: [
       "professional-vs-diy-grooming-costs",
       "high-maintenance-coat-breeds-cost",
@@ -62,7 +92,7 @@ const categories = [
     title: "Choosing the Right Breed",
     description: "Which breeds are genuinely affordable, which ones look cheap but aren't, and the hidden costs nobody warns you about.",
     image: "/blog/dog-vs-cat.png",
-    color: "from-orange-600 to-orange-800",
+    gradient: "from-[#37471F] to-[#558B2F]",
     slugs: [
       "cheap-vs-expensive-dog-breeds",
       "dog-vs-cat-which-is-cheaper",
@@ -73,20 +103,13 @@ const categories = [
   },
 ];
 
-// Featured guides — one per category, the most broadly useful
+// Featured — one per category
 const featuredSlugs = [
   "how-to-budget-for-a-new-pet",
   "is-pet-insurance-worth-it",
   "average-vet-costs-by-procedure",
   "cheap-vs-expensive-dog-breeds",
 ];
-
-const featuredImages: Record<string, string> = {
-  "how-to-budget-for-a-new-pet": "/blog/puppy-budget.png",
-  "is-pet-insurance-worth-it": "/blog/pet-insurance.png",
-  "average-vet-costs-by-procedure": "/blog/vet-costs.png",
-  "cheap-vs-expensive-dog-breeds": "/blog/dog-vs-cat.png",
-};
 
 export default function GuidesPage() {
   const totalGuides = guides.length;
@@ -147,7 +170,7 @@ export default function GuidesPage() {
               >
                 <div className="relative aspect-square bg-[#E8F5E9] overflow-hidden">
                   <Image
-                    src={featuredImages[guide.slug] ?? "/blog/puppy-budget.png"}
+                    src={guideImages[guide.slug] ?? "/blog/puppy-budget.png"}
                     alt={guide.title}
                     fill
                     className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
@@ -180,47 +203,51 @@ export default function GuidesPage() {
               <div key={cat.title}>
                 {/* Category header */}
                 <div className="bg-white rounded-2xl border border-[#C8E6C9] overflow-hidden mb-5">
-                  <div className="grid grid-cols-1 md:grid-cols-3">
-                    <div className="relative aspect-video md:aspect-auto bg-[#E8F5E9] overflow-hidden">
+                  <div className="flex flex-col md:flex-row">
+                    <div className="relative w-full md:w-56 h-44 md:h-auto flex-shrink-0 bg-[#E8F5E9]">
                       <Image
                         src={cat.image}
                         alt={cat.title}
                         fill
                         className="object-contain p-6"
-                        sizes="(max-width: 768px) 100vw, 33vw"
+                        sizes="(max-width: 768px) 100vw, 224px"
                       />
                     </div>
-                    <div className={`md:col-span-2 bg-gradient-to-br ${cat.color} p-6 md:p-8 flex flex-col justify-center`}>
+                    <div className={`flex-1 bg-gradient-to-br ${cat.gradient} p-6 md:p-8 flex flex-col justify-center`}>
                       <h2 className="text-xl md:text-2xl font-bold text-white mb-2">{cat.title}</h2>
-                      <p className="text-white/80 text-sm leading-relaxed mb-4">{cat.description}</p>
+                      <p className="text-white/80 text-sm leading-relaxed mb-3">{cat.description}</p>
                       <span className="text-white/60 text-xs">{catGuides.length} guides</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Guide cards */}
+                {/* Guide cards with images */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {catGuides.map((guide) => (
                     <Link
                       key={guide.slug}
                       href={`/guides/${guide.slug}`}
-                      className="card p-5 group hover:border-[#4CAF50]/50 transition-all"
+                      className="group card overflow-hidden hover:border-[#4CAF50]/50 transition-all"
                     >
-                      <div className="flex items-start gap-3">
-                        <div className="flex-shrink-0 mt-0.5 h-8 w-8 rounded-lg bg-[#E8F5E9] flex items-center justify-center">
-                          <BookOpen className="h-4 w-4 text-[#2E7D32]" />
-                        </div>
-                        <div className="min-w-0">
-                          <h3 className="text-sm font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] leading-snug mb-1.5 transition-colors line-clamp-2">
-                            {guide.title}
-                          </h3>
-                          <p className="text-xs text-[#5a7a5a] leading-relaxed line-clamp-2 mb-2">
-                            {guide.description}
-                          </p>
-                          <span className="text-xs text-slate-400 flex items-center gap-1">
-                            <Clock className="h-3 w-3" /> {guide.readMins} min read
-                          </span>
-                        </div>
+                      <div className="relative h-36 bg-[#E8F5E9] overflow-hidden">
+                        <Image
+                          src={guideImages[guide.slug] ?? "/blog/puppy-budget.png"}
+                          alt={guide.title}
+                          fill
+                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <h3 className="text-sm font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] leading-snug mb-1.5 transition-colors line-clamp-2">
+                          {guide.title}
+                        </h3>
+                        <p className="text-xs text-[#5a7a5a] leading-relaxed line-clamp-2 mb-2">
+                          {guide.description}
+                        </p>
+                        <span className="text-xs text-slate-400 flex items-center gap-1">
+                          <Clock className="h-3 w-3" /> {guide.readMins} min read
+                        </span>
                       </div>
                     </Link>
                   ))}
