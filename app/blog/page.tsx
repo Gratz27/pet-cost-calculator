@@ -86,7 +86,7 @@ export default function BlogPage({ searchParams }: { searchParams: { category?: 
           <Link href={`/blog/${featured.slug}`} className="group block mb-10">
             <div className="bg-white rounded-2xl overflow-hidden border border-[#C8E6C9] hover:border-[#4CAF50]/50 transition-all">
               <div className="grid grid-cols-1 md:grid-cols-2">
-                <div className="relative aspect-square bg-[#E8F5E9] overflow-hidden">
+                <div className="relative aspect-square bg-[#1a2b1a] overflow-hidden">
                   <Image
                     src={featured.image}
                     alt={featured.title}
@@ -118,7 +118,7 @@ export default function BlogPage({ searchParams }: { searchParams: { category?: 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {rest.map((article) => (
             <Link key={article.id} href={`/blog/${article.slug}`} className="group card overflow-hidden hover:border-[#4CAF50]/50">
-              <div className="relative aspect-square bg-[#E8F5E9] overflow-hidden">
+              <div className="relative aspect-square bg-[#1a2b1a] overflow-hidden">
                 <Image
                   src={article.image}
                   alt={article.title}
