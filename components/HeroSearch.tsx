@@ -4,6 +4,7 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Search, ArrowRight } from "lucide-react";
 import { getAllBreeds, type Breed } from "@/lib/calculator";
+import Image from "next/image";
 
 function getMonthlyRange(breed: Breed): string {
   const base = breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualSupplies;
@@ -43,6 +44,46 @@ export default function HeroSearch() {
 
   return (
     <div className="w-full max-w-2xl mx-auto">
+
+      {/* Mascot pair — clickable, switches pet type */}
+      <div className="flex items-end justify-center gap-6 sm:gap-10 mb-2">
+        {/* Golden Retriever — Dogs */}
+        <button
+          onClick={() => { setPetType("dog"); setQuery(""); setOpen(false); }}
+          className="flex flex-col items-center gap-1 group focus:outline-none"
+          aria-label="Show dog breeds"
+        >
+          <div className={`relative transition-all duration-300 ${petType === "dog" ? "w-28 h-28 sm:w-36 sm:h-36 drop-shadow-xl" : "w-20 h-20 sm:w-28 sm:h-28 opacity-50"}`}>
+            <Image
+              src="/breeds/golden-retriever.png"
+              alt="Golden Retriever"
+              fill
+              className="object-contain object-bottom"
+              sizes="144px"
+            />
+          </div>
+          <span className={`text-xs font-semibold transition-all duration-300 ${petType === "dog" ? "text-white" : "text-white/40"}`}>Dogs</span>
+        </button>
+
+        {/* Persian — Cats */}
+        <button
+          onClick={() => { setPetType("cat"); setQuery(""); setOpen(false); }}
+          className="flex flex-col items-center gap-1 group focus:outline-none"
+          aria-label="Show cat breeds"
+        >
+          <div className={`relative transition-all duration-300 ${petType === "cat" ? "w-28 h-28 sm:w-36 sm:h-36 drop-shadow-xl" : "w-20 h-20 sm:w-28 sm:h-28 opacity-50"}`}>
+            <Image
+              src="/breeds/persian.png"
+              alt="Persian Cat"
+              fill
+              className="object-contain object-bottom"
+              sizes="144px"
+            />
+          </div>
+          <span className={`text-xs font-semibold transition-all duration-300 ${petType === "cat" ? "text-white" : "text-white/40"}`}>Cats</span>
+        </button>
+      </div>
+
       {/* Dog / Cat toggle */}
       <div className="flex gap-2 mb-4 justify-center">
         {(["dog", "cat"] as const).map((t) => (

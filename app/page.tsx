@@ -149,18 +149,7 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Hero — calculator-first */}
       <section className="relative bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] text-white overflow-hidden">
-        {/* Hero mascot — desktop only, positioned right */}
-        <div className="hidden lg:block absolute right-0 bottom-0 w-[380px] h-full pointer-events-none select-none">
-          <BreedImage
-            breedId="golden-retriever"
-            petType="dog"
-            alt="Golden Retriever mascot"
-            fill
-            sizes="380px"
-            className="object-contain object-bottom opacity-90"
-          />
-        </div>
-        <div className="relative container-xl py-16 md:py-24 text-center lg:text-left lg:max-w-2xl">
+<div className="relative container-xl py-16 md:py-24 text-center lg:text-left lg:max-w-2xl">
           <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-medium text-green-100 mb-5 border border-white/20">
             <span className="h-2 w-2 rounded-full bg-[#A5D6A7] animate-pulse" />
             Updated June 2026 · 300+ breeds covered
