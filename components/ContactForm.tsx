@@ -22,7 +22,7 @@ export default function ContactForm() {
     if (!fields.email.includes("@") || !fields.message.trim()) return;
     setStatus("submitting");
     try {
-      await fetch("/", {
+      await fetch("/netlify-forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "contact", ...fields }),
