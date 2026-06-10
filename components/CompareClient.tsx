@@ -91,30 +91,51 @@ export default function CompareClient() {
 
       {/* Comparison table */}
       {breed1 && breed2 && (
-        <div className="bg-white rounded-2xl border border-[#C8E6C9] overflow-hidden">
-          <div className="grid grid-cols-3 bg-[#1B5E20] text-white">
-            <div className="p-4 text-sm font-medium text-green-200">Cost Category</div>
-            <div className="p-4 text-center">
-              <div className="font-bold">{breed1.name}</div>
-              <div className="text-xs text-green-200 capitalize">{breed1.size}</div>
-            </div>
-            <div className="p-4 text-center">
-              <div className="font-bold">{breed2.name}</div>
-              <div className="text-xs text-green-200 capitalize">{breed2.size}</div>
-            </div>
-          </div>
-          {rows.map((row, i) => {
-            const val1 = row.key(breed1);
-            const val2 = row.key(breed2);
-            return (
-              <div key={row.label} className={`grid grid-cols-3 border-b border-[#C8E6C9] ${row.highlight ? "bg-[#E8F5E9]" : i % 2 === 0 ? "bg-white" : "bg-[#F1F8F1]"}`}>
-                <div className={`p-4 text-sm ${row.bold ? "font-bold text-[#1B2B1B]" : "text-[#5a7a5a]"}`}>{row.label}</div>
-                <div className={`p-4 text-sm text-center ${row.bold ? "font-bold text-[#2E7D32]" : "font-medium text-[#1B2B1B]"}`}>{val1}</div>
-                <div className={`p-4 text-sm text-center ${row.bold ? "font-bold text-[#2E7D32]" : "font-medium text-[#1B2B1B]"}`}>{val2}</div>
+        <>
+          {/* Mobile: stacked cards, one per breed */}
+          <div className="grid grid-cols-1 sm:hidden gap-4">
+            {[breed1, breed2].map((breed) => (
+              <div key={breed.id} className="bg-white rounded-2xl border border-[#C8E6C9] overflow-hidden">
+                <div className="bg-[#1B5E20] text-white p-4">
+                  <div className="font-bold">{breed.name}</div>
+                  <div className="text-xs text-green-200 capitalize">{breed.size}</div>
+                </div>
+                {rows.map((row, i) => (
+                  <div key={row.label} className={`flex items-center justify-between px-4 py-3 border-b border-[#C8E6C9] last:border-b-0 ${row.highlight ? "bg-[#E8F5E9]" : i % 2 === 0 ? "bg-white" : "bg-[#F1F8F1]"}`}>
+                    <span className={`text-sm ${row.bold ? "font-bold text-[#1B2B1B]" : "text-[#5a7a5a]"}`}>{row.label}</span>
+                    <span className={`text-sm text-right ${row.bold ? "font-bold text-[#2E7D32]" : "font-medium text-[#1B2B1B]"}`}>{row.key(breed)}</span>
+                  </div>
+                ))}
               </div>
-            );
-          })}
-        </div>
+            ))}
+          </div>
+
+          {/* Tablet/desktop: side-by-side table */}
+          <div className="hidden sm:block bg-white rounded-2xl border border-[#C8E6C9] overflow-hidden">
+            <div className="grid grid-cols-3 bg-[#1B5E20] text-white">
+              <div className="p-4 text-sm font-medium text-green-200">Cost Category</div>
+              <div className="p-4 text-center">
+                <div className="font-bold">{breed1.name}</div>
+                <div className="text-xs text-green-200 capitalize">{breed1.size}</div>
+              </div>
+              <div className="p-4 text-center">
+                <div className="font-bold">{breed2.name}</div>
+                <div className="text-xs text-green-200 capitalize">{breed2.size}</div>
+              </div>
+            </div>
+            {rows.map((row, i) => {
+              const val1 = row.key(breed1);
+              const val2 = row.key(breed2);
+              return (
+                <div key={row.label} className={`grid grid-cols-3 border-b border-[#C8E6C9] ${row.highlight ? "bg-[#E8F5E9]" : i % 2 === 0 ? "bg-white" : "bg-[#F1F8F1]"}`}>
+                  <div className={`p-4 text-sm ${row.bold ? "font-bold text-[#1B2B1B]" : "text-[#5a7a5a]"}`}>{row.label}</div>
+                  <div className={`p-4 text-sm text-center ${row.bold ? "font-bold text-[#2E7D32]" : "font-medium text-[#1B2B1B]"}`}>{val1}</div>
+                  <div className={`p-4 text-sm text-center ${row.bold ? "font-bold text-[#2E7D32]" : "font-medium text-[#1B2B1B]"}`}>{val2}</div>
+                </div>
+              );
+            })}
+          </div>
+        </>
       )}
 
       {!breed1 || !breed2 ? (
