@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, Shield, DollarSign, Calculator, BarChart3 } from "lucide-react";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "Free Pet Cost Tools – Insurance Compare, Budget Tracker | PetCost-Calculator",
@@ -88,6 +89,11 @@ export default function ToolsPage() {
               </Link>
             </div>
           ))}
+        </div>
+
+        {/* Ad — below tools grid */}
+        <div className="max-w-4xl mt-8">
+          <AdUnit slot="2847391056" format="horizontal" />
         </div>
       </div>
     </div>

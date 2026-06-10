@@ -6,6 +6,7 @@ import { formatCurrency } from "@/lib/utils";
 import EmailCapture from "@/components/EmailCapture";
 import HeroSearch from "@/components/HeroSearch";
 import BreedImage from "@/components/BreedImage";
+import AdUnit from "@/components/AdUnit";
 
 const featuredBreeds = [
   { id: "golden-retriever",     name: "Golden Retriever",    firstYearEstimate: 4200, tag: "Most Popular",      petType: "dog" as const },
@@ -225,6 +226,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Ad — below featured breeds */}
+      <div className="container-xl py-2">
+        <AdUnit slot="6193847205" format="horizontal" />
+      </div>
+
       {/* Affordability Reality Check */}
       <section className="bg-white border-y border-[#C8E6C9] py-16 md:py-20">
         <div className="container-xl">
@@ -419,6 +425,11 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Ad — below testimonials */}
+      <div className="container-xl py-2">
+        <AdUnit slot="7492038156" format="horizontal" />
+      </div>
 
       {/* Insurance CTA */}
       <section className="bg-gradient-to-r from-[#1B5E20] to-[#2E7D32] py-12 md:py-16">

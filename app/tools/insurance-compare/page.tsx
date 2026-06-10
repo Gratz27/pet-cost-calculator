@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import InsuranceCompareClient from "./InsuranceCompareClient";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "Pet Insurance Comparison Guide 2026 | PetCost-Calculator",
@@ -38,6 +39,12 @@ export default function InsuranceComparePage() {
 
       <div className="container-xl py-10 max-w-4xl">
         <InsuranceCompareClient />
+
+        {/* Ad — below insurance comparison */}
+        <div className="my-8">
+          <AdUnit slot="5038291746" format="horizontal" />
+        </div>
+
         <div className="mt-8 text-center">
           <Link href="/calculator" className="btn-primary">Calculate My Full Pet Costs →</Link>
         </div>

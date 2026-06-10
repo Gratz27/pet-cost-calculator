@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import BudgetTrackerClient from "./BudgetTrackerClient";
+import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
   title: "Pet Monthly Budget Tracker | PetCost-Calculator",
@@ -37,6 +38,12 @@ export default function BudgetTrackerPage() {
 
       <div className="container-xl py-8 max-w-3xl">
         <BudgetTrackerClient />
+
+        {/* Ad — below budget tracker */}
+        <div className="my-8">
+          <AdUnit slot="6193847205" format="horizontal" />
+        </div>
+
         <div className="mt-8 text-center">
           <p className="text-sm text-[#5a7a5a] mb-3">Want a more precise estimate based on your breed?</p>
           <Link href="/calculator" className="btn-primary">Use the Full Calculator →</Link>
