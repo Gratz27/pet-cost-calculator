@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Shield, Check, X, ExternalLink } from "lucide-react";
+import { insuranceLinks, resolveLink } from "@/lib/affiliateLinks";
 
 type Country = "all" | "us" | "uk" | "au";
 type PetType = "all" | "dog" | "cat";
@@ -16,7 +17,7 @@ const providers = [
     pros: ["No annual or lifetime limits", "Fast claim processing", "Strong customer reviews"],
     cons: ["No wellness add-on", "US only"],
     bestFor: "Comprehensive accident & illness",
-    link: "https://www.healthypaws.com",
+    linkKey: "healthyPaws",
     country: "us" as Country,
     petTypes: ["dog", "cat"] as PetType[],
   },
@@ -29,7 +30,7 @@ const providers = [
     pros: ["Wellness add-on available", "Diminishing deductible", "Good for dogs and cats"],
     cons: ["Higher base premiums", "5-day accident waiting period"],
     bestFor: "Wellness + illness coverage",
-    link: "https://www.embracepetinsurance.com",
+    linkKey: "embrace",
     country: "us" as Country,
     petTypes: ["dog", "cat"] as PetType[],
   },
@@ -42,7 +43,7 @@ const providers = [
     pros: ["Trusted non-profit brand", "Preventive care add-on", "Good multi-pet discount"],
     cons: ["Claims can be slow", "US only"],
     bestFor: "Budget-conscious US owners",
-    link: "https://www.aspcapetinsurance.com",
+    linkKey: "aspca",
     country: "us" as Country,
     petTypes: ["dog", "cat"] as PetType[],
   },
@@ -55,7 +56,7 @@ const providers = [
     pros: ["Well-established UK provider", "Lifetime policies available", "Dental included"],
     cons: ["Premiums increase with age", "UK only"],
     bestFor: "UK pet owners seeking lifetime cover",
-    link: "https://www.petplan.co.uk",
+    linkKey: "petplanUK",
     country: "uk" as Country,
     petTypes: ["dog", "cat"] as PetType[],
   },
@@ -68,7 +69,7 @@ const providers = [
     pros: ["Budget-friendly premiums", "Widely recognised brand", "Online claim portal"],
     cons: ["Lower cover limits", "No exotic breeds"],
     bestFor: "UK budget option",
-    link: "https://www.tesco.com/zones/financial/insurance/pet/",
+    linkKey: "tescoUK",
     country: "uk" as Country,
     petTypes: ["dog", "cat"] as PetType[],
   },
@@ -81,7 +82,7 @@ const providers = [
     pros: ["Australian-based provider", "Routine care add-on", "Good claims process"],
     cons: ["Premiums rise quickly post-age-6", "AU only"],
     bestFor: "Australian pet owners",
-    link: "https://www.realinsurance.com.au/pet-insurance",
+    linkKey: "realInsuranceAU",
     country: "au" as Country,
     petTypes: ["dog", "cat"] as PetType[],
   },
@@ -94,7 +95,7 @@ const providers = [
     pros: ["Highest AU cover limits", "Backed by major underwriter", "24/7 vet helpline"],
     cons: ["Premiums above AU average", "Waiting period for orthopaedic conditions"],
     bestFor: "Comprehensive AU cover",
-    link: "https://www.petsure.com.au",
+    linkKey: "petSureAU",
     country: "au" as Country,
     petTypes: ["dog", "cat"] as PetType[],
   },
@@ -271,7 +272,7 @@ export default function InsuranceCompareClient() {
                     ))}
                   </div>
                 </div>
-                <a href={p.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2E7D32] hover:underline">
+                <a href={resolveLink(insuranceLinks[p.linkKey])} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#2E7D32] hover:underline">
                   Visit {p.name} <ExternalLink className="h-3.5 w-3.5" />
                 </a>
               </div>

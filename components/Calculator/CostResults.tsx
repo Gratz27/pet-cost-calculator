@@ -5,6 +5,7 @@ import { RotateCcw, Share2, AlertTriangle, TrendingUp, Shield, Lightbulb, Printe
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, CartesianGrid, Legend } from "recharts";
 import { type CostBreakdown, type CalculatorInputs, getBreedById, getAllBreeds } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
+import { productLinks, insuranceCompareCta, resolveLink } from "@/lib/affiliateLinks";
 import Link from "next/link";
 
 interface Props {
@@ -146,9 +147,9 @@ export default function CostResults({ results, inputs, onReset }: Props) {
               <p className="text-sm text-blue-700 mb-3">
                 Without insurance, a single emergency vet visit can cost $1,500–$5,000+. Pet insurance for {breed?.name ?? "this breed"} typically costs {formatCurrency((breed?.annualInsurance ?? 600) / 12)}/month and can cover up to 90% of vet bills.
               </p>
-              <a href="https://www.petplan.com/?ref=petcost" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-900 border border-blue-300 rounded-lg px-4 py-2 hover:bg-blue-100 transition-all">
+              <Link href={insuranceCompareCta} className="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-700 hover:text-blue-900 border border-blue-300 rounded-lg px-4 py-2 hover:bg-blue-100 transition-all">
                 Compare insurance quotes <ExternalLink className="h-3.5 w-3.5" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -436,7 +437,7 @@ export default function CostResults({ results, inputs, onReset }: Props) {
       <div className="rounded-2xl border border-[#C8E6C9] bg-[#F1F8F1] p-5">
         <p className="text-xs text-slate-500 mb-3 font-semibold uppercase tracking-wide">Recommended products</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <a href="https://www.chewy.com/search?query=dog+food" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl bg-white border border-[#C8E6C9] p-3 hover:border-[#4CAF50] transition-all group">
+          <a href={resolveLink(productLinks.chewy)} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl bg-white border border-[#C8E6C9] p-3 hover:border-[#4CAF50] transition-all group">
             <div className="text-2xl">🦴</div>
             <div className="flex-1 min-w-0">
               <div className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32]">Top-rated food on Chewy</div>
