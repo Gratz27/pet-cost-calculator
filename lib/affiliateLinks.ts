@@ -106,6 +106,48 @@ export const productLinks: Record<string, LinkEntry> = {
 };
 
 // ---------------------------------------------------------------------------
+// Amazon search links — context-specific (pet type, breed size, topic)
+// ---------------------------------------------------------------------------
+
+export const AMAZON_TAG = "petcost0e-20";
+
+/** Builds an Amazon search results URL with the Associates tag pre-applied. */
+export function amazonSearchLink(query: string): string {
+  const params = new URLSearchParams({ k: query, tag: AMAZON_TAG });
+  return `https://www.amazon.com/s?${params.toString()}`;
+}
+
+/**
+ * Returns a relevant Amazon search query for a given pet type + size.
+ * Used to make "Recommended products" feel tailored rather than generic.
+ */
+export function recommendedSuppliesQuery(petType: "dog" | "cat", size?: "small" | "medium" | "large"): string {
+  if (petType === "cat") {
+    return "cat starter kit litter box scratching post";
+  }
+  switch (size) {
+    case "large":
+      return "large dog crate and bed";
+    case "small":
+      return "small dog carrier and bed";
+    default:
+      return "dog starter kit crate bed bowls";
+  }
+}
+
+/**
+ * Returns a breed-specific Amazon search query, tailored to size/type, for
+ * "Recommended gear" boxes on breed pages.
+ */
+export function breedGearQuery(breedName: string, petType: "dog" | "cat", size?: "small" | "medium" | "large"): string {
+  if (petType === "cat") {
+    return `${breedName} cat supplies grooming`;
+  }
+  const sizeLabel = size === "large" ? "large breed" : size === "small" ? "small breed" : "";
+  return `${sizeLabel} ${breedName} dog food and supplies`.replace(/\s+/g, " ").trim();
+}
+
+// ---------------------------------------------------------------------------
 // Generic "compare insurance" CTA used in calculator results
 // (was previously a dead petplan.com/?ref=petcost link — now points internal)
 // ---------------------------------------------------------------------------

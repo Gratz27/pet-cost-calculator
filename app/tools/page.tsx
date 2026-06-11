@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, Shield, DollarSign, Calculator, BarChart3 } from "lucide-react";
+import { ChevronRight, Shield, DollarSign, Calculator, BarChart3, ShoppingBag } from "lucide-react";
 import AdUnit from "@/components/AdUnit";
 
 export const metadata: Metadata = {
@@ -44,6 +44,15 @@ const tools = [
     cta: "Compare Breeds",
     badge: "Free",
     badgeColor: "badge-blue",
+  },
+  {
+    icon: ShoppingBag,
+    title: "Recommended Gear",
+    description: "Hand-picked categories of well-reviewed dog and cat gear — crates, beds, food, litter, grooming, and more.",
+    href: "/tools/gear",
+    cta: "Browse Gear",
+    badge: "New",
+    badgeColor: "badge-green",
   },
 ];
 

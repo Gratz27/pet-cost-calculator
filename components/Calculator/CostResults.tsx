@@ -5,7 +5,7 @@ import { RotateCcw, Share2, AlertTriangle, TrendingUp, Shield, Lightbulb, Printe
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, CartesianGrid, Legend } from "recharts";
 import { type CostBreakdown, type CalculatorInputs, getBreedById, getAllBreeds } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
-import { productLinks, insuranceCompareCta, resolveLink } from "@/lib/affiliateLinks";
+import { productLinks, insuranceCompareCta, resolveLink, amazonSearchLink, recommendedSuppliesQuery } from "@/lib/affiliateLinks";
 import Link from "next/link";
 
 interface Props {
@@ -442,6 +442,16 @@ export default function CostResults({ results, inputs, onReset }: Props) {
             <div className="flex-1 min-w-0">
               <div className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32]">Top-rated food on Chewy</div>
               <div className="text-xs text-slate-400">Auto-ship saves up to 30%</div>
+            </div>
+            <ExternalLink className="h-3.5 w-3.5 text-slate-300 flex-shrink-0" />
+          </a>
+          <a href={amazonSearchLink(recommendedSuppliesQuery(inputs.petType, breed?.size))} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl bg-white border border-[#C8E6C9] p-3 hover:border-[#4CAF50] transition-all group">
+            <div className="text-2xl">📦</div>
+            <div className="flex-1 min-w-0">
+              <div className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32]">
+                {inputs.petType === "cat" ? "Cat starter kit on Amazon" : breed?.size === "large" ? "Large dog crate & bed on Amazon" : breed?.size === "small" ? "Small dog carrier & bed on Amazon" : "Dog starter kit on Amazon"}
+              </div>
+              <div className="text-xs text-slate-400">Crate, bed, bowls & essentials</div>
             </div>
             <ExternalLink className="h-3.5 w-3.5 text-slate-300 flex-shrink-0" />
           </a>

@@ -6,6 +6,7 @@ import { getAllBreeds, getBreedById } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import BreedImage from "@/components/BreedImage";
 import AdUnit from "@/components/AdUnit";
+import { productLinks, resolveLink, amazonSearchLink, breedGearQuery } from "@/lib/affiliateLinks";
 
 interface Props { params: { slug: string } }
 
@@ -345,6 +346,28 @@ export default function BreedPage({ params }: Props) {
                 })}
             </div>
             <Link href="/compare" className="btn-secondary w-full text-sm text-center block mt-3">All Comparisons</Link>
+          </div>
+
+          <div className="card p-5">
+            <h3 className="text-sm font-bold text-[#1B2B1B] mb-3">Recommended gear for your {breed.name}</h3>
+            <div className="space-y-2.5">
+              <a href={amazonSearchLink(breedGearQuery(breed.name, petType, breed.size))} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-3 hover:border-[#4CAF50] transition-all group">
+                <div className="text-2xl">📦</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32]">Shop {breed.name} essentials</div>
+                  <div className="text-xs text-slate-400">Food, bedding & supplies on Amazon</div>
+                </div>
+              </a>
+              <a href={resolveLink(productLinks.chewy)} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-3 rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-3 hover:border-[#4CAF50] transition-all group">
+                <div className="text-2xl">🦴</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32]">Top-rated food on Chewy</div>
+                  <div className="text-xs text-slate-400">Auto-ship saves up to 30%</div>
+                </div>
+              </a>
+            </div>
           </div>
 
           {/* Ad — bottom of sidebar */}
