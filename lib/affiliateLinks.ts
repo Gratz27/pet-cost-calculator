@@ -100,8 +100,8 @@ export const productLinks: Record<string, LinkEntry> = {
   amazonPetSupplies: {
     name: "Amazon Pet Supplies",
     directUrl: "https://www.amazon.com/pet-supplies/b?node=2619533011",
-    // Program: Amazon Associates (affiliate-program.amazon.com) — ~3% pet category
-    affiliateUrl: null,
+    // Program: Amazon Associates — Store ID: petcost0e-20
+    affiliateUrl: "https://www.amazon.com/pet-supplies/b?node=2619533011&tag=petcost0e-20",
   },
 };
 
