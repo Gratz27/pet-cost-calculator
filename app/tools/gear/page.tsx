@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import {
+  ChevronRight, ExternalLink, Home, Bed, Utensils, Bone,
+  Scissors, HeartPulse, Puzzle, GraduationCap,
+} from "lucide-react";
 import AdUnit from "@/components/AdUnit";
 import { amazonSearchLink, productLinks, resolveLink } from "@/lib/affiliateLinks";
 
@@ -15,12 +19,13 @@ type Pick = {
   title: string;
   description: string;
   query: string;
-  badge?: string;
+  badge?: { label: string; color: "badge-green" | "badge-blue" | "badge-orange" };
 };
 
 type Category = {
   id: string;
   title: string;
+  icon: typeof Home;
   intro: string;
   picks: Pick[];
 };
@@ -29,19 +34,21 @@ const categories: Category[] = [
   {
     id: "crates-carriers",
     title: "Crates & Carriers",
+    icon: Home,
     intro: "A properly sized crate or carrier makes crate training, vet visits, and travel far less stressful for both of you.",
     picks: [
       { emoji: "🏠", title: "Wire Dog Crates", description: "Collapsible, well-ventilated crates with divider panels — size up as your puppy grows.", query: "dog crate with divider panel" },
-      { emoji: "🧳", title: "Soft-Sided Carriers", description: "Airline-compliant carriers for cats and small dogs — look for mesh panels and a washable liner.", query: "soft sided pet carrier airline approved", badge: "Popular" },
+      { emoji: "🧳", title: "Soft-Sided Carriers", description: "Airline-compliant carriers for cats and small dogs — look for mesh panels and a washable liner.", query: "soft sided pet carrier airline approved", badge: { label: "Popular", color: "badge-blue" } },
       { emoji: "🚙", title: "Car Travel Crates", description: "Crash-tested crates and seatbelt harnesses for safer car journeys.", query: "dog car travel crate crash tested" },
     ],
   },
   {
     id: "beds-bedding",
     title: "Beds & Bedding",
+    icon: Bed,
     intro: "Orthopedic support matters most for large breeds and senior pets — memory foam reduces joint pressure and improves sleep quality.",
     picks: [
-      { emoji: "🛏️", title: "Orthopedic Memory Foam Beds", description: "Supportive foam beds for large or senior dogs with joint issues, with removable washable covers.", query: "orthopedic memory foam dog bed large breed", badge: "New" },
+      { emoji: "🛏️", title: "Orthopedic Memory Foam Beds", description: "Supportive foam beds for large or senior dogs with joint issues, with removable washable covers.", query: "orthopedic memory foam dog bed large breed", badge: { label: "New", color: "badge-green" } },
       { emoji: "🌙", title: "Calming Donut Beds", description: "Raised-rim beds that help anxious pets feel secure — great for crate inserts too.", query: "calming donut cat dog bed" },
       { emoji: "❄️", title: "Cooling Mats", description: "Pressure-activated cooling gel mats for hot climates or thick-coated breeds.", query: "cooling mat for dogs" },
     ],
@@ -49,9 +56,10 @@ const categories: Category[] = [
   {
     id: "food-feeding",
     title: "Food & Feeding",
+    icon: Utensils,
     intro: "Slow feeders reduce bloat risk in large breeds, while automatic feeders help keep portion control consistent.",
     picks: [
-      { emoji: "🥣", title: "Slow Feeder Bowls", description: "Maze-pattern bowls that slow down fast eaters and reduce digestive issues.", query: "slow feeder dog bowl", badge: "New" },
+      { emoji: "🥣", title: "Slow Feeder Bowls", description: "Maze-pattern bowls that slow down fast eaters and reduce digestive issues.", query: "slow feeder dog bowl", badge: { label: "New", color: "badge-green" } },
       { emoji: "⏱️", title: "Automatic Feeders", description: "Programmable feeders for consistent portions — useful for multi-pet households or busy schedules.", query: "automatic pet feeder programmable" },
       { emoji: "💧", title: "Pet Water Fountains", description: "Filtered, flowing water encourages cats especially to drink more.", query: "pet water fountain filtered" },
     ],
@@ -59,39 +67,43 @@ const categories: Category[] = [
   {
     id: "litter-cat-care",
     title: "Litter & Cat Care",
+    icon: Bone,
     intro: "The right litter box setup reduces odour and tracking — a big factor in keeping multi-cat homes pleasant.",
     picks: [
-      { emoji: "📦", title: "Self-Cleaning Litter Boxes", description: "Automatic litter boxes that rake waste away — a popular upgrade for multi-cat homes.", query: "self cleaning litter box", badge: "New" },
+      { emoji: "📦", title: "Self-Cleaning Litter Boxes", description: "Automatic litter boxes that rake waste away — a popular upgrade for multi-cat homes.", query: "self cleaning litter box", badge: { label: "New", color: "badge-green" } },
       { emoji: "🌾", title: "Low-Tracking Litter", description: "Tight-clumping, low-dust litter that cuts down on mess around the box.", query: "low tracking clumping cat litter" },
-      { emoji: "🧗", title: "Cat Trees & Scratchers", description: "Multi-level cat trees with scratching posts — vital for indoor cats' enrichment and claw health.", query: "cat tree with scratching post" },
+      { emoji: "🧗", title: "Cat Trees & Scratchers", description: "Multi-level cat trees with scratching posts — vital for indoor cats' enrichment and claw health.", query: "cat tree with scratching post", badge: { label: "Popular", color: "badge-blue" } },
     ],
   },
   {
     id: "grooming",
     title: "Grooming",
+    icon: Scissors,
     intro: "Regular at-home grooming between professional visits cuts annual grooming costs significantly.",
     picks: [
       { emoji: "✂️", title: "Deshedding Tools", description: "Undercoat rakes and deshedding brushes — especially valuable for double-coated breeds.", query: "deshedding tool for dogs" },
       { emoji: "🛁", title: "Dog Clipper Kits", description: "Quiet, rechargeable clipper sets for at-home trims between groomer visits.", query: "dog grooming clipper kit" },
-      { emoji: "🦷", title: "Dental Care Kits", description: "Toothbrushes, enzymatic toothpaste, and dental chews to help prevent costly dental disease.", query: "dog dental care kit toothbrush" },
+      { emoji: "🦷", title: "Dental Care Kits", description: "Toothbrushes, enzymatic toothpaste, and dental chews to help prevent costly dental disease.", query: "dog dental care kit toothbrush", badge: { label: "Saves $$", color: "badge-orange" } },
     ],
   },
   {
     id: "health-wellness",
     title: "Health & Wellness",
+    icon: HeartPulse,
     intro: "Preventive products can reduce emergency vet visits — always check with your vet before starting supplements.",
     picks: [
       { emoji: "💊", title: "Joint Supplements", description: "Glucosamine and chondroitin chews to support joint health, especially for large or senior dogs.", query: "dog joint supplement glucosamine chondroitin" },
-      { emoji: "🩹", title: "Pet First Aid Kits", description: "Compact kits with bandages, antiseptic, and tweezers for minor injuries at home or on the trail.", query: "pet first aid kit" },
+      { emoji: "🩹", title: "Pet First Aid Kits", description: "Compact kits with bandages, antiseptic, and tweezers for minor injuries at home or on the trail.", query: "pet first aid kit", badge: { label: "Saves $$", color: "badge-orange" } },
       { emoji: "🪲", title: "Flea & Tick Prevention", description: "Topical and collar options — compare with what your vet prescribes for the best protection.", query: "flea and tick prevention for dogs" },
     ],
   },
   {
     id: "toys-enrichment",
     title: "Toys & Enrichment",
+    icon: Puzzle,
     intro: "Mental stimulation reduces destructive behaviour — puzzle feeders and durable chews are worth the investment.",
     picks: [
-      { emoji: "🧩", title: "Puzzle Feeders", description: "Treat-dispensing puzzles that slow down eating and provide mental enrichment.", query: "dog puzzle feeder toy", badge: "New" },
+      { emoji: "🧩", title: "Puzzle Feeders", description: "Treat-dispensing puzzles that slow down eating and provide mental enrichment.", query: "dog puzzle feeder toy", badge: { label: "New", color: "badge-green" } },
       { emoji: "🦴", title: "Durable Chew Toys", description: "Long-lasting rubber chews for power chewers — look for vet-recommended brands.", query: "durable dog chew toy" },
       { emoji: "🐭", title: "Interactive Cat Toys", description: "Motion-activated and wand toys that encourage natural hunting play.", query: "interactive cat toy" },
     ],
@@ -99,10 +111,11 @@ const categories: Category[] = [
   {
     id: "training",
     title: "Training & Behaviour",
+    icon: GraduationCap,
     intro: "A solid training foundation in the first year prevents costly behavioural issues later.",
     picks: [
       { emoji: "🎯", title: "Treat Training Pouches", description: "Hands-free treat pouches that clip to your belt — essential for consistent reward-based training.", query: "dog training treat pouch" },
-      { emoji: "🪢", title: "No-Pull Harnesses", description: "Front-clip harnesses that reduce pulling without choking — better for joints than collars.", query: "no pull dog harness" },
+      { emoji: "🪢", title: "No-Pull Harnesses", description: "Front-clip harnesses that reduce pulling without choking — better for joints than collars.", query: "no pull dog harness", badge: { label: "Popular", color: "badge-blue" } },
       { emoji: "🔔", title: "Clicker Training Kits", description: "Clickers and guides for positive-reinforcement training at home.", query: "dog clicker training kit" },
     ],
   },
@@ -125,24 +138,61 @@ export default function GearPage() {
       </div>
 
       {/* Hero */}
-      <div className="bg-white border-b border-[#C8E6C9]">
-        <div className="container-xl py-12 max-w-3xl">
-          <div className="badge badge-green mb-3">Updated for 2026</div>
-          <h1 className="text-3xl md:text-4xl font-bold text-[#1B2B1B] mb-3">Recommended Pet Gear</h1>
-          <p className="text-[#5a7a5a] text-lg leading-relaxed">
-            Categories of well-reviewed dog and cat products, organised by what your pet actually needs at each
-            stage of ownership. We link to Amazon and Chewy so you can compare prices, read reviews, and choose
-            what fits your budget.
-          </p>
+      <div className="bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white overflow-hidden relative">
+        <div className="container-xl py-12 md:py-16 relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-1">
+              <div className="badge bg-white/20 text-green-100 mb-4">Updated for 2026</div>
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">Recommended Pet Gear</h1>
+              <p className="text-green-200 text-lg leading-relaxed max-w-xl mb-6">
+                Curated categories of well-reviewed dog and cat products — organised by what your pet actually
+                needs at each stage of ownership. Compare options on Amazon and Chewy and pick what fits your budget.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <div className="inline-flex items-center gap-2 bg-white/15 rounded-xl px-4 py-2 text-sm text-green-100">
+                  🐾 8 essential categories
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white/15 rounded-xl px-4 py-2 text-sm text-green-100">
+                  🛒 24 hand-picked product searches
+                </div>
+              </div>
+            </div>
+            <div className="hidden md:block flex-shrink-0">
+              <Image src="/mascot-pair.png" alt="PetCost dog and cat mascots" width={220} height={220} className="rounded-2xl" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Quick category nav */}
+      <div className="bg-white border-b border-[#C8E6C9] sticky top-0 z-20 shadow-sm">
+        <div className="container-xl py-3 overflow-x-auto">
+          <div className="flex gap-2 min-w-max">
+            {categories.map((cat) => (
+              <a
+                key={cat.id}
+                href={`#${cat.id}`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-[#C8E6C9] px-3 py-1.5 text-xs font-semibold text-[#2E7D32] hover:bg-[#E8F5E9] transition-colors whitespace-nowrap"
+              >
+                <cat.icon className="h-3.5 w-3.5" />
+                {cat.title}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
       <div className="container-xl py-10">
-        <div className="max-w-5xl space-y-10">
+        <div className="max-w-5xl space-y-8 mx-auto">
           {categories.map((cat, i) => (
-            <div key={cat.id} id={cat.id}>
+            <div key={cat.id} id={cat.id} className="scroll-mt-20">
               <div className="card p-6">
-                <h2 className="text-xl font-bold text-[#1B2B1B] mb-2">{cat.title}</h2>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#E8F5E9] flex-shrink-0">
+                    <cat.icon className="h-5 w-5 text-[#2E7D32]" />
+                  </div>
+                  <h2 className="text-xl font-bold text-[#1B2B1B]">{cat.title}</h2>
+                </div>
                 <p className="text-sm text-[#5a7a5a] mb-5 leading-relaxed">{cat.intro}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                   {cat.picks.map((pick) => (
@@ -151,12 +201,14 @@ export default function GearPage() {
                       href={amazonSearchLink(pick.query)}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex flex-col rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-4 hover:border-[#4CAF50] transition-all group"
+                      className="relative flex flex-col rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-4 hover:border-[#4CAF50] hover:shadow-md transition-all group"
                     >
                       {pick.badge && (
-                        <span className="absolute top-3 right-3 badge badge-green text-[10px]">{pick.badge}</span>
+                        <span className={`absolute top-3 right-3 ${pick.badge.color} text-[10px]`}>{pick.badge.label}</span>
                       )}
-                      <div className="text-2xl mb-2">{pick.emoji}</div>
+                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white border border-[#C8E6C9] text-xl mb-3">
+                        {pick.emoji}
+                      </div>
                       <div className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32] mb-1">{pick.title}</div>
                       <p className="text-xs text-slate-500 leading-relaxed flex-1">{pick.description}</p>
                       <div className="flex items-center gap-1 mt-3 text-xs font-medium text-[#2E7D32]">

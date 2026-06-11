@@ -33,6 +33,7 @@ const navLinks = [
       { label: "All Tools", href: "/tools" },
       { label: "Insurance Compare", href: "/tools/insurance-compare" },
       { label: "Budget Tracker", href: "/tools/budget-tracker" },
+      { label: "Recommended Gear", href: "/tools/gear" },
     ],
   },
   {
