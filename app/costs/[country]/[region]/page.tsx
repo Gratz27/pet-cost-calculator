@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ChevronRight, MapPin } from "lucide-react";
 import { getAllBreeds } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
+import AdUnit from "@/components/AdUnit";
 
 interface Props { params: { country: string; region: string } }
 
@@ -156,6 +157,9 @@ export default function RegionalCostPage({ params }: Props) {
             </table>
           </div>
         </div>
+
+        {/* Ad — between breed tables */}
+        <AdUnit slot="2847391056" format="horizontal" />
 
         {/* Popular cats */}
         <div className="card overflow-hidden">

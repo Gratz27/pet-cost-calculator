@@ -1,0 +1,6 @@
+rm -f /Users/dxnd/Documents/GitHub/pet-cost-calculator/.git/index.lock
+cd /Users/dxnd/Documents/GitHub/pet-cost-calculator
+npm run build
+git add next.config.mjs
+git commit -m "Add 301 redirects for legacy blog slugs (GSC indexing fixes)"
+git push

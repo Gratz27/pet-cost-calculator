@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight, Clock, Calendar, CheckCircle2, ArrowRight } from "lucide-react";
 import { getGuideBySlug, getAllGuideSlugs, guides } from "@/data/guides";
+import AdUnit from "@/components/AdUnit";
 
 interface Props { params: { slug: string } }
 
@@ -106,6 +107,9 @@ export default function GuidePage({ params }: Props) {
               </ul>
             </div>
 
+            {/* Ad — below key takeaways */}
+            <AdUnit slot="5038291746" format="horizontal" />
+
             {/* Article sections */}
             {guide.sections.map((section, i) => (
               <div key={i} className="card p-6">
@@ -183,6 +187,9 @@ export default function GuidePage({ params }: Props) {
               <p className="text-xs text-[#5a7a5a] mb-3">All cost estimates are sourced from vet fee surveys, consumer spending data, and pet industry reports.</p>
               <Link href="/methodology" className="text-sm font-semibold text-[#2E7D32] hover:underline">Read our methodology →</Link>
             </div>
+
+            {/* Ad — sidebar */}
+            <AdUnit slot="7492038156" format="rectangle" />
           </div>
         </div>
       </div>

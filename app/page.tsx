@@ -99,6 +99,19 @@ export default function HomePage() {
     },
     {
       "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PetCost",
+      "url": "https://petcost-calculator.com",
+      "logo": "https://petcost-calculator.com/icon-512.png",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=61583074795583",
+        "https://www.instagram.com/petcost_calculator/",
+        "https://www.tiktok.com/@petcostcalculator",
+        "https://www.pinterest.com/petcostcalculator"
+      ]
+    },
+    {
+      "@context": "https://schema.org",
       "@type": "FAQPage",
       "mainEntity": [
         {

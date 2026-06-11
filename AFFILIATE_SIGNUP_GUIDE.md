@@ -13,9 +13,21 @@ next deploy.
 ## 1. US Pet Insurance
 
 ### Healthy Paws
-- Apply: search "Healthy Paws affiliate program" — they run a direct partner program
-  (no major network). Sign up at their partner portal and request a pet-blog placement.
+- Apply: search "Healthy Paws affiliate program" — they run a direct, in-house partner
+  program (not on ShareASale/CJ/Impact/Awin). Application form is at
+  healthypawspetinsurance.com/partners/affiliate.
 - Commission: typically a flat fee per approved policy referral.
+- **Known issue (June 2026):** the entire healthypawspetinsurance.com domain (including
+  the `partners.` and `www16.` subdomains) is behind Cloudflare bot-detection and returned
+  "Sorry, you have been blocked" for both Darren and Claude's browser session. This is not
+  account-specific — it's blocking automated/flagged traffic generally.
+  - Try again from a normal browser, no VPN, ideally from a different network/device
+    (e.g. phone) to see if it loads.
+  - If still blocked, try reaching out via their social media (Facebook/Instagram) or by
+    mail at: Healthy Paws Pet Insurance, P.O. Box 50034, Bellevue, WA 98015, requesting
+    affiliate program details.
+  - Consider deprioritizing Healthy Paws if it remains inaccessible — Embrace, Lemonade,
+    etc. (below) are easier to apply to via established networks.
 - Once approved: paste your tracking link into `insuranceLinks.healthyPaws.affiliateUrl`.
 
 ### Embrace Pet Insurance

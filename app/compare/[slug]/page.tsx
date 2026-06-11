@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ChevronRight, Check, X } from "lucide-react";
 import { getAllBreeds, getBreedById, type Breed } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
+import AdUnit from "@/components/AdUnit";
 
 interface Props { params: { slug: string } }
 
@@ -218,6 +219,9 @@ export default function CompareSlugPage({ params }: Props) {
             </tbody>
           </table>
         </div>
+
+        {/* Ad — below comparison table */}
+        <AdUnit slot="2847391056" format="horizontal" />
 
         {/* Key differences */}
         <div className="card p-6">
