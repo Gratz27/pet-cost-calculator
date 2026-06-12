@@ -1756,6 +1756,279 @@ Solid budget options that meet all nutritional requirements without the premium 
 <p>Use our <a href="/calculator?breedId=poodle-standard&petType=dog">Poodle cost calculator</a> for a personalised estimate tailored to your location and lifestyle.</p>
     `,
   },
+
+  {
+    id: 'cost-of-owning-a-cat-us-2026',
+    slug: 'how-much-does-it-cost-to-own-a-cat-in-the-us',
+    title: 'How Much Does It Cost to Own a Cat in the US? (2026)',
+    description: 'A complete 2026 breakdown of cat ownership costs in the US — adoption fees, first-year setup, annual expenses, vet care, and lifetime totals by breed type.',
+    category: 'cats',
+    author: 'PetCost-Calculator Team',
+    publishDate: '2026-06-15',
+    readTime: 9,
+    image: '/breeds/domestic-shorthair.png',
+    keywords: ['cost of owning a cat', 'how much does a cat cost', 'cat expenses per year', 'cat ownership costs us', 'monthly cost of a cat'],
+    content: `
+<h2>The Real Cost of Owning a Cat in 2026</h2>
+<p>Cats have a reputation as the "low-maintenance" pet — and compared to dogs, they generally are. But "low-maintenance" doesn't mean "low-cost." Between adoption fees, vet care, food, litter, and the occasional emergency, a cat is a multi-thousand-dollar, decade-plus commitment. Here's what you can realistically expect to spend in the US in 2026, broken down by stage of ownership.</p>
+
+<h2>Adoption or Purchase Price</h2>
+<p>How much you pay upfront depends heavily on where your cat comes from:</p>
+
+<table>
+  <thead><tr><th>Source</th><th>Typical Cost</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Animal shelter / rescue</td><td>$50 – $150</td><td>Usually includes spay/neuter, first vaccines, microchip</td></tr>
+    <tr><td>Friend, family, "free to good home"</td><td>$0</td><td>Budget for vet check, vaccines, and desexing separately ($150–$400)</td></tr>
+    <tr><td>Mixed-breed kitten from a private seller</td><td>$50 – $300</td><td>May need full vet workup</td></tr>
+    <tr><td>Purebred kitten (Siamese, British Shorthair, Bengal)</td><td>$800 – $2,000</td><td>From a registered, health-tested breeder</td></tr>
+    <tr><td>Purebred kitten (Maine Coon, Ragdoll, Persian)</td><td>$1,200 – $3,000+</td><td>Larger or longer-haired breeds command a premium</td></tr>
+  </tbody>
+</table>
+
+<h2>First-Year Costs</h2>
+<p>The first year is always the most expensive — you're paying for the cat itself plus a full set of starter supplies and initial vet work.</p>
+
+<table>
+  <thead><tr><th>Expense</th><th>Typical Range (US)</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Adoption fee or purchase price</td><td>$50 – $2,000+</td><td>See table above</td></tr>
+    <tr><td>Spay / neuter (if not included)</td><td>$150 – $400</td><td>Often included with shelter adoptions</td></tr>
+    <tr><td>Initial vet visit + vaccinations</td><td>$100 – $250</td><td>FVRCP, rabies, FeLV testing</td></tr>
+    <tr><td>Microchipping</td><td>$45 – $75</td><td>Frequently bundled with desexing</td></tr>
+    <tr><td>Starter supplies</td><td>$150 – $350</td><td>Litter box, scratching post, carrier, bed, bowls, toys</td></tr>
+    <tr><td>Food (first year)</td><td>$300 – $600</td><td>Varies by size and quality of food</td></tr>
+    <tr><td>Litter (first year)</td><td>$150 – $300</td><td>Roughly $15–$25/month</td></tr>
+    <tr><td>Pet insurance (optional, first year)</td><td>$240 – $600</td><td>$20–$50/month depending on age and breed</td></tr>
+    <tr><td><strong>Total first-year cost</strong></td><td><strong>$700 – $4,500+</strong></td><td>Shelter cat at the low end, purebred kitten at the high end</td></tr>
+  </tbody>
+</table>
+
+<h2>Annual Costs (Year 2 Onward)</h2>
+<p>Once the one-time setup costs are out of the way, ongoing costs settle into a more predictable pattern:</p>
+
+<table>
+  <thead><tr><th>Expense</th><th>Annual Cost (US)</th><th>Monthly Equivalent</th></tr></thead>
+  <tbody>
+    <tr><td>Food</td><td>$300 – $600</td><td>$25 – $50</td></tr>
+    <tr><td>Litter</td><td>$150 – $300</td><td>$12 – $25</td></tr>
+    <tr><td>Routine vet care (annual exam, boosters, parasite prevention)</td><td>$200 – $400</td><td>$17 – $33</td></tr>
+    <tr><td>Pet insurance</td><td>$240 – $600</td><td>$20 – $50</td></tr>
+    <tr><td>Toys, scratchers, grooming supplies</td><td>$100 – $250</td><td>$8 – $21</td></tr>
+    <tr><td><strong>Annual total</strong></td><td><strong>$990 – $2,150</strong></td><td><strong>$82 – $180</strong></td></tr>
+  </tbody>
+</table>
+
+<p>Long-haired breeds (Persian, Maine Coon, Ragdoll) add $200–$500/year for professional grooming, while breeds prone to hereditary conditions (Persian, British Shorthair, Maine Coon) tend to run higher on both insurance premiums and routine vet bills.</p>
+
+<h2>Lifetime Cost Estimate</h2>
+<p>Cats commonly live 13–17 years — significantly longer than most dog breeds — which means the costs add up over a long horizon even though the annual figure is modest.</p>
+
+<ul>
+  <li><strong>Shelter / mixed-breed cat, no major health issues:</strong> $13,000 – $24,000 over 15 years</li>
+  <li><strong>Purebred cat, average health:</strong> $20,000 – $35,000 over 15 years</li>
+  <li><strong>Purebred cat with a chronic condition (e.g., HCM, kidney disease):</strong> $35,000 – $55,000+ over 15 years</li>
+</ul>
+
+<h2>The Single Biggest Variable: Vet Emergencies</h2>
+<p>Routine costs are predictable. Emergencies aren't. A single emergency vet visit for a cat — ingestion of a foreign object, a urinary blockage, a serious injury — typically costs $1,000–$5,000. Urinary blockages alone (common in male cats) often run $1,500–$3,000 with hospitalization.</p>
+
+<p>This is the core argument for pet insurance: a $20–$50/month premium is far easier to absorb than a sudden $3,000 bill. If you choose to self-insure, build a dedicated emergency fund of at least $2,000–$3,000 before you need it.</p>
+
+<h2>How to Keep Cat Costs Down</h2>
+<ul>
+  <li><strong>Adopt, don't shop.</strong> Shelter adoption fees are a fraction of breeder prices and usually include spay/neuter, vaccines, and a microchip.</li>
+  <li><strong>Buy litter and food in bulk.</strong> Subscribe-and-save options on litter and dry food typically cut costs by 10–15%.</li>
+  <li><strong>Get insurance early.</strong> Premiums are lowest — and pre-existing condition exclusions are avoided — when you insure a healthy young cat.</li>
+  <li><strong>Don't skip annual checkups.</strong> Catching dental disease, kidney issues, or hyperthyroidism early is dramatically cheaper than treating them once advanced.</li>
+  <li><strong>Choose your breed carefully.</strong> If budget is a major factor, mixed-breed and shorthair cats generally have lower grooming and vet costs than flat-faced or long-haired pedigree breeds.</li>
+</ul>
+
+<p>Want a number tailored to your situation? Use our <a href="/calculator?petType=cat">cat cost calculator</a> to get a personalized first-year, annual, and lifetime estimate based on your breed, location, and lifestyle.</p>
+    `,
+  },
+
+  {
+    id: 'cheapest-cat-breeds-2026',
+    slug: 'cheapest-cat-breeds-to-own-long-term',
+    title: '7 Cheapest Cat Breeds to Own Long-Term (2026)',
+    description: 'Looking for a budget-friendly cat? These 7 breeds combine low adoption costs, minimal grooming, and fewer hereditary health issues for lower lifetime expenses.',
+    category: 'cats',
+    author: 'PetCost-Calculator Team',
+    publishDate: '2026-06-22',
+    readTime: 7,
+    image: '/breeds/domestic-shorthair.png',
+    keywords: ['cheapest cat breeds', 'low maintenance cat breeds', 'budget cat breeds', 'affordable cats to own', 'cheap cats'],
+    content: `
+<h2>What Makes a Cat "Cheap" to Own?</h2>
+<p>The purchase price is just the start. Over a 13–17 year lifespan, the breeds that end up costing the least share three traits: low or no grooming requirements, robust general health with few breed-specific conditions, and modest food needs (i.e., not an oversized breed). Here are seven of the most budget-friendly cat breeds, ranked with realistic cost expectations.</p>
+
+<h2>1. Domestic Shorthair (Moggy)</h2>
+<p>The classic "house cat" — not a formal breed, but a category that covers the vast majority of cats in shelters. Domestic shorthairs benefit from genetic diversity (hybrid vigor), which generally means fewer hereditary conditions than pedigree breeds.</p>
+<ul>
+  <li><strong>Adoption fee:</strong> $35 – $100 from a shelter</li>
+  <li><strong>Annual costs:</strong> roughly $900 – $1,600</li>
+  <li><strong>Grooming:</strong> minimal — occasional brushing</li>
+  <li><strong>Lifetime estimate:</strong> $13,000 – $20,000</li>
+</ul>
+
+<h2>2. American Shorthair</h2>
+<p>A sturdy, easygoing breed with a strong reputation for good general health and a long lifespan (up to 15+ years). Low grooming needs and few breed-specific conditions keep both routine and insurance costs near the bottom of the pedigree range.</p>
+<ul>
+  <li><strong>Adoption fee:</strong> $35 – $400 (rescue to breeder)</li>
+  <li><strong>Annual costs:</strong> roughly $950 – $1,650</li>
+  <li><strong>Grooming:</strong> minimal</li>
+  <li><strong>Lifetime estimate:</strong> $14,000 – $22,000</li>
+</ul>
+
+<h2>3. Siamese</h2>
+<p>One of the longest-lived cat breeds — often reaching 15–17+ years — with a short, low-maintenance coat. Generally healthy, though some lines carry a higher risk of dental issues and amyloidosis. The long lifespan slightly increases lifetime totals, but annual costs stay reasonable.</p>
+<ul>
+  <li><strong>Adoption/purchase:</strong> $400 – $800 (breeder), less from rescue</li>
+  <li><strong>Annual costs:</strong> roughly $950 – $1,650</li>
+  <li><strong>Grooming:</strong> minimal</li>
+  <li><strong>Lifetime estimate:</strong> $16,000 – $24,000 (longer lifespan)</li>
+</ul>
+
+<h2>4. Bengal</h2>
+<p>Despite its exotic look, the Bengal is a relatively healthy, short-coated breed with low grooming needs. The main cost consideration is the upfront purchase price — Bengals from registered breeders aren't cheap to acquire — but ongoing costs are modest.</p>
+<ul>
+  <li><strong>Purchase price:</strong> $1,000 – $2,500 (this is the main expense)</li>
+  <li><strong>Annual costs:</strong> roughly $900 – $1,550</li>
+  <li><strong>Grooming:</strong> minimal</li>
+  <li><strong>Lifetime estimate (excluding purchase):</strong> $13,000 – $21,000</li>
+</ul>
+
+<h2>5. Russian Blue</h2>
+<p>A quiet, low-energy breed with a short double coat that's surprisingly easy to maintain (a weekly brush is plenty). Russian Blues are known for robust health and few hereditary issues, which keeps insurance premiums and vet bills predictable.</p>
+<ul>
+  <li><strong>Purchase price:</strong> $400 – $1,200</li>
+  <li><strong>Annual costs:</strong> roughly $900 – $1,500</li>
+  <li><strong>Grooming:</strong> low</li>
+  <li><strong>Lifetime estimate:</strong> $14,000 – $21,000</li>
+</ul>
+
+<h2>6. Burmese</h2>
+<p>A compact, muscular breed with a short, glossy coat that needs almost no grooming. Burmese cats are generally healthy, though prospective owners should ask breeders about hypokalemia (a treatable potassium-related condition in some lines).</p>
+<ul>
+  <li><strong>Purchase price:</strong> $500 – $1,200</li>
+  <li><strong>Annual costs:</strong> roughly $900 – $1,550</li>
+  <li><strong>Grooming:</strong> minimal</li>
+  <li><strong>Lifetime estimate:</strong> $13,500 – $21,000</li>
+</ul>
+
+<h2>7. Tonkinese</h2>
+<p>A cross between the Burmese and Siamese, Tonkinese cats inherit the low-maintenance coat and generally hardy constitution of both parent breeds. Friendly, adaptable, and inexpensive to feed and groom.</p>
+<ul>
+  <li><strong>Purchase price:</strong> $500 – $1,000</li>
+  <li><strong>Annual costs:</strong> roughly $900 – $1,550</li>
+  <li><strong>Grooming:</strong> minimal</li>
+  <li><strong>Lifetime estimate:</strong> $13,500 – $21,000</li>
+</ul>
+
+<h2>Breeds to Approach with a Bigger Budget</h2>
+<p>By contrast, Persians (heavy grooming + brachycephalic and kidney issues), Maine Coons (large size, HCM risk), Ragdolls (HCM risk), and Sphynx cats (no coat to insulate them, meaning higher heating/clothing and skin-care costs) all tend to run noticeably higher over a lifetime — often $30,000–$55,000+.</p>
+
+<h2>Tips to Keep Any Cat's Costs Down</h2>
+<ul>
+  <li><strong>Adopt from a shelter</strong> where possible — fees are a fraction of breeder prices and typically include spay/neuter and first vaccines.</li>
+  <li><strong>Insure early</strong> — even "healthy" breeds benefit from day-one coverage before any condition can be flagged as pre-existing.</li>
+  <li><strong>Stick to a consistent, quality diet</strong> — switching foods frequently can cause digestive issues that lead to vet visits.</li>
+  <li><strong>Check our <a href="/tools/gear">recommended gear page</a></strong> for budget-friendly litter boxes, scratchers, and feeding setups that hold up over time.</li>
+</ul>
+
+<p>Curious what your specific cat will cost? Try our <a href="/calculator?petType=cat">cat cost calculator</a> — select a breed and your location for a personalized estimate.</p>
+    `,
+  },
+
+  {
+    id: 'persian-cat-cost-guide-2026',
+    slug: 'how-much-does-a-persian-cat-cost',
+    title: 'How Much Does a Persian Cat Cost? Complete 2026 Guide',
+    description: 'A full breakdown of Persian cat ownership costs in 2026 — kitten price, grooming, vet care for brachycephalic and kidney issues, and lifetime totals.',
+    category: 'cats',
+    author: 'PetCost-Calculator Team',
+    publishDate: '2026-06-29',
+    readTime: 8,
+    image: '/breeds/persian.png',
+    keywords: ['persian cat cost', 'how much does a persian cat cost', 'persian cat expenses', 'persian cat annual cost', 'persian kitten price'],
+    content: `
+<h2>The Financial Reality of Owning a Persian Cat</h2>
+<p>With their flat faces, long flowing coats, and famously placid temperament, Persians are one of the most recognizable — and most demanding — cat breeds to own. Their distinctive looks come with two major ongoing cost drivers: daily grooming and breed-specific health monitoring. Here's a complete breakdown of what to expect in 2026.</p>
+
+<h2>Purchase Price: What to Expect</h2>
+<table>
+  <thead><tr><th>Region</th><th>Pet-Quality Kitten</th><th>Show-Quality Kitten</th></tr></thead>
+  <tbody>
+    <tr><td>United States</td><td>$800 – $1,800</td><td>$1,800 – $4,000+</td></tr>
+    <tr><td>United Kingdom</td><td>£600 – £1,200</td><td>£1,200 – £2,500+</td></tr>
+    <tr><td>Australia</td><td>AUD $1,000 – $2,200</td><td>AUD $2,200 – $4,000+</td></tr>
+  </tbody>
+</table>
+
+<p>Rescue Persians and Persian crosses occasionally appear through breed-specific rescues for $150–$400, often because owners underestimated the grooming commitment. This can be a great option if you're prepared for the maintenance but want to avoid breeder prices.</p>
+
+<h2>First-Year Cost Breakdown</h2>
+<table>
+  <thead><tr><th>Expense</th><th>US Cost</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Kitten purchase price</td><td>$800 – $1,800</td><td>Pet quality from a health-testing breeder</td></tr>
+    <tr><td>Initial vet check + vaccinations</td><td>$100 – $250</td><td>Includes baseline screening for PKD where possible</td></tr>
+    <tr><td>Spay / neuter</td><td>$150 – $400</td><td>If not already done</td></tr>
+    <tr><td>Microchipping</td><td>$45 – $75</td><td>Often bundled with desexing</td></tr>
+    <tr><td>Starter supplies + grooming kit</td><td>$250 – $450</td><td>Includes a quality slicker brush, comb, and grooming table mat</td></tr>
+    <tr><td>First-year food</td><td>$350 – $650</td><td>Persians are a moderate-size breed</td></tr>
+    <tr><td>Professional grooming (first year)</td><td>$300 – $600</td><td>Monthly or every-6-week full grooms</td></tr>
+    <tr><td>Pet insurance (first year)</td><td>$350 – $750</td><td>Higher premiums due to breed-specific conditions</td></tr>
+    <tr><td><strong>First-year total</strong></td><td><strong>$2,350 – $5,000+</strong></td><td>Including purchase price</td></tr>
+  </tbody>
+</table>
+
+<h2>Annual Ongoing Costs (Year 2+)</h2>
+<table>
+  <thead><tr><th>Expense</th><th>Annual Cost (US)</th></tr></thead>
+  <tbody>
+    <tr><td>Food</td><td>$400 – $700</td></tr>
+    <tr><td>Routine vet care (incl. eye and kidney monitoring)</td><td>$300 – $550</td></tr>
+    <tr><td>Litter</td><td>$150 – $300</td></tr>
+    <tr><td>Professional grooming (monthly)</td><td>$400 – $900</td></tr>
+    <tr><td>Pet insurance</td><td>$350 – $750</td></tr>
+    <tr><td>Supplies, toys, eye-cleaning wipes</td><td>$100 – $250</td></tr>
+    <tr><td><strong>Annual total (year 2+)</strong></td><td><strong>$1,700 – $3,450</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>Grooming: The Defining Cost of Persian Ownership</h2>
+<p>A Persian's long, dense coat mats easily and requires daily brushing at home — skipping even a few days can lead to painful mats that require shaving. Most owners supplement home care with professional grooming every 4–6 weeks ($40–$80 per session), and some Persians need a "lion cut" or sanitary trim more frequently to manage hygiene around the hindquarters.</p>
+
+<p>Daily eye-area cleaning is also routine for the breed — Persians are prone to excessive tear staining due to their flat-faced (brachycephalic) anatomy, requiring daily wiping with a damp cloth or specialized wipes ($10–$20/month).</p>
+
+<h2>Health Risks and What They Mean for Your Budget</h2>
+<p>Two conditions drive most of the breed-specific cost premium for Persians:</p>
+
+<ul>
+  <li><strong>Polycystic Kidney Disease (PKD):</strong> Affects an estimated 30-40% of the Persian population historically (lower in lines from PKD-tested parents). Annual ultrasound screening costs $150–$300; managing chronic kidney disease if it develops can run $100–$300/month in prescription diet and medication, with flare-ups costing $500–$2,000.</li>
+  <li><strong>Brachycephalic syndrome:</strong> Persians' flat faces can cause breathing difficulty, dental crowding, and chronic eye issues. Dental work is more frequent and more involved ($400–$1,200 per cleaning under anesthesia when crowding is severe), and eye infections requiring vet treatment ($75–$200 per visit) are common.</li>
+</ul>
+
+<h2>Lifetime Cost Estimate</h2>
+<p>Persians typically live 12–15 years.</p>
+<ul>
+  <li><strong>No major health events:</strong> $26,000 – $42,000 over 13 years</li>
+  <li><strong>With PKD or significant respiratory/dental management:</strong> $45,000 – $65,000+ over 13 years</li>
+</ul>
+
+<h2>Money-Saving Tips for Persian Owners</h2>
+<ul>
+  <li><strong>Ask for a PKD-clear pedigree.</strong> Confirm both parents have been ultrasound or DNA tested. This single check has the largest impact on lifetime cost risk.</li>
+  <li><strong>Learn to do basic grooming yourself.</strong> A daily 10-minute home brushing routine can stretch professional grooming intervals from monthly to every 6–8 weeks, saving $200–$400/year.</li>
+  <li><strong>Insure on day one.</strong> Given how common PKD and dental issues are in the breed, early enrollment avoids pre-existing condition exclusions on the costliest potential claims.</li>
+  <li><strong>Budget for dental cleanings proactively.</strong> Scheduling routine cleanings before crowding becomes severe is cheaper than emergency extractions later.</li>
+</ul>
+
+<p>Use our <a href="/breeds/persian">Persian cat cost calculator</a> for a personalized estimate based on your location and circumstances.</p>
+    `,
+  },
 ];
 
 export const getBlogArticleBySlug = (slug: string): BlogArticle | undefined =>
