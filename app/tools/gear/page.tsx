@@ -164,6 +164,32 @@ export default function GearPage() {
         </div>
       </div>
 
+      {/* Amazon Storefront banner */}
+      <div className="container-xl pt-8">
+        <a
+          href={productLinks.amazonStorefront.affiliateUrl ?? productLinks.amazonStorefront.directUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block rounded-2xl border border-[#C8E6C9] bg-[#E8F5E9] hover:shadow-md transition-shadow p-5 md:p-6"
+        >
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <div className="badge badge-blue mb-2">Our Amazon Storefront</div>
+              <h2 className="text-lg md:text-xl font-bold text-[#1B2B1B] mb-1">
+                Browse our full curated picks on Amazon
+              </h2>
+              <p className="text-sm text-[#5a7a5a]">
+                Every product on this page and more, organised in one place — updated regularly with our
+                current favourites.
+              </p>
+            </div>
+            <span className="btn-green text-sm whitespace-nowrap inline-flex items-center gap-1">
+              Visit Storefront <ExternalLink className="h-3.5 w-3.5" />
+            </span>
+          </div>
+        </a>
+      </div>
+
       {/* Quick category nav */}
       <div className="bg-white border-b border-[#C8E6C9] sticky top-0 z-20 shadow-sm">
         <div className="container-xl py-3 overflow-x-auto">

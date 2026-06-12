@@ -103,6 +103,12 @@ export const productLinks: Record<string, LinkEntry> = {
     // Program: Amazon Associates — Store ID: petcost0e-20
     affiliateUrl: "https://www.amazon.com/pet-supplies/b?node=2619533011&tag=petcost0e-20",
   },
+  amazonStorefront: {
+    name: "Amazon Storefront (Influencer)",
+    // Amazon Influencer Program storefront — shortlink already carries the tag
+    directUrl: "https://amzn.to/4xf4XJ4",
+    affiliateUrl: "https://amzn.to/4xf4XJ4",
+  },
 };
 
 // ---------------------------------------------------------------------------
