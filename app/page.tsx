@@ -14,7 +14,7 @@ const featuredBreedMeta = [
   { id: "golden-retriever",     name: "Golden Retriever",    tag: "Most Popular",      petType: "dog" as const },
   { id: "french-bulldog",       name: "French Bulldog",      tag: "Trending",          petType: "dog" as const },
   { id: "labrador-retriever",   name: "Labrador Retriever",  tag: "Family Favourite",  petType: "dog" as const },
-  { id: "domestic-shorthair",   name: "Domestic Shorthair",  tag: "Most Affordable",   petType: "cat" as const },
+  { id: "american-shorthair",   name: "American Shorthair",  tag: "Most Affordable",   petType: "cat" as const },
   { id: "german-shepherd-dog",  name: "German Shepherd",     tag: "Active Lifestyle",  petType: "dog" as const },
   { id: "ragdoll",              name: "Ragdoll Cat",         tag: "Indoor Cat",        petType: "cat" as const },
   { id: "beagle",               name: "Beagle",              tag: "Budget-Friendly",   petType: "dog" as const },

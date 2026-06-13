@@ -186,10 +186,10 @@ export default function CostResults({ results, inputs, onReset }: Props) {
             </span>
             <span className="text-xs text-green-200">
               {pctVsAvg > 0
-                ? `≈ ${pctVsAvg}% above the ${regionData.label.toLowerCase()} for ${inputs.petType}s`
+                ? `≈ ${pctVsAvg}% above the ${regionData.label} for ${inputs.petType}s`
                 : pctVsAvg < 0
-                ? `≈ ${Math.abs(pctVsAvg)}% below the ${regionData.label.toLowerCase()} for ${inputs.petType}s`
-                : `In line with the ${regionData.label.toLowerCase()}`}
+                ? `≈ ${Math.abs(pctVsAvg)}% below the ${regionData.label} for ${inputs.petType}s`
+                : `In line with the ${regionData.label}`}
             </span>
           </div>
         </div>
