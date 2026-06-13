@@ -100,20 +100,20 @@ export default function HeroSearch() {
       {/* Search box */}
       <div ref={wrapperRef} className="relative">
         <div className="flex items-center bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-transparent focus-within:border-[#A5D6A7] transition-all">
-          <Search className="ml-4 h-5 w-5 text-slate-400 flex-shrink-0" />
+          <Search className="ml-3 sm:ml-4 h-5 w-5 text-slate-400 flex-shrink-0" />
           <input
             type="text"
             value={query}
             onChange={(e) => { setQuery(e.target.value); setOpen(true); }}
             onFocus={() => setOpen(true)}
             placeholder={`Search ${breeds.length}+ ${petType} breeds…`}
-            className="flex-1 px-4 py-4 text-base text-[#1B2B1B] placeholder-slate-400 bg-transparent outline-none"
+            className="flex-1 min-w-0 px-3 sm:px-4 py-4 text-base text-[#1B2B1B] placeholder-slate-400 bg-transparent outline-none"
           />
           <button
             onClick={() => router.push(`/calculator`)}
-            className="m-2 flex items-center gap-2 rounded-xl bg-[#2E7D32] text-white font-semibold px-5 py-2.5 text-sm hover:bg-[#1B5E20] transition-all flex-shrink-0"
+            className="m-2 flex items-center gap-2 rounded-xl bg-[#2E7D32] text-white font-semibold px-4 sm:px-5 py-2.5 text-sm hover:bg-[#1B5E20] transition-all flex-shrink-0"
           >
-            Calculate <ArrowRight className="h-4 w-4" />
+            Calculate <ArrowRight className="hidden sm:block h-4 w-4" />
           </button>
         </div>
 

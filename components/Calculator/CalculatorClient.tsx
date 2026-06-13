@@ -25,41 +25,82 @@ const STEP_NUMBERS: Record<Step, number> = {
   "pet-type": 1, breed: 2, location: 3, lifestyle: 4, costs: 5, results: 6,
 };
 
+// Inputs serialized into the URL so results are shareable and survive refresh
+const SHARE_KEYS = [
+  "petType", "breedId", "location", "livingSituation", "workSchedule",
+  "travelFrequency", "activityLevel", "insurance", "training", "foodType",
+  "groomingFrequency", "daycareFrequency", "dentalCare",
+] as const;
+
+function inputsToQuery(inputs: Partial<CalculatorInputs>): string {
+  const params = new URLSearchParams();
+  for (const key of SHARE_KEYS) {
+    const v = inputs[key];
+    if (v !== undefined && v !== null && v !== "") params.set(key, String(v));
+  }
+  params.set("view", "results");
+  return params.toString();
+}
+
+const DEFAULT_INPUTS: Partial<CalculatorInputs> = {
+  petType: "dog",
+  insurance: "maybe",
+  training: "maybe",
+  foodType: "standard",
+  groomingFrequency: "monthly",
+  daycareFrequency: "never",
+  dentalCare: "as-needed",
+  livingSituation: "own-home",
+  workSchedule: "full-time",
+  travelFrequency: "occasionally",
+  activityLevel: "moderate",
+};
+
 export default function CalculatorClient() {
   const searchParams = useSearchParams();
   const [step, setStep] = useState<Step>("pet-type");
-  const [inputs, setInputs] = useState<Partial<CalculatorInputs>>({
-    petType: "dog",
-    insurance: "maybe",
-    training: "maybe",
-    foodType: "standard",
-    groomingFrequency: "monthly",
-    daycareFrequency: "never",
-    dentalCare: "as-needed",
-    livingSituation: "own-home",
-    workSchedule: "full-time",
-    travelFrequency: "occasionally",
-    activityLevel: "moderate",
-  });
+  const [inputs, setInputs] = useState<Partial<CalculatorInputs>>(DEFAULT_INPUTS);
   const [breedSearch, setBreedSearch] = useState("");
 
-  // Pre-populate from URL params (e.g. ?breedId=golden-retriever&petType=dog)
+  const [results, setResults] = useState<CostBreakdown | null>(null);
+
+  // Pre-populate from URL params (e.g. ?breedId=golden-retriever&petType=dog),
+  // and restore full shared/refreshed results when ?view=results is present.
   useEffect(() => {
     const urlBreedId = searchParams.get("breedId");
     const urlPetType = searchParams.get("petType") as "dog" | "cat" | null;
-    if (urlBreedId && urlPetType) {
-      const breed = getBreedById(urlPetType, urlBreedId);
-      setInputs((prev) => ({
-        ...prev,
-        petType: urlPetType,
-        breedId: urlBreedId,
-      }));
-      if (breed) setBreedSearch(breed.name);
-      setStep("location");
+    if (!urlBreedId || !urlPetType) return;
+
+    const isResultsView = searchParams.get("view") === "results";
+    const urlLocation = searchParams.get("location");
+
+    if (isResultsView && urlLocation) {
+      // Rebuild full inputs from the URL and jump straight to results
+      const restored: Partial<CalculatorInputs> = {};
+      for (const key of SHARE_KEYS) {
+        const v = searchParams.get(key);
+        if (v) (restored as Record<string, string>)[key] = v;
+      }
+      const merged = { ...DEFAULT_INPUTS, ...restored } as CalculatorInputs;
+      const calc = calculateCosts(merged);
+      if (calc) {
+        setInputs(merged);
+        setResults(calc);
+        setStep("results");
+        return;
+      }
     }
+
+    const breed = getBreedById(urlPetType, urlBreedId);
+    setInputs((prev) => ({
+      ...prev,
+      petType: urlPetType,
+      breedId: urlBreedId,
+    }));
+    if (breed) setBreedSearch(breed.name);
+    setStep("location");
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  const [results, setResults] = useState<CostBreakdown | null>(null);
 
   const allBreeds = useMemo(() => getAllBreeds(inputs.petType ?? "dog"), [inputs.petType]);
   const breeds = useMemo(
@@ -83,6 +124,8 @@ export default function CalculatorClient() {
           return;
         }
         setResults(calc);
+        // Persist state in the URL so results are shareable and survive refresh
+        window.history.replaceState(null, "", `/calculator?${inputsToQuery(inputs)}`);
       }
       setStep(next);
     }
@@ -105,7 +148,7 @@ export default function CalculatorClient() {
   const progress = ((stepNum - 1) / (totalSteps - 1)) * 100;
 
   if (step === "results" && results) {
-    return <CostResults results={results} inputs={inputs as CalculatorInputs} onReset={() => { setStep("pet-type"); setResults(null); }} />;
+    return <CostResults results={results} inputs={inputs as CalculatorInputs} onReset={() => { setStep("pet-type"); setResults(null); window.history.replaceState(null, "", "/calculator"); }} />;
   }
 
   return (
@@ -171,7 +214,7 @@ export default function CalculatorClient() {
                 className="input-field pl-10"
               />
             </div>
-            <div className="max-h-72 overflow-y-auto space-y-1.5 rounded-xl border border-slate-100 p-2">
+            <div className="max-h-[55vh] md:max-h-72 overflow-y-auto overscroll-contain space-y-1.5 rounded-xl border border-slate-100 p-2">
               {breeds.length === 0 ? (
                 <div className="text-center py-8 text-slate-400 text-sm">No breeds found. Try a different search.</div>
               ) : (

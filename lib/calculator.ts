@@ -78,6 +78,26 @@ export function getBreedById(petType: "dog" | "cat", breedId: string): Breed | u
   return getAllBreeds(petType).find((b) => b.id === breedId);
 }
 
+// ── Canonical baseline totals ────────────────────────────────────────────────
+// Single source of truth for the "default" (US national average) breed costs.
+// Used by the homepage, breed pages, comparison table, and metadata so the
+// same breed never shows different baseline numbers in different places.
+
+export function getBreedFirstYearTotal(breed: Breed): number {
+  return (
+    breed.adoptionFee + breed.initialVet + breed.initialSupplies + breed.training +
+    breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualInsurance
+  );
+}
+
+export function getBreedAnnualTotal(breed: Breed): number {
+  return breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualInsurance + breed.annualSupplies;
+}
+
+export function getBreedLifetimeTotal(breed: Breed): number {
+  return getBreedFirstYearTotal(breed) + getBreedAnnualTotal(breed) * (breed.lifespan - 1);
+}
+
 export function calculateCosts(inputs: CalculatorInputs): CostBreakdown | null {
   const breed = getBreedById(inputs.petType, inputs.breedId);
   if (!breed) return null;

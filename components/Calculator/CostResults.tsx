@@ -2,11 +2,59 @@
 
 import { useState } from "react";
 import { RotateCcw, Share2, AlertTriangle, TrendingUp, Shield, Lightbulb, Printer, ExternalLink, Mail } from "lucide-react";
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, CartesianGrid, Legend } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, CartesianGrid, Legend } from "recharts";
 import { type CostBreakdown, type CalculatorInputs, getBreedById, getAllBreeds } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import { productLinks, insuranceCompareCta, resolveLink, amazonSearchLink, recommendedSuppliesQuery } from "@/lib/affiliateLinks";
 import Link from "next/link";
+import BreedImage from "@/components/BreedImage";
+
+// Pure-SVG donut chart — renders reliably at any viewport width (recharts'
+// ResponsiveContainer collapsed to 0px inside flex parents on mobile).
+function DonutChart({ data, colors }: { data: { name: string; value: number }[]; colors: string[] }) {
+  const total = data.reduce((sum, d) => sum + d.value, 0);
+  if (total <= 0) return null;
+  const R = 70;
+  const C = 2 * Math.PI * R;
+  let offset = 0;
+  return (
+    <div className="flex flex-col items-center gap-3 w-full">
+      <svg viewBox="0 0 200 200" className="w-44 h-44" role="img" aria-label="Cost distribution chart">
+        {data.map((d, i) => {
+          const frac = d.value / total;
+          const seg = (
+            <circle
+              key={d.name}
+              cx="100" cy="100" r={R}
+              fill="none"
+              stroke={colors[i % colors.length]}
+              strokeWidth="34"
+              strokeDasharray={`${frac * C} ${C}`}
+              strokeDashoffset={-offset * C}
+              transform="rotate(-90 100 100)"
+            />
+          );
+          offset += frac;
+          return seg;
+        })}
+        <text x="100" y="96" textAnchor="middle" className="fill-[#1B2B1B]" fontSize="20" fontWeight="700">
+          {formatCurrency(total)}
+        </text>
+        <text x="100" y="116" textAnchor="middle" className="fill-[#5a7a5a]" fontSize="11">
+          first year
+        </text>
+      </svg>
+      <div className="flex flex-wrap justify-center gap-x-3 gap-y-1">
+        {data.map((d, i) => (
+          <span key={d.name} className="inline-flex items-center gap-1.5 text-[11px] text-slate-500">
+            <span className="h-2 w-2 rounded-full inline-block" style={{ backgroundColor: colors[i % colors.length] }} />
+            {d.name} {Math.round((d.value / total) * 100)}%
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 interface Props {
   results: CostBreakdown;
@@ -49,6 +97,7 @@ export default function CostResults({ results, inputs, onReset }: Props) {
   const [activeTab, setActiveTab] = useState<"overview" | "annual" | "lifetime" | "projection">("overview");
   const [inflationRate, setInflationRate] = useState(4);
   const [emailSaved, setEmailSaved] = useState(false);
+  const [linkCopied, setLinkCopied] = useState(false);
   const breed = getBreedById(inputs.petType, inputs.breedId);
 
   // Cheaper alternatives: same pet type, same size, lower base annual costs
@@ -99,6 +148,12 @@ export default function CostResults({ results, inputs, onReset }: Props) {
   const score = affordabilityScore();
   const showInsuranceCTA = inputs.insurance === "no" || !inputs.insurance;
 
+  // Regional average — used for the header context line and comparison card
+  const region = detectRegion(inputs.location ?? "");
+  const regionData = NATIONAL_AVG_ANNUAL[region];
+  const regionAvg = regionData[inputs.petType];
+  const pctVsAvg = Math.round(((results.annual.total - regionAvg) / regionAvg) * 100);
+
   function handleShare() {
     const text = `I calculated the cost of owning a ${breed?.name ?? "pet"}. First year: ${formatCurrency(results.firstYear.total)}. Lifetime: ${formatCurrency(results.lifetime.total)}.`;
     if (navigator.share) {
@@ -113,14 +168,30 @@ export default function CostResults({ results, inputs, onReset }: Props) {
       {/* Header summary */}
       <div className="bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white rounded-2xl p-6 md:p-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-          <div>
-            <p className="text-green-300 text-sm mb-1">Cost report for</p>
-            <h2 className="text-2xl md:text-3xl font-bold">{breed?.name ?? "Your Pet"}</h2>
-            <p className="text-green-300 text-sm mt-1">{inputs.location} · {inputs.petType === "dog" ? "Dog" : "Cat"}</p>
+          <div className="flex items-center gap-4">
+            {breed && (
+              <div className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-2xl bg-white/10 overflow-hidden flex-shrink-0">
+                <BreedImage breedId={breed.id} petType={inputs.petType} alt={breed.name} fill sizes="96px" className="p-1" />
+              </div>
+            )}
+            <div>
+              <p className="text-green-300 text-sm mb-1">Cost report for</p>
+              <h2 className="text-2xl md:text-3xl font-bold">{breed?.name ?? "Your Pet"}</h2>
+              <p className="text-green-300 text-sm mt-1">{inputs.location} · {inputs.petType === "dog" ? "Dog" : "Cat"}</p>
+            </div>
           </div>
-          <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-sm font-semibold ${score.bg} ${score.color} ${score.border} border`}>
-            {score.label}
-          </span>
+          <div className="flex flex-col items-start md:items-end gap-1.5">
+            <span className={`inline-flex items-center px-3 py-1.5 rounded-full text-sm font-semibold ${score.bg} ${score.color} ${score.border} border`}>
+              {score.label}
+            </span>
+            <span className="text-xs text-green-200">
+              {pctVsAvg > 0
+                ? `≈ ${pctVsAvg}% above the ${regionData.label.toLowerCase()} for ${inputs.petType}s`
+                : pctVsAvg < 0
+                ? `≈ ${Math.abs(pctVsAvg)}% below the ${regionData.label.toLowerCase()} for ${inputs.petType}s`
+                : `In line with the ${regionData.label.toLowerCase()}`}
+            </span>
+          </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
@@ -157,9 +228,7 @@ export default function CostResults({ results, inputs, onReset }: Props) {
 
       {/* National average comparison */}
       {(() => {
-        const region = detectRegion(inputs.location ?? "");
-        const regionData = NATIONAL_AVG_ANNUAL[region];
-        const avg = regionData[inputs.petType];
+        const avg = regionAvg;
         const yours = results.annual.total;
         const diff = yours - avg;
         const maxVal = Math.max(yours, avg) * 1.1;
@@ -204,11 +273,17 @@ export default function CostResults({ results, inputs, onReset }: Props) {
         <div className="flex items-start gap-3">
           <Mail className="h-5 w-5 text-[#2E7D32] flex-shrink-0 mt-0.5" />
           <div className="flex-1">
-            <h3 className="text-sm font-bold text-[#1B2B1B] mb-1">Save your results</h3>
-            <p className="text-xs text-[#5a7a5a] mb-3">Copy a plain-text summary to paste into notes, or use the Print button below to save as a PDF.</p>
-            {emailSaved ? (
-              <p className="text-sm font-semibold text-[#2E7D32]">✓ Summary copied to clipboard!</p>
-            ) : (
+            <h3 className="text-sm font-bold text-[#1B2B1B] mb-1">Save or share your results</h3>
+            <p className="text-xs text-[#5a7a5a] mb-3">Your results now live at this page&apos;s link — send it to a partner, or copy a plain-text summary. Use Print below to save as a PDF.</p>
+            <div className="flex flex-wrap gap-2">
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(window.location.href).then(() => setLinkCopied(true));
+                }}
+                className="rounded-xl bg-[#2E7D32] text-white text-sm font-semibold px-4 py-2 hover:bg-[#1B5E20] transition-colors"
+              >
+                {linkCopied ? "✓ Link copied!" : "Copy Share Link"}
+              </button>
               <button
                 onClick={() => {
                   const summary = [
@@ -219,15 +294,16 @@ export default function CostResults({ results, inputs, onReset }: Props) {
                     `Annual Ongoing:   ${formatCurrency(results.annual.total)} (${formatCurrency(results.annual.total / 12)}/mo)`,
                     `Lifetime Total:   ${formatCurrency(results.lifetime.total)} over ${results.lifetime.years} years`,
                     ``,
+                    `Full report: ${window.location.href}`,
                     `Generated by PetCost-Calculator.com`,
                   ].join("\n");
                   navigator.clipboard.writeText(summary).then(() => setEmailSaved(true));
                 }}
-                className="rounded-xl bg-[#2E7D32] text-white text-sm font-semibold px-4 py-2 hover:bg-[#1B5E20] transition-colors"
+                className="rounded-xl border border-[#2E7D32] text-[#2E7D32] text-sm font-semibold px-4 py-2 hover:bg-[#E8F5E9] transition-colors"
               >
-                Copy Summary
+                {emailSaved ? "✓ Summary copied!" : "Copy Summary"}
               </button>
-            )}
+            </div>
           </div>
         </div>
       </div>
@@ -268,15 +344,8 @@ export default function CostResults({ results, inputs, onReset }: Props) {
           </div>
           <div className="card p-6 flex flex-col">
             <h3 className="text-base font-bold text-[#1B2B1B] mb-4">Cost Distribution</h3>
-            <div className="flex-1 min-h-[200px]">
-              <ResponsiveContainer width="100%" height={200}>
-                <PieChart>
-                  <Pie data={firstYearData} cx="50%" cy="50%" outerRadius={80} dataKey="value" stroke="none">
-                    {firstYearData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
-                  </Pie>
-                  <Tooltip formatter={(v: number) => formatCurrency(v)} />
-                </PieChart>
-              </ResponsiveContainer>
+            <div className="flex-1 flex items-center justify-center min-h-[200px]">
+              <DonutChart data={firstYearData} colors={COLORS} />
             </div>
           </div>
         </div>
@@ -315,6 +384,7 @@ export default function CostResults({ results, inputs, onReset }: Props) {
         <div className="space-y-5">
           <div className="card p-6">
             <h3 className="text-base font-bold text-[#1B2B1B] mb-4">Year-by-Year Costs</h3>
+            <div className="w-full min-w-0">
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={yearlyData} barSize={24}>
                 <XAxis dataKey="year" tick={{ fontSize: 11 }} />
@@ -323,6 +393,7 @@ export default function CostResults({ results, inputs, onReset }: Props) {
                 <Bar dataKey="cost" fill="#2E7D32" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div className="card p-5">
@@ -357,6 +428,7 @@ export default function CostResults({ results, inputs, onReset }: Props) {
               />
             </div>
           </div>
+          <div className="w-full min-w-0">
           <ResponsiveContainer width="100%" height={250}>
             <LineChart data={projectionData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#E8F5E9" />
@@ -368,6 +440,7 @@ export default function CostResults({ results, inputs, onReset }: Props) {
               <Line type="monotone" dataKey="cumulative" name="Cumulative" stroke="#F59E0B" strokeWidth={2} dot={false} />
             </LineChart>
           </ResponsiveContainer>
+          </div>
           <div className="mt-4 grid grid-cols-2 gap-4">
             <div className="rounded-xl bg-[#F1F8F1] p-4">
               <div className="text-xs text-slate-500 mb-1">Year 10 annual cost</div>

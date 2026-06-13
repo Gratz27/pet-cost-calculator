@@ -57,6 +57,7 @@ function PawPlaceholder({ petType, alt, fill, className }: Pick<Props, "petType"
 
 export default function BreedImage({ breedId, petType, alt, fill, className, sizes }: Props) {
   const [failed, setFailed] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const localSrc = `/breeds/${breedId}.png`;
 
@@ -74,13 +75,32 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
     .trim();
 
   return (
-    <Image
-      src={localSrc}
-      alt={alt}
-      fill={fill}
-      className={`object-contain object-bottom ${safeClass}`}
-      sizes={sizes}
-      onError={() => setFailed(true)}
-    />
+    <>
+      {/* Skeleton shown until the (lazy-loaded) image paints — prevents
+          empty white boxes on slow connections */}
+      {!loaded && (
+        <div
+          aria-hidden
+          className={`${fill ? "absolute inset-0" : "w-full h-full"} flex items-center justify-center bg-[#E8F5E9] animate-pulse`}
+        >
+          <svg viewBox="0 0 64 64" className="w-10 h-10 opacity-25 text-[#2E7D32]" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="32" cy="38" rx="13" ry="11" />
+            <ellipse cx="16" cy="24" rx="6" ry="7" />
+            <ellipse cx="26" cy="18" rx="6" ry="7" />
+            <ellipse cx="38" cy="18" rx="6" ry="7" />
+            <ellipse cx="48" cy="24" rx="6" ry="7" />
+          </svg>
+        </div>
+      )}
+      <Image
+        src={localSrc}
+        alt={alt}
+        fill={fill}
+        className={`object-contain object-bottom transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"} ${safeClass}`}
+        sizes={sizes}
+        onLoad={() => setLoaded(true)}
+        onError={() => setFailed(true)}
+      />
+    </>
   );
 }

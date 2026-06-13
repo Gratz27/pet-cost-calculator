@@ -1,26 +1,28 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Shield, TrendingUp, Clock, Star, ChevronRight, Calculator, BarChart3, Users, Mail, BookOpen } from "lucide-react";
-import { getAllBreeds } from "@/lib/calculator";
+import { getAllBreeds, getBreedById, getBreedFirstYearTotal, getBreedAnnualTotal } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import EmailCapture from "@/components/EmailCapture";
 import HeroSearch from "@/components/HeroSearch";
 import BreedImage from "@/components/BreedImage";
 import AdUnit from "@/components/AdUnit";
 
-const featuredBreeds = [
-  { id: "golden-retriever",     name: "Golden Retriever",    firstYearEstimate: 4200, tag: "Most Popular",      petType: "dog" as const },
-  { id: "french-bulldog",       name: "French Bulldog",      firstYearEstimate: 5100, tag: "Trending",          petType: "dog" as const },
-  { id: "labrador-retriever",   name: "Labrador Retriever",  firstYearEstimate: 3800, tag: "Family Favourite",  petType: "dog" as const },
-  { id: "domestic-shorthair",   name: "Domestic Shorthair",  firstYearEstimate: 1600, tag: "Most Affordable",   petType: "cat" as const },
-  { id: "german-shepherd-dog",  name: "German Shepherd",     firstYearEstimate: 4500, tag: "Active Lifestyle",  petType: "dog" as const },
-  { id: "ragdoll",              name: "Ragdoll Cat",         firstYearEstimate: 2800, tag: "Indoor Cat",        petType: "cat" as const },
-  { id: "beagle",               name: "Beagle",              firstYearEstimate: 3100, tag: "Budget-Friendly",   petType: "dog" as const },
-  { id: "maine-coon",           name: "Maine Coon",          firstYearEstimate: 2600, tag: "Gentle Giant",      petType: "cat" as const },
-  { id: "siberian-husky",       name: "Siberian Husky",      firstYearEstimate: 4100, tag: "High Energy",       petType: "dog" as const },
-  { id: "bengal",               name: "Bengal Cat",          firstYearEstimate: 3200, tag: "Low Maintenance",   petType: "cat" as const },
-  { id: "poodle-standard",      name: "Poodle",              firstYearEstimate: 4300, tag: "Hypoallergenic",    petType: "dog" as const },
-  { id: "border-collie",        name: "Border Collie",       firstYearEstimate: 3700, tag: "Working Dog",       petType: "dog" as const },
+// First-year estimates are computed from breed data via getBreedFirstYearTotal
+// so homepage, breed pages, and the calculator always agree on baseline costs.
+const featuredBreedMeta = [
+  { id: "golden-retriever",     name: "Golden Retriever",    tag: "Most Popular",      petType: "dog" as const },
+  { id: "french-bulldog",       name: "French Bulldog",      tag: "Trending",          petType: "dog" as const },
+  { id: "labrador-retriever",   name: "Labrador Retriever",  tag: "Family Favourite",  petType: "dog" as const },
+  { id: "domestic-shorthair",   name: "Domestic Shorthair",  tag: "Most Affordable",   petType: "cat" as const },
+  { id: "german-shepherd-dog",  name: "German Shepherd",     tag: "Active Lifestyle",  petType: "dog" as const },
+  { id: "ragdoll",              name: "Ragdoll Cat",         tag: "Indoor Cat",        petType: "cat" as const },
+  { id: "beagle",               name: "Beagle",              tag: "Budget-Friendly",   petType: "dog" as const },
+  { id: "maine-coon",           name: "Maine Coon",          tag: "Gentle Giant",      petType: "cat" as const },
+  { id: "siberian-husky",       name: "Siberian Husky",      tag: "High Energy",       petType: "dog" as const },
+  { id: "bengal",               name: "Bengal Cat",          tag: "Low Maintenance",   petType: "cat" as const },
+  { id: "poodle-standard",      name: "Poodle",              tag: "Hypoallergenic",    petType: "dog" as const },
+  { id: "border-collie",        name: "Border Collie",       tag: "Working Dog",       petType: "dog" as const },
 ];
 
 const stats = [
@@ -84,6 +86,40 @@ const testimonials = [
 export default function HomePage() {
   const dogs = getAllBreeds("dog");
   const cats = getAllBreeds("cat");
+
+  // Resolve featured breeds against real data so prices match breed pages
+  const featuredBreeds = featuredBreedMeta
+    .map((meta) => {
+      const breed = getBreedById(meta.petType, meta.id);
+      return breed ? { ...meta, firstYearEstimate: getBreedFirstYearTotal(breed) } : null;
+    })
+    .filter((b): b is NonNullable<typeof b> => b !== null);
+
+  // Comparison table rows computed from the same canonical data
+  const comparisonRows = [
+    { id: "golden-retriever",  petType: "dog" as const, emoji: "🐕" },
+    { id: "french-bulldog",    petType: "dog" as const, emoji: "🐕" },
+    { id: "labrador-retriever",petType: "dog" as const, emoji: "🐕" },
+    { id: "maine-coon",        petType: "cat" as const, emoji: "🐈" },
+    { id: "poodle-standard",   petType: "dog" as const, emoji: "🐕" },
+  ]
+    .map(({ id, petType, emoji }) => {
+      const breed = getBreedById(petType, id);
+      if (!breed) return null;
+      const year1 = getBreedFirstYearTotal(breed);
+      const annual = getBreedAnnualTotal(breed);
+      return {
+        name: breed.name,
+        emoji,
+        href: `/breeds/${breed.id}`,
+        year1,
+        annual,
+        lifetime: year1 + annual * (breed.lifespan - 1),
+        monthly: Math.round(annual / 12),
+        years: breed.lifespan,
+      };
+    })
+    .filter((r): r is NonNullable<typeof r> => r !== null);
 
   const jsonLd = [
     {
@@ -205,37 +241,35 @@ export default function HomePage() {
           <p className="section-subheading max-w-xl mx-auto">Click any breed for a full cost breakdown, or search for your specific breed above.</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-          {featuredBreeds.map((breed, idx) => (
+        {/* 2-up on mobile with compact cards keeps this section thumb-friendly */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+          {featuredBreeds.map((breed) => (
             <Link key={breed.id} href={`/breeds/${breed.id}`}
               className="card overflow-hidden group hover:border-[#4CAF50]/50">
-              <div className="relative h-48 bg-[#E8F5E9] overflow-hidden">
+              <div className="relative h-28 sm:h-40 lg:h-48 bg-[#E8F5E9] overflow-hidden">
                 <BreedImage
                   breedId={breed.id}
                   petType={breed.petType}
                   alt={breed.name}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  sizes="(max-width: 1024px) 50vw, 25vw"
                   className="group-hover:scale-105 transition-transform duration-300 p-2"
                 />
-                <span className="absolute top-3 right-3 badge badge-green shadow-sm text-xs">{breed.tag}</span>
+                <span className="absolute top-2 right-2 badge badge-green shadow-sm text-[10px] sm:text-xs">{breed.tag}</span>
               </div>
-              <div className="p-4 flex items-center justify-between">
-                <div>
-                  <h3 className="font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] transition-colors text-sm">{breed.name}</h3>
-                  <p className="text-xs text-[#5a7a5a] mt-0.5">Year 1 from {formatCurrency(breed.firstYearEstimate)}</p>
+              <div className="p-3 sm:p-4 flex items-center justify-between gap-1">
+                <div className="min-w-0">
+                  <h3 className="font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] transition-colors text-xs sm:text-sm truncate">{breed.name}</h3>
+                  <p className="text-[11px] sm:text-xs text-[#5a7a5a] mt-0.5">Year 1 ≈ {formatCurrency(breed.firstYearEstimate)}</p>
                 </div>
-                <ChevronRight className="h-5 w-5 text-[#C8E6C9] group-hover:text-[#2E7D32] transition-colors" />
+                <ChevronRight className="hidden sm:block h-5 w-5 text-[#C8E6C9] group-hover:text-[#2E7D32] transition-colors flex-shrink-0" />
               </div>
             </Link>
           ))}
         </div>
 
         <div className="mt-8 text-center">
-          <Link href="/breeds" className="btn-secondary mr-3">View All Breeds</Link>
-          <Link href="/calculator" className="btn-primary">
-            <Calculator className="h-4 w-4" /> Calculate My Costs
-          </Link>
+          <Link href="/breeds" className="btn-secondary">View All Breeds</Link>
         </div>
       </section>
 
@@ -254,52 +288,71 @@ export default function HomePage() {
               Year 1 is always the most expensive — setup costs, initial vet visits, training, and supplies stack up fast. Here&apos;s what five of the most popular breeds actually cost.
             </p>
           </div>
-          <div className="overflow-x-auto rounded-2xl border border-[#C8E6C9]">
+          {/* Desktop: full table */}
+          <div className="hidden md:block overflow-x-auto rounded-2xl border border-[#C8E6C9]">
             <table className="w-full min-w-[600px]">
               <thead>
                 <tr className="bg-[#E8F5E9]">
                   <th className="text-left px-5 py-4 text-sm font-bold text-[#1B2B1B]">Breed</th>
                   <th className="text-right px-5 py-4 text-sm font-bold text-[#1B2B1B]">Year 1 Total</th>
                   <th className="text-right px-5 py-4 text-sm font-bold text-[#1B2B1B]">Annual (yr 2+)</th>
-                  <th className="text-right px-5 py-4 text-sm font-bold text-[#1B2B1B]">15-yr Lifetime</th>
+                  <th className="text-right px-5 py-4 text-sm font-bold text-[#1B2B1B]">Lifetime</th>
                   <th className="text-right px-5 py-4 text-sm font-bold text-[#1B2B1B]">Per Month</th>
                 </tr>
               </thead>
               <tbody>
-                {[
-                  { name: "Golden Retriever", emoji: "🐕", year1: 4200, annual: 2800, years: 11, href: "/breeds/golden-retriever" },
-                  { name: "French Bulldog",   emoji: "🐕", year1: 5100, annual: 3400, years: 10, href: "/breeds/french-bulldog" },
-                  { name: "Labrador",         emoji: "🐕", year1: 3800, annual: 2600, years: 12, href: "/breeds/labrador-retriever" },
-                  { name: "Maine Coon",       emoji: "🐈", year1: 2900, annual: 1800, years: 14, href: "/breeds/maine-coon" },
-                  { name: "Poodle (Standard)",emoji: "🐕", year1: 4300, annual: 3200, years: 12, href: "/breeds/poodle-standard" },
-                ].map((breed, i) => {
-                  const lifetime = breed.year1 + breed.annual * (breed.years - 1);
-                  const monthly = Math.round(breed.annual / 12);
-                  return (
-                    <tr key={breed.name} className={`border-t border-[#E8F5E9] hover:bg-[#F1F8F1] transition-colors ${i % 2 === 0 ? "" : "bg-[#F9FDF9]"}`}>
-                      <td className="px-5 py-4">
-                        <Link href={breed.href} className="flex items-center gap-2 group">
-                          <span className="text-xl">{breed.emoji}</span>
-                          <span className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32] transition-colors">{breed.name}</span>
-                        </Link>
-                      </td>
-                      <td className="px-5 py-4 text-right">
-                        <span className="text-sm font-bold text-[#EF4444]">{formatCurrency(breed.year1)}</span>
-                      </td>
-                      <td className="px-5 py-4 text-right">
-                        <span className="text-sm font-semibold text-[#1B2B1B]">{formatCurrency(breed.annual)}</span>
-                      </td>
-                      <td className="px-5 py-4 text-right">
-                        <span className="text-sm font-bold text-[#2E7D32]">{formatCurrency(lifetime)}</span>
-                      </td>
-                      <td className="px-5 py-4 text-right">
-                        <span className="text-sm text-[#5a7a5a]">{formatCurrency(monthly)}/mo</span>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {comparisonRows.map((breed, i) => (
+                  <tr key={breed.name} className={`border-t border-[#E8F5E9] hover:bg-[#F1F8F1] transition-colors ${i % 2 === 0 ? "" : "bg-[#F9FDF9]"}`}>
+                    <td className="px-5 py-4">
+                      <Link href={breed.href} className="flex items-center gap-2 group">
+                        <span className="text-xl">{breed.emoji}</span>
+                        <span className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32] transition-colors">{breed.name}</span>
+                      </Link>
+                    </td>
+                    <td className="px-5 py-4 text-right">
+                      <span className="text-sm font-bold text-[#1B2B1B]">{formatCurrency(breed.year1)}</span>
+                    </td>
+                    <td className="px-5 py-4 text-right">
+                      <span className="text-sm font-semibold text-[#1B2B1B]">{formatCurrency(breed.annual)}</span>
+                    </td>
+                    <td className="px-5 py-4 text-right">
+                      <span className="text-sm font-bold text-[#2E7D32]">{formatCurrency(breed.lifetime)}</span>
+                    </td>
+                    <td className="px-5 py-4 text-right">
+                      <span className="text-sm text-[#5a7a5a]">{formatCurrency(breed.monthly)}/mo</span>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
+          </div>
+
+          {/* Mobile: stacked cards — no horizontal scrolling, nothing cut off */}
+          <div className="md:hidden space-y-3">
+            {comparisonRows.map((breed) => (
+              <Link key={breed.name} href={breed.href} className="card p-4 block group">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="flex items-center gap-2 text-sm font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] transition-colors">
+                    <span className="text-lg">{breed.emoji}</span> {breed.name}
+                  </span>
+                  <span className="text-xs font-semibold text-[#5a7a5a]">{formatCurrency(breed.monthly)}/mo</span>
+                </div>
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div className="rounded-lg bg-[#F1F8F1] py-2">
+                    <div className="text-[10px] text-[#5a7a5a]">Year 1</div>
+                    <div className="text-sm font-bold text-[#1B2B1B]">{formatCurrency(breed.year1)}</div>
+                  </div>
+                  <div className="rounded-lg bg-[#F1F8F1] py-2">
+                    <div className="text-[10px] text-[#5a7a5a]">Annual yr 2+</div>
+                    <div className="text-sm font-bold text-[#1B2B1B]">{formatCurrency(breed.annual)}</div>
+                  </div>
+                  <div className="rounded-lg bg-[#F1F8F1] py-2">
+                    <div className="text-[10px] text-[#5a7a5a]">{breed.years}-yr Lifetime</div>
+                    <div className="text-sm font-bold text-[#2E7D32]">{formatCurrency(breed.lifetime)}</div>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
           <p className="text-xs text-[#5a7a5a] mt-3 text-center">
             Estimates based on national averages. Actual costs vary by location, lifestyle, and choices.{" "}
@@ -329,11 +382,6 @@ export default function HomePage() {
                 <p className="text-[#5a7a5a] text-sm leading-relaxed">{step.description}</p>
               </div>
             ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Link href="/calculator" className="btn-primary">
-              Calculate My Costs <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>

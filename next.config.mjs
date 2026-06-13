@@ -7,6 +7,9 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    // Serve modern formats — the PNG mascots compress to a fraction of their
+    // size as AVIF/WebP, which directly improves mobile LCP
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "images.dog.ceo" },
       { protocol: "https", hostname: "cdn2.thecatapi.com" },

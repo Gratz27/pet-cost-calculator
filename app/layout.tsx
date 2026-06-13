@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StickyCalculatorCTA from "@/components/StickyCalculatorCTA";
 
 export const metadata: Metadata = {
   title: {
@@ -18,14 +19,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://petcost-calculator.com",
     siteName: "PetCost",
-    title: "Pet Cost Calculator – Can You Afford Your Dream Pet?",
+    title: "PetCost – Know the Real Cost Before You Commit",
     description: "Calculate the real cost of pet ownership. First-year costs, lifetime expenses, breed comparisons, and personalised budgets.",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pet Cost Calculator",
-    description: "Calculate the real cost of pet ownership.",
+    title: "PetCost – Know the Real Cost Before You Commit",
+    description: "Calculate the real cost of pet ownership. First-year costs, lifetime expenses, breed comparisons, and personalised budgets.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -82,6 +83,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <StickyCalculatorCTA />
       </body>
     </html>
   );

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Calculator, ChevronRight, TrendingUp, Shield, Clock, AlertTriangle, Lightbulb } from "lucide-react";
-import { getAllBreeds, getBreedById } from "@/lib/calculator";
+import { getAllBreeds, getBreedById, getBreedFirstYearTotal, getBreedAnnualTotal, getBreedLifetimeTotal } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import BreedImage from "@/components/BreedImage";
 import AdUnit from "@/components/AdUnit";
@@ -17,7 +17,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const breed = getBreedById("dog", params.slug) ?? getBreedById("cat", params.slug);
   if (!breed) return { title: "Breed Not Found" };
-  const firstYear = breed.adoptionFee + breed.initialVet + breed.initialSupplies + breed.annualFood + breed.annualVet + breed.annualGrooming;
+  const firstYear = getBreedFirstYearTotal(breed);
   return {
     title: `${breed.name} Cost Guide – How Much Does a ${breed.name} Cost?`,
     description: `Complete ${breed.name} cost guide. First-year costs from ${formatCurrency(firstYear)}, annual expenses, lifetime ownership costs, and money-saving tips.`,
@@ -40,9 +40,9 @@ export default function BreedPage({ params }: Props) {
   if (!petType) notFound();
   const breed = getBreedById(petType, params.slug)!
 
-  const firstYearTotal = breed.adoptionFee + breed.initialVet + breed.initialSupplies + breed.training + breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualInsurance;
-  const annualTotal = breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualInsurance + breed.annualSupplies;
-  const lifetimeTotal = firstYearTotal + annualTotal * (breed.lifespan - 1);
+  const firstYearTotal = getBreedFirstYearTotal(breed);
+  const annualTotal = getBreedAnnualTotal(breed);
+  const lifetimeTotal = getBreedLifetimeTotal(breed);
 
   const jsonLd = [
     {
