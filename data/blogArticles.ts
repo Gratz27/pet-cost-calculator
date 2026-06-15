@@ -888,8 +888,8 @@ export const allBlogArticles: BlogArticle[] = [
   {
     id: '3',
     slug: 'german-shepherd-costs-ownership-guide',
-    title: 'German Shepherd Costs: Complete 2025 Ownership Guide',
-    description: 'Comprehensive breakdown of German Shepherd ownership costs including purchase price, training, health care, and lifetime expenses.',
+    title: 'How Much Does a German Shepherd Cost in 2026? Full Price Guide',
+    description: 'German Shepherds cost £500–£3,500 to buy and £22,000–£42,000 over a lifetime. See first-year, annual and monthly cost breakdowns, then calculate your exact numbers.',
     category: 'breed-guide',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-11-06',
@@ -1148,8 +1148,8 @@ export const allBlogArticles: BlogArticle[] = [
   {
     id: '11',
     slug: 'dog-vs-cat-costs',
-    title: 'Dog vs Cat Costs: Which Pet is More Affordable?',
-    description: 'Comprehensive cost comparison between dogs and cats covering purchase price, annual expenses, and lifetime costs to help you make an informed decision.',
+    title: 'Dog vs Cat Costs: Which Is Cheaper to Own in 2026?',
+    description: 'A cat costs £8,000–£20,000 over a lifetime vs £18,000–£40,000 for a dog — typically 40–60% cheaper. Compare purchase, annual and lifetime costs, then calculate your own.',
     category: 'cost-saving',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-29',
@@ -1197,8 +1197,8 @@ export const allBlogArticles: BlogArticle[] = [
   {
     id: '12',
     slug: 'purebred-vs-mixed-breed-costs',
-    title: 'Purebred vs Mixed Breed: Cost and Health Comparison',
-    description: 'Compare costs and health outcomes between purebred and mixed breed pets. Learn which option provides better value for your situation.',
+    title: 'Purebred vs Mixed Breed Costs: Which Is Cheaper? (2026)',
+    description: 'A mixed breed costs £8,000–£18,000 over a lifetime vs £14,000–£40,000 for a purebred. Compare acquisition, vet and lifetime health costs, then calculate your own.',
     category: 'comparison',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-28',
@@ -1315,8 +1315,8 @@ export const allBlogArticles: BlogArticle[] = [
   {
     id: '15',
     slug: 'pet-costs-by-location',
-    title: 'Pet Costs by Location: How Much Does Your City Add?',
-    description: 'How location affects pet ownership costs — comparing vet fees, grooming prices, and food costs across the US, UK, and Australia.',
+    title: 'Pet Costs by Location: How Much More Does Your City Cost? (2026)',
+    description: 'Vet and grooming prices run 2–3× higher in cities like London or Manhattan than rural areas. Compare pet costs across the US, UK and Australia, then calculate your local total.',
     category: 'comparison',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-25',
