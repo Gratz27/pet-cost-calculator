@@ -12,6 +12,11 @@ export interface BlogArticle {
   image: string;
   keywords: string[];
   content: string;
+  /** If this article is about a specific breed, set these to enable contextual affiliate gear links in the sidebar. */
+  relatedBreedName?: string;
+  relatedBreedId?: string;
+  relatedPetType?: 'dog' | 'cat';
+  relatedBreedSize?: 'small' | 'medium' | 'large';
 }
 
 export const allBlogArticles: BlogArticle[] = [
@@ -27,6 +32,9 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 8,
     image: '/breeds/maine-coon.png',
     keywords: ['maine coon cost', 'how much does a maine coon cost', 'maine coon expenses', 'maine coon annual costs'],
+    relatedBreedName: 'Maine Coon',
+    relatedBreedId: 'maine-coon',
+    relatedPetType: 'cat',
     content: `
 <h2>The Financial Reality of Owning a Maine Coon</h2>
 <p>Maine Coons are the gentle giants of the cat world — affectionate, intelligent, and strikingly beautiful. They're also one of the most popular pedigree cat breeds globally, and their popularity comes with a price tag that surprises many prospective owners. If you're considering bringing a Maine Coon into your home in 2026, here's everything you need to know about the true cost of ownership.</p>
@@ -116,6 +124,10 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 8,
     image: '/breeds/labrador-retriever.png',
     keywords: ['labrador cost uk', 'dog ownership cost uk', 'london vet costs', 'labrador food budget'],
+    relatedBreedName: 'Labrador Retriever',
+    relatedBreedId: 'labrador-retriever',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'large',
     content: `
 <h2>The True Financial Commitment of a UK Lab</h2>
 <p>Labrador Retrievers are consistently one of the UK's most popular dog breeds. Known for their friendly demeanor and loyalty, they make excellent family pets. However, their size, appetite, and specific health predispositions mean they come with a significant financial footprint.</p>
@@ -304,6 +316,10 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 9,
     image: '/breeds/golden-retriever.png',
     keywords: ['Golden Retriever cost US', 'annual dog costs', 'Golden Retriever expenses', 'pet budget US'],
+    relatedBreedName: 'Golden Retriever',
+    relatedBreedId: 'golden-retriever',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'large',
     content: `
 <h2>Golden Retriever Costs in the US: The Complete Picture</h2>
 <p>Golden Retrievers consistently rank among America's most beloved dog breeds. But their popularity doesn't diminish the significant financial commitment required. Here's a complete breakdown of what US owners spend annually.</p>
@@ -750,14 +766,18 @@ export const allBlogArticles: BlogArticle[] = [
   {
     id: '1',
     slug: 'golden-retriever-lifetime-costs',
-    title: 'How Much Does a Golden Retriever Cost? 2026 Price & Lifetime Guide',
-    description: 'A Golden Retriever costs $1,000–$3,500 to buy and $200–$400/month to keep. See the full first-year, annual, and lifetime cost breakdown, plus what makes Goldens expensive.',
+    title: 'How Much Does a Golden Retriever Cost in 2026? Price & Monthly Cost Guide',
+    description: 'Golden Retrievers cost $1,000–$3,500 to buy and $200–$400/month after that — $25,000–$55,000 over a lifetime. See the full first-year, annual, and lifetime breakdown, then use our free calculator to get your exact numbers.',
     category: 'breed-guide',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-11-08',
     readTime: 12,
     image: '/breeds/golden-retriever.png',
     keywords: ['golden retriever cost', 'how much does a golden retriever cost', 'how much do golden retrievers cost', 'golden retriever monthly cost', 'are golden retrievers expensive', 'golden retriever lifetime costs', 'golden retriever puppies cost'],
+    relatedBreedName: 'Golden Retriever',
+    relatedBreedId: 'golden-retriever',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'large',
     content: `
 <h2>How Much Does a Golden Retriever Cost? Quick Answer</h2>
 <p>A Golden Retriever puppy typically costs <strong>$1,000–$3,500</strong> from a reputable breeder ($500–$2,500 / £500–£2,500 in the UK), or $50–$300 to adopt from a rescue. After the purchase price, expect to spend roughly <strong>$200–$400 per month</strong> ($2,400–$4,800/year) on food, insurance, vet care, and grooming. Over a Golden's 10–12 year lifespan, total ownership costs typically land between <strong>$25,000 and $55,000</strong> (£20,000–£45,000).</p>
@@ -839,6 +859,10 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 11,
     image: '/breeds/labrador-retriever.png',
     keywords: ['labrador retriever cost', 'how much does a lab cost', 'labrador expenses'],
+    relatedBreedName: 'Labrador Retriever',
+    relatedBreedId: 'labrador-retriever',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'large',
     content: `
 <h2>Labrador Retriever Costs: The Complete Picture</h2>
 <p>Labrador Retrievers have been among the most popular breeds in the UK and US for decades. Their friendly temperament and adaptability make them excellent family pets, but their size and specific health predispositions make financial planning essential.</p>
@@ -870,6 +894,10 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 10,
     image: '/breeds/german-shepherd-dog.png',
     keywords: ['german shepherd cost', 'how much does a german shepherd cost', 'german shepherd expenses'],
+    relatedBreedName: 'German Shepherd',
+    relatedBreedId: 'german-shepherd-dog',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'large',
     content: `
 <h2>German Shepherd Costs: What Every Owner Should Know</h2>
 <p>German Shepherds are among the world's most versatile breeds — excelling as family companions, police dogs, service animals, and protectors. Their capabilities attract many prospective owners, but the financial commitment often exceeds initial expectations.</p>
@@ -901,6 +929,10 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 14,
     image: '/breeds/french-bulldog.png',
     keywords: ['french bulldog cost', 'frenchie expenses', 'brachycephalic dog costs', 'french bulldog health costs'],
+    relatedBreedName: 'French Bulldog',
+    relatedBreedId: 'french-bulldog',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'small',
     content: `
 <h2>The True Cost of a French Bulldog</h2>
 <p>The French Bulldog has surged to become one of the UK's most popular breeds, beloved for their affectionate personality and distinctive bat ears. However, this breed represents one of the most expensive dog ownership commitments available. Total lifetime costs typically reach <strong>£25,000–£45,000</strong> over 10–12 years.</p>
@@ -1491,6 +1523,10 @@ Solid budget options that meet all nutritional requirements without the premium 
     readTime: 9,
     image: '/blog/goldendoodle.png',
     keywords: ['goldendoodle cost', 'how much does a goldendoodle cost', 'goldendoodle price', 'goldendoodle expenses', 'goldendoodle annual cost'],
+    relatedBreedName: 'Goldendoodle',
+    relatedBreedId: 'goldendoodle',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'medium',
     content: `
 <h2>The Real Cost of Owning a Goldendoodle</h2>
 <p>Goldendoodles — the Golden Retriever/Poodle cross — have become one of the most popular family dogs in the US, UK, and Australia over the past decade. Their low-shedding coats, friendly temperaments, and adaptability make them appealing to a wide range of households. But the "designer dog" premium is real, and many buyers are caught off-guard by costs that extend well beyond the purchase price.</p>
@@ -1952,6 +1988,9 @@ Solid budget options that meet all nutritional requirements without the premium 
     readTime: 8,
     image: '/breeds/persian.png',
     keywords: ['persian cat cost', 'how much does a persian cat cost', 'persian cat expenses', 'persian cat annual cost', 'persian kitten price'],
+    relatedBreedName: 'Persian',
+    relatedBreedId: 'persian',
+    relatedPetType: 'cat',
     content: `
 <h2>The Financial Reality of Owning a Persian Cat</h2>
 <p>With their flat faces, long flowing coats, and famously placid temperament, Persians are one of the most recognizable — and most demanding — cat breeds to own. Their distinctive looks come with two major ongoing cost drivers: daily grooming and breed-specific health monitoring. Here's a complete breakdown of what to expect in 2026.</p>

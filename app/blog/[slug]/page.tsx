@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Clock, Calendar, ChevronRight, Calculator } from "lucide-react";
+import { Clock, Calendar, ChevronRight, Calculator, ExternalLink } from "lucide-react";
 import AdUnit from "@/components/AdUnit";
 import {
   allBlogArticles,
@@ -10,6 +10,7 @@ import {
   getRelatedArticles,
   type BlogCategory,
 } from "@/data/blogArticles";
+import { amazonSearchLink, breedGearQuery, resolveLink, productLinks } from "@/lib/affiliateLinks";
 
 interface Props { params: { slug: string } }
 
@@ -167,6 +168,52 @@ export default function BlogArticlePage({ params }: Props) {
                     </Link>
                   ))}
                 </div>
+              </div>
+            )}
+
+            {/* Contextual gear widget — shown only for breed-specific articles */}
+            {article.relatedBreedId && article.relatedPetType && (
+              <div className="card p-5">
+                <h3 className="text-sm font-bold text-[#1B2B1B] mb-3">
+                  Recommended gear for {article.relatedBreedName ?? article.relatedBreedId}s
+                </h3>
+                <div className="space-y-2.5">
+                  <a
+                    href={amazonSearchLink(breedGearQuery(
+                      article.relatedBreedName ?? article.relatedBreedId,
+                      article.relatedPetType,
+                      article.relatedBreedSize,
+                    ))}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-3 hover:border-[#4CAF50] transition-all group"
+                  >
+                    <div className="text-2xl">📦</div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32]">
+                        {article.relatedBreedName ?? article.relatedBreedId} essentials
+                      </div>
+                      <div className="text-xs text-slate-400">Food, bedding &amp; supplies on Amazon</div>
+                    </div>
+                    <ExternalLink className="h-3.5 w-3.5 text-slate-400 flex-shrink-0" />
+                  </a>
+                  <a
+                    href={resolveLink(productLinks.chewy)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-3 hover:border-[#4CAF50] transition-all group"
+                  >
+                    <div className="text-2xl">🦴</div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32]">Top-rated food on Chewy</div>
+                      <div className="text-xs text-slate-400">Auto-ship saves up to 30%</div>
+                    </div>
+                    <ExternalLink className="h-3.5 w-3.5 text-slate-400 flex-shrink-0" />
+                  </a>
+                </div>
+                <p className="text-[10px] text-slate-400 mt-3 leading-relaxed">
+                  Affiliate links — we may earn a commission at no extra cost to you.
+                </p>
               </div>
             )}
 
