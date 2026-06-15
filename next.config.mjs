@@ -62,6 +62,12 @@ const nextConfig = {
         destination: "/guides/how-to-budget-for-a-new-pet",
         permanent: true,
       },
+      {
+        // Legacy slug indexed by Google — redirect to current URL to consolidate equity
+        source: "/blog/persian-cat-costs-complete-guide",
+        destination: "/blog/how-much-does-a-persian-cat-cost",
+        permanent: true,
+      },
     ];
   },
 };

@@ -17,6 +17,8 @@ export interface BlogArticle {
   relatedBreedId?: string;
   relatedPetType?: 'dog' | 'cat';
   relatedBreedSize?: 'small' | 'medium' | 'large';
+  /** Structured FAQ pairs — injected as FAQ schema JSON-LD in the page <head> for People Also Ask eligibility. */
+  faqs?: { q: string; a: string }[];
 }
 
 export const allBlogArticles: BlogArticle[] = [
@@ -968,8 +970,8 @@ export const allBlogArticles: BlogArticle[] = [
   {
     id: '8',
     slug: 'first-year-puppy-costs',
-    title: 'First Year Puppy Costs: Complete Budget Breakdown',
-    description: 'Detailed breakdown of first-year puppy expenses including supplies, vet care, training, and hidden costs. Plan your budget with expert guidance.',
+    title: 'First-Year Puppy Costs in 2026: $2,500–$5,500 Budget Breakdown',
+    description: 'The first year with a puppy costs $2,500–$5,500 on average — far more than most owners expect. See every expense: supplies, vet visits, vaccines, training, food, and the hidden costs nobody warns you about.',
     category: 'cost-saving',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-11-01',
@@ -1009,8 +1011,8 @@ export const allBlogArticles: BlogArticle[] = [
   {
     id: '9',
     slug: 'senior-pet-care-costs',
-    title: 'Senior Pet Care Costs: What to Expect and How to Prepare',
-    description: 'Complete guide to senior pet care costs including increased vet visits, medications, special diets, and end-of-life planning.',
+    title: 'Senior Dog & Cat Care Costs in 2026: What to Budget For',
+    description: 'Senior pets cost 2–3× more to care for than younger animals. See the real numbers for annual vet bills, medications, special diets, mobility aids, and end-of-life care — and how to plan ahead.',
     category: 'cost-saving',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-31',
@@ -1058,6 +1060,28 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 9,
     image: '/blog/emergency-vet.png',
     keywords: ['how much is an emergency vet visit', 'how much does an emergency vet visit cost', 'cost of emergency vet visit', 'emergency vet cost', 'how much do emergency vets cost', 'pet emergency fund'],
+    faqs: [
+      {
+        q: 'How much does an emergency vet visit cost on average?',
+        a: 'The exam or triage fee alone is typically $150–$250 in the US ($100–$200 in the UK). Once diagnostics and treatment are included, most emergency vet visits total $800–$2,500. Severe cases involving surgery or multi-day hospitalisation can reach $3,000–$8,000 or more.',
+      },
+      {
+        q: 'Is the emergency vet more expensive than a regular vet?',
+        a: 'Yes — emergency and after-hours clinics typically charge 2–5× more than a daytime appointment because of 24/7 staffing, specialist vets, and on-site diagnostic equipment.',
+      },
+      {
+        q: 'What is the most expensive pet emergency?',
+        a: 'Gastric torsion (bloat) in large dogs is among the most expensive common emergencies, often costing $3,000–$8,000 due to emergency surgery and intensive post-operative monitoring.',
+      },
+      {
+        q: 'Can I negotiate an emergency vet bill?',
+        a: 'You usually cannot negotiate the bill itself, but you can ask for a tiered treatment plan showing cheaper alternatives, request a payment plan, or transfer follow-up care to your regular vet to reduce ongoing costs.',
+      },
+      {
+        q: 'How much should I save for a pet emergency fund?',
+        a: 'A good target is $1,000–$3,000 in a dedicated savings account, separate from everyday spending. This covers most moderate emergencies and pairs well with an insurance policy for the larger, rarer bills.',
+      },
+    ],
     content: `
 <h2>How Much Is an Emergency Vet Visit? Quick Answer</h2>
 <p>A basic emergency vet visit costs <strong>$150–$250</strong> just for the exam fee — and that's before any tests or treatment. Once you add diagnostics (bloodwork, X-rays) and treatment, most emergency vet visits end up costing <strong>$800–$2,500</strong> for moderate issues, and <strong>$3,000–$8,000+</strong> for major emergencies like surgery or multi-day hospitalisation. In the UK, expect roughly <strong>£100–£200</strong> for the consultation and <strong>£600–£6,000+</strong> for full treatment, depending on severity.</p>
@@ -1250,8 +1274,8 @@ export const allBlogArticles: BlogArticle[] = [
   {
     id: '14',
     slug: 'puppy-vs-adult-dog-costs',
-    title: 'Puppy vs Adult Dog: Which is More Affordable?',
-    description: 'Compare the costs of raising a puppy from birth versus adopting an adult dog. Includes setup costs, training, and long-term financial implications.',
+    title: 'Puppy vs Adult Dog Cost (2026): Which Is Really Cheaper?',
+    description: 'Puppies cost $2,000–$5,000 more in year one than adopting an adult dog. See the full breakdown — setup, training, vet care, and long-term expenses — so you can decide which makes financial sense.',
     category: 'comparison',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-26',
@@ -1891,7 +1915,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     description: 'Looking for a budget-friendly cat? These 7 breeds combine low adoption costs, minimal grooming, and fewer hereditary health issues for lower lifetime expenses.',
     category: 'cats',
     author: 'PetCost-Calculator Team',
-    publishDate: '2026-06-22',
+    publishDate: '2026-06-13',
     readTime: 7,
     image: '/breeds/domestic-shorthair.png',
     keywords: ['cheapest cat breeds', 'low maintenance cat breeds', 'budget cat breeds', 'affordable cats to own', 'cheap cats'],
@@ -1984,7 +2008,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     description: 'A full breakdown of Persian cat ownership costs in 2026 — kitten price, grooming, vet care for brachycephalic and kidney issues, and lifetime totals.',
     category: 'cats',
     author: 'PetCost-Calculator Team',
-    publishDate: '2026-06-29',
+    publishDate: '2026-06-14',
     readTime: 8,
     image: '/breeds/persian.png',
     keywords: ['persian cat cost', 'how much does a persian cat cost', 'persian cat expenses', 'persian cat annual cost', 'persian kitten price'],

@@ -34,6 +34,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function FaqSchema({ faqs }: { faqs: { q: string; a: string }[] }) {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
 const CATEGORY_LABELS: Record<BlogCategory, string> = {
   "breed-guide": "Breed Guide",
   "cost-saving": "Cost Saving",
@@ -53,6 +71,7 @@ export default function BlogArticlePage({ params }: Props) {
 
   return (
     <div className="bg-[#F1F8F1] min-h-screen">
+      {article.faqs && article.faqs.length > 0 && <FaqSchema faqs={article.faqs} />}
       {/* Breadcrumb */}
       <div className="bg-white border-b border-[#C8E6C9]">
         <div className="container-xl py-3">
