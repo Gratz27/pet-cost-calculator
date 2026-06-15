@@ -338,6 +338,325 @@ export const catBreedImageMap: Record<string, string> = {
   "turkish-van":              WM("1","15","White_Persian_Cat.jpg"),
 };
 
+// ── REAL PHOTOS (homepage "Popular Breeds" cards) ──────────────────────────
+// Curated, commercially-free Unsplash photos (Unsplash License — no
+// attribution required) for the 12 breeds featured on the homepage.
+// Added June 2026 to replace mascot illustrations with real animal photos.
+const UNSPLASH = (id: string) =>
+  `https://images.unsplash.com/${id}?w=1200&q=80`;
+
+export const realBreedPhotoMap: Record<string, string> = {
+  "golden-retriever":    UNSPLASH("photo-1633722715463-d30f4f325e24"),
+  "french-bulldog":      UNSPLASH("photo-1521907236370-15adf2297445"),
+  "labrador-retriever":  UNSPLASH("photo-1537204696486-967f1b7198c8"),
+  "american-shorthair":  UNSPLASH("photo-1602634353750-d58ec14064c6"),
+  "german-shepherd-dog": UNSPLASH("photo-1605725657590-b2cf0d31b1a5"),
+  "ragdoll":             UNSPLASH("photo-1644604324741-e50705a4c12a"),
+  "beagle":              UNSPLASH("photo-1581864727889-c065732c1088"),
+  "maine-coon":          UNSPLASH("photo-1685271286659-c83faa4f5cb1"),
+  "siberian-husky":      UNSPLASH("photo-1563889362352-b0492c224f62"),
+  "bengal":              UNSPLASH("photo-1603277160434-df7471138363"),
+  "poodle-standard":     UNSPLASH("photo-1555596873-1916fae19257"),
+  "border-collie":       UNSPLASH("photo-1568393691080-d016376b767d"),
+
+  // Added June 2026 — remaining TOP_DOG_BREEDS priority list
+  "bulldog":                      UNSPLASH("photo-1611611158876-41699b77a059"),
+  "rottweiler":                   UNSPLASH("photo-1656138899262-1faa4ae4bef6"),
+  "german-shorthaired-pointer":   UNSPLASH("photo-1538326713073-613413bec43b"),
+  "dachshund-smooth-haired":      UNSPLASH("photo-1621757298894-7174d1b1bc40"),
+  "dachshund-long-haired":        UNSPLASH("photo-1621757298894-7174d1b1bc40"),
+  "dachshund-wire-haired":        UNSPLASH("photo-1621757298894-7174d1b1bc40"),
+  "dachshund-miniature-smooth-haired": UNSPLASH("photo-1621757298894-7174d1b1bc40"),
+  "dachshund-miniature-long-haired":   UNSPLASH("photo-1621757298894-7174d1b1bc40"),
+  "dachshund-miniature-wire-haired":   UNSPLASH("photo-1621757298894-7174d1b1bc40"),
+  "pembroke-welsh-corgi":         UNSPLASH("photo-1653763399389-8fa6d3683155"),
+  "yorkshire-terrier":            UNSPLASH("photo-1574760112346-8443c3773437"),
+  "australian-shepherd":          UNSPLASH("photo-1705624980194-6325687bb1aa"),
+  "boxer":                        UNSPLASH("photo-1442605527737-ed62b867591f"),
+  "great-dane":                   UNSPLASH("photo-1587518102280-8d5fdcb68d13"),
+  "dobermann":                    UNSPLASH("photo-1599586477491-f86db60c0c1c"),
+  "cavalier-king-charles-spaniel": UNSPLASH("photo-1613210609371-455e3aa5fb8c"),
+  "shih-tzu":                     UNSPLASH("photo-1721781010133-8eb0e9b23daf"),
+  "boston-terrier":               UNSPLASH("photo-1623010830364-860f2c821d5d"),
+  "bernese-mountain-dog":         UNSPLASH("photo-1652465130623-c17d7ade03b2"),
+  "pomeranian":                   UNSPLASH("photo-1690985210626-885a2b0ba5ce"),
+  "miniature-schnauzer":          UNSPLASH("photo-1580467277788-c6e040296602"),
+  "cocker-spaniel":               UNSPLASH("photo-1641035855573-e22a4e11c7be"),
+  "bichon-frise":                 UNSPLASH("photo-1554634242-a653caa56834"),
+  "maltese":                      UNSPLASH("photo-1621878135994-8b56a55d4af5"),
+  "weimaraner":                   UNSPLASH("photo-1567856481823-b0e89457f52a"),
+  "brittany":                     UNSPLASH("photo-1632050395191-dbf98a89b31e"),
+  "english-setter":               UNSPLASH("photo-1633196931350-201ccf6f624d"),
+
+  // Added June 2026 — remaining top-priority cat breeds
+  "persian":                      UNSPLASH("photo-1591429939960-b7d5add10b5c"),
+  "siamese":                      UNSPLASH("photo-1568152950566-c1bf43f4ab28"),
+  "british-shorthair":            UNSPLASH("photo-1599156616188-38c914c6ccad"),
+  "abyssinian":                   UNSPLASH("photo-1598005532299-f48db04a2637"),
+  "russian-blue":                 UNSPLASH("photo-1602268867508-b058cb9c3e99"),
+  "scottish-fold":                UNSPLASH("photo-1595433708220-3aa013e5e43f"),
+  "sphynx":                       UNSPLASH("photo-1547565322-847851d7ef2f"),
+  "norwegian-forest":             UNSPLASH("photo-1653744060485-2a4ded2b00c3"),
+  "devon-rex":                    UNSPLASH("photo-1701007816120-41c4f908221b"),
+  "birman":                       UNSPLASH("photo-1632041068365-215243fd40f0"),
+  "burmese":                      UNSPLASH("photo-1547960450-2ea08b931270"),
+
+  // Added June 2026 — long-tail dog breeds, batch 1 (A)
+  "affenpinscher":                UNSPLASH("photo-1630063812164-fe6e50f2ad49"),
+  "afghan-hound":                 UNSPLASH("photo-1588269845464-8993565cac3a"),
+  "airedale-terrier":             UNSPLASH("photo-1675178898454-f92e52ec9226"),
+  "akita":                        UNSPLASH("photo-1691971514997-e414390a2d3b"),
+  "alaskan-malamute":             UNSPLASH("photo-1543333108-4f3e0f5a7d11"),
+
+  // Added June 2026 — long-tail dog breeds, batch 2 (A continued)
+  "anatolian-shepherd-dog":        UNSPLASH("photo-1762192584614-7cfbb3ea8966"),
+  "australian-cattle-dog":         UNSPLASH("photo-1602431694956-0da68eb649b4"),
+  "australian-terrier":            UNSPLASH("photo-1647445024848-907e1edd1072"),
+  "australian-silky-terrier":      UNSPLASH("photo-1726416709320-315c591b7482"),
+  "azawakh":                       UNSPLASH("photo-1583786693544-e352f898888d"),
+
+  // Added June 2026 — long-tail dog breeds, batch 3 (B)
+  "barbet":                        UNSPLASH("photo-1583889702524-5a92a5b520a9"),
+  "basenji":                       UNSPLASH("photo-1604319781834-9cb373738599"),
+  "basset-hound":                  UNSPLASH("photo-1619754226841-99b374dccbc0"),
+  "bearded-collie":                UNSPLASH("photo-1594811851726-fa98b36ff029"),
+  "beauceron":                     UNSPLASH("photo-1561772586-6e9e10c6791b"),
+
+  // Added June 2026 — long-tail dog breeds, batch 4 (B continued)
+  "belgian-shepherd-dog-groenendael": UNSPLASH("photo-1572040347107-5758abf3ac4e"),
+  "belgian-shepherd-dog-malinois":    UNSPLASH("photo-1599826023510-a98d08764aec"),
+  "belgian-shepherd-dog-tervueren":   UNSPLASH("photo-1655235208121-3f09c8cebc79"),
+  "bergamasco-shepherd-dog":          UNSPLASH("photo-1774853974216-af9446111a65"),
+  "bloodhound":                       UNSPLASH("photo-1616725693607-158e2b9781e1"),
+
+  // Added June 2026 — long-tail dog breeds, batch 5 (B continued)
+  "bichon-frise":                     UNSPLASH("photo-1587539975099-5aecb74902d4"),
+  "bolognese":                        UNSPLASH("photo-1560132248-d946352460e3"),
+  "border-terrier":                   UNSPLASH("photo-1604833124060-7f81db9c38de"),
+  "borzoi":                           UNSPLASH("photo-1585593875169-377cbcec70cb"),
+  "boston-terrier":                   UNSPLASH("photo-1623010830364-860f2c821d5d"),
+
+  // Added June 2026 — long-tail dog breeds, batch 6 (B continued)
+  "border-collie":                    UNSPLASH("photo-1610380403786-fe1d70ead50d"),
+  "bouvier-des-flandres":             UNSPLASH("photo-1768768225020-1158f3e6cc35"),
+  "boxer":                            UNSPLASH("photo-1529158299404-547993c51cc7"),
+  "bracco-italiano":                  UNSPLASH("photo-1591809852955-b391ea5a90c7"),
+  "briard":                           UNSPLASH("photo-1633327273196-de1e0e9b01e3"),
+  "brittany":                         UNSPLASH("photo-1554984908-85d5698d1628"),
+
+  // Added June 2026 — long-tail dog breeds, batch 7
+  "basset-bleu-de-gascogne":          UNSPLASH("photo-1758398061812-b519e7069adc"),
+  "basset-fauve-de-bretagne":         UNSPLASH("photo-1619754226841-99b374dccbc0"),
+  "basset-griffon-vendeen-grand":     UNSPLASH("photo-1554842863-766951f51658"),
+  "basset-griffon-vendeen-petit":     UNSPLASH("photo-1617748418149-1c5f78b8ac6e"),
+  "bavarian-mountain-hound":          UNSPLASH("photo-1761469066614-05b95981fee3"),
+
+  // Added June 2026 — long-tail dog breeds, batch 8
+  "bull-terrier":                     UNSPLASH("photo-1549608536-d2ad340085f8"),
+  "bull-terrier-miniature":           UNSPLASH("photo-1585060423772-a39f0b543c61"),
+  "english-bulldog":                  UNSPLASH("photo-1598282506352-db1cdeaf834c"),
+  "british-bulldog":                  UNSPLASH("photo-1648047404073-a771e51b7851"),
+  "bulldog":                          UNSPLASH("photo-1611611158876-41699b77a059"),
+
+  // Added June 2026 — long-tail dog breeds, batch 9
+  "bullmastiff":                      UNSPLASH("photo-1677899997050-950369b117b2"),
+  "cairn-terrier":                    UNSPLASH("photo-1780186662252-541efe20d5c7"),
+  "cane-corso":                       UNSPLASH("photo-1675025328986-206b1192a557"),
+  "cardigan-welsh-corgi":             UNSPLASH("photo-1654535871917-baece3920f1b"),
+
+  // Added June 2026 — long-tail dog breeds, batch 10
+  "central-asian-shepherd-dog":       UNSPLASH("photo-1617181804237-3371bac65af7"),
+  "chesapeake-bay-retriever":         UNSPLASH("photo-1609038457060-a11114445bad"),
+  "chihuahua-long-coat":              UNSPLASH("photo-1555523940-8c7a0233a104"),
+  "chihuahua-smooth-coat":            UNSPLASH("photo-1608228028188-acdf9ebd3044"),
+  "chow-chow":                        UNSPLASH("photo-1642711512184-d4933d282ccd"),
+
+  // Added June 2026 — long-tail dog breeds, batch 11
+  "cesky-terrier":                    UNSPLASH("photo-1781062565114-d645e6ee026e"),
+  "chinese-crested":                  UNSPLASH("photo-1769169876441-587d5f12a116"),
+
+  // Added June 2026 — long-tail dog breeds, batch 12
+  "cocker-spaniel":                   UNSPLASH("photo-1580905767068-18809fd88640"),
+  "collie-rough":                     UNSPLASH("photo-1587300003388-59208cc962cb"),
+  "collie-smooth":                    UNSPLASH("photo-1606390026124-a89c154c2570"),
+  "shar-pei":                         UNSPLASH("photo-1664474205071-82d0b93bdca1"),
+
+  // Added June 2026 — long-tail dog breeds, batch 13
+  "curly-coated-retriever":           UNSPLASH("photo-1645941088606-cd887502b734"),
+  "dalmatian":                        UNSPLASH("photo-1626435872669-8bcb32be46dc"),
+  "dogue-de-bordeaux":                UNSPLASH("photo-1567886932351-19e78e3e56c8"),
+  "dutch-shepherd-dog":               UNSPLASH("photo-1667396211009-743a02559601"),
+
+  // Added June 2026 — long-tail dog breeds, batch 14
+  "english-springer-spaniel":         UNSPLASH("photo-1579213838826-51de388c360c"),
+  "entlebucher-mountain-dog":         UNSPLASH("photo-1652465130595-95b78f57208b"),
+  "eurasier":                         UNSPLASH("photo-1711217012935-859598ad35ed"),
+  "field-spaniel":                    UNSPLASH("photo-1780715619323-91ee169a6f10"),
+
+  // Added June 2026 — long-tail dog breeds, batch 15
+  "dandie-dinmont-terrier":            UNSPLASH("photo-1585866139885-0dff14c14090"),
+  "deerhound":                         UNSPLASH("photo-1779108907238-4de3f83f06c6"),
+  "finnish-spitz":                     UNSPLASH("photo-1653933180968-276b11861997"),
+  "flat-coated-retriever":             UNSPLASH("photo-1644076829117-33c549118444"),
+
+  // Added June 2026 — long-tail dog breeds, batch 16
+  "english-setter":                    UNSPLASH("photo-1775841019106-df88a5416e94"),
+  "estrela-mountain-dog":              UNSPLASH("photo-1652465130623-c17d7ade03b2"),
+  "fox-terrier-wire":                  UNSPLASH("photo-1761338928221-d55054530e98"),
+
+  // Added June 2026 — long-tail dog breeds, batch 17
+  "giant-schnauzer":                   UNSPLASH("photo-1623763300849-1c5c8cbc5f56"),
+  "gordon-setter":                     UNSPLASH("photo-1746781878900-468f8f6a76a3"),
+
+  // Added June 2026 — long-tail dog breeds, batch 18
+  "german-spitz-klein":                UNSPLASH("photo-1636733008726-9c8b41059c86"),
+  "german-spitz-mittel":               UNSPLASH("photo-1629980263158-be45c249a0f9"),
+  "greyhound":                         UNSPLASH("photo-1549355517-0a46fac40ff1"),
+  "havanese":                          UNSPLASH("photo-1758875619166-a00ac1650ce4"),
+
+  // Added June 2026 — long-tail dog breeds, batch 19
+  "grand-basset-griffon-vendeen":      UNSPLASH("photo-1758398061812-b519e7069adc"),
+  "griffon-bruxellois":                UNSPLASH("photo-1576873689391-60d690f6f930"),
+  "hungarian-vizsla":                  UNSPLASH("photo-1618398130625-4dbbd7488847"),
+
+  // Added June 2026 — long-tail dog breeds, batch 20
+  "hungarian-wire-haired-vizsla":      UNSPLASH("photo-1699196722505-2cd2be4f6a39"),
+  "icelandic-sheepdog":                UNSPLASH("photo-1681969377369-6d68f2b6b6f9"),
+  "irish-setter":                      UNSPLASH("photo-1671011401064-a25edcaa827c"),
+  "irish-terrier":                     UNSPLASH("photo-1607964296542-54d29168d2c4"),
+  "irish-water-spaniel":               UNSPLASH("photo-1648976286905-2f77ed1eb58c"),
+  "irish-wolfhound":                   UNSPLASH("photo-1579636138927-1896a29be1e2"),
+  "italian-greyhound":                 UNSPLASH("photo-1633835080106-0832760e904b"),
+
+  // Added June 2026 — long-tail dog breeds, batch 21
+  "hungarian-pumi":                    UNSPLASH("photo-1592592836163-8cac4564d674"),
+  "italian-spinone":                   UNSPLASH("photo-1628105123823-cc268214bc07"),
+  "jack-russell-terrier":              UNSPLASH("photo-1532275522382-fc0742e109d9"),
+
+  // Added June 2026 — long-tail dog breeds, batch 22
+  "japanese-akita":                    UNSPLASH("photo-1691971514997-e414390a2d3b"),
+  "japanese-chin":                     UNSPLASH("photo-1559612963-6852ec2a6f07"),
+  "japanese-shiba-inu":                UNSPLASH("photo-1578133507770-a35cc3c786e6"),
+
+  // Added June 2026 — long-tail dog breeds, batch 23
+  "finnish-lapphund":                  UNSPLASH("photo-1665596594542-2df61cedad97"),
+  "japanese-spitz":                    UNSPLASH("photo-1623253061281-454d99964c9e"),
+
+  // Added June 2026 — long-tail dog breeds, batch 24
+  "hovawart":                          UNSPLASH("photo-1593944240078-4ff256a26ff3"),
+  "german-pinscher":                   UNSPLASH("photo-1614613414597-73d23d02abd4"),
+  "hungarian-puli":                    UNSPLASH("photo-1697403735887-8c0036157652"),
+
+  // Added June 2026 — long-tail dog breeds, batch 25
+  "ibizan-hound":                      UNSPLASH("photo-1615881531311-a29f968ab2c1"),
+  "fox-terrier-smooth":                UNSPLASH("photo-1558309887-705acbec8733"),
+
+  // Added June 2026 — long-tail cat breeds, batch 1
+  "american-bobtail":                  UNSPLASH("photo-1612531822780-ce3193485c08"),
+  "american-curl":                     UNSPLASH("photo-1626872295737-bb17a7d45cac"),
+  "american-wirehair":                 UNSPLASH("photo-1737837052476-6579dca81af3"),
+
+  // Added June 2026 — long-tail cat breeds, batch 2
+  "australian-mist":                   UNSPLASH("photo-1778503240192-2515dec71876"),
+  "balinese":                          UNSPLASH("photo-1779489640817-b9b38f97ba0b"),
+  "bombay":                            UNSPLASH("photo-1597366431550-7b151ed08c75"),
+
+  // Added June 2026 — long-tail cat breeds, batch 3
+  "american-bobtail-shorthair":        UNSPLASH("photo-1614381016538-5f80a0852fea"),
+  "american-curl-longhair":            UNSPLASH("photo-1455970022149-a8f26b6902dd"),
+  "bengal-longhair":                   UNSPLASH("photo-1603277160434-df7471138363"),
+
+  // Added June 2026 — long-tail cat breeds, batch 4
+  "british-longhair":                  UNSPLASH("photo-1617696448256-e92b5761bea3"),
+  "burmilla":                           UNSPLASH("photo-1561948946-cb70f9e73ca5"),
+  "burmilla-longhair":                 UNSPLASH("photo-1585137173132-cf49e10ad27d"),
+
+  // Added June 2026 — long-tail cat breeds, batch 5
+  "chartreux":                          UNSPLASH("photo-1570117268106-8e369647c733"),
+  "chausie":                            UNSPLASH("photo-1619678791375-7f35c6e8599c"),
+  "cymric":                             UNSPLASH("photo-1612532275214-e4ca76d0e4d1"),
+
+  // Added June 2026 — long-tail cat breeds, batch 6
+  "cornish-rex":                        UNSPLASH("photo-1606464584000-0d7178815c7e"),
+  "donskoy":                            UNSPLASH("photo-1701007268888-3725e298c6db"),
+  "exotic-shorthair":                   UNSPLASH("photo-1516470544373-df3edeb89d80"),
+
+  // Added June 2026 — long-tail cat breeds, batch 7
+  "devon-rex":                          UNSPLASH("photo-1767884267033-4e832b3055f9"),
+  "oriental-shorthair":                 UNSPLASH("photo-1612471903135-eb2a25ba34c6"),
+
+  // Added June 2026 — long-tail cat breeds, batch 8
+  "egyptian-mau":                       UNSPLASH("photo-1608848461950-0fe51dfc41cb"),
+
+  // Added June 2026 — long-tail cat breeds, batch 9
+  "himalayan":                          UNSPLASH("photo-1705305413876-b2bb916fb99a"),
+
+  // Added June 2026 — long-tail cat breeds, batch 10
+  "korat":                              UNSPLASH("photo-1649472729650-9803247c67d7"),
+  "japanese-bobtail":                   UNSPLASH("photo-1503777119540-ce54b422baff"),
+
+  // Added June 2026 — long-tail cat breeds, batch 11
+  "khaomanee":                          UNSPLASH("photo-1585699777545-355976789272"),
+
+  // Added June 2026 — long-tail cat breeds, batch 12
+  "manx":                               UNSPLASH("photo-1612632237538-2de30e25af6f"),
+  "munchkin":                           UNSPLASH("photo-1596854407944-bf87f6fdd49e"),
+
+  // Added June 2026 — long-tail cat breeds, batch 13
+  "nebelung":                           UNSPLASH("photo-1534803359379-964dadf6c290"),
+  "ocicat":                             UNSPLASH("photo-1692900736092-1965c8b3313a"),
+
+  // Added June 2026 — long-tail cat breeds, batch 14
+  "snowshoe":                           UNSPLASH("photo-1549878569-a8105b1188b8"),
+  "somali":                             UNSPLASH("photo-1593017905337-791cd7820b06"),
+
+  // Added June 2026 — long-tail cat breeds, batch 15
+  "siberian":                           UNSPLASH("photo-1542279836-8369a296a95b"),
+  "turkish-angora":                     UNSPLASH("photo-1593627010886-d34828365da7"),
+  "turkish-van":                        UNSPLASH("photo-1606736627934-7b647180530f"),
+
+  // Added June 2026 — long-tail cat breeds, batch 16
+  "tonkinese":                          UNSPLASH("photo-1680110847149-80f03b99ac8d"),
+  "thai":                               UNSPLASH("photo-1568152950566-c1bf43f4ab28"),
+
+  // Added June 2026 — long-tail cat breeds, batch 17
+  "serengeti":                          UNSPLASH("photo-1614873378890-8a880515b724"),
+  "selkirk-rex":                        UNSPLASH("photo-1614168882266-4bcc7522feae"),
+
+  // Added June 2026 — long-tail cat breeds, batch 18
+  "oriental-shorthair":                 UNSPLASH("photo-1612467669054-4a7101fed458"),
+
+  // Added June 2026 — long-tail cat breeds, batch 19
+  "oriental-longhair":                  UNSPLASH("photo-1550921482-1dfcceed3452"),
+  "japanese-bobtail":                   UNSPLASH("photo-1503777119540-ce54b422baff"),
+
+  // Added June 2026 — long-tail cat breeds, batch 20
+  "scottish-fold":                      UNSPLASH("photo-1595433708220-3aa013e5e43f"),
+  "scottish-fold-longhair":             UNSPLASH("photo-1634206332775-3da1b8b3c73c"),
+  "scottish-straight":                  UNSPLASH("photo-1513451713350-dee890297c4a"),
+  "scottish-straight-longhair":         UNSPLASH("photo-1525785967371-87ba44b3e6cf"),
+  "minuet":                             UNSPLASH("photo-1515002246390-7bf7e8f87b54"),
+  "minuet-longhair":                    UNSPLASH("photo-1455970022149-a8f26b6902dd"),
+
+  // Added June 2026 — long-tail cat breeds, batch 21 (final cats)
+  "japanese-bobtail-longhair":          UNSPLASH("photo-1778436193884-3fc534c811d8"),
+  "kurilian-bobtail-longhair":          UNSPLASH("photo-1542279836-8369a296a95b"),
+
+  // Added June 2026 — long-tail dog breeds, batch 22
+  "pug":                                UNSPLASH("photo-1523626752472-b55a628f1acc"),
+  "mastiff":                            UNSPLASH("photo-1584128144719-15c684fbcb3b"),
+  "newfoundland":                       UNSPLASH("photo-1742007019876-1de27c7d70a6"),
+  "old-english-sheepdog":               UNSPLASH("photo-1622536623059-8277a04654f5"),
+  "komondor":                           UNSPLASH("photo-1697194585884-6e5967b4347b"),
+};
+
+// Per-breed object-position overrides for the real photos above — lets us
+// re-centre the crop when the subject isn't dead-centre in the source photo.
+// Defaults to "center" if not listed here.
+export const realBreedPhotoPosition: Record<string, string> = {
+  "labrador-retriever": "center 30%",
+};
+
 const DEFAULT_DOG_IMG = DC("retriever-labrador", "n02099712_4323.jpg");
 const DEFAULT_CAT_IMG = WM("1","18","Cat_August_2010-4.jpg");
 

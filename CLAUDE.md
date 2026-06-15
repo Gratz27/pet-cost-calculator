@@ -84,26 +84,42 @@ public/
 - First 4 breed cards on homepage have `priority` prop (LCP optimisation)
 - Sitemap lastModified dates reflect page update frequency
 
-## Images — Mascot Illustration Strategy
+## Images — Real Photo Strategy
 
-### Brand direction (decided June 2026)
-All breed images on the site use a **consistent modern mascot illustration style** — NOT stock photos or API images.
-Style: Modern mascot + slight Pixar influence + flat vector colouring. Friendly, professional, breed-specific.
-Think: "friendly veterinary clinic meets Pixar" — clean vector, bright but not childish.
+### Brand direction (updated June 2026)
+The site is moving from mascot illustrations to **real animal photos**. Real photos take priority
+over mascot PNGs wherever available, with mascot illustrations remaining as the fallback for
+breeds that don't have a real photo yet (and the branded paw placeholder as the final fallback).
 
 ### Where images live
-`/public/breeds/[slug].png` — e.g. `/public/breeds/golden-retriever.png`
-Images are served at `/breeds/[slug].png` in the browser.
-
-Future poses (when generated): `/public/breeds/[slug]-playful.png`, `/public/breeds/[slug]-eating.png`, etc.
+- **Real photos:** `lib/breedImages.ts` exports `realBreedPhotoMap` (breed ID → Unsplash photo URL,
+  via a `UNSPLASH(id)` helper that appends `?w=1200&q=80`) and `realBreedPhotoPosition` (breed ID →
+  CSS `object-position` override, e.g. `"center 30%"`, for photos that need custom cropping).
+- **Mascot illustrations (fallback):** `/public/breeds/[slug].png` — e.g. `/public/breeds/golden-retriever.png`,
+  served at `/breeds/[slug].png` in the browser.
 
 ### BreedImage component behaviour
-1. Tries to load `/breeds/[slug].png` (local mascot)
-2. If not found (404) → shows a branded green/cream paw placeholder with breed name
-3. Do NOT fall back to Dog CEO API or TheCatAPI — those are deprecated for breed images
+1. Looks up `breedId` in `realBreedPhotoMap`. If present, loads that Unsplash photo with
+   `object-cover` and `objectPosition` from `realBreedPhotoPosition[breedId]` (default `"center"`).
+2. If no real photo exists, falls back to `/breeds/[slug].png` (local mascot) with
+   `object-contain object-bottom` so the full mascot is visible.
+3. If the image 404s → shows the branded green/cream paw placeholder with breed name.
+4. Do NOT fall back to the Dog CEO API or TheCatAPI directly — those are deprecated for breed images;
+   `images.unsplash.com` is the approved source for real photos.
 
-### DALL-E / ChatGPT image prompt template
-Use this prompt to generate each breed mascot. Replace `[BREED NAME]` and `[TYPE]`:
+### Adding/updating a real photo for a breed
+1. Find a commercially-free photo (Unsplash License — no attribution required).
+2. Add an entry to `realBreedPhotoMap` in `lib/breedImages.ts`: `"breed-id": UNSPLASH("photo-id")`.
+3. If the default centered crop doesn't frame the animal well, add an entry to
+   `realBreedPhotoPosition` with a CSS `object-position` value (e.g. `"center 30%"`).
+4. Breeds not yet in `realBreedPhotoMap` keep using their existing mascot PNG automatically —
+   no extra work needed.
+
+### Mascot illustrations (still used as fallback)
+For breeds without a real photo yet, mascot PNGs follow the existing style: modern mascot,
+slight Pixar influence, flat vector colouring — "friendly veterinary clinic meets Pixar."
+
+DALL-E / ChatGPT prompt template for generating a new mascot, replace `[BREED NAME]` and `[TYPE]`:
 
 ```
 A friendly cartoon mascot illustration of a [BREED NAME] [TYPE] in a modern mascot style.
@@ -113,31 +129,16 @@ Style: friendly veterinary clinic meets Pixar — clean, warm, not childish. Squ
 No text, no background scenery. The [TYPE] is sitting, facing slightly forward, happy expression.
 ```
 
-Example for Golden Retriever:
-```
-A friendly cartoon mascot illustration of a Golden Retriever dog in a modern mascot style.
-Slightly oversized expressive eyes, friendly smile, rounded features, clean outlines, soft shading,
-breed-specific fur colour and details. Flat vector colouring, bright but professional.
-Transparent background. Style: friendly veterinary clinic meets Pixar — clean, warm, not childish.
-Square format, PNG. No text, no background scenery. The dog is sitting, facing slightly forward,
-happy expression, wearing a simple blue collar.
-```
-
-### Priority breeds to generate first (most traffic)
-Dogs: golden-retriever, labrador-retriever, french-bulldog, german-shepherd, poodle, beagle,
-      border-collie, chihuahua, siberian-husky, cavoodle, dachshund, shih-tzu
-Cats: domestic-shorthair, persian, maine-coon, ragdoll, siamese, british-shorthair, bengal, sphynx
-
-### Naming convention
+### Naming convention (mascot PNGs)
 - File name = breed slug (same as URL slug) + `.png`
 - e.g. `golden-retriever.png`, `french-bulldog.png`, `domestic-shorthair.png`
 - All lowercase, hyphens only, no spaces
 
-### External image domains (still whitelisted in next.config.mjs — can be removed once all breeds have local images)
-- images.dog.ceo (deprecated for breed images)
-- cdn2.thecatapi.com (deprecated for breed images)
+### External image domains (whitelisted in next.config.mjs)
+- images.unsplash.com — approved source for real breed photos
 - upload.wikimedia.org
-- images.unsplash.com
+- images.dog.ceo (deprecated for breed images — can be removed once unused)
+- cdn2.thecatapi.com (deprecated for breed images — can be removed once unused)
 
 ## Breeds
 - ~300+ total (dogs + cats)

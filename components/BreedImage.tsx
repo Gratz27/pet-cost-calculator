@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { realBreedPhotoMap, realBreedPhotoPosition } from "@/lib/breedImages";
 
 // ─────────────────────────────────────────────────────────────────────────────
 // BreedImage — loads mascot illustration from /public/breeds/[slug].png
@@ -59,7 +60,10 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
   const [failed, setFailed] = useState(false);
   const [loaded, setLoaded] = useState(false);
 
-  const localSrc = `/breeds/${breedId}.png`;
+  // Real animal photos (homepage "Popular Breeds" cards) take priority over
+  // mascot illustrations — added June 2026.
+  const realPhoto = realBreedPhotoMap[breedId];
+  const localSrc = realPhoto ?? `/breeds/${breedId}.png`;
 
   if (failed) {
     return <PawPlaceholder petType={petType} alt={alt} fill={fill} className={className} />;
@@ -69,10 +73,13 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
   // full animal is always visible. We strip any object-cover class the caller
   // passes and enforce object-contain with bottom-alignment so the dog/cat
   // appears to "sit" in the card rather than being letterboxed in the middle.
-  const safeClass = (className ?? "")
-    .replace(/object-cover/g, "")
-    .replace(/object-center/g, "")
-    .trim();
+  // Real photos look best cropped to fill the card, so they keep object-cover.
+  const safeClass = realPhoto
+    ? (className ?? "")
+    : (className ?? "")
+        .replace(/object-cover/g, "")
+        .replace(/object-center/g, "")
+        .trim();
 
   return (
     <>
@@ -96,7 +103,8 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
         src={localSrc}
         alt={alt}
         fill={fill}
-        className={`object-contain object-bottom transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"} ${safeClass}`}
+        style={realPhoto ? { objectPosition: realBreedPhotoPosition[breedId] ?? "center" } : undefined}
+        className={`${realPhoto ? "object-cover" : "object-contain object-bottom"} transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"} ${safeClass}`}
         sizes={sizes}
         onLoad={() => setLoaded(true)}
         onError={() => setFailed(true)}
