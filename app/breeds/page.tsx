@@ -8,6 +8,7 @@ import BreedImage from "@/components/BreedImage";
 export const metadata: Metadata = {
   title: "Dog & Cat Breed Cost Guide",
   description: "Browse cost estimates for 300+ dog and cat breeds. See first-year costs, annual expenses, and lifetime ownership costs for every breed.",
+  alternates: { canonical: "https://petcost-calculator.com/breeds" },
 };
 
 export default function BreedsPage({ searchParams }: { searchParams: { type?: string } }) {

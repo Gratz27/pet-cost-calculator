@@ -357,10 +357,8 @@ export const realBreedPhotoMap: Record<string, string> = {
   "siberian-husky":      UNSPLASH("photo-1563889362352-b0492c224f62"),
   "bengal":              UNSPLASH("photo-1603277160434-df7471138363"),
   "poodle-standard":     UNSPLASH("photo-1555596873-1916fae19257"),
-  "border-collie":       UNSPLASH("photo-1568393691080-d016376b767d"),
 
   // Added June 2026 — remaining TOP_DOG_BREEDS priority list
-  "bulldog":                      UNSPLASH("photo-1611611158876-41699b77a059"),
   "rottweiler":                   UNSPLASH("photo-1656138899262-1faa4ae4bef6"),
   "german-shorthaired-pointer":   UNSPLASH("photo-1538326713073-613413bec43b"),
   "dachshund-smooth-haired":      UNSPLASH("photo-1621757298894-7174d1b1bc40"),
@@ -372,21 +370,15 @@ export const realBreedPhotoMap: Record<string, string> = {
   "pembroke-welsh-corgi":         UNSPLASH("photo-1653763399389-8fa6d3683155"),
   "yorkshire-terrier":            UNSPLASH("photo-1574760112346-8443c3773437"),
   "australian-shepherd":          UNSPLASH("photo-1705624980194-6325687bb1aa"),
-  "boxer":                        UNSPLASH("photo-1442605527737-ed62b867591f"),
   "great-dane":                   UNSPLASH("photo-1587518102280-8d5fdcb68d13"),
   "dobermann":                    UNSPLASH("photo-1599586477491-f86db60c0c1c"),
   "cavalier-king-charles-spaniel": UNSPLASH("photo-1613210609371-455e3aa5fb8c"),
   "shih-tzu":                     UNSPLASH("photo-1721781010133-8eb0e9b23daf"),
-  "boston-terrier":               UNSPLASH("photo-1623010830364-860f2c821d5d"),
   "bernese-mountain-dog":         UNSPLASH("photo-1652465130623-c17d7ade03b2"),
   "pomeranian":                   UNSPLASH("photo-1690985210626-885a2b0ba5ce"),
   "miniature-schnauzer":          UNSPLASH("photo-1580467277788-c6e040296602"),
-  "cocker-spaniel":               UNSPLASH("photo-1641035855573-e22a4e11c7be"),
-  "bichon-frise":                 UNSPLASH("photo-1554634242-a653caa56834"),
   "maltese":                      UNSPLASH("photo-1621878135994-8b56a55d4af5"),
   "weimaraner":                   UNSPLASH("photo-1567856481823-b0e89457f52a"),
-  "brittany":                     UNSPLASH("photo-1632050395191-dbf98a89b31e"),
-  "english-setter":               UNSPLASH("photo-1633196931350-201ccf6f624d"),
 
   // Added June 2026 — remaining top-priority cat breeds
   "persian":                      UNSPLASH("photo-1591429939960-b7d5add10b5c"),
@@ -394,10 +386,8 @@ export const realBreedPhotoMap: Record<string, string> = {
   "british-shorthair":            UNSPLASH("photo-1599156616188-38c914c6ccad"),
   "abyssinian":                   UNSPLASH("photo-1598005532299-f48db04a2637"),
   "russian-blue":                 UNSPLASH("photo-1602268867508-b058cb9c3e99"),
-  "scottish-fold":                UNSPLASH("photo-1595433708220-3aa013e5e43f"),
   "sphynx":                       UNSPLASH("photo-1547565322-847851d7ef2f"),
   "norwegian-forest":             UNSPLASH("photo-1653744060485-2a4ded2b00c3"),
-  "devon-rex":                    UNSPLASH("photo-1701007816120-41c4f908221b"),
   "birman":                       UNSPLASH("photo-1632041068365-215243fd40f0"),
   "burmese":                      UNSPLASH("photo-1547960450-2ea08b931270"),
 
@@ -583,7 +573,6 @@ export const realBreedPhotoMap: Record<string, string> = {
 
   // Added June 2026 — long-tail cat breeds, batch 7
   "devon-rex":                          UNSPLASH("photo-1767884267033-4e832b3055f9"),
-  "oriental-shorthair":                 UNSPLASH("photo-1612471903135-eb2a25ba34c6"),
 
   // Added June 2026 — long-tail cat breeds, batch 8
   "egyptian-mau":                       UNSPLASH("photo-1608848461950-0fe51dfc41cb"),
@@ -593,7 +582,6 @@ export const realBreedPhotoMap: Record<string, string> = {
 
   // Added June 2026 — long-tail cat breeds, batch 10
   "korat":                              UNSPLASH("photo-1649472729650-9803247c67d7"),
-  "japanese-bobtail":                   UNSPLASH("photo-1503777119540-ce54b422baff"),
 
   // Added June 2026 — long-tail cat breeds, batch 11
   "khaomanee":                          UNSPLASH("photo-1585699777545-355976789272"),

@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Recommended Pet Gear & Supplies 2026 | PetCost-Calculator",
   description:
     "Hand-picked categories of high-quality dog and cat gear — crates, beds, food, litter, grooming tools, and more. Find well-reviewed essentials for every budget.",
+  alternates: { canonical: "https://petcost-calculator.com/tools/gear" },
 };
 
 type Pick = {

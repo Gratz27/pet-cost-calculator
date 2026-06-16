@@ -17,6 +17,7 @@ const jsonLd = {
 export const metadata: Metadata = {
   title: "Pet Cost Calculator – Personalised Cost Report",
   description: "Calculate the complete cost of owning a dog or cat. First-year costs, annual expenses, lifetime total, and hidden costs — personalised to your breed, location, and lifestyle.",
+  alternates: { canonical: "https://petcost-calculator.com/calculator" },
 };
 
 export default function CalculatorPage() {
