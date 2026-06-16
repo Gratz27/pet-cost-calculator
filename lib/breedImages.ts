@@ -342,8 +342,23 @@ export const catBreedImageMap: Record<string, string> = {
 // Curated, commercially-free Unsplash photos (Unsplash License — no
 // attribution required) for the 12 breeds featured on the homepage.
 // Added June 2026 to replace mascot illustrations with real animal photos.
+// Server-side face-aware crop: imgix `crop=faces` detects the animal's face
+// and frames to it (falling back to `entropy` — the busiest region, usually
+// the animal — when no face is found). A 4:3 aspect matches the breed cards
+// and hero, so faces stay centred regardless of container. This fixes
+// "face cut off" framing across every breed photo at once.
 const UNSPLASH = (id: string) =>
-  `https://images.unsplash.com/${id}?w=1200&q=80`;
+  `https://images.unsplash.com/${id}?w=900&h=675&q=80&fit=crop&crop=faces,entropy`;
+
+// Wikimedia Commons verified lead photo (breed-named, correct-by-source). Used
+// where a reliable Unsplash close-up isn't available — guarantees the right
+// breed. `path` is the commons hash path incl. filename, e.g. "7/76/Whippet.jpg".
+// Direct original-file URL. Commons only serves a fixed set of thumbnail
+// widths (arbitrary widths like 800px 404), so we link the original and let
+// next/image resize/optimise it. `path` is the commons hash path incl.
+// filename, e.g. "7/76/Whippet_2018_6.jpg".
+const WIKI = (path: string) =>
+  `https://upload.wikimedia.org/wikipedia/commons/${path}`;
 
 export const realBreedPhotoMap: Record<string, string> = {
   "golden-retriever":    UNSPLASH("photo-1633722715463-d30f4f325e24"),
@@ -361,12 +376,6 @@ export const realBreedPhotoMap: Record<string, string> = {
   // Added June 2026 — remaining TOP_DOG_BREEDS priority list
   "rottweiler":                   UNSPLASH("photo-1656138899262-1faa4ae4bef6"),
   "german-shorthaired-pointer":   UNSPLASH("photo-1538326713073-613413bec43b"),
-  "dachshund-smooth-haired":      UNSPLASH("photo-1621757298894-7174d1b1bc40"),
-  "dachshund-long-haired":        UNSPLASH("photo-1621757298894-7174d1b1bc40"),
-  "dachshund-wire-haired":        UNSPLASH("photo-1621757298894-7174d1b1bc40"),
-  "dachshund-miniature-smooth-haired": UNSPLASH("photo-1621757298894-7174d1b1bc40"),
-  "dachshund-miniature-long-haired":   UNSPLASH("photo-1621757298894-7174d1b1bc40"),
-  "dachshund-miniature-wire-haired":   UNSPLASH("photo-1621757298894-7174d1b1bc40"),
   "pembroke-welsh-corgi":         UNSPLASH("photo-1653763399389-8fa6d3683155"),
   "yorkshire-terrier":            UNSPLASH("photo-1574760112346-8443c3773437"),
   "australian-shepherd":          UNSPLASH("photo-1705624980194-6325687bb1aa"),
@@ -436,7 +445,6 @@ export const realBreedPhotoMap: Record<string, string> = {
 
   // Added June 2026 — long-tail dog breeds, batch 7
   "basset-bleu-de-gascogne":          UNSPLASH("photo-1758398061812-b519e7069adc"),
-  "basset-fauve-de-bretagne":         UNSPLASH("photo-1619754226841-99b374dccbc0"),
   "basset-griffon-vendeen-grand":     UNSPLASH("photo-1554842863-766951f51658"),
   "basset-griffon-vendeen-petit":     UNSPLASH("photo-1617748418149-1c5f78b8ac6e"),
   "bavarian-mountain-hound":          UNSPLASH("photo-1761469066614-05b95981fee3"),
@@ -491,7 +499,6 @@ export const realBreedPhotoMap: Record<string, string> = {
 
   // Added June 2026 — long-tail dog breeds, batch 16
   "english-setter":                    UNSPLASH("photo-1775841019106-df88a5416e94"),
-  "estrela-mountain-dog":              UNSPLASH("photo-1652465130623-c17d7ade03b2"),
   "fox-terrier-wire":                  UNSPLASH("photo-1761338928221-d55054530e98"),
 
   // Added June 2026 — long-tail dog breeds, batch 17
@@ -628,7 +635,6 @@ export const realBreedPhotoMap: Record<string, string> = {
 
   // Added June 2026 — long-tail cat breeds, batch 21 (final cats)
   "japanese-bobtail-longhair":          UNSPLASH("photo-1778436193884-3fc534c811d8"),
-  "kurilian-bobtail-longhair":          UNSPLASH("photo-1542279836-8369a296a95b"),
 
   // Added June 2026 — long-tail dog breeds, batch 22
   "pug":                                UNSPLASH("photo-1523626752472-b55a628f1acc"),
@@ -636,13 +642,50 @@ export const realBreedPhotoMap: Record<string, string> = {
   "newfoundland":                       UNSPLASH("photo-1742007019876-1de27c7d70a6"),
   "old-english-sheepdog":               UNSPLASH("photo-1622536623059-8277a04654f5"),
   "komondor":                           UNSPLASH("photo-1697194585884-6e5967b4347b"),
+
+
+  // Wikimedia Commons verified photos — batch 1 (high-traffic mascots + dup fixes)
+  "whippet":                          WIKI("7/76/Whippet_2018_6.jpg"),
+  "samoyed":                          WIKI("1/18/Samojed00.jpg"),
+  "rhodesian-ridgeback":              WIKI("0/01/Rhodesian_ridgeback.jpg"),
+  "west-highland-white-terrier":      WIKI("2/2c/West_Highland_White_Terrier_Krakow.jpg"),
+  "scottish-terrier":                 WIKI("0/07/Scottish_Terrier_Photo_of_Face.jpg"),
+  "pekingese":                        WIKI("2/24/1AKC_Pekingese_Dog_Show_2011.jpg"),
+  "keeshond":                         WIKI("2/26/Keeshond_Majic_standing_cropped.jpg"),
+  "leonberger":                       WIKI("7/76/Leonberger_male.jpg"),
+  "lhasa-apso":                       WIKI("8/87/Aishia.jpg"),
+  "shetland-sheepdog":                WIKI("b/b5/Shetland_Sheepdog_sable.jpg"),
+  "schipperke":                       WIKI("5/58/Schipperke0001.jpg"),
+  "saluki":                           WIKI("3/31/Red_Smooth_Saluki.jpg"),
+  "estrela-mountain-dog":             WIKI("1/1c/Estrela_Mountain_Dog_6_month_old_male.jpg"),
+  "basset-fauve-de-bretagne":         WIKI("a/ad/Basset_Fauve_de_Bretagne_600.jpg"),
+  "kurilian-bobtail":                 WIKI("7/71/KURILIAN_BOBTAIL_Maschio_Veika_2011_(cropped).JPG"),
+  "kurilian-bobtail-longhair":        WIKI("7/71/KURILIAN_BOBTAIL_Maschio_Veika_2011_(cropped).JPG"),
+
+
+  // Dachshund — distinct photo per coat type (was 6x the same image)
+  "dachshund-smooth-haired":          WIKI("f/fd/Dachshund_Liver_and_Tan.jpg"),
+  "dachshund-miniature-smooth-haired":WIKI("f/fd/Dachshund_Liver_and_Tan.jpg"),
+  "dachshund-long-haired":            WIKI("f/f7/Std_Dachshund_600.jpg"),
+  "dachshund-miniature-long-haired":  WIKI("f/f7/Std_Dachshund_600.jpg"),
+  "dachshund-wire-haired":            WIKI("6/69/Wire-Haired_Standard_Dachshund_(15688246980).jpg"),
+  "dachshund-miniature-wire-haired":  WIKI("6/69/Wire-Haired_Standard_Dachshund_(15688246980).jpg"),
 };
 
 // Per-breed object-position overrides for the real photos above — lets us
 // re-centre the crop when the subject isn't dead-centre in the source photo.
 // Defaults to "center" if not listed here.
+// Per-breed object-position overrides. With imgix `crop=faces` now centring
+// the animal's face server-side, the CSS default of "center" is correct for
+// almost everything — add an entry here only for the rare photo that still
+// needs nudging after the server-side crop.
 export const realBreedPhotoPosition: Record<string, string> = {
-  "labrador-retriever": "center 30%",
+  "dachshund-smooth-haired": "75% 50%",
+  "dachshund-miniature-smooth-haired": "75% 50%",
+  "dachshund-long-haired": "28% 50%",
+  "dachshund-miniature-long-haired": "28% 50%",
+  "dachshund-wire-haired": "25% 50%",
+  "dachshund-miniature-wire-haired": "25% 50%",
 };
 
 const DEFAULT_DOG_IMG = DC("retriever-labrador", "n02099712_4323.jpg");
