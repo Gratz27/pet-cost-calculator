@@ -24,6 +24,135 @@ export interface BlogArticle {
 export const allBlogArticles: BlogArticle[] = [
   // ── Newest / Authority Articles ──────────────────────────────────────────
   {
+    id: 'dachshund-cost-guide-2026',
+    slug: 'how-much-does-a-dachshund-cost',
+    title: 'How Much Does a Dachshund Cost? Complete 2026 Guide',
+    description: 'Dachshunds cost $500–$2,500 to buy and $1,200–$2,800/year to run — but IVDD surgery can top $5,000 overnight. Full 2026 cost breakdown and free calculator.',
+    category: 'breed-guide',
+    author: 'PetCost-Calculator Team',
+    publishDate: '2026-06-16',
+    readTime: 9,
+    image: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000',
+    keywords: ['dachshund cost', 'how much does a dachshund cost', 'dachshund price', 'dachshund expenses', 'miniature dachshund cost', 'sausage dog cost'],
+    relatedBreedName: 'Dachshund',
+    relatedBreedId: 'dachshund',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'small',
+    faqs: [
+      {
+        q: 'How much does a Dachshund cost?',
+        a: 'A Dachshund from a reputable breeder typically costs $500–$2,500 in the US (£800–£2,500 in the UK), depending on size (Miniature vs Standard) and coat type. Rescue adoption fees are $100–$350. Annual running costs typically range from $1,200–$2,800/year.',
+      },
+      {
+        q: 'Are Dachshunds expensive to own?',
+        a: 'Dachshunds have relatively low food and grooming costs due to their small size, but Intervertebral Disc Disease (IVDD) — which affects up to 25% of the breed — can result in surgery bills of $3,000–$8,000. Pet insurance is strongly recommended.',
+      },
+      {
+        q: 'What is the biggest hidden cost of owning a Dachshund?',
+        a: 'IVDD (back disc disease) is the major financial risk. Surgery to treat a herniated disc costs $3,000–$8,000 in the US and £2,000–£5,000 in the UK. Even conservative management (crate rest, medication) can cost $500–$1,500 per episode.',
+      },
+      {
+        q: 'How long do Dachshunds live?',
+        a: 'Dachshunds are a long-lived breed, typically reaching 12–16 years. Their longevity is one reason lifetime ownership costs are higher than their modest annual spend suggests.',
+      },
+    ],
+    content: `
+<h2>How Much Does a Dachshund Cost? Quick Answer</h2>
+<p>A Dachshund puppy from a reputable breeder typically costs <strong>$500–$2,500</strong> in the US (£800–£2,500 in the UK), with Miniature Dachshunds priced at the higher end of that range. Annual running costs — food, routine vet care, insurance, and supplies — typically land between <strong>$1,200 and $2,800/year</strong>. Over a Dachshund's long 12–16 year lifespan, total ownership costs commonly reach <strong>$18,000–$38,000</strong>, and that figure can jump significantly if your dog develops Intervertebral Disc Disease (IVDD) — the breed's most costly and common health risk.</p>
+
+<h2>Purchase Price in 2026</h2>
+<p>Dachshunds come in two sizes (Miniature and Standard) and three coat types (Smooth, Long-haired, and Wire-haired), all of which affect pricing. The most popular option by far in both the US and UK is the Miniature Smooth-haired, which commands a premium because of high demand and more demanding breeding requirements.</p>
+
+<table>
+  <thead><tr><th>Type</th><th>US Price</th><th>UK Price</th></tr></thead>
+  <tbody>
+    <tr><td>Standard Dachshund (reputable breeder)</td><td>$500 – $1,800</td><td>£800 – £1,800</td></tr>
+    <tr><td>Miniature Dachshund (reputable breeder)</td><td>$800 – $2,500</td><td>£1,000 – £2,500</td></tr>
+    <tr><td>Rescue / shelter adoption</td><td>$100 – $350</td><td>£100 – £300</td></tr>
+    <tr><td>Long-haired or rare-colour premium</td><td>+$300 – $800</td><td>+£200 – £600</td></tr>
+  </tbody>
+</table>
+
+<p>"Rare" colours like dapple, piebald, and Isabella attract premium prices — but proceed carefully. Double-dapple Dachshunds (from two dapple parents) carry a high risk of blindness and deafness, and Isabella (dilute) colouring is linked to Colour Dilution Alopecia. Always ask breeders to show colour testing documentation.</p>
+
+<h2>First-Year Costs</h2>
+<p>The purchase price is the biggest single expense, but the first year piles on several additional one-time and recurring costs. Dachshunds' small size keeps food and equipment costs modest relative to larger breeds.</p>
+
+<table>
+  <thead><tr><th>Expense</th><th>US Cost</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase price</td><td>$800 – $2,500</td><td>Mid-range Miniature Dachshund from tested breeder</td></tr>
+    <tr><td>Initial vet check + vaccinations</td><td>$150 – $300</td><td>Puppy series (three rounds at 8, 12, 16 weeks)</td></tr>
+    <tr><td>Spay / neuter</td><td>$150 – $350</td><td>Often recommended at 6–12 months</td></tr>
+    <tr><td>Microchipping</td><td>$45 – $75</td><td>Often bundled with desexing</td></tr>
+    <tr><td>Starter supplies</td><td>$150 – $350</td><td>Harness (NOT collar — too much neck strain), bed, bowls, ramp, toys</td></tr>
+    <tr><td>Puppy training classes</td><td>$100 – $300</td><td>Dachshunds are independent-minded; early training pays dividends</td></tr>
+    <tr><td>First-year food</td><td>$250 – $500</td><td>Small breed formula; $20–$40/month for a Miniature</td></tr>
+    <tr><td>Pet insurance (first year)</td><td>$300 – $700</td><td>$25–$60/month; IVDD risk pushes premiums above average</td></tr>
+    <tr><td><strong>First-year total</strong></td><td><strong>$1,950 – $5,100+</strong></td><td>Including purchase price</td></tr>
+  </tbody>
+</table>
+
+<p>One Dachshund-specific supply worth budgeting for early: a set of pet ramps or steps. Dachshunds should never jump on and off furniture unaided — the repeated impact on their long spines is a significant IVDD risk factor. A good ramp costs $40–$100 and is one of the best preventative investments you can make.</p>
+
+<h2>Annual Ongoing Costs (Year 2+)</h2>
+<p>Dachshunds are one of the more affordable small breeds to maintain once past year one. Their modest size keeps food, medication doses, and boarding costs low — but their elevated insurance premiums (due to IVDD risk) keep annual costs above what their food bill alone would suggest.</p>
+
+<table>
+  <thead><tr><th>Annual Expense</th><th>Miniature Dachshund</th><th>Standard Dachshund</th></tr></thead>
+  <tbody>
+    <tr><td>Food</td><td>$250 – $500</td><td>$350 – $650</td></tr>
+    <tr><td>Routine vet care (annual exam, boosters, preventatives)</td><td>$250 – $450</td><td>$300 – $500</td></tr>
+    <tr><td>Pet insurance</td><td>$350 – $700</td><td>$350 – $700</td></tr>
+    <tr><td>Grooming (smooth: minimal; long-haired: occasional; wire-haired: hand-stripping)</td><td>$50 – $400</td><td>$50 – $400</td></tr>
+    <tr><td>Toys, treats, supplies</td><td>$100 – $200</td><td>$100 – $200</td></tr>
+    <tr><td><strong>Annual total (year 2+)</strong></td><td><strong>$1,000 – $2,250</strong></td><td><strong>$1,150 – $2,450</strong></td></tr>
+  </tbody>
+</table>
+
+<h3>Grooming Costs by Coat Type</h3>
+<p>Smooth-haired Dachshunds need almost no grooming — a wipe-down with a damp cloth and occasional bath is sufficient. Long-haired Dachshunds need brushing 2–3 times a week and a trim or tidy-up every 2–3 months ($40–$80 per professional groom). Wire-haired Dachshunds require "hand-stripping" every 6 months to maintain coat texture correctly — a specialist skill that costs $80–$150 per session and isn't offered at every groomer.</p>
+
+<h2>The IVDD Risk: The Biggest Budget Variable</h2>
+<p>Intervertebral Disc Disease is the defining health risk for Dachshunds. Their elongated spines and short legs mean the discs between their vertebrae are under constant stress and degenerate earlier than in other breeds. Studies estimate that <strong>25% of Dachshunds will experience a significant IVDD episode</strong> in their lifetime, with some dogs having multiple episodes.</p>
+
+<p>There are two treatment pathways, and the cost difference is dramatic:</p>
+
+<table>
+  <thead><tr><th>IVDD Treatment</th><th>US Cost</th><th>UK Cost</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Conservative management (crate rest + medication)</td><td>$500 – $1,500</td><td>£300 – £1,000</td><td>Suitable only for Grade 1–2 (mild) cases; 70–80% success rate</td></tr>
+    <tr><td>Spinal surgery (hemilaminectomy)</td><td>$3,000 – $8,000</td><td>£2,000 – £5,000</td><td>Required for Grades 3–5; best outcomes when performed within 24–48 hrs of onset</td></tr>
+    <tr><td>Post-surgical physiotherapy</td><td>$500 – $2,000</td><td>£400 – £1,500</td><td>Strongly recommended for recovery; hydrotherapy $50–$80/session</td></tr>
+  </tbody>
+</table>
+
+<p>The urgency of IVDD treatment is critical: a dog that goes from walking to paralysed needs emergency surgery within 24–48 hours for the best chance of recovery. This is not a cost you can plan for on a payment plan — it arrives suddenly. <strong>Pet insurance taken out before any spinal symptoms appear is the single most important financial decision a Dachshund owner can make.</strong></p>
+
+<h2>Lifetime Cost Estimate</h2>
+<p>Dachshunds are a genuinely long-lived breed — 14 years is a realistic planning figure, with many reaching 16+. This longevity is wonderful but means costs accumulate over a longer horizon than most breeds.</p>
+
+<ul>
+  <li><strong>No IVDD or major health events:</strong> $18,000 – $28,000 over 14 years</li>
+  <li><strong>One IVDD surgical episode:</strong> $24,000 – $38,000 over 14 years</li>
+  <li><strong>Multiple IVDD episodes or other complications:</strong> $40,000 – $55,000+ over 14 years</li>
+</ul>
+
+<p>In UK terms, expect roughly £14,000–£22,000 for a healthy dog with no major incidents, and £25,000–£40,000+ if IVDD surgery is required.</p>
+
+<h2>Money-Saving Tips for Dachshund Owners</h2>
+<ul>
+  <li><strong>Get insurance immediately.</strong> Do not wait until after the first vet visit — even a mention of "slightly elongated vertebrae" on a record can lead to IVDD-related exclusions. Day-one coverage is essential for this breed.</li>
+  <li><strong>Install ramps everywhere.</strong> A $50 ramp by the sofa and a $70 pet steps by the bed are cheap insurance against the $5,000+ cost of a preventable disc injury from jumping.</li>
+  <li><strong>Control weight rigorously.</strong> Obesity is the single largest modifiable IVDD risk factor. Every extra kilogram on a Dachshund's spine increases disc pressure dramatically. Premium kibble with controlled portions is cheaper than the alternative.</li>
+  <li><strong>Smooth-haired = lower grooming costs.</strong> If grooming budget matters, the Smooth-haired Dachshund is by far the lowest-maintenance of the three coat types.</li>
+  <li><strong>Buy from IVDD-aware breeders.</strong> Some breeders are now selecting against IVDD through MRI screening of breeding stock. This reduces the risk of hereditary disc pathology — ask breeders whether they screen.</li>
+</ul>
+
+<p>Use our <a href="/calculator">free pet cost calculator</a> to get a personalised Dachshund cost estimate based on your location and lifestyle.</p>
+    `,
+  },
+  {
     id: 'maine-coon-cost-guide-2026',
     slug: 'how-much-does-a-maine-coon-cat-cost',
     title: 'How Much Does a Maine Coon Cat Cost? Complete 2026 Guide',
