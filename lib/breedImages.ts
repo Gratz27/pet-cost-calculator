@@ -342,13 +342,14 @@ export const catBreedImageMap: Record<string, string> = {
 // Curated, commercially-free Unsplash photos (Unsplash License — no
 // attribution required) for the 12 breeds featured on the homepage.
 // Added June 2026 to replace mascot illustrations with real animal photos.
-// Server-side face-aware crop: imgix `crop=faces` detects the animal's face
-// and frames to it (falling back to `entropy` — the busiest region, usually
-// the animal — when no face is found). A 4:3 aspect matches the breed cards
-// and hero, so faces stay centred regardless of container. This fixes
-// "face cut off" framing across every breed photo at once.
+// Serve the FULL photo (natural aspect, no server-side crop) and art-direct
+// the framing with CSS `object-fit: cover` + per-breed `object-position`
+// (see realBreedPhotoPosition). Server-side `crop=faces` was unreliable on
+// animals — it mis-detected and discarded pixels, leaving some breeds showing
+// only legs/body. Full image + object-position gives predictable, tunable
+// framing we control per photo.
 const UNSPLASH = (id: string) =>
-  `https://images.unsplash.com/${id}?w=900&h=675&q=80&fit=crop&crop=faces,entropy`;
+  `https://images.unsplash.com/${id}?w=1100&q=80`;
 
 // Wikimedia Commons verified lead photo (breed-named, correct-by-source). Used
 // where a reliable Unsplash close-up isn't available — guarantees the right
@@ -415,7 +416,6 @@ export const realBreedPhotoMap: Record<string, string> = {
   "azawakh":                       UNSPLASH("photo-1583786693544-e352f898888d"),
 
   // Added June 2026 — long-tail dog breeds, batch 3 (B)
-  "barbet":                        UNSPLASH("photo-1583889702524-5a92a5b520a9"),
   "basenji":                       UNSPLASH("photo-1604319781834-9cb373738599"),
   "basset-hound":                  UNSPLASH("photo-1619754226841-99b374dccbc0"),
   "bearded-collie":                UNSPLASH("photo-1594811851726-fa98b36ff029"),
@@ -432,7 +432,6 @@ export const realBreedPhotoMap: Record<string, string> = {
   "bichon-frise":                     UNSPLASH("photo-1587539975099-5aecb74902d4"),
   "bolognese":                        UNSPLASH("photo-1560132248-d946352460e3"),
   "border-terrier":                   UNSPLASH("photo-1604833124060-7f81db9c38de"),
-  "borzoi":                           UNSPLASH("photo-1585593875169-377cbcec70cb"),
   "boston-terrier":                   UNSPLASH("photo-1623010830364-860f2c821d5d"),
 
   // Added June 2026 — long-tail dog breeds, batch 6 (B continued)
@@ -447,7 +446,6 @@ export const realBreedPhotoMap: Record<string, string> = {
   "basset-bleu-de-gascogne":          UNSPLASH("photo-1758398061812-b519e7069adc"),
   "basset-griffon-vendeen-grand":     UNSPLASH("photo-1554842863-766951f51658"),
   "basset-griffon-vendeen-petit":     UNSPLASH("photo-1617748418149-1c5f78b8ac6e"),
-  "bavarian-mountain-hound":          UNSPLASH("photo-1761469066614-05b95981fee3"),
 
   // Added June 2026 — long-tail dog breeds, batch 8
   "bull-terrier":                     UNSPLASH("photo-1549608536-d2ad340085f8"),
@@ -518,7 +516,6 @@ export const realBreedPhotoMap: Record<string, string> = {
 
   // Added June 2026 — long-tail dog breeds, batch 20
   "hungarian-wire-haired-vizsla":      UNSPLASH("photo-1699196722505-2cd2be4f6a39"),
-  "icelandic-sheepdog":                UNSPLASH("photo-1681969377369-6d68f2b6b6f9"),
   "irish-setter":                      UNSPLASH("photo-1671011401064-a25edcaa827c"),
   "irish-terrier":                     UNSPLASH("photo-1607964296542-54d29168d2c4"),
   "irish-water-spaniel":               UNSPLASH("photo-1648976286905-2f77ed1eb58c"),
@@ -542,10 +539,8 @@ export const realBreedPhotoMap: Record<string, string> = {
   // Added June 2026 — long-tail dog breeds, batch 24
   "hovawart":                          UNSPLASH("photo-1593944240078-4ff256a26ff3"),
   "german-pinscher":                   UNSPLASH("photo-1614613414597-73d23d02abd4"),
-  "hungarian-puli":                    UNSPLASH("photo-1697403735887-8c0036157652"),
 
   // Added June 2026 — long-tail dog breeds, batch 25
-  "ibizan-hound":                      UNSPLASH("photo-1615881531311-a29f968ab2c1"),
   "fox-terrier-smooth":                UNSPLASH("photo-1558309887-705acbec8733"),
 
   // Added June 2026 — long-tail cat breeds, batch 1
@@ -670,6 +665,15 @@ export const realBreedPhotoMap: Record<string, string> = {
   "dachshund-miniature-long-haired":  WIKI("f/f7/Std_Dachshund_600.jpg"),
   "dachshund-wire-haired":            WIKI("6/69/Wire-Haired_Standard_Dachshund_(15688246980).jpg"),
   "dachshund-miniature-wire-haired":  WIKI("6/69/Wire-Haired_Standard_Dachshund_(15688246980).jpg"),
+
+
+  // Replaced weak/incorrect source photos with verified Wikimedia (audit)
+  "borzoi":                           WIKI("d/de/Chart_rosyjski_borzoj_rybnik-kamien_pl.jpg"),
+  "ibizan-hound":                     WIKI("e/ef/Podenco_z_ibizy_645.jpg"),
+  "icelandic-sheepdog":               WIKI("7/74/Icelandic_Sheepdog_Alisa_von_Lehenberg.jpg"),
+  "bavarian-mountain-hound":          WIKI("5/5d/Zoran_Spod_Ruskiej_Granicy_the_Bavarian_Mountain_Hound.jpg"),
+  "hungarian-puli":                   WIKI("a/a2/Ch_Prydain_Nuzzle_Fuzzle,_NA,OAJ,HT.jpg"),
+  "barbet":                           WIKI("8/89/Barbet-brown.jpg"),
 };
 
 // Per-breed object-position overrides for the real photos above — lets us
