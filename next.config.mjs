@@ -68,6 +68,14 @@ const nextConfig = {
         destination: "/blog/how-much-does-a-persian-cat-cost",
         permanent: true,
       },
+      {
+        // Consolidated June 2026 to fix keyword cannibalisation — the two Golden
+        // Retriever cost articles competed for the same query. Unique content was
+        // merged into the lifetime guide (the higher-impression winner).
+        source: "/blog/golden-retriever-cost-us",
+        destination: "/blog/golden-retriever-lifetime-costs",
+        permanent: true,
+      },
     ];
   },
 };

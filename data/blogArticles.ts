@@ -435,65 +435,12 @@ export const allBlogArticles: BlogArticle[] = [
 <p>If you're considering one of these breeds, budget not just for the puppy, but for the inevitable medical and maintenance costs. Securing comprehensive pet insurance immediately is absolutely critical for these high-risk breeds. Use our <a href="/calculator">cost calculator</a> to model lifetime expenses for any breed.</p>
     `,
   },
-  // ── Remaining Authority Articles (10) ─────────────────────────────────────
-  {
-    id: 'golden-retriever-cost-us',
-    slug: 'golden-retriever-cost-us',
-    title: 'How Much Does a Golden Retriever Cost Per Year in the US?',
-    description: 'A complete breakdown of annual Golden Retriever ownership costs in the United States — from adoption fees and vet care to food, grooming, and hidden expenses.',
-    category: 'dogs',
-    author: 'PetCost-Calculator Team',
-    publishDate: '2026-05-25',
-    readTime: 9,
-    image: '/breeds/golden-retriever.png',
-    keywords: ['Golden Retriever cost US', 'annual dog costs', 'Golden Retriever expenses', 'pet budget US'],
-    relatedBreedName: 'Golden Retriever',
-    relatedBreedId: 'golden-retriever',
-    relatedPetType: 'dog',
-    relatedBreedSize: 'large',
-    content: `
-<h2>Golden Retriever Costs in the US: The Complete Picture</h2>
-<p>Golden Retrievers consistently rank among America's most beloved dog breeds. But their popularity doesn't diminish the significant financial commitment required. Here's a complete breakdown of what US owners spend annually.</p>
-
-<h2>Initial Acquisition Costs</h2>
-<p>Purchasing from a reputable, health-tested breeder typically costs <strong>$1,500–$3,500</strong>. Adopting from a Golden Retriever rescue costs <strong>$300–$600</strong>, typically including spay/neuter, initial vaccinations, and microchipping.</p>
-
-<h2>Annual Ongoing Costs After Year One</h2>
-<table>
-  <thead><tr><th>Expense Category</th><th>Annual Low</th><th>Annual High</th></tr></thead>
-  <tbody>
-    <tr><td>Food (high-quality kibble)</td><td>$600</td><td>$1,200</td></tr>
-    <tr><td>Routine vet care</td><td>$350</td><td>$600</td></tr>
-    <tr><td>Flea, tick, and heartworm prevention</td><td>$150</td><td>$300</td></tr>
-    <tr><td>Professional grooming (6–8 sessions/year)</td><td>$400</td><td>$800</td></tr>
-    <tr><td>Pet insurance</td><td>$600</td><td>$1,200</td></tr>
-    <tr><td>Toys, treats, accessories</td><td>$150</td><td>$300</td></tr>
-    <tr><td>Boarding or pet sitting</td><td>$400</td><td>$800</td></tr>
-    <tr><td><strong>Total Annual</strong></td><td><strong>$2,650</strong></td><td><strong>$5,200</strong></td></tr>
-  </tbody>
-</table>
-
-<h2>Health Risks That Drive Up Costs</h2>
-<p>Golden Retrievers have a well-documented predisposition to serious health conditions:</p>
-<ul>
-  <li><strong>Hip and elbow dysplasia:</strong> Surgery costs $3,500–$7,000 per hip</li>
-  <li><strong>Cancer:</strong> Approximately 60% of Goldens develop cancer. Treatment ranges from $5,000 to $20,000+</li>
-  <li><strong>Hypothyroidism:</strong> Daily medication $20–$50/month</li>
-  <li><strong>Skin allergies:</strong> $500–$2,000/year to manage</li>
-</ul>
-
-<h2>Lifetime Cost Estimate</h2>
-<p>Over a typical 10–12 year lifespan, the <strong>lifetime cost of owning a Golden Retriever in the US ranges from $25,000 to $55,000</strong>. With a cancer diagnosis or orthopaedic surgery, lifetime costs can easily exceed $70,000.</p>
-
-<h2>Ways to Reduce Costs</h2>
-<ul>
-  <li>Purchase pet insurance while your Golden is a healthy puppy</li>
-  <li>Learn to brush and bathe at home to reduce grooming frequency</li>
-  <li>Use a veterinary school clinic for routine care at 30–50% below standard rates</li>
-  <li>Buy food and preventatives in bulk through Chewy or Amazon Subscribe &amp; Save</li>
-</ul>
-    `,
-  },
+  // ── Remaining Authority Articles (9) ─────────────────────────────────────
+  // NOTE: 'golden-retriever-cost-us' was consolidated into
+  // 'golden-retriever-lifetime-costs' (June 2026) to fix keyword cannibalisation.
+  // Its unique content (annual breakdown, skin-allergy risk, cost-reduction tips)
+  // was merged into that guide, and /blog/golden-retriever-cost-us now 301s to it
+  // (see next.config.mjs).
   {
     id: 'cat-ownership-costs',
     slug: 'cat-ownership-costs',
@@ -702,7 +649,7 @@ export const allBlogArticles: BlogArticle[] = [
 <p>Mitral valve disease affects the majority of Cavaliers by age 10. Management and medication: $500–$2,000/year. Syringomyelia (a spinal condition): $3,000–$6,000 for surgery.</p>
 
 <h3>Golden Retriever — Average Annual Vet Cost: $800–$2,000</h3>
-<p>Cancer incidence is exceptionally high in this breed — approximately 60% develop cancer. Treatment: $5,000–$20,000+. Hip dysplasia surgery: $3,500–$7,000 per hip.</p>
+<p>Cancer incidence is exceptionally high in this breed — approximately 60% develop cancer. Treatment: $5,000–$20,000+. Hip dysplasia surgery: $3,500–$7,000 per hip. For the full picture beyond vet bills, see how much a <a href="/blog/golden-retriever-lifetime-costs">Golden Retriever costs over its lifetime</a>.</p>
 
 <h3>German Shepherd — Average Annual Vet Cost: $700–$1,800</h3>
 <p>Hip and elbow dysplasia are endemic. Degenerative myelopathy (progressive paralysis) has no cure but requires management. Bloat is also a risk in large, deep-chested breeds.</p>
@@ -904,7 +851,7 @@ export const allBlogArticles: BlogArticle[] = [
     publishDate: '2025-11-08',
     readTime: 12,
     image: '/breeds/golden-retriever.png',
-    keywords: ['golden retriever cost', 'how much does a golden retriever cost', 'how much do golden retrievers cost', 'golden retriever monthly cost', 'are golden retrievers expensive', 'golden retriever lifetime costs', 'golden retriever puppies cost'],
+    keywords: ['golden retriever cost', 'how much does a golden retriever cost', 'how much do golden retrievers cost', 'golden retriever monthly cost', 'golden retriever cost per year', 'annual golden retriever cost', 'golden retriever cost us', 'are golden retrievers expensive', 'golden retriever lifetime costs', 'golden retriever puppies cost'],
     relatedBreedName: 'Golden Retriever',
     relatedBreedId: 'golden-retriever',
     relatedPetType: 'dog',
@@ -953,6 +900,9 @@ export const allBlogArticles: BlogArticle[] = [
 </table>
 <p>Add boarding or dog-walking if you travel or work long hours — this can add $300–$1,000+/year depending on frequency.</p>
 
+<h2>Golden Retriever Cost Per Year</h2>
+<p>After the first year, budget roughly <strong>$1,620–$3,170 per year</strong> for the core costs broken down monthly above (food, insurance, routine vet care, grooming, and supplies). Once you factor in flea/tick/heartworm prevention, professional grooming, and occasional boarding or pet-sitting, a realistic all-in annual figure is closer to <strong>$2,600–$5,200 per year</strong> — the range most US owners should plan for.</p>
+
 <h2>Golden Retriever Health Costs &amp; Risks</h2>
 <p>Health is the biggest wildcard in lifetime Golden Retriever costs. The breed is predisposed to:</p>
 <ul>
@@ -960,11 +910,20 @@ export const allBlogArticles: BlogArticle[] = [
   <li><strong>Cancer</strong> — affects roughly 60% of Golden Retrievers; treatment ranges from $3,000–$20,000+ depending on type and stage</li>
   <li><strong>Hypothyroidism</strong> — manageable with daily medication, roughly $20–$40/month for life</li>
   <li><strong>Ear infections</strong> — common due to floppy ears; $100–$300 per vet visit if recurring</li>
+  <li><strong>Skin allergies</strong> — common in the breed; ongoing management runs $500–$2,000/year</li>
 </ul>
 <p>Given the cancer risk in particular, comprehensive accident-and-illness insurance with a high annual limit is one of the most important financial decisions a Golden owner can make — ideally taken out while the puppy is still young and healthy, before any pre-existing conditions can be excluded.</p>
 
 <h2>Golden Retriever Lifetime Cost: $25,000–$55,000</h2>
 <p>Over a typical 10–12 year lifespan, total Golden Retriever ownership costs range from <strong>$25,000 to $55,000</strong> (£20,000–£45,000), combining purchase price, routine annual costs, and a realistic allowance for at least one significant health event. A major cancer diagnosis or double hip surgery can push the total well above this range — which is exactly why insurance and an emergency fund matter so much for this breed.</p>
+
+<h2>How to Reduce Golden Retriever Costs</h2>
+<ul>
+  <li><strong>Insure early.</strong> Take out accident-and-illness cover while your Golden is a healthy puppy, before any condition can be excluded as pre-existing.</li>
+  <li><strong>Groom at home between sessions.</strong> Learning to brush and bathe yourself can roughly halve professional grooming costs.</li>
+  <li><strong>Use a veterinary school clinic</strong> for routine care — often 30–50% below standard vet rates.</li>
+  <li><strong>Buy food and preventatives in bulk</strong> through Chewy or Amazon Subscribe &amp; Save to cut 20–30% off recurring costs.</li>
+</ul>
 
 <h2>Frequently Asked Questions</h2>
 <h3>How much do Golden Retrievers cost per month?</h3>
@@ -2240,4 +2199,22 @@ export const getRelatedArticles = (currentSlug: string, limit = 3): BlogArticle[
     .filter((a) => a.category !== current.category && a.slug !== currentSlug)
     .slice(0, limit - sameCategory.length);
   return [...sameCategory, ...others];
+};
+
+/**
+ * Returns the canonical in-depth blog cost guide for a given breed, if one exists.
+ * Used to link breed pages (/breeds/[slug]) to the matching long-form article,
+ * concentrating internal-link equity on the strongest guide. When a breed has
+ * more than one matching article, prefers a 'breed-guide' category piece, then
+ * the most comprehensive one (longest content).
+ */
+export const getBreedGuideArticle = (breedId: string): BlogArticle | undefined => {
+  const matches = allBlogArticles.filter((a) => a.relatedBreedId === breedId);
+  if (matches.length === 0) return undefined;
+  return matches.sort((a, b) => {
+    const aGuide = a.category === "breed-guide" ? 1 : 0;
+    const bGuide = b.category === "breed-guide" ? 1 : 0;
+    if (aGuide !== bGuide) return bGuide - aGuide;
+    return b.content.length - a.content.length;
+  })[0];
 };

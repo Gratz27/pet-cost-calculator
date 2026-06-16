@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { getAllBreeds } from "@/lib/calculator";
 import { getAllGuideSlugs } from "@/data/guides";
+import { allBlogArticles } from "@/data/blogArticles";
 
 const BASE = "https://petcost-calculator.com";
 
@@ -122,5 +123,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
-  return [...staticPages, ...breedPages, ...guidePages, ...comparePages, ...costPages];
+  const blogPages: MetadataRoute.Sitemap = allBlogArticles.map((a) => ({
+    url: `${BASE}/blog/${a.slug}`,
+    lastModified: a.publishDate ? new Date(a.publishDate) : now,
+    priority: 0.7,
+    changeFrequency: "monthly" as const,
+  }));
+
+  return [...staticPages, ...breedPages, ...guidePages, ...comparePages, ...costPages, ...blogPages];
 }

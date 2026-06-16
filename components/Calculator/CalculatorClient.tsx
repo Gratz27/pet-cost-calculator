@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect } from "react";
+import { trackEvent } from "@/lib/gtag";
 import { useSearchParams } from "next/navigation";
 import { ChevronRight, ChevronLeft, Search, CheckCircle2, AlertCircle, Info } from "lucide-react";
 import { getAllBreeds, getBreedById, calculateCosts, type CalculatorInputs, type CostBreakdown } from "@/lib/calculator";
@@ -116,6 +117,10 @@ export default function CalculatorClient() {
     const idx = STEPS.indexOf(step);
     if (idx < STEPS.length - 1) {
       const next = STEPS[idx + 1];
+      // Funnel start: fired once when the user leaves the first step
+      if (step === "pet-type") {
+        trackEvent("calculator_start", { pet_type: inputs.petType });
+      }
       if (next === "results") {
         const calc = calculateCosts(inputs as CalculatorInputs);
         if (!calc) {
@@ -124,6 +129,13 @@ export default function CalculatorClient() {
           return;
         }
         setResults(calc);
+        // Conversion: user completed the funnel and reached results
+        trackEvent("calculator_complete", {
+          pet_type: inputs.petType,
+          breed_id: inputs.breedId,
+          first_year_total: calc.firstYear.total,
+          lifetime_total: calc.lifetime.total,
+        });
         // Persist state in the URL so results are shareable and survive refresh
         window.history.replaceState(null, "", `/calculator?${inputsToQuery(inputs)}`);
       }

@@ -7,6 +7,7 @@ import { formatCurrency } from "@/lib/utils";
 import BreedImage from "@/components/BreedImage";
 import AdUnit from "@/components/AdUnit";
 import { productLinks, resolveLink, amazonSearchLink, breedGearQuery } from "@/lib/affiliateLinks";
+import { getBreedGuideArticle } from "@/data/blogArticles";
 
 interface Props { params: { slug: string } }
 
@@ -43,6 +44,7 @@ export default function BreedPage({ params }: Props) {
   const firstYearTotal = getBreedFirstYearTotal(breed);
   const annualTotal = getBreedAnnualTotal(breed);
   const lifetimeTotal = getBreedLifetimeTotal(breed);
+  const guideArticle = getBreedGuideArticle(breed.id);
 
   const jsonLd = [
     {
@@ -232,6 +234,14 @@ export default function BreedPage({ params }: Props) {
               These figures are US national averages — your actual costs will vary based on your city, lifestyle, and whether you use a breeder or rescue organisation.
               Use our calculator above to get a personalised estimate.
             </p>
+            {guideArticle && (
+              <p className="text-[#5a7a5a] text-sm leading-relaxed mt-3">
+                For a deeper breakdown of {breed.name} costs — puppy prices, monthly spend, and lifetime totals — read our{" "}
+                <Link href={`/blog/${guideArticle.slug}`} className="text-[#2E7D32] font-medium hover:underline">
+                  complete {breed.name} cost guide
+                </Link>.
+              </p>
+            )}
           </div>
 
           {/* Money-saving tips */}
