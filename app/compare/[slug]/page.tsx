@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronRight, Check, X } from "lucide-react";
-import { getAllBreeds, getBreedById, type Breed } from "@/lib/calculator";
+import {
+  getAllBreeds,
+  getBreedById,
+  getBreedFirstYearTotal,
+  getBreedAnnualTotal,
+  getBreedLifetimeTotal,
+  type Breed,
+} from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import AdUnit from "@/components/AdUnit";
 
@@ -103,15 +110,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Canonical always uses alphabetical order to avoid duplicate content
   const [sortedId1, sortedId2] = [id1, id2].sort();
   const canonicalSlug = `${sortedId1}-vs-${sortedId2}`;
+  const title = `${b1.breed.name} vs ${b2.breed.name} – Cost Comparison`;
+  const description = `Compare the full cost of owning a ${b1.breed.name} vs a ${b2.breed.name}. First-year costs, annual expenses, lifetime totals, and key differences.`;
+  const url = `https://petcost-calculator.com/compare/${canonicalSlug}`;
   return {
-    title: `${b1.breed.name} vs ${b2.breed.name} – Cost Comparison | PetCost-Calculator`,
-    description: `Compare the full cost of owning a ${b1.breed.name} vs a ${b2.breed.name}. First-year costs, annual expenses, lifetime totals, and key differences.`,
-    alternates: { canonical: `https://petcost-calculator.com/compare/${canonicalSlug}` },
-    openGraph: {
-      title: `${b1.breed.name} vs ${b2.breed.name} – Cost Comparison`,
-      description: `Compare the full cost of owning a ${b1.breed.name} vs a ${b2.breed.name}.`,
-      url: `https://petcost-calculator.com/compare/${canonicalSlug}`,
-    },
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: { title, description, url },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
@@ -127,15 +134,67 @@ export default function CompareSlugPage({ params }: Props) {
   const { breed: b1 } = result1;
   const { breed: b2 } = result2;
 
-  const baseAnnual1 = b1.annualFood + b1.annualVet + b1.annualGrooming + b1.annualInsurance + b1.annualSupplies;
-  const baseAnnual2 = b2.annualFood + b2.annualVet + b2.annualGrooming + b2.annualInsurance + b2.annualSupplies;
-  const firstYear1 = b1.adoptionFee + b1.initialVet + b1.initialSupplies + b1.training + baseAnnual1;
-  const firstYear2 = b2.adoptionFee + b2.initialVet + b2.initialSupplies + b2.training + baseAnnual2;
-  const lifetime1 = firstYear1 + baseAnnual1 * (b1.lifespan - 1);
-  const lifetime2 = firstYear2 + baseAnnual2 * (b2.lifespan - 1);
+  // Use the canonical baseline helpers so the same breed shows identical
+  // numbers on the homepage, breed pages, and these comparison pages.
+  const baseAnnual1 = getBreedAnnualTotal(b1);
+  const baseAnnual2 = getBreedAnnualTotal(b2);
+  const firstYear1 = getBreedFirstYearTotal(b1);
+  const firstYear2 = getBreedFirstYearTotal(b2);
+  const lifetime1 = getBreedLifetimeTotal(b1);
+  const lifetime2 = getBreedLifetimeTotal(b2);
 
   const cheaper = firstYear1 < firstYear2 ? b1 : b2;
   const saving = Math.abs(firstYear1 - firstYear2);
+
+  // ── Derived comparison analysis (unique per breed pair) ──────────────
+  const cheaperLifetime = lifetime1 <= lifetime2 ? b1 : b2;
+  const pricierLifetime = cheaperLifetime.id === b1.id ? b2 : b1;
+  const cheaperLifetimeVal = Math.min(lifetime1, lifetime2);
+  const pricierLifetimeVal = Math.max(lifetime1, lifetime2);
+  const lifetimeGap = Math.abs(lifetime1 - lifetime2);
+  const lifetimePct = pricierLifetimeVal > 0 ? Math.round((lifetimeGap / pricierLifetimeVal) * 100) : 0;
+  const monthly1 = Math.round(baseAnnual1 / 12);
+  const monthly2 = Math.round(baseAnnual2 / 12);
+  const emergencyFundFor = (b: Breed) => (b.size === "large" ? 3000 : b.size === "medium" ? 2500 : 2000);
+  const maxEmergency = Math.max(emergencyFundFor(b1), emergencyFundFor(b2));
+  const sizeRank = { small: 1, medium: 2, large: 3 } as const;
+  const larger = sizeRank[b1.size] >= sizeRank[b2.size] ? b1 : b2;
+
+  // Largest single annual cost driver behind the difference
+  const annualCats = [
+    { label: "food", v1: b1.annualFood, v2: b2.annualFood },
+    { label: "vet care", v1: b1.annualVet, v2: b2.annualVet },
+    { label: "grooming", v1: b1.annualGrooming, v2: b2.annualGrooming },
+    { label: "insurance", v1: b1.annualInsurance, v2: b2.annualInsurance },
+  ];
+  const biggestDriver = annualCats
+    .map((c) => ({ ...c, diff: Math.abs(c.v1 - c.v2) }))
+    .sort((a, b) => b.diff - a.diff)[0];
+  const driverPricier = biggestDriver.v1 > biggestDriver.v2 ? b1 : b2;
+
+  // FAQ content (unique, data-driven) — also emitted as FAQPage JSON-LD
+  const faqs = [
+    {
+      q: `Is a ${b1.name} or a ${b2.name} cheaper to own?`,
+      a: `The ${cheaper.name} is cheaper in the first year (${formatCurrency(Math.min(firstYear1, firstYear2))} vs ${formatCurrency(Math.max(firstYear1, firstYear2))}). Over a full lifetime the ${cheaperLifetime.name} works out cheaper overall — about ${formatCurrency(cheaperLifetimeVal)} versus ${formatCurrency(pricierLifetimeVal)}, a difference of roughly ${formatCurrency(lifetimeGap)}.`,
+    },
+    {
+      q: `How much does a ${b1.name} cost per month compared to a ${b2.name}?`,
+      a: `After the first year, a ${b1.name} costs about ${formatCurrency(monthly1)}/month in ongoing expenses, while a ${b2.name} costs about ${formatCurrency(monthly2)}/month. These figures cover food, routine vet care, grooming, insurance and supplies, based on US national averages.`,
+    },
+    {
+      q: `What's the biggest cost difference between a ${b1.name} and a ${b2.name}?`,
+      a: `The largest single difference is ${biggestDriver.label}: a ${driverPricier.name} costs about ${formatCurrency(Math.max(biggestDriver.v1, biggestDriver.v2))} a year versus ${formatCurrency(Math.min(biggestDriver.v1, biggestDriver.v2))} for the other breed. ${
+        b1.lifespan !== b2.lifespan
+          ? `Lifespan also matters — the ${b1.lifespan > b2.lifespan ? b1.name : b2.name} typically lives longer (${Math.max(b1.lifespan, b2.lifespan)} vs ${Math.min(b1.lifespan, b2.lifespan)} years), which adds more years of ongoing costs.`
+          : `Both breeds share a similar ${b1.lifespan}-year lifespan, so lifetime totals come down mainly to annual costs.`
+      }`,
+    },
+    {
+      q: `Do ${b1.name}s or ${b2.name}s cost more at the vet?`,
+      a: `Routine annual vet care runs about ${formatCurrency(b1.annualVet)} for a ${b1.name} and ${formatCurrency(b2.annualVet)} for a ${b2.name}. Either way, we recommend an emergency fund of at least ${formatCurrency(maxEmergency)}, since a single emergency procedure can cost several thousand dollars regardless of breed.`,
+    },
+  ];
 
   const rows = [
     { label: "Size", v1: b1.size, v2: b2.size },
@@ -159,6 +218,20 @@ export default function CompareSlugPage({ params }: Props) {
 
   return (
     <div className="bg-[#F1F8F1] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
       {/* Breadcrumb */}
       <div className="bg-white border-b border-[#C8E6C9]">
         <div className="container-xl py-3">
@@ -223,6 +296,47 @@ export default function CompareSlugPage({ params }: Props) {
         {/* Ad — below comparison table */}
         <AdUnit slot="2847391056" format="horizontal" />
 
+        {/* Cost analysis — unique narrative */}
+        <div className="card p-6 space-y-4 text-[#1B2B1B] leading-relaxed">
+          <h2 className="text-lg font-bold">{b1.name} vs {b2.name}: which costs more?</h2>
+          <p>
+            Over a typical lifespan, owning a {b1.name} works out to roughly {formatCurrency(lifetime1)}, while
+            a {b2.name} comes to about {formatCurrency(lifetime2)}
+            {lifetimeGap > 0 ? (
+              <>
+                {" "}— a difference of {formatCurrency(lifetimeGap)} ({lifetimePct}%). The {cheaperLifetime.name} is
+                the more budget-friendly choice over the long run, though the gap is driven by a few specific
+                expenses rather than across-the-board savings.
+              </>
+            ) : (
+              <>. The two breeds cost almost exactly the same to own across their lifetimes.</>
+            )}
+          </p>
+          <p>
+            The biggest single difference is {biggestDriver.label}: a {driverPricier.name} costs about{" "}
+            {formatCurrency(Math.max(biggestDriver.v1, biggestDriver.v2))} a year for {biggestDriver.label}, versus{" "}
+            {formatCurrency(Math.min(biggestDriver.v1, biggestDriver.v2))} for the other breed.{" "}
+            {b1.size !== b2.size ? (
+              <>The larger {larger.name} generally needs more food and carries higher medication and insurance costs.</>
+            ) : (
+              <>Both are {b1.size}-sized breeds, so food and supply costs are broadly comparable.</>
+            )}
+          </p>
+          <p>
+            <strong>Which should you choose?</strong> If upfront budget matters most, the {cheaper.name} wins the
+            first year by {formatCurrency(saving)}.{" "}
+            {lifetimeGap > 0 ? (
+              <>If you&apos;re planning for the long haul, the {cheaperLifetime.name} saves about {formatCurrency(lifetimeGap)} over its lifetime.</>
+            ) : (
+              <>Over a lifetime the two come out about even.</>
+            )}{" "}
+            Neither breed is cheap to own, so budget for an emergency fund of at least {formatCurrency(maxEmergency)}
+            either way, and use the{" "}
+            <Link href="/calculator" className="text-[#2E7D32] underline">cost calculator</Link> to tailor these
+            figures to your city and lifestyle.
+          </p>
+        </div>
+
         {/* Key differences */}
         <div className="card p-6">
           <h2 className="text-lg font-bold text-[#1B2B1B] mb-4">Key Differences</h2>
@@ -258,6 +372,19 @@ export default function CompareSlugPage({ params }: Props) {
             </div>
           </div>
         )}
+
+        {/* FAQ — unique, data-driven (matches FAQPage schema above) */}
+        <div className="card p-6">
+          <h2 className="text-lg font-bold text-[#1B2B1B] mb-4">Frequently asked questions</h2>
+          <div className="space-y-4">
+            {faqs.map((f) => (
+              <div key={f.q}>
+                <h3 className="font-semibold text-[#1B2B1B]">{f.q}</h3>
+                <p className="text-[#5a7a5a] mt-1 leading-relaxed">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </div>
 
         <div className="flex flex-wrap gap-3 justify-center">
           <Link href={`/breeds/${b1.id}`} className="btn-secondary text-sm">Full {b1.name} breakdown</Link>

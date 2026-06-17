@@ -1736,6 +1736,10 @@ Solid budget options that meet all nutritional requirements without the premium 
     readTime: 8,
     image: 'https://images.unsplash.com/photo-1644604324741-e50705a4c12a?w=1100&q=80',
     keywords: ['ragdoll cat cost', 'how much does a ragdoll cost', 'ragdoll kitten price', 'ragdoll cat expenses', 'ragdoll annual cost'],
+    relatedBreedName: 'Ragdoll',
+    relatedBreedId: 'ragdoll',
+    relatedPetType: 'cat',
+    relatedBreedSize: 'medium',
     content: `
 <h2>What Does It Actually Cost to Own a Ragdoll Cat?</h2>
 <p>Ragdolls are one of the world's most beloved cat breeds — calm, affectionate, and strikingly beautiful with their silky semi-long coats and vivid blue eyes. They're also one of the more expensive cats to purchase and maintain. If you're considering a Ragdoll in 2026, here's a complete, honest breakdown of what ownership will cost you.</p>
@@ -1832,6 +1836,10 @@ Solid budget options that meet all nutritional requirements without the premium 
     readTime: 9,
     image: 'https://images.unsplash.com/photo-1555596873-1916fae19257?w=1100&q=80',
     keywords: ['poodle cost', 'how much does a poodle cost', 'standard poodle cost', 'miniature poodle cost', 'toy poodle cost', 'poodle price 2026'],
+    relatedBreedName: 'Poodle',
+    relatedBreedId: 'poodle-standard',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'medium',
     content: `
 <h2>Poodle Ownership Costs in 2026</h2>
 <p>Poodles consistently rank among the most popular dog breeds globally — and for good reason. They're intelligent, low-shedding, athletic, and come in three distinct sizes to suit different households. But "Poodle" covers a wide range of ownership costs depending on which size you're considering. Here's a complete, size-specific breakdown for 2026.</p>
@@ -2191,14 +2199,28 @@ export const getBlogArticlesByCategory = (category: BlogCategory): BlogArticle[]
 export const getRelatedArticles = (currentSlug: string, limit = 3): BlogArticle[] => {
   const current = getBlogArticleBySlug(currentSlug);
   if (!current) return [];
-  const sameCategory = allBlogArticles
-    .filter((a) => a.category === current.category && a.slug !== currentSlug)
-    .slice(0, limit);
-  if (sameCategory.length >= limit) return sameCategory;
-  const others = allBlogArticles
-    .filter((a) => a.category !== current.category && a.slug !== currentSlug)
-    .slice(0, limit - sameCategory.length);
-  return [...sameCategory, ...others];
+
+  // Relevance scoring instead of array order, so the most topically-related
+  // articles surface (and newly-added articles are no longer buried at the
+  // end of the list). Ties break by recency to keep fresh content in rotation.
+  const currentKeywords = new Set((current.keywords ?? []).map((k) => k.toLowerCase()));
+
+  const scored = allBlogArticles
+    .filter((a) => a.slug !== currentSlug)
+    .map((a) => {
+      let score = 0;
+      for (const kw of a.keywords ?? []) {
+        if (currentKeywords.has(kw.toLowerCase())) score += 3; // shared keyword = strongest topical signal
+      }
+      if (a.category === current.category) score += 2;
+      if (current.relatedPetType && a.relatedPetType === current.relatedPetType) score += 2;
+      if (current.relatedBreedId && a.relatedBreedId === current.relatedBreedId) score += 4;
+      const date = new Date(a.publishDate).getTime() || 0;
+      return { article: a, score, date };
+    })
+    .sort((x, y) => y.score - x.score || y.date - x.date);
+
+  return scored.slice(0, limit).map((s) => s.article);
 };
 
 /**
