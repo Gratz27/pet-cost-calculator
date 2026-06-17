@@ -9,41 +9,41 @@ export const metadata: Metadata = {
   description: "Evergreen how-to guides on budgeting for a pet, understanding pet insurance, grooming costs, vet costs, and breed-by-breed cost guides.",
 };
 
-// Image for every guide slug
+// Realistic lifestyle photos — one per guide slug (in /public/guides)
 const guideImages: Record<string, string> = {
   // Budgeting & Planning
-  "how-to-budget-for-a-new-pet":        "/blog/puppy-budget.png",
-  "first-year-pet-costs-everything":    "/blog/first-year-costs.png",
-  "emergency-pet-fund-how-much":        "/blog/holiday-emergency.png",
-  "rescue-vs-breeder-cost-comparison":  "/blog/rescue-adoption.png",
-  "how-pet-costs-change-with-age":      "/blog/puppy-vs-adult.png",
+  "how-to-budget-for-a-new-pet":        "/guides/budget-new-pet.png",
+  "first-year-pet-costs-everything":    "/guides/first-year-costs.png",
+  "emergency-pet-fund-how-much":        "/guides/emergency-fund.png",
+  "rescue-vs-breeder-cost-comparison":  "/guides/rescue-vs-breeder.png",
+  "how-pet-costs-change-with-age":      "/guides/cost-by-age.png",
   // Pet Insurance
-  "is-pet-insurance-worth-it":          "/blog/pet-insurance.png",
-  "what-pet-insurance-doesnt-cover":    "/blog/hidden-costs.png",
-  "best-time-to-get-pet-insurance":     "/blog/pet-insurance.png",
-  "pet-insurance-uk-us-australia":      "/blog/costs-by-location.png",
+  "is-pet-insurance-worth-it":          "/guides/insurance-worth-it.png",
+  "what-pet-insurance-doesnt-cover":    "/guides/insurance-exclusions.png",
+  "best-time-to-get-pet-insurance":     "/guides/insurance-timing.png",
+  "pet-insurance-uk-us-australia":      "/guides/insurance-by-country.png",
   // Vet Costs
-  "average-vet-costs-by-procedure":     "/blog/vet-costs.png",
-  "how-to-reduce-vet-bills":            "/blog/vet-by-breed.png",
-  "vet-visit-vs-home-treatment":        "/blog/emergency-vet.png",
-  "emergency-vet-costs-what-to-expect": "/blog/holiday-emergency.png",
+  "average-vet-costs-by-procedure":     "/guides/vet-cost-by-proceedure.png",
+  "how-to-reduce-vet-bills":            "/guides/reduce-vet-bills.png",
+  "vet-visit-vs-home-treatment":        "/guides/vet-vs-home.png",
+  "emergency-vet-costs-what-to-expect": "/guides/emergency-vet-costs.png",
   // Grooming
-  "professional-vs-diy-grooming-costs": "/breeds/poodle-standard.png",
-  "high-maintenance-coat-breeds-cost":  "/breeds/golden-retriever.png",
-  "how-often-to-groom-dog-by-breed":    "/breeds/shih-tzu.png",
+  "professional-vs-diy-grooming-costs": "/guides/grooming-pro-vs-diy.png",
+  "high-maintenance-coat-breeds-cost":  "/guides/high-maintenance-coats.png",
+  "how-often-to-groom-dog-by-breed":    "/guides/grooming-frequency.png",
   // Choosing the Right Breed
-  "cheap-vs-expensive-dog-breeds":      "/blog/dog-vs-cat.png",
-  "dog-vs-cat-which-is-cheaper":        "/blog/dog-vs-cat.png",
-  "small-dog-vs-large-dog-cost":        "/blog/small-vs-large.png",
-  "most-expensive-cat-breeds":          "/blog/cat-costs.png",
-  "hidden-costs-popular-breeds":        "/blog/hidden-costs.png",
+  "cheap-vs-expensive-dog-breeds":      "/guides/cheap-vs-expensive-dogs.png",
+  "dog-vs-cat-which-is-cheaper":        "/guides/dog-vs-cat-cost.png",
+  "small-dog-vs-large-dog-cost":        "/guides/small-vs-large-dog.png",
+  "most-expensive-cat-breeds":          "/guides/expensive-cat-breeds.png",
+  "hidden-costs-popular-breeds":        "/guides/hidden-breed-costs.png",
 };
 
 const categories = [
   {
     title: "Budgeting & Planning",
     description: "Plan your pet budget before you bring them home — and avoid the surprises that catch most owners off guard.",
-    image: "/blog/puppy-budget.png",
+    image: "/guides/cat-budgeting.png",
     gradient: "from-[#1B5E20] to-[#2E7D32]",
     slugs: [
       "how-to-budget-for-a-new-pet",
@@ -56,7 +56,7 @@ const categories = [
   {
     title: "Pet Insurance",
     description: "Is it worth it? What does it actually cover? Everything you need to make an informed decision.",
-    image: "/blog/pet-insurance.png",
+    image: "/guides/cat-insurance.png",
     gradient: "from-[#1a3d2b] to-[#2E7D5A]",
     slugs: [
       "is-pet-insurance-worth-it",
@@ -68,7 +68,7 @@ const categories = [
   {
     title: "Vet Costs",
     description: "Real procedure prices, how to reduce bills, and what to do when the emergency arrives.",
-    image: "/blog/vet-costs.png",
+    image: "/guides/cat-vet-costs.png",
     gradient: "from-[#33691E] to-[#558B2F]",
     slugs: [
       "average-vet-costs-by-procedure",
@@ -80,7 +80,7 @@ const categories = [
   {
     title: "Grooming",
     description: "Professional vs DIY, breed-specific needs, and how to stop overpaying for coat maintenance.",
-    image: "/breeds/poodle-standard.png",
+    image: "/guides/cat-grooming.png",
     gradient: "from-[#1B5E20] to-[#388E3C]",
     slugs: [
       "professional-vs-diy-grooming-costs",
@@ -91,7 +91,7 @@ const categories = [
   {
     title: "Choosing the Right Breed",
     description: "Which breeds are genuinely affordable, which ones look cheap but aren't, and the hidden costs nobody warns you about.",
-    image: "/blog/dog-vs-cat.png",
+    image: "/guides/cat-choosing-breed.png",
     gradient: "from-[#37471F] to-[#558B2F]",
     slugs: [
       "cheap-vs-expensive-dog-breeds",
@@ -170,10 +170,11 @@ export default function GuidesPage() {
               >
                 <div className="relative aspect-square bg-[#E8F5E9] overflow-hidden">
                   <Image
-                    src={guideImages[guide.slug] ?? "/blog/puppy-budget.png"}
+                    src={guideImages[guide.slug] ?? "/guides/budget-new-pet.png"}
                     alt={guide.title}
                     fill
-                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                    style={{ objectPosition: "50% 35%" }}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
@@ -209,7 +210,8 @@ export default function GuidesPage() {
                         src={cat.image}
                         alt={cat.title}
                         fill
-                        className="object-contain p-6"
+                        style={{ objectPosition: "50% 35%" }}
+                        className="object-cover"
                         sizes="(max-width: 768px) 100vw, 224px"
                       />
                     </div>
@@ -231,10 +233,11 @@ export default function GuidesPage() {
                     >
                       <div className="relative h-36 bg-[#E8F5E9] overflow-hidden">
                         <Image
-                          src={guideImages[guide.slug] ?? "/blog/puppy-budget.png"}
+                          src={guideImages[guide.slug] ?? "/guides/budget-new-pet.png"}
                           alt={guide.title}
                           fill
-                          className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                          style={{ objectPosition: "50% 35%" }}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
                       </div>
