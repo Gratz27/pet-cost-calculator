@@ -91,7 +91,8 @@ export default function BlogPage({ searchParams }: { searchParams: { category?: 
                     src={featured.image}
                     alt={featured.title}
                     fill
-                    className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                    style={featured.image.startsWith("http") ? { objectPosition: "50% 25%" } : undefined}
+                    className={`${featured.image.startsWith("http") ? "object-cover" : "object-contain p-4"} group-hover:scale-105 transition-transform duration-300`}
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
                 </div>
@@ -123,7 +124,8 @@ export default function BlogPage({ searchParams }: { searchParams: { category?: 
                   src={article.image}
                   alt={article.title}
                   fill
-                  className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                  style={article.image.startsWith("http") ? { objectPosition: "50% 25%" } : undefined}
+                  className={`${article.image.startsWith("http") ? "object-cover" : "object-contain p-4"} group-hover:scale-105 transition-transform duration-300`}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>

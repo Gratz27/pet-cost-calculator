@@ -246,7 +246,7 @@ export default function HomePage() {
           {featuredBreeds.map((breed) => (
             <Link key={breed.id} href={`/breeds/${breed.id}`}
               className="card overflow-hidden group hover:border-[#4CAF50]/50">
-              <div className="relative h-28 sm:h-40 lg:h-48 bg-[#E8F5E9] overflow-hidden">
+              <div className="relative aspect-square bg-[#E8F5E9] overflow-hidden">
                 <BreedImage
                   breedId={breed.id}
                   petType={breed.petType}

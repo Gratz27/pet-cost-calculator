@@ -32,7 +32,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-06-16',
     readTime: 9,
-    image: 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?auto=format&fit=crop&q=80&w=1000',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Dachshund_Liver_and_Tan.jpg',
     keywords: ['dachshund cost', 'how much does a dachshund cost', 'dachshund price', 'dachshund expenses', 'miniature dachshund cost', 'sausage dog cost'],
     relatedBreedName: 'Dachshund',
     relatedBreedId: 'dachshund',
@@ -161,7 +161,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-06-08',
     readTime: 8,
-    image: '/breeds/maine-coon.png',
+    image: 'https://images.unsplash.com/photo-1685271286659-c83faa4f5cb1?w=1100&q=80',
     keywords: ['maine coon cost', 'how much does a maine coon cost', 'maine coon expenses', 'maine coon annual costs'],
     relatedBreedName: 'Maine Coon',
     relatedBreedId: 'maine-coon',
@@ -253,7 +253,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-20',
     readTime: 8,
-    image: '/breeds/labrador-retriever.png',
+    image: 'https://images.unsplash.com/photo-1537204696486-967f1b7198c8?w=1100&q=80',
     keywords: ['labrador cost uk', 'dog ownership cost uk', 'london vet costs', 'labrador food budget'],
     relatedBreedName: 'Labrador Retriever',
     relatedBreedId: 'labrador-retriever',
@@ -405,7 +405,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-10',
     readTime: 6,
-    image: '/breeds/french-bulldog.png',
+    image: 'https://images.unsplash.com/photo-1521907236370-15adf2297445?w=1100&q=80',
     keywords: ['expensive dog breeds', 'cost of owning a bulldog', 'high maintenance dogs', 'dog breed costs'],
     content: `
 <h2>Beyond the Purchase Price: Lifetime Costs</h2>
@@ -589,7 +589,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-21',
     readTime: 10,
-    image: '/breeds/beagle.png',
+    image: 'https://images.unsplash.com/photo-1581864727889-c065732c1088?w=1100&q=80',
     keywords: ['cheapest dog breeds', 'affordable dog breeds', 'low cost dogs', 'budget friendly pets'],
     content: `
 <h2>What Makes a Dog Breed Affordable?</h2>
@@ -850,7 +850,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-11-08',
     readTime: 12,
-    image: '/breeds/golden-retriever.png',
+    image: 'https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=1100&q=80',
     keywords: ['golden retriever cost', 'how much does a golden retriever cost', 'how much do golden retrievers cost', 'golden retriever monthly cost', 'golden retriever cost per year', 'annual golden retriever cost', 'golden retriever cost us', 'are golden retrievers expensive', 'golden retriever lifetime costs', 'golden retriever puppies cost'],
     relatedBreedName: 'Golden Retriever',
     relatedBreedId: 'golden-retriever',
@@ -947,7 +947,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-11-07',
     readTime: 11,
-    image: '/breeds/labrador-retriever.png',
+    image: 'https://images.unsplash.com/photo-1537204696486-967f1b7198c8?w=1100&q=80',
     keywords: ['labrador retriever cost', 'how much does a lab cost', 'labrador expenses'],
     relatedBreedName: 'Labrador Retriever',
     relatedBreedId: 'labrador-retriever',
@@ -982,7 +982,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-11-06',
     readTime: 10,
-    image: '/breeds/german-shepherd-dog.png',
+    image: 'https://images.unsplash.com/photo-1605725657590-b2cf0d31b1a5?w=1100&q=80',
     keywords: ['german shepherd cost', 'how much does a german shepherd cost', 'german shepherd expenses'],
     relatedBreedName: 'German Shepherd',
     relatedBreedId: 'german-shepherd-dog',
@@ -1017,7 +1017,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2025-12-20',
     readTime: 14,
-    image: '/breeds/french-bulldog.png',
+    image: 'https://images.unsplash.com/photo-1521907236370-15adf2297445?w=1100&q=80',
     keywords: ['french bulldog cost', 'frenchie expenses', 'brachycephalic dog costs', 'french bulldog health costs'],
     relatedBreedName: 'French Bulldog',
     relatedBreedId: 'french-bulldog',
@@ -1734,7 +1734,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     author: 'PetCost Team',
     publishDate: '2026-06-09',
     readTime: 8,
-    image: '/breeds/ragdoll.png',
+    image: 'https://images.unsplash.com/photo-1644604324741-e50705a4c12a?w=1100&q=80',
     keywords: ['ragdoll cat cost', 'how much does a ragdoll cost', 'ragdoll kitten price', 'ragdoll cat expenses', 'ragdoll annual cost'],
     content: `
 <h2>What Does It Actually Cost to Own a Ragdoll Cat?</h2>
@@ -1830,7 +1830,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     author: 'PetCost Team',
     publishDate: '2026-06-09',
     readTime: 9,
-    image: '/breeds/poodle-standard.png',
+    image: 'https://images.unsplash.com/photo-1555596873-1916fae19257?w=1100&q=80',
     keywords: ['poodle cost', 'how much does a poodle cost', 'standard poodle cost', 'miniature poodle cost', 'toy poodle cost', 'poodle price 2026'],
     content: `
 <h2>Poodle Ownership Costs in 2026</h2>
@@ -1914,7 +1914,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     author: 'PetCost-Calculator Team',
     publishDate: '2026-06-15',
     readTime: 9,
-    image: '/breeds/domestic-shorthair.png',
+    image: 'https://images.unsplash.com/photo-1602634353750-d58ec14064c6?w=1100&q=80',
     keywords: ['cost of owning a cat', 'how much does a cat cost', 'cat expenses per year', 'cat ownership costs us', 'monthly cost of a cat'],
     content: `
 <h2>The Real Cost of Owning a Cat in 2026</h2>
@@ -2005,7 +2005,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     author: 'PetCost-Calculator Team',
     publishDate: '2026-06-13',
     readTime: 7,
-    image: '/breeds/domestic-shorthair.png',
+    image: 'https://images.unsplash.com/photo-1602634353750-d58ec14064c6?w=1100&q=80',
     keywords: ['cheapest cat breeds', 'low maintenance cat breeds', 'budget cat breeds', 'affordable cats to own', 'cheap cats'],
     content: `
 <h2>What Makes a Cat "Cheap" to Own?</h2>
@@ -2098,7 +2098,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     author: 'PetCost-Calculator Team',
     publishDate: '2026-06-14',
     readTime: 8,
-    image: '/breeds/persian.png',
+    image: 'https://images.unsplash.com/photo-1591429939960-b7d5add10b5c?w=1100&q=80',
     keywords: ['persian cat cost', 'how much does a persian cat cost', 'persian cat expenses', 'persian cat annual cost', 'persian kitten price'],
     relatedBreedName: 'Persian',
     relatedBreedId: 'persian',

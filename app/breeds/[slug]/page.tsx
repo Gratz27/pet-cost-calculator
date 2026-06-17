@@ -115,7 +115,7 @@ export default function BreedPage({ params }: Props) {
       <div className="bg-white border-b border-[#C8E6C9]">
         <div className="container-xl py-10 md:py-14">
           <div className="flex flex-col md:flex-row md:items-start gap-8">
-            <div className="relative w-full md:w-72 h-52 rounded-2xl overflow-hidden flex-shrink-0 border border-[#C8E6C9]">
+            <div className="relative w-full h-64 md:w-72 md:h-52 rounded-2xl overflow-hidden flex-shrink-0 border border-[#C8E6C9]">
               <BreedImage breedId={breed.id} petType={petType} alt={breed.name} fill className="object-cover object-center" sizes="(max-width: 768px) 100vw, 288px" />
             </div>
             <div className="flex-1">

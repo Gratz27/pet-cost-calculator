@@ -103,7 +103,7 @@ export default function BreedImage({ breedId, petType, alt, fill, className, siz
         src={localSrc}
         alt={alt}
         fill={fill}
-        style={realPhoto ? { objectPosition: realBreedPhotoPosition[breedId] ?? "center" } : undefined}
+        style={realPhoto ? { objectPosition: realBreedPhotoPosition[breedId] ?? "50% 25%" } : undefined}
         className={`${realPhoto ? "object-cover" : "object-contain object-bottom"} transition-opacity duration-300 ${loaded ? "opacity-100" : "opacity-0"} ${safeClass}`}
         sizes={sizes}
         onLoad={() => setLoaded(true)}

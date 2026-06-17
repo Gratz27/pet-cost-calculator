@@ -111,7 +111,8 @@ export default function BlogArticlePage({ params }: Props) {
             src={article.image}
             alt={article.title}
             fill
-            className="object-contain"
+            style={article.image.startsWith("http") ? { objectPosition: "50% 25%" } : undefined}
+            className={`${article.image.startsWith("http") ? "object-cover rounded-2xl" : "object-contain"}`}
             sizes="320px"
             priority
           />
@@ -172,7 +173,8 @@ export default function BlogArticlePage({ params }: Props) {
                           src={rel.image}
                           alt={rel.title}
                           fill
-                          className="object-contain p-1"
+                          style={rel.image.startsWith("http") ? { objectPosition: "50% 25%" } : undefined}
+                          className={rel.image.startsWith("http") ? "object-cover" : "object-contain p-1"}
                           sizes="64px"
                                         />
                       </div>
