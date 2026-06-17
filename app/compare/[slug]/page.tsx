@@ -330,8 +330,8 @@ export default function CompareSlugPage({ params }: Props) {
             ) : (
               <>Over a lifetime the two come out about even.</>
             )}{" "}
-            Neither breed is cheap to own, so budget for an emergency fund of at least {formatCurrency(maxEmergency)}
-            either way, and use the{" "}
+            Neither breed is cheap to own, so budget for an emergency fund of at least{" "}
+            {formatCurrency(maxEmergency)} either way, and use the{" "}
             <Link href="/calculator" className="text-[#2E7D32] underline">cost calculator</Link> to tailor these
             figures to your city and lifestyle.
           </p>
