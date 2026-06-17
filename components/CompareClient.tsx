@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Search, ArrowRight } from "lucide-react";
 import { getAllBreeds, type Breed } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
@@ -143,7 +144,13 @@ export default function CompareClient() {
           <p className="text-sm">Select two breeds above to see your comparison</p>
         </div>
       ) : (
-        <div className="text-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <Link
+            href={`/compare/${[breed1.id, breed2.id].sort().join("-vs-")}`}
+            className="btn-primary inline-flex items-center gap-2"
+          >
+            View full {breed1.name} vs {breed2.name} comparison <ArrowRight className="h-4 w-4" />
+          </Link>
           <a href="/calculator" className="btn-green inline-flex items-center gap-2">
             Get a personalised estimate <ArrowRight className="h-4 w-4" />
           </a>
