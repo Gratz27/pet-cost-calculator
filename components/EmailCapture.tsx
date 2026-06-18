@@ -18,14 +18,15 @@ export default function EmailCapture({ source = "homepage" }: { source?: string 
     setStatus("submitting");
 
     try {
-      await fetch("/netlify-forms.html", {
+      const res = await fetch("/netlify-forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({ "form-name": "email-subscribe", email, source }),
       });
+      if (!res.ok) throw new Error(`Form POST failed: ${res.status}`);
       setStatus("done");
     } catch {
-      setStatus("done"); // graceful fallback
+      setStatus("error");
     }
   }
 
