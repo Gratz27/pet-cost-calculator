@@ -36,7 +36,7 @@ export default function EmailCapture({ source = "homepage" }: { source?: string 
         <div className="flex items-center gap-2 rounded-xl bg-[#2E7D32] px-6 py-3 text-white font-semibold text-sm">
           ✓ You&apos;re on the list — thanks!
         </div>
-        <p className="text-green-300 text-xs text-center">Download your free resources below:</p>
+        <p className="text-green-300 text-xs text-center">We&apos;ve emailed these to you too — check your inbox. Or download them now:</p>
         <div className="flex flex-wrap justify-center gap-3 text-xs">
           <a href="/PetCost-Report-2026.pdf" target="_blank" rel="noopener noreferrer" className="text-green-300 underline hover:text-white transition-colors">Cost Data Summary →</a>
           <a href="/PetCost-Readiness-Checklist.pdf" target="_blank" rel="noopener noreferrer" className="text-green-300 underline hover:text-white transition-colors">Readiness Checklist →</a>

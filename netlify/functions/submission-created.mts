@@ -1,0 +1,113 @@
+import type { Context } from "@netlify/functions";
+
+/**
+ * Netlify Forms autoresponder.
+ *
+ * This is an event-triggered function: Netlify automatically invokes a function
+ * named exactly `submission-created` after every *verified* (non-spam) form
+ * submission, for ALL forms on the site. We filter to the `email-subscribe`
+ * form and email the requester their 2026 Pet Cost download links via Resend.
+ *
+ * Required environment variable (set in Netlify → Site settings → Environment variables):
+ *   RESEND_API_KEY   — your Resend API key (free tier: 3,000 emails/mo)
+ * Optional:
+ *   FROM_EMAIL       — verified sender, e.g. "PetCost Calculator <hello@petcost-calculator.com>"
+ *   SITE_URL         — defaults to https://petcost-calculator.com
+ */
+
+const SITE_URL = (Netlify.env.get("SITE_URL") || "https://petcost-calculator.com").replace(/\/$/, "");
+const FROM_EMAIL = Netlify.env.get("FROM_EMAIL") || "PetCost Calculator <hello@petcost-calculator.com>";
+
+function buildEmailHtml() {
+  const link = (path: string) => `${SITE_URL}${path}`;
+  return `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /></head>
+<body style="margin:0;padding:0;background:#F1F8F1;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#1B2B1B;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F1F8F1;padding:24px 0;">
+    <tr><td align="center">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border:1px solid #C8E6C9;border-radius:16px;overflow:hidden;">
+        <tr><td style="background:#2E7D32;padding:24px 28px;">
+          <h1 style="margin:0;color:#ffffff;font-size:20px;">🐾 Your 2026 Pet Cost Data Summary</h1>
+        </td></tr>
+        <tr><td style="padding:28px;">
+          <p style="margin:0 0 16px;font-size:15px;line-height:1.6;">Thanks for signing up! Here are your free downloads — click any link below to open the PDF:</p>
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            <tr><td style="padding:6px 0;">
+              <a href="${link("/PetCost-Report-2026.pdf")}" style="display:block;background:#2E7D32;color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;padding:14px 18px;border-radius:12px;">📊 2026 Cost Data Summary →</a>
+            </td></tr>
+            <tr><td style="padding:6px 0;">
+              <a href="${link("/PetCost-Readiness-Checklist.pdf")}" style="display:block;background:#4CAF50;color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;padding:14px 18px;border-radius:12px;">✅ Pet Readiness Checklist →</a>
+            </td></tr>
+            <tr><td style="padding:6px 0;">
+              <a href="${link("/PetCost-Budget-Tracker.pdf")}" style="display:block;background:#4CAF50;color:#ffffff;text-decoration:none;font-weight:bold;font-size:14px;padding:14px 18px;border-radius:12px;">💰 Pet Budget Tracker →</a>
+            </td></tr>
+          </table>
+          <p style="margin:20px 0 0;font-size:13px;line-height:1.6;color:#5a7a5a;">Want to estimate the cost of a specific breed? <a href="${link("/calculator")}" style="color:#2E7D32;font-weight:bold;">Run the calculator →</a></p>
+        </td></tr>
+        <tr><td style="padding:18px 28px;background:#E8F5E9;border-top:1px solid #C8E6C9;">
+          <p style="margin:0;font-size:12px;color:#5a7a5a;">You received this because you requested the data summary at <a href="${SITE_URL}" style="color:#2E7D32;">petcost-calculator.com</a>.</p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+}
+
+export default async (req: Request, _context: Context) => {
+  let body: any;
+  try {
+    body = await req.json();
+  } catch {
+    return new Response("Bad request", { status: 400 });
+  }
+
+  // Netlify wraps the submission in { payload: {...} }; fall back to the raw body.
+  const payload = body?.payload ?? body ?? {};
+  const formName = payload.form_name || payload.data?.["form-name"];
+  const email = payload.email || payload.data?.email;
+
+  // Only autorespond to the newsletter / data-summary form.
+  if (formName !== "email-subscribe") {
+    return new Response("Ignored (not email-subscribe)", { status: 200 });
+  }
+  if (!email || typeof email !== "string" || !email.includes("@")) {
+    console.warn("submission-created: no valid email in payload", { formName });
+    return new Response("No valid email", { status: 200 });
+  }
+
+  const apiKey = Netlify.env.get("RESEND_API_KEY");
+  if (!apiKey) {
+    console.error("submission-created: RESEND_API_KEY is not set — cannot send email");
+    return new Response("Email service not configured", { status: 200 });
+  }
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: FROM_EMAIL,
+        to: [email],
+        subject: "Your 2026 Pet Cost Data Summary 🐾",
+        html: buildEmailHtml(),
+      }),
+    });
+
+    if (!res.ok) {
+      const detail = await res.text();
+      console.error(`submission-created: Resend returned ${res.status}: ${detail}`);
+      return new Response("Email send failed", { status: 200 });
+    }
+
+    console.log(`submission-created: data summary emailed to ${email}`);
+    return new Response("Email sent", { status: 200 });
+  } catch (err) {
+    console.error("submission-created: error sending email", err);
+    return new Response("Email send error", { status: 200 });
+  }
+};
