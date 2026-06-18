@@ -111,7 +111,7 @@ export default function BlogArticlePage({ params }: Props) {
             src={article.image}
             alt={article.title}
             fill
-            style={article.image.startsWith("http") ? { objectPosition: "50% 25%" } : undefined}
+            style={article.image.startsWith("http") ? { objectPosition: article.imagePosition ?? "50% 25%" } : undefined}
             className={`${article.image.startsWith("http") ? "object-cover rounded-2xl" : "object-contain"}`}
             sizes="320px"
             priority
