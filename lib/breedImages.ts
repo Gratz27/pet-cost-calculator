@@ -362,6 +362,12 @@ const WIKI = (path: string) =>
   `https://upload.wikimedia.org/wikipedia/commons/${path}`;
 
 export const realBreedPhotoMap: Record<string, string> = {
+  // ── Generic / catch-all entries (no single "breed" — use a representative
+  // real photo so these never fall back to a cartoon mascot) ──
+  "mixed-breed-dog":     UNSPLASH("photo-1581864727889-c065732c1088"), // friendly everyday dog (beagle)
+  "mixed-breed-cat":     UNSPLASH("photo-1602634353750-d58ec14064c6"), // domestic shorthair = the classic mixed cat
+  "other-breed-not-listed": "/guides/budget-new-pet.png",              // neutral puppy + kitten
+  "tennessee-rex":       UNSPLASH("photo-1685271286659-c83faa4f5cb1"), // placeholder real cat pending a licensed Tennessee Rex photo
   "golden-retriever":    UNSPLASH("photo-1633722715463-d30f4f325e24"),
   "french-bulldog":      UNSPLASH("photo-1521907236370-15adf2297445"),
   "labrador-retriever":  UNSPLASH("photo-1537204696486-967f1b7198c8"),

@@ -159,7 +159,7 @@ export default function GearPage() {
               </div>
             </div>
             <div className="hidden md:block flex-shrink-0">
-              <Image src="/mascot-pair.png" alt="PetCost dog and cat mascots" width={220} height={220} className="rounded-2xl" />
+              <Image src="/guides/budget-new-pet.png" alt="A happy puppy and kitten" width={220} height={220} className="rounded-2xl object-cover w-[220px] h-[220px]" />
             </div>
           </div>
         </div>

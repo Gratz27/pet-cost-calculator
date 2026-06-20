@@ -55,10 +55,10 @@ export default function HeroSearch() {
         >
           <div className={`relative transition-all duration-300 ${petType === "dog" ? "w-28 h-28 sm:w-36 sm:h-36 drop-shadow-xl" : "w-20 h-20 sm:w-28 sm:h-28 opacity-50"}`}>
             <Image
-              src="/breeds/golden-retriever.png"
+              src="https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=1100&q=80"
               alt="Golden Retriever"
               fill
-              className="object-contain object-bottom"
+              className="object-cover rounded-full ring-2 ring-white/40"
               sizes="144px"
             />
           </div>
@@ -73,10 +73,10 @@ export default function HeroSearch() {
         >
           <div className={`relative transition-all duration-300 ${petType === "cat" ? "w-28 h-28 sm:w-36 sm:h-36 drop-shadow-xl" : "w-20 h-20 sm:w-28 sm:h-28 opacity-50"}`}>
             <Image
-              src="/breeds/persian.png"
+              src="https://images.unsplash.com/photo-1591429939960-b7d5add10b5c?w=1100&q=80"
               alt="Persian Cat"
               fill
-              className="object-contain object-bottom"
+              className="object-cover rounded-full ring-2 ring-white/40"
               sizes="144px"
             />
           </div>
