@@ -9,13 +9,14 @@ import AdUnit from "@/components/AdUnit";
 import { productLinks, resolveLink, amazonSearchLink, breedGearQuery } from "@/lib/affiliateLinks";
 import { getBreedGuideArticle } from "@/data/blogArticles";
 
-interface Props { params: { slug: string } }
+interface Props { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
   return [...getAllBreeds("dog"), ...getAllBreeds("cat")].map((b) => ({ slug: b.id }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: Props): Promise<Metadata> {
+  const params = await paramsPromise;
   const breed = getBreedById("dog", params.slug) ?? getBreedById("cat", params.slug);
   if (!breed) return { title: "Breed Not Found" };
   const firstYear = getBreedFirstYearTotal(breed);
@@ -36,7 +37,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function BreedPage({ params }: Props) {
+export default async function BreedPage({ params: paramsPromise }: Props) {
+  const params = await paramsPromise;
   const petType = getBreedById("dog", params.slug) ? "dog" as const : getBreedById("cat", params.slug) ? "cat" as const : null;
   if (!petType) notFound();
   const breed = getBreedById(petType, params.slug)!

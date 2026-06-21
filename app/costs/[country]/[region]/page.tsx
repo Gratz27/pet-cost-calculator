@@ -6,7 +6,7 @@ import { getAllBreeds } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import AdUnit from "@/components/AdUnit";
 
-interface Props { params: { country: string; region: string } }
+interface Props { params: Promise<{ country: string; region: string }> }
 
 const REGIONS: Record<string, Record<string, { label: string; multiplier: number; currency: string; currencySymbol: string; description: string }>> = {
   us: {
@@ -40,7 +40,8 @@ export async function generateStaticParams() {
   return params;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: Props): Promise<Metadata> {
+  const params = await paramsPromise;
   const regionData = REGIONS[params.country]?.[params.region];
   if (!regionData) return { title: "Regional Pet Costs" };
   const countryLabel = COUNTRY_LABELS[params.country] ?? params.country.toUpperCase();
@@ -56,7 +57,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function RegionalCostPage({ params }: Props) {
+export default async function RegionalCostPage({ params: paramsPromise }: Props) {
+  const params = await paramsPromise;
   const regionData = REGIONS[params.country]?.[params.region];
   if (!regionData) notFound();
 

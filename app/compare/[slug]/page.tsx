@@ -13,7 +13,7 @@ import {
 import { formatCurrency } from "@/lib/utils";
 import AdUnit from "@/components/AdUnit";
 
-interface Props { params: { slug: string } }
+interface Props { params: Promise<{ slug: string }> }
 
 // Top breeds by search volume — used to generate the highest-value comparison pairs
 const TOP_DOG_BREEDS = [
@@ -100,7 +100,8 @@ function findBreed(id: string): { breed: Breed; petType: "dog" | "cat" } | null 
   return null;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: Props): Promise<Metadata> {
+  const params = await paramsPromise;
   const parts = parseSlug(params.slug);
   if (!parts) return { title: "Breed Comparison" };
   const [id1, id2] = parts;
@@ -122,7 +123,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function CompareSlugPage({ params }: Props) {
+export default async function CompareSlugPage({ params: paramsPromise }: Props) {
+  const params = await paramsPromise;
   const parts = parseSlug(params.slug);
   if (!parts) notFound();
 

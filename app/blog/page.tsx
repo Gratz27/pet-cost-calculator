@@ -31,7 +31,8 @@ const CATEGORY_COLORS: Record<BlogCategory, string> = {
   "vet-costs": "badge-orange",
 };
 
-export default function BlogPage({ searchParams }: { searchParams: { category?: string } }) {
+export default async function BlogPage({ searchParams: searchParamsPromise }: { searchParams: Promise<{ category?: string }> }) {
+  const searchParams = await searchParamsPromise;
   const activeCategory = searchParams.category as BlogCategory | undefined;
   const articles = activeCategory
     ? allBlogArticles.filter((a) => a.category === activeCategory)

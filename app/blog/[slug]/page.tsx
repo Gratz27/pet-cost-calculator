@@ -12,13 +12,14 @@ import {
 } from "@/data/blogArticles";
 import { amazonSearchLink, breedGearQuery, resolveLink, productLinks } from "@/lib/affiliateLinks";
 
-interface Props { params: { slug: string } }
+interface Props { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
   return allBlogArticles.map((a) => ({ slug: a.slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: Props): Promise<Metadata> {
+  const params = await paramsPromise;
   const article = getBlogArticleBySlug(params.slug);
   if (!article) return { title: "Article Not Found" };
   return {
@@ -63,7 +64,8 @@ const CATEGORY_LABELS: Record<BlogCategory, string> = {
   "vet-costs": "Vet Costs",
 };
 
-export default function BlogArticlePage({ params }: Props) {
+export default async function BlogArticlePage({ params: paramsPromise }: Props) {
+  const params = await paramsPromise;
   const article = getBlogArticleBySlug(params.slug);
   if (!article) notFound();
 

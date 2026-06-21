@@ -5,13 +5,14 @@ import { ChevronRight, Clock, Calendar, CheckCircle2, ArrowRight } from "lucide-
 import { getGuideBySlug, getAllGuideSlugs, guides } from "@/data/guides";
 import AdUnit from "@/components/AdUnit";
 
-interface Props { params: { slug: string } }
+interface Props { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
   return getAllGuideSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params: paramsPromise }: Props): Promise<Metadata> {
+  const params = await paramsPromise;
   const guide = getGuideBySlug(params.slug);
   if (!guide) return { title: "Guide Not Found" };
   return {
@@ -26,7 +27,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function GuidePage({ params }: Props) {
+export default async function GuidePage({ params: paramsPromise }: Props) {
+  const params = await paramsPromise;
   const guide = getGuideBySlug(params.slug);
   if (!guide) notFound();
 

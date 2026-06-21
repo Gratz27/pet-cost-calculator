@@ -11,7 +11,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://petcost-calculator.com/breeds" },
 };
 
-export default function BreedsPage({ searchParams }: { searchParams: { type?: string } }) {
+export default async function BreedsPage({ searchParams: searchParamsPromise }: { searchParams: Promise<{ type?: string }> }) {
+  const searchParams = await searchParamsPromise;
   const petType = searchParams.type === "cat" ? "cat" as const : "dog" as const;
   const breeds = getAllBreeds(petType);
 
