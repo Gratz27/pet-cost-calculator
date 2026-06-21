@@ -24,6 +24,120 @@ export interface BlogArticle {
 }
 
 export const allBlogArticles: BlogArticle[] = [
+  {
+    id: 'siberian-husky-cost-guide-2026',
+    slug: 'how-much-does-a-siberian-husky-cost',
+    title: 'How Much Does a Siberian Husky Cost? Complete 2026 Guide',
+    description: 'Siberian Huskies cost $600–$1,800 to buy and $1,600–$3,350/year to own — get your personalised estimate with our free calculator.',
+    category: 'breed-guide',
+    author: 'PetCost-Calculator Team',
+    publishDate: '2026-06-22',
+    readTime: 9,
+    image: 'https://images.unsplash.com/photo-1517849845537-4d257902861a?w=1100&q=80',
+    keywords: ['siberian husky cost', 'how much does a siberian husky cost', 'husky cost', 'husky price', 'husky puppy cost', 'husky annual cost'],
+    relatedBreedName: 'Siberian Husky',
+    relatedBreedId: 'siberian-husky',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'large',
+    faqs: [
+      {
+        q: 'How much does a Siberian Husky cost?',
+        a: 'A Siberian Husky puppy from a reputable breeder typically costs $600–$1,800 in the US (£700–£1,800 in the UK). Rescue adoption fees run $150–$400. Annual ongoing costs (food, grooming, vet care, insurance) typically range from $1,600–$3,350/year.',
+      },
+      {
+        q: 'Are Huskies expensive to maintain?',
+        a: 'Huskies cost more than the average dog of their size mainly because of grooming during their twice-yearly "coat blow" and secure fencing needs, since they are notorious escape artists. Their thick double coat and high energy levels also push food costs above average for a 35–60 lb dog.',
+      },
+      {
+        q: 'What is the biggest hidden cost of owning a Husky?',
+        a: 'Escape-proofing. Huskies are powerful diggers and jumpers with a strong prey drive, and a standard 4-foot fence often isn’t enough. Many owners spend $500–$2,500 upgrading fencing or adding dig guards — a cost rarely included in breed cost estimates.',
+      },
+      {
+        q: 'How long do Siberian Huskies live?',
+        a: 'Siberian Huskies typically live 12–14 years, a relatively long lifespan for a large breed, which means ownership costs accumulate over more years than for giant breeds with shorter lifespans.',
+      },
+    ],
+    content: `
+<h2>How Much Does a Siberian Husky Cost? Quick Answer</h2>
+<p>A Siberian Husky puppy typically costs <strong>$600–$1,800</strong> from a reputable breeder (£700–£1,800 in the UK), or $150–$400 to adopt from a rescue. After the purchase price, plan on roughly <strong>$135–$280 per month</strong> ($1,600–$3,350/year) for food, grooming, insurance, and vet care. Huskies aren't the most expensive breed to buy, but their thick double coat, high energy, and escape-artist tendencies push ongoing costs above what you'd expect for a dog their size. Over a Husky's 12–14 year lifespan, total ownership costs in 2026 typically land between <strong>$30,000 and $50,000</strong>.</p>
+
+<h2>Purchase Price in 2026</h2>
+<p>Husky prices vary by bloodline, coat colour, and whether the dog is bred for companionship, show, or sledding lines. Heterochromia (one blue eye, one brown) and rare colours like pure white often command a premium.</p>
+
+<table>
+  <thead><tr><th>Source</th><th>US Price</th><th>UK Price</th></tr></thead>
+  <tbody>
+    <tr><td>Rescue / shelter adoption</td><td>$150 – $400</td><td>£100 – £300</td></tr>
+    <tr><td>Average breeder puppy</td><td>$600 – $1,800</td><td>£700 – £1,800</td></tr>
+    <tr><td>Show-quality or rare-colour (heterochromia, pure white)</td><td>$2,000 – $3,500+</td><td>£2,000 – £3,000+</td></tr>
+  </tbody>
+</table>
+
+<p>Husky-specific rescues exist in most regions because the breed's high energy and independence catch many first-time owners off guard. Adopting from one of these organisations is usually the most affordable and responsible route.</p>
+
+<h2>First-Year Costs</h2>
+<p>Beyond the purchase price, the first year includes setup costs that don't recur — plus a heavier-than-average spend on durable gear, since Huskies are strong enough to destroy budget leashes and beds quickly.</p>
+
+<table>
+  <thead><tr><th>Expense</th><th>US Cost</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase price</td><td>$600 – $1,800</td><td>Average breeder puppy</td></tr>
+    <tr><td>Initial vet visits &amp; vaccinations</td><td>$200 – $350</td><td>Puppy series at 8, 12, and 16 weeks</td></tr>
+    <tr><td>Spay / neuter</td><td>$200 – $450</td><td>Often scheduled around 6 months</td></tr>
+    <tr><td>Microchipping</td><td>$40 – $70</td><td>Strongly recommended given escape risk</td></tr>
+    <tr><td>Starter supplies</td><td>$300 – $600</td><td>Heavy-duty harness, secure leash, crate, de-shedding brush</td></tr>
+    <tr><td>Puppy training classes</td><td>$150 – $350</td><td>Huskies are independent and vocal; early training pays off</td></tr>
+    <tr><td>First-year food</td><td>$500 – $900</td><td>Active large-breed formula</td></tr>
+    <tr><td>Pet insurance (first year)</td><td>$400 – $800</td><td>$35–$70/month</td></tr>
+    <tr><td><strong>First-year total</strong></td><td><strong>$2,390 – $5,320</strong></td><td>Including purchase price</td></tr>
+  </tbody>
+</table>
+
+<h2>Annual Ongoing Costs (Year 2+)</h2>
+<p>Once past year one, food and grooming dominate a Husky's budget. Their dense double coat and high activity level mean they burn more calories than many dogs of similar weight (typically 35–60 lbs).</p>
+
+<table>
+  <thead><tr><th>Annual Expense</th><th>Low</th><th>High</th></tr></thead>
+  <tbody>
+    <tr><td>Food</td><td>$500</td><td>$900</td></tr>
+    <tr><td>Routine vet care</td><td>$300</td><td>$550</td></tr>
+    <tr><td>Pet insurance</td><td>$450</td><td>$900</td></tr>
+    <tr><td>Grooming (tools + seasonal de-shedding)</td><td>$200</td><td>$600</td></tr>
+    <tr><td>Toys, enrichment, supplies</td><td>$150</td><td>$400</td></tr>
+    <tr><td><strong>Annual total (year 2+)</strong></td><td><strong>$1,600</strong></td><td><strong>$3,350</strong></td></tr>
+  </tbody>
+</table>
+
+<h3>The Coat-Blow: A Husky-Specific Grooming Cost</h3>
+<p>Twice a year, Huskies "blow" their undercoat over a period of 2–4 weeks, shedding enormous volumes of fur. Daily brushing during this period is non-negotiable, and many owners invest in a high-velocity dryer or pay for professional de-shedding sessions ($60–$120 per visit) to keep up. Outside of coat-blow season, grooming needs are modest — Huskies are naturally clean dogs that rarely need bathing.</p>
+
+<h2>Breed-Specific Cost Risks</h2>
+<h3>Hip Dysplasia and Eye Conditions</h3>
+<p>Huskies are predisposed to hip dysplasia, cataracts, progressive retinal atrophy, and corneal dystrophy. Reputable breeders screen for these with hip scoring and annual eye certification — ask to see documentation before buying. Cataract surgery, if needed, runs $2,500–$4,000 per eye in the US.</p>
+
+<h3>The Escape-Artist Tax</h3>
+<p>This is the cost most cost guides miss. Huskies are powerful diggers, agile jumpers, and have a strong prey drive — a standard 4-foot fence is often not enough. Many owners end up spending <strong>$500–$2,500</strong> on fence upgrades, buried wire mesh to stop digging, or secure dog runs after a Husky escapes (or nearly does). Budgeting for this before bringing a Husky home is far cheaper than the vet bills, fines, or lost-dog search costs that follow an escape.</p>
+
+<h2>Lifetime Cost Estimate</h2>
+<p>With a typical 12–14 year lifespan, lifetime costs break down as follows:</p>
+<ul>
+  <li><strong>No major health events:</strong> $30,000 – $42,000 over 13 years</li>
+  <li><strong>One orthopaedic or eye surgery:</strong> $36,000 – $50,000+ over 13 years</li>
+</ul>
+<p>In UK terms, expect roughly £24,000–£34,000 for a healthy dog, rising to £30,000–£42,000+ if surgery is required.</p>
+
+<h2>Money-Saving Tips for Husky Owners</h2>
+<ul>
+  <li><strong>Secure your fencing before adoption day, not after.</strong> It's far cheaper to dig-proof a fence line once than to repeatedly pay for a missing-dog search or emergency vet visit after a road accident.</li>
+  <li><strong>Brush through the coat-blow yourself.</strong> A $30–$50 de-shedding tool used daily for 2–3 weeks twice a year saves hundreds in professional grooming bills.</li>
+  <li><strong>Buy from hip- and eye-screened breeders.</strong> Screening reduces the lifetime odds of an expensive orthopaedic or eye surgery considerably.</li>
+  <li><strong>Get insurance before any vet visit.</strong> Hip and eye conditions can be flagged as pre-existing if diagnosed before a policy starts.</li>
+  <li><strong>Lean into their exercise needs rather than fighting them.</strong> A tired Husky is a calmer, less destructive Husky — daily running or sledding-style activity reduces both behavioural training costs and property damage.</li>
+</ul>
+
+<p>Use our <a href="/calculator">free pet cost calculator</a> to get a personalised Siberian Husky cost estimate based on your location and lifestyle.</p>
+    `,
+  },
   // ── Newest / Authority Articles ──────────────────────────────────────────
   {
     id: 'dachshund-cost-guide-2026',
@@ -859,9 +973,35 @@ export const allBlogArticles: BlogArticle[] = [
     relatedBreedId: 'golden-retriever',
     relatedPetType: 'dog',
     relatedBreedSize: 'large',
+    faqs: [
+      {
+        q: 'How much does a Golden Retriever cost?',
+        a: 'A Golden Retriever puppy typically costs $1,000–$3,500 from a reputable breeder (£500–£2,500 in the UK), or $50–$300 to adopt from a rescue. After the purchase price, expect to spend roughly $200–$400 per month ($2,400–$4,800/year) on food, insurance, vet care, and grooming — putting the total lifetime cost between $25,000 and $55,000.',
+      },
+      {
+        q: 'How much is a Golden Retriever puppy?',
+        a: 'A Golden Retriever puppy costs $1,000–$2,500 from an average reputable breeder, $2,500–$5,000+ for health-tested or champion bloodlines, or $50–$300 to adopt from a rescue. Reputable breeders charge more for hip, elbow, eye, and heart health clearances that reduce the risk of expensive joint or eye surgery later.',
+      },
+      {
+        q: 'Are Golden Retrievers expensive?',
+        a: "Yes — Golden Retrievers are on the more expensive side for a popular family dog, mainly because of their size (more food, bigger medication doses) and a notably high lifetime cancer risk (around 60%), which drives up both insurance premiums and potential treatment bills. They're cheaper than brachycephalic breeds like French Bulldogs, but pricier than smaller, low-shedding breeds.",
+      },
+      {
+        q: 'How much do Golden Retrievers cost per month?',
+        a: 'Budget $135–$265/month for food, insurance, routine vet care, grooming, and supplies — roughly $1,620–$3,170/year, not including the initial purchase price.',
+      },
+      {
+        q: 'How much do vet bills cost annually for a Golden Retriever?',
+        a: "Routine annual vet care (checkups and preventatives) runs $240–$480/year for a Golden Retriever. That figure can rise sharply if the breed's common health issues appear — hip or elbow dysplasia surgery costs $3,500–$7,000 per joint, and cancer treatment (which affects roughly 60% of the breed over a lifetime) ranges from $3,000–$20,000+.",
+      },
+      {
+        q: 'What is the biggest hidden cost of owning a Golden Retriever?',
+        a: 'Cancer treatment. With roughly a 60% lifetime incidence, many owners face a $3,000–$20,000+ bill at some point — insurance taken out early, while the puppy is still healthy, is the most cost-effective protection.',
+      },
+    ],
     content: `
 <h2>How Much Does a Golden Retriever Cost? Quick Answer</h2>
-<p>A Golden Retriever puppy typically costs <strong>$1,000–$3,500</strong> from a reputable breeder ($500–$2,500 / £500–£2,500 in the UK), or $50–$300 to adopt from a rescue. After the purchase price, expect to spend roughly <strong>$200–$400 per month</strong> ($2,400–$4,800/year) on food, insurance, vet care, and grooming. Over a Golden's 10–12 year lifespan, total ownership costs typically land between <strong>$25,000 and $55,000</strong> (£20,000–£45,000).</p>
+<p>A Golden Retriever puppy typically costs <strong>$1,000–$3,500</strong> from a reputable breeder ($500–$2,500 / £500–£2,500 in the UK), or $50–$300 to adopt from a rescue. After the purchase price, expect to spend roughly <strong>$200–$400 per month</strong> ($2,400–$4,800/year) on food, insurance, vet care, and grooming. Over a Golden's 10–12 year lifespan, total ownership costs typically land between <strong>$25,000 and $55,000</strong> (£20,000–£45,000). See the full standardized breakdown on our <a href="/breeds/golden-retriever">Golden Retriever cost page</a>, or use the calculator below for a number tailored to your location.</p>
 
 <h2>Are Golden Retrievers Expensive? How They Compare</h2>
 <p>Yes — Golden Retrievers are on the more expensive side for a popular family dog, mainly because of their size (more food, bigger medication doses) and a notably high lifetime cancer risk (around 60%), which drives up both insurance premiums and potential treatment bills. They're cheaper than brachycephalic breeds like French Bulldogs, but pricier than smaller, low-shedding breeds such as Cavoodles or Dachshunds.</p>
@@ -1171,6 +1311,14 @@ export const allBlogArticles: BlogArticle[] = [
       {
         q: 'How much should I save for a pet emergency fund?',
         a: 'A good target is $1,000–$3,000 in a dedicated savings account, separate from everyday spending. This covers most moderate emergencies and pairs well with an insurance policy for the larger, rarer bills.',
+      },
+      {
+        q: 'How much is an emergency vet visit?',
+        a: 'An emergency vet visit starts at $150–$250 just for the exam/triage fee. Including diagnostics and treatment, most visits total $800–$2,500, and severe cases such as surgery or multi-day hospitalisation can reach $3,000–$8,000 or more.',
+      },
+      {
+        q: 'How much do emergency vets cost compared to a regular vet?',
+        a: 'Emergency vets typically cost 2–5x more than a regular daytime vet for the same exam, because of 24/7 staffing, on-call specialists, and in-house diagnostic equipment. A routine visit that costs $50–$100 during the day can cost $150–$250 just for the exam fee after hours.',
       },
     ],
     content: `

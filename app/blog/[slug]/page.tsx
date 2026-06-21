@@ -161,6 +161,21 @@ export default function BlogArticlePage({ params }: Props) {
               </Link>
             </div>
 
+            {/* Breed cost page — links breed-guide articles back to their dedicated breed page */}
+            {article.relatedBreedId && (
+              <div className="card p-5">
+                <h3 className="text-sm font-bold text-[#1B2B1B] mb-2">
+                  {article.relatedBreedName ?? article.relatedBreedId} cost page
+                </h3>
+                <p className="text-xs text-[#5a7a5a] mb-3">
+                  See the standardised first-year, annual, and lifetime cost breakdown for this breed.
+                </p>
+                <Link href={`/breeds/${article.relatedBreedId}`} className="btn-secondary w-full text-sm text-center block">
+                  View Breed Cost Page
+                </Link>
+              </div>
+            )}
+
             {/* Related articles */}
             {related.length > 0 && (
               <div className="card p-5">
