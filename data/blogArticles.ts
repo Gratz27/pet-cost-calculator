@@ -33,7 +33,7 @@ export const allBlogArticles: BlogArticle[] = [
     author: 'PetCost-Calculator Team',
     publishDate: '2026-06-22',
     readTime: 9,
-    image: 'https://images.unsplash.com/photo-1517849845537-4d257902861a?w=1100&q=80',
+    image: 'https://images.unsplash.com/photo-1563889362352-b0492c224f62?w=1100&q=80',
     keywords: ['siberian husky cost', 'how much does a siberian husky cost', 'husky cost', 'husky price', 'husky puppy cost', 'husky annual cost'],
     relatedBreedName: 'Siberian Husky',
     relatedBreedId: 'siberian-husky',
