@@ -30,7 +30,7 @@ const footerLinks = {
     { label: "Breed Comparison", href: "/compare" },
     { label: "Insurance Compare", href: "/tools/insurance-compare" },
     { label: "Budget Tracker", href: "/tools/budget-tracker" },
-    { label: "Recommended Gear", href: "/tools/gear" },
+    { label: "Pet Essentials", href: "/tools/gear" },
     { label: "All Tools", href: "/tools" },
   ],
   "Guides & Data": [

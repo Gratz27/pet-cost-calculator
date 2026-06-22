@@ -47,10 +47,10 @@ const tools = [
   },
   {
     icon: ShoppingBag,
-    title: "Recommended Gear",
-    description: "Hand-picked categories of well-reviewed dog and cat gear — crates, beds, food, litter, grooming, and more.",
+    title: "Pet Essentials",
+    description: "The essentials every owner needs — crates, beds, food, litter, grooming, and more, with the current top picks on Amazon.",
     href: "/tools/gear",
-    cta: "Browse Gear",
+    cta: "Browse Essentials",
     badge: "New",
     badgeColor: "badge-green",
   },

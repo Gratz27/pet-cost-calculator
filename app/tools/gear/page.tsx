@@ -7,13 +7,18 @@ import {
 } from "lucide-react";
 import AdUnit from "@/components/AdUnit";
 import { amazonSearchLink, productLinks, resolveLink } from "@/lib/affiliateLinks";
+import { fetchTopItems } from "@/lib/amazonPaapi";
 
 export const metadata: Metadata = {
-  title: "Recommended Pet Gear & Supplies 2026 | PetCost-Calculator",
+  title: "Pet Essentials 2026 — Best Dog & Cat Gear | PetCost-Calculator",
   description:
-    "Hand-picked categories of high-quality dog and cat gear — crates, beds, food, litter, grooming tools, and more. Find well-reviewed essentials for every budget.",
+    "The pet essentials every owner needs — crates, beds, food, litter, grooming tools, and more. Curated categories of well-reviewed dog and cat gear for every budget.",
   alternates: { canonical: "https://petcost-calculator.com/tools/gear" },
 };
+
+// Pull fresh top-product imagery once a day (PA-API runs at build / revalidate,
+// never per user request).
+export const revalidate = 86400;
 
 type Pick = {
   emoji: string;
@@ -28,6 +33,8 @@ type Category = {
   title: string;
   icon: typeof Home;
   intro: string;
+  /** Representative search used for the category banner image (PA-API). */
+  bannerQuery: string;
   picks: Pick[];
 };
 
@@ -37,6 +44,7 @@ const categories: Category[] = [
     title: "Crates & Carriers",
     icon: Home,
     intro: "A properly sized crate or carrier makes crate training, vet visits, and travel far less stressful for both of you.",
+    bannerQuery: "dog crate",
     picks: [
       { emoji: "🏠", title: "Wire Dog Crates", description: "Collapsible, well-ventilated crates with divider panels — size up as your puppy grows.", query: "dog crate with divider panel" },
       { emoji: "🧳", title: "Soft-Sided Carriers", description: "Airline-compliant carriers for cats and small dogs — look for mesh panels and a washable liner.", query: "soft sided pet carrier airline approved", badge: { label: "Popular", color: "badge-blue" } },
@@ -48,6 +56,7 @@ const categories: Category[] = [
     title: "Beds & Bedding",
     icon: Bed,
     intro: "Orthopedic support matters most for large breeds and senior pets — memory foam reduces joint pressure and improves sleep quality.",
+    bannerQuery: "dog bed",
     picks: [
       { emoji: "🛏️", title: "Orthopedic Memory Foam Beds", description: "Supportive foam beds for large or senior dogs with joint issues, with removable washable covers.", query: "orthopedic memory foam dog bed large breed", badge: { label: "New", color: "badge-green" } },
       { emoji: "🌙", title: "Calming Donut Beds", description: "Raised-rim beds that help anxious pets feel secure — great for crate inserts too.", query: "calming donut cat dog bed" },
@@ -59,6 +68,7 @@ const categories: Category[] = [
     title: "Food & Feeding",
     icon: Utensils,
     intro: "Slow feeders reduce bloat risk in large breeds, while automatic feeders help keep portion control consistent.",
+    bannerQuery: "dog food bowl set",
     picks: [
       { emoji: "🥣", title: "Slow Feeder Bowls", description: "Maze-pattern bowls that slow down fast eaters and reduce digestive issues.", query: "slow feeder dog bowl", badge: { label: "New", color: "badge-green" } },
       { emoji: "⏱️", title: "Automatic Feeders", description: "Programmable feeders for consistent portions — useful for multi-pet households or busy schedules.", query: "automatic pet feeder programmable" },
@@ -70,6 +80,7 @@ const categories: Category[] = [
     title: "Litter & Cat Care",
     icon: Bone,
     intro: "The right litter box setup reduces odour and tracking — a big factor in keeping multi-cat homes pleasant.",
+    bannerQuery: "cat litter box",
     picks: [
       { emoji: "📦", title: "Self-Cleaning Litter Boxes", description: "Automatic litter boxes that rake waste away — a popular upgrade for multi-cat homes.", query: "self cleaning litter box", badge: { label: "New", color: "badge-green" } },
       { emoji: "🌾", title: "Low-Tracking Litter", description: "Tight-clumping, low-dust litter that cuts down on mess around the box.", query: "low tracking clumping cat litter" },
@@ -81,6 +92,7 @@ const categories: Category[] = [
     title: "Grooming",
     icon: Scissors,
     intro: "Regular at-home grooming between professional visits cuts annual grooming costs significantly.",
+    bannerQuery: "dog grooming kit",
     picks: [
       { emoji: "✂️", title: "Deshedding Tools", description: "Undercoat rakes and deshedding brushes — especially valuable for double-coated breeds.", query: "deshedding tool for dogs" },
       { emoji: "🛁", title: "Dog Clipper Kits", description: "Quiet, rechargeable clipper sets for at-home trims between groomer visits.", query: "dog grooming clipper kit" },
@@ -92,6 +104,7 @@ const categories: Category[] = [
     title: "Health & Wellness",
     icon: HeartPulse,
     intro: "Preventive products can reduce emergency vet visits — always check with your vet before starting supplements.",
+    bannerQuery: "dog health supplements",
     picks: [
       { emoji: "💊", title: "Joint Supplements", description: "Glucosamine and chondroitin chews to support joint health, especially for large or senior dogs.", query: "dog joint supplement glucosamine chondroitin" },
       { emoji: "🩹", title: "Pet First Aid Kits", description: "Compact kits with bandages, antiseptic, and tweezers for minor injuries at home or on the trail.", query: "pet first aid kit", badge: { label: "Saves $$", color: "badge-orange" } },
@@ -103,6 +116,7 @@ const categories: Category[] = [
     title: "Toys & Enrichment",
     icon: Puzzle,
     intro: "Mental stimulation reduces destructive behaviour — puzzle feeders and durable chews are worth the investment.",
+    bannerQuery: "dog toys",
     picks: [
       { emoji: "🧩", title: "Puzzle Feeders", description: "Treat-dispensing puzzles that slow down eating and provide mental enrichment.", query: "dog puzzle feeder toy", badge: { label: "New", color: "badge-green" } },
       { emoji: "🦴", title: "Durable Chew Toys", description: "Long-lasting rubber chews for power chewers — look for vet-recommended brands.", query: "durable dog chew toy" },
@@ -114,6 +128,7 @@ const categories: Category[] = [
     title: "Training & Behaviour",
     icon: GraduationCap,
     intro: "A solid training foundation in the first year prevents costly behavioural issues later.",
+    bannerQuery: "dog training supplies",
     picks: [
       { emoji: "🎯", title: "Treat Training Pouches", description: "Hands-free treat pouches that clip to your belt — essential for consistent reward-based training.", query: "dog training treat pouch" },
       { emoji: "🪢", title: "No-Pull Harnesses", description: "Front-clip harnesses that reduce pulling without choking — better for joints than collars.", query: "no pull dog harness", badge: { label: "Popular", color: "badge-blue" } },
@@ -122,7 +137,15 @@ const categories: Category[] = [
   },
 ];
 
-export default function GearPage() {
+export default async function GearPage() {
+  // Real Amazon product imagery for each curated query (top current result).
+  // Returns an empty map if PA-API isn't configured → cards fall back to emoji.
+  const allQueries = categories.flatMap((c) => [
+    c.bannerQuery,
+    ...c.picks.map((p) => p.query),
+  ]);
+  const items = await fetchTopItems(allQueries);
+
   return (
     <div className="bg-[#F1F8F1] min-h-screen">
       {/* Breadcrumb */}
@@ -133,7 +156,7 @@ export default function GearPage() {
             <ChevronRight className="h-3.5 w-3.5" />
             <Link href="/tools" className="hover:text-[#2E7D32]">Tools</Link>
             <ChevronRight className="h-3.5 w-3.5" />
-            <span className="text-[#1B2B1B] font-medium">Recommended Gear</span>
+            <span className="text-[#1B2B1B] font-medium">Pet Essentials</span>
           </nav>
         </div>
       </div>
@@ -144,7 +167,7 @@ export default function GearPage() {
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="flex-1">
               <div className="badge bg-white/20 text-green-100 mb-4">Updated for 2026</div>
-              <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">Recommended Pet Gear</h1>
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">Pet Essentials</h1>
               <p className="text-green-200 text-lg leading-relaxed max-w-xl mb-6">
                 Curated categories of well-reviewed dog and cat products — organised by what your pet actually
                 needs at each stage of ownership. Compare options on Amazon and Chewy and pick what fits your budget.
@@ -211,7 +234,9 @@ export default function GearPage() {
 
       <div className="container-xl py-10">
         <div className="max-w-5xl space-y-8 mx-auto">
-          {categories.map((cat, i) => (
+          {categories.map((cat, i) => {
+            const banner = items.get(cat.bannerQuery);
+            return (
             <div key={cat.id} id={cat.id} className="scroll-mt-20">
               <div className="card p-6">
                 <div className="flex items-center gap-3 mb-2">
@@ -221,8 +246,25 @@ export default function GearPage() {
                   <h2 className="text-xl font-bold text-[#1B2B1B]">{cat.title}</h2>
                 </div>
                 <p className="text-sm text-[#5a7a5a] mb-5 leading-relaxed">{cat.intro}</p>
+
+                {/* Category visual — representative product (PA-API). Hidden when
+                    no image is available so the section still looks intentional. */}
+                {banner && (
+                  <div className="relative w-full h-36 sm:h-44 rounded-xl mb-5 overflow-hidden bg-gradient-to-br from-[#E8F5E9] to-[#F1F8F1] border border-[#C8E6C9]">
+                    <Image
+                      src={banner.imageUrl}
+                      alt={`${cat.title} — pet essentials`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 800px"
+                      className="object-contain p-4"
+                    />
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {cat.picks.map((pick) => (
+                  {cat.picks.map((pick) => {
+                    const item = items.get(pick.query);
+                    return (
                     <a
                       key={pick.title}
                       href={amazonSearchLink(pick.query)}
@@ -231,18 +273,34 @@ export default function GearPage() {
                       className="relative flex flex-col rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-4 hover:border-[#4CAF50] hover:shadow-md transition-all group"
                     >
                       {pick.badge && (
-                        <span className={`absolute top-3 right-3 ${pick.badge.color} text-[10px]`}>{pick.badge.label}</span>
+                        <span className={`absolute top-3 right-3 z-10 ${pick.badge.color} text-[10px]`}>{pick.badge.label}</span>
                       )}
-                      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white border border-[#C8E6C9] text-xl mb-3">
-                        {pick.emoji}
-                      </div>
+                      {item ? (
+                        <div className="relative w-full aspect-[4/3] rounded-lg bg-white border border-[#C8E6C9] mb-3 overflow-hidden">
+                          <Image
+                            src={item.imageUrl}
+                            alt={pick.title}
+                            fill
+                            sizes="(max-width: 640px) 100vw, 240px"
+                            className="object-contain p-2"
+                          />
+                        </div>
+                      ) : (
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white border border-[#C8E6C9] text-xl mb-3">
+                          {pick.emoji}
+                        </div>
+                      )}
                       <div className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32] mb-1">{pick.title}</div>
                       <p className="text-xs text-slate-500 leading-relaxed flex-1">{pick.description}</p>
+                      {item?.price && (
+                        <div className="mt-2 text-sm font-bold text-[#1B2B1B]">{item.price}</div>
+                      )}
                       <div className="flex items-center gap-1 mt-3 text-xs font-medium text-[#2E7D32]">
                         Shop on Amazon <ExternalLink className="h-3 w-3" />
                       </div>
                     </a>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
@@ -253,7 +311,8 @@ export default function GearPage() {
                 </div>
               )}
             </div>
-          ))}
+            );
+          })}
 
           {/* Chewy CTA */}
           <div className="card p-6 bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white border-0 flex flex-col sm:flex-row items-center justify-between gap-4">
