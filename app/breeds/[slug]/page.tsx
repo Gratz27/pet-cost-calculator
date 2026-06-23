@@ -379,6 +379,16 @@ export default async function BreedPage({ params: paramsPromise }: Props) {
                   <div className="text-xs text-slate-400">Auto-ship saves up to 30%</div>
                 </div>
               </a>
+              {petType === "dog" && (
+                <a href={resolveLink(productLinks.barkBox)} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-3 rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-3 hover:border-[#4CAF50] transition-all group">
+                  <div className="text-2xl">🐾</div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm font-semibold text-[#1B2B1B] group-hover:text-[#2E7D32]">BarkBox — monthly toys & treats</div>
+                    <div className="text-xs text-slate-400">Themed box delivered to your door</div>
+                  </div>
+                </a>
+              )}
             </div>
           </div>
 

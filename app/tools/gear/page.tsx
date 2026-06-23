@@ -326,22 +326,33 @@ export default async function GearPage() {
             );
           })}
 
-          {/* Chewy CTA */}
-          <div className="card p-6 bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white border-0 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <h3 className="text-lg font-bold mb-1">Prefer auto-ship and free returns?</h3>
-              <p className="text-green-200 text-sm">Chewy stocks most of these categories with autoship discounts of up to 30%.</p>
+          {/* Chewy + BarkBox CTAs */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="card p-6 bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white border-0 flex flex-col justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-bold mb-1">Prefer auto-ship and free returns?</h3>
+                <p className="text-green-200 text-sm">Chewy stocks most of these categories with autoship discounts of up to 30%.</p>
+              </div>
+              <a href={resolveLink(productLinks.chewy)} target="_blank" rel="noopener noreferrer" className="btn-green text-sm whitespace-nowrap self-start">
+                Shop on Chewy
+              </a>
             </div>
-            <a href={resolveLink(productLinks.chewy)} target="_blank" rel="noopener noreferrer" className="btn-green text-sm whitespace-nowrap">
-              Shop on Chewy
-            </a>
+            <div className="card p-6 bg-gradient-to-br from-[#4a2c6e] to-[#6d3f9e] text-white border-0 flex flex-col justify-between gap-4">
+              <div>
+                <h3 className="text-lg font-bold mb-1">Spoil your dog every month 🐾</h3>
+                <p className="text-purple-200 text-sm">BarkBox delivers themed toys and treats straight to your door — tailored to your dog's size.</p>
+              </div>
+              <a href={resolveLink(productLinks.barkBox)} target="_blank" rel="noopener noreferrer" className="btn-green text-sm whitespace-nowrap self-start">
+                Try BarkBox
+              </a>
+            </div>
           </div>
 
           {/* Disclosure */}
           <div className="rounded-xl bg-white border border-[#C8E6C9] px-4 py-3">
             <p className="text-xs text-slate-500 leading-relaxed">
               <span className="font-semibold text-[#1B2B1B]">Affiliate disclosure:</span> Links on this page are
-              affiliate links to Amazon and Chewy. If you make a purchase, we may earn a commission at no
+              affiliate links to Amazon, Chewy, and BarkBox. If you make a purchase, we may earn a commission at no
               additional cost to you. We link to product categories rather than single items so you can compare
               options, read current reviews, and choose what's best for your pet and budget.
             </p>

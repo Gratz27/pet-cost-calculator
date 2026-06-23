@@ -103,6 +103,12 @@ export const productLinks: Record<string, LinkEntry> = {
     // Program: Amazon Associates — Store ID: petcost0e-20
     affiliateUrl: "https://www.amazon.com/pet-supplies/b?node=2619533011&tag=petcost0e-20",
   },
+  barkBox: {
+    name: "BarkBox",
+    directUrl: "https://www.barkbox.com",
+    // Program: Impact.com — approved June 2026
+    affiliateUrl: "https://barkbox.pxf.io/c/6642111/2911264/34203",
+  },
 };
 
 // ---------------------------------------------------------------------------
