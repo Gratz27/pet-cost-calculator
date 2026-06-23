@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
   metadataBase: new URL("https://petcost-calculator.com"),
+  other: {
+    "fo-verify": "64400e6a-c9d5-4704-b600-fbacddd3ad6f",
+  },
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },

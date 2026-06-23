@@ -3,8 +3,8 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy – PetCost-Calculator",
-  description: "Privacy policy for PetCost-Calculator.com",
+  title: "Privacy Policy – PetCost Calculator",
+  description: "Privacy policy for PetCost-Calculator.com — covering data collection, cookies, Google Analytics, Google AdSense advertising, affiliate links, and email subscriptions.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -46,8 +46,13 @@ export default function PrivacyPolicyPage() {
             <p>If you submit your email address to receive our Annual Pet Cost Report or newsletter, your address is stored securely and used only to send the requested content. You can unsubscribe at any time using the link in any email we send.</p>
           </section>
           <section>
+            <h2>Advertising</h2>
+            <p>This site uses Google AdSense, a service provided by Google LLC, to display advertisements. Google AdSense uses cookies to serve ads based on your prior visits to this site and other sites on the internet. Google&apos;s use of advertising cookies enables it and its partners to serve ads based on your visit to this site and/or other sites.</p>
+            <p>You may opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer">Google&apos;s Ads Settings</a> or by visiting <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer">aboutads.info</a>. For more information on how Google uses data when you visit partner sites, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">How Google uses data from sites that use our services</a>.</p>
+          </section>
+          <section>
             <h2>Third-Party Services</h2>
-            <p>We use the following third-party services which may set their own cookies: Google Analytics 4, Google Fonts. We do not sell or share your data with advertisers or data brokers.</p>
+            <p>We use the following third-party services which may set their own cookies: Google AdSense, Google Analytics 4, Google Fonts. We do not sell or share your personal data with advertisers or data brokers.</p>
           </section>
           <section>
             <h2>Contact</h2>
