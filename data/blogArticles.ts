@@ -273,7 +273,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'maine-coon-cost-guide-2026',
     slug: 'how-much-does-a-maine-coon-cat-cost',
     title: 'How Much Does a Maine Coon Cat Cost? Complete 2026 Guide',
-    description: 'A full breakdown of Maine Coon ownership costs in 2026 — purchase price, annual expenses, vet care, and lifetime totals with money-saving tips.',
+    description: 'Maine Coons cost $1,000–$2,500 to buy and $1,400–$3,000/year to own — the priciest common cat breed. HCM heart disease is the biggest financial wildcard. Full 2026 cost breakdown with lifetime totals.',
     category: 'cats',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-06-08',
@@ -365,7 +365,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'real-cost-labrador-uk',
     slug: 'real-cost-owning-labrador-uk',
     title: 'The Real Cost of Owning a Labrador in the UK (2026 Data)',
-    description: 'A comprehensive, data-backed breakdown of what it actually costs to own a Labrador Retriever in the UK, from London vet fees to premium food prices.',
+    description: 'Owning a Labrador in the UK costs £20,000–£35,000 over a lifetime — roughly £1,600–£2,800/year after setup. London vets charge up to 40% more than rural areas. Full 2026 UK cost breakdown with regional data.',
     category: 'dogs',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-20',
@@ -422,7 +422,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'vet-costs-us-2026',
     slug: '2026-vet-costs-in-us',
     title: '2026 Vet Costs in the US: A Comprehensive Pricing Guide',
-    description: 'An in-depth analysis of current veterinary pricing across the United States, comparing urban clinics with suburban practices for routine and emergency care.',
+    description: 'A routine vet check-up costs $50–$250; an emergency visit $800–$8,000+. Real 2026 US prices for vaccinations, dental cleaning, x-rays, surgery and more — broken down by city, clinic type, and procedure.',
     category: 'vet-costs',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-18',
@@ -475,7 +475,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'dog-insurance-comparison-us-uk',
     slug: 'dog-insurance-cost-comparison-us-vs-uk',
     title: 'Dog Insurance Cost Comparison: US vs UK (2026)',
-    description: 'A detailed comparison of pet insurance premiums, coverage limits, and market trends between the United States and the United Kingdom.',
+    description: 'Dog insurance averages $35–$65/month in the US vs £25–£50/month in the UK — but what you actually get differs widely. Coverage limits, excess structures, and real value compared side-by-side for 2026.',
     category: 'insurance',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-15',
@@ -562,7 +562,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'cat-ownership-costs',
     slug: 'cat-ownership-costs',
     title: 'Cat Ownership Costs: First Year vs Ongoing Annual Expenses',
-    description: 'A detailed breakdown of cat ownership costs in the US and UK — comparing first-year expenses with ongoing annual costs, with cost tables and money-saving tips.',
+    description: 'Cats cost $800–$2,500 in year one and $700–$1,500/year after that — 40–60% cheaper than dogs. Full 2026 breakdown: adoption, vet, food, litter, insurance, grooming, and the hidden costs most guides miss.',
     category: 'cats',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-24',
@@ -613,7 +613,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'pet-insurance-explained',
     slug: 'pet-insurance-explained',
     title: 'Pet Insurance Explained: Is It Worth It in 2026?',
-    description: 'A comprehensive guide to pet insurance in 2026 — how it works, what it covers, how much it costs, and whether it\'s worth it for your pet.',
+    description: 'Pet insurance costs $25–$80/month and can cover up to 90% of vet bills — but the exclusions catch owners out. Is it actually worth it? A plain-English breakdown of policies, premiums, and what insurers won\'t tell you.',
     category: 'insurance',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-23',
@@ -743,7 +743,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'vet-costs-by-breed',
     slug: 'vet-costs-by-breed',
     title: 'Vet Costs by Breed: Which Dogs Cost the Most at the Vet?',
-    description: 'An in-depth analysis of veterinary costs by dog breed — identifying the breeds with the highest lifetime vet bills and the health conditions driving those costs.',
+    description: 'French Bulldogs face $3,500–$7,000 BOAS surgery. Great Danes risk $4,000+ bloat ops. Which breeds have the highest lifetime vet bills — and what health conditions are driving the cost? 2026 data by breed.',
     category: 'vet-costs',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-20',
@@ -788,7 +788,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'budgeting-for-puppy',
     slug: 'budgeting-for-puppy',
     title: 'How to Budget for a New Puppy — Month by Month Guide',
-    description: 'A practical month-by-month budgeting guide for new puppy owners — covering every expense from the first day home through the end of year one.',
+    description: 'Most first-time puppy owners are $1,000+ over budget by month 3. Month-by-month breakdown of every expense — vaccines, neutering, training, food, insurance, and the surprises nobody warns you about.',
     category: 'dogs',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-19',
@@ -828,7 +828,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'mixed-vs-purebred-health-costs',
     slug: 'mixed-vs-purebred-health-costs',
     title: 'Mixed Breed vs Purebred Health Costs: A Complete Comparison',
-    description: 'A data-driven comparison of lifetime health costs for mixed breed dogs versus purebreds — covering genetic health risks, insurance premiums, and real-world vet bill differences.',
+    description: 'Mixed breeds cost $3,000–$8,000 less in lifetime vet bills than purebreds on average — but not always. Real data on genetic health risks, insurance premiums, and when a crossbreed actually costs more.',
     category: 'vet-costs',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-18',
@@ -866,7 +866,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'senior-dog-care-costs',
     slug: 'senior-dog-care-costs',
     title: 'The Rising Costs of Senior Dog Care: What to Expect',
-    description: 'A comprehensive guide to the financial realities of caring for a senior dog — covering increased vet bills, mobility aids, prescription diets, and end-of-life planning.',
+    description: 'Senior dogs cost 2–3× more than younger dogs — $2,500–$6,000/year by age 10+. Real numbers for prescription diets, arthritis meds, mobility aids, and end-of-life care, with a savings plan to prepare.',
     category: 'vet-costs',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-17',
@@ -914,7 +914,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'cost-of-adopting-a-rescue-dog',
     slug: 'cost-of-adopting-a-rescue-dog',
     title: 'The True Cost of Adopting a Rescue Dog in 2026',
-    description: 'A complete guide to the real costs of adopting a rescue dog — from the adoption fee and initial setup to the ongoing expenses that first-time adopters consistently underestimate.',
+    description: 'Rescue adoption fees are $150–$400 — but year one still costs $1,500–$3,500 after vet care, supplies, and training. The hidden costs of rescue dogs that catch first-time adopters off guard.',
     category: 'dogs',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-05-16',
@@ -1473,7 +1473,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: '13',
     slug: 'small-vs-large-dog-costs',
     title: 'Small vs Large Dog Costs: Which Size Fits Your Budget?',
-    description: 'Comprehensive cost comparison between small and large dog breeds covering food, vet bills, grooming, boarding, and lifetime expenses.',
+    description: 'Large dogs cost $600–$1,200/year more to run than small dogs — mostly food and vet bills. Full side-by-side comparison by size across food, grooming, boarding, insurance, and lifetime totals for 2026.',
     category: 'comparison',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-10-27',
@@ -1602,7 +1602,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'holiday-pet-safety-costs',
     slug: 'holiday-pet-safety-emergency-costs',
     title: 'Holiday Pet Safety: Hidden Dangers and Emergency Costs to Avoid',
-    description: 'Comprehensive guide to holiday pet hazards including toxic foods, decorations, and plants. Learn emergency vet costs and prevention strategies to keep pets safe.',
+    description: 'Chocolate and xylitol poisoning cost $800–$3,500 to treat. Christmas lilies can kill cats. The 12 holiday hazards most likely to send your pet to an emergency vet — with real treatment costs and prevention tips.',
     category: 'guide',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-12-10',
@@ -1646,7 +1646,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'pets-as-holiday-gifts',
     slug: 'should-you-give-pet-as-holiday-gift',
     title: 'Should You Give a Pet as a Holiday Gift? Complete Financial Reality Check',
-    description: 'Honest analysis of giving pets as holiday presents including first-year costs, long-term expenses, and responsible alternatives.',
+    description: 'A puppy gift costs $2,500–$5,500 in year one — and up to 30% end up surrendered within 12 months. The financial and ethical reality of gifting a pet, and what to give instead if you\'re not sure they\'re ready.',
     category: 'guide',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-12-05',
@@ -1689,7 +1689,7 @@ export const allBlogArticles: BlogArticle[] = [
     id: 'holiday-pet-care-travel',
     slug: 'holiday-pet-care-travel-costs',
     title: 'Holiday Pet Care: Complete Guide to Travel Costs and Planning',
-    description: 'Comprehensive breakdown of pet boarding, pet-sitting, and travel costs during the holidays. Learn how to budget for kennels, in-home care, and pet-friendly accommodations.',
+    description: 'Kennels charge $35–$80/night; pet sitters $25–$60/day. A 2-week holiday costs $500–$1,100 in pet care. Full comparison of every option — kennels, sitters, travel, and how to cut costs without cutting corners.',
     category: 'guide',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-12-01',
@@ -1732,8 +1732,8 @@ export const allBlogArticles: BlogArticle[] = [
   {
     id: 'best-pet-food-brands-uk',
     slug: 'best-pet-food-brands-uk',
-    title: 'Best Pet Food Brands in the UK: Complete 2025 Guide with Cost Comparison',
-    description: 'Comprehensive review of top UK pet food brands including Purina, Royal Canin, and premium options. Compare costs, nutritional quality, and find the best value for your budget.',
+    title: 'Best Pet Food Brands in the UK: Complete 2026 Guide with Cost Comparison',
+    description: 'Royal Canin costs £70–£120/month; Purina Pro Plan £45–£75/month. Which UK pet food brand gives the best nutrition per pound? Full 2026 comparison of 8 major brands with cost tables and nutritional ratings.',
     category: 'guide',
     author: 'PetCost-Calculator Team',
     publishDate: '2025-12-15',
@@ -1779,7 +1779,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     id: 'goldendoodle-cost-guide-2026',
     slug: 'how-much-does-a-goldendoodle-cost',
     title: 'How Much Does a Goldendoodle Cost? Complete 2026 Guide',
-    description: 'Full Goldendoodle cost breakdown for 2026 — purchase price, annual expenses, grooming costs, and lifetime ownership total with money-saving tips.',
+    description: 'Goldendoodles cost $1,500–$5,000 to buy and $1,800–$3,200/year to own — grooming alone runs $800–$2,000/year. Full 2026 breakdown: purchase, first year, annual costs, and lifetime total with money-saving tips.',
     category: 'breed-guide',
     author: 'PetCost Team',
     publishDate: '2026-06-09',
@@ -1880,7 +1880,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     id: 'ragdoll-cat-cost-guide-2026',
     slug: 'how-much-does-a-ragdoll-cat-cost',
     title: 'How Much Does a Ragdoll Cat Cost? 2026 Complete Guide',
-    description: 'Full Ragdoll cat cost guide for 2026 — kitten price, annual care costs, health risks, and lifetime ownership total with tips to save money.',
+    description: 'Ragdoll kittens cost $1,000–$2,500 from a breeder and $1,200–$2,500/year to own. HCM heart disease is the #1 financial risk. Full 2026 cost breakdown: purchase, annual expenses, and lifetime total.',
     category: 'cats',
     author: 'PetCost Team',
     publishDate: '2026-06-09',
@@ -1980,7 +1980,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     id: 'poodle-cost-guide-2026',
     slug: 'how-much-does-a-poodle-cost',
     title: 'How Much Does a Poodle Cost? Standard, Miniature & Toy (2026)',
-    description: 'Complete Poodle cost guide for 2026 — purchase price by size, annual expenses, grooming costs, and lifetime ownership total across Standard, Miniature, and Toy Poodles.',
+    description: 'Standard Poodles cost $1,000–$3,000+; Toy and Miniature $1,000–$2,500. Grooming runs $800–$2,000/year — the biggest ongoing cost. Full 2026 price breakdown by size with annual and lifetime totals.',
     category: 'breed-guide',
     author: 'PetCost Team',
     publishDate: '2026-06-09',
@@ -2068,7 +2068,7 @@ Solid budget options that meet all nutritional requirements without the premium 
     id: 'cost-of-owning-a-cat-us-2026',
     slug: 'how-much-does-it-cost-to-own-a-cat-in-the-us',
     title: 'How Much Does It Cost to Own a Cat in the US? (2026)',
-    description: 'A complete 2026 breakdown of cat ownership costs in the US — adoption fees, first-year setup, annual expenses, vet care, and lifetime totals by breed type.',
+    description: 'Owning a cat in the US costs $800–$2,500 in year one and $700–$1,500/year after that. See the full 2026 breakdown by breed type — adoption, vet, food, litter, insurance — plus lifetime totals.',
     category: 'cats',
     author: 'PetCost-Calculator Team',
     publishDate: '2026-06-15',
@@ -2338,6 +2338,247 @@ Solid budget options that meet all nutritional requirements without the premium 
 
 <p>Use our <a href="/breeds/persian">Persian cat cost calculator</a> for a personalized estimate based on your location and circumstances.</p>
     `,
+  },
+  {
+    id: 'how-much-does-a-puppy-cost-2026',
+    slug: 'how-much-does-a-puppy-cost',
+    title: 'How Much Does a Puppy Cost? Complete 2026 Guide ($2,500–$5,500 Year One)',
+    description: 'Puppies cost $2,500–$5,500 in year one on average — far more than most owners expect. Full breakdown: purchase price, vet setup, supplies, training, food, insurance, and the hidden costs nobody warns you about.',
+    category: 'guide',
+    author: 'PetCost-Calculator Team',
+    publishDate: '2026-06-24',
+    readTime: 10,
+    image: 'https://images.unsplash.com/photo-1601979031925-424e53b6caaa?w=1100&q=80',
+    keywords: ['how much does a puppy cost', 'puppy cost', 'cost of a puppy', 'puppy price', 'how much is a puppy', 'first year puppy costs', 'puppy expenses'],
+    faqs: [
+      {
+        q: 'How much does a puppy cost?',
+        a: 'A puppy typically costs $2,500–$5,500 in the first year, combining the purchase price ($500–$3,500 from a breeder, $150–$400 from a rescue), initial vet visits and vaccinations ($300–$600), spay/neuter ($200–$500), starter supplies ($300–$600), training ($150–$350), and the first year of food, insurance, and ongoing vet care.',
+      },
+      {
+        q: 'What is the average price of a puppy from a breeder?',
+        a: 'Breeder prices vary enormously by breed: small or mixed breeds typically run $500–$1,500; popular mid-size breeds like Beagles and Border Collies $800–$2,000; large breeds like Golden Retrievers and German Shepherds $1,000–$3,500; and in-demand or rare breeds like French Bulldogs or Merle-patterned dogs $3,000–$8,000+.',
+      },
+      {
+        q: 'How much does a puppy cost per month?',
+        a: 'After the first-year setup costs, a puppy (now a young adult dog) typically costs $150–$400/month depending on size and breed. This covers food ($30–$100/month), pet insurance ($25–$80/month), routine vet care averaged monthly ($40–$100/month), and supplies, toys, and grooming ($30–$100/month).',
+      },
+      {
+        q: 'Is getting a puppy from a rescue cheaper than a breeder?',
+        a: 'Rescue adoption fees are $150–$400 versus $500–$3,500+ from a breeder. However, year-one total costs are not dramatically different, because setup costs (vet visits, supplies, training) are the same regardless of source. Rescue puppies often come already vaccinated and desexed, which can save $400–$700 in initial vet costs.',
+      },
+      {
+        q: 'What hidden costs do new puppy owners miss?',
+        a: 'The most commonly missed puppy costs are: pet deposits and increased rent at rental properties ($200–$500 upfront + $25–$75/month extra rent); emergency vet fund ($1,500–$3,000 recommended buffer); professional dog walking or daycare if you work full-time ($300–$600/month); replacement of chewed furniture and belongings in the first year; and pet boarding or sitting costs during holidays ($35–$80/night for kennels).',
+      },
+    ],
+    content: `
+<h2>How Much Does a Puppy Cost? The Quick Answer</h2>
+<p>Getting a puppy costs <strong>$2,500–$5,500 in year one</strong> for most breeds — and that's before you factor in emergencies. The sticker shock comes from combining the purchase or adoption fee with a stack of one-time setup costs: initial vet visits, vaccinations, spay or neuter, supplies, and training. After year one, ongoing costs typically run <strong>$1,200–$3,000/year</strong> depending on breed size.</p>
+
+<p>The biggest variable is the purchase price itself — it can range from $150 (rescue adoption) to $8,000+ (popular or rare breeds from top breeders). But as this guide will show, the purchase price is only one part of what you'll spend in year one.</p>
+
+<h2>Puppy Purchase Price in 2026</h2>
+<p>Puppy prices vary enormously by breed, bloodline, and source. Here's a realistic range for 2026:</p>
+
+<table>
+  <thead><tr><th>Source</th><th>Typical Price</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Rescue / shelter adoption</td><td>$150 – $400</td><td>Often includes first vaccinations and desexing</td></tr>
+    <tr><td>Small or mixed breeds (breeder)</td><td>$500 – $1,500</td><td>Cavaliers, Maltese, Bichon Frise</td></tr>
+    <tr><td>Popular mid-size breeds</td><td>$800 – $2,000</td><td>Beagles, Cocker Spaniels, Border Collies</td></tr>
+    <tr><td>Large popular breeds</td><td>$1,000 – $3,500</td><td>Golden Retrievers, German Shepherds, Labradors</td></tr>
+    <tr><td>High-demand or designer breeds</td><td>$3,000 – $8,000+</td><td>French Bulldogs, Doodles, Merle-patterned dogs</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Why are some puppies so expensive?</strong> Reputable breeders invest in health testing (OFA hip scores, genetic panels), champion bloodlines, veterinary pre-screening of litters, and socialisation programs. These costs are real — a puppy sold for $500 from an unverified source may not have had any of them, which can mean much higher vet costs in year one or beyond.</p>
+
+<h2>First-Year Puppy Costs: Full Breakdown</h2>
+<p>Beyond the purchase price, every puppy owner faces the same stack of first-year costs. These are the expenses most guides undercount:</p>
+
+<table>
+  <thead><tr><th>Expense</th><th>Low</th><th>High</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase / adoption fee</td><td>$150</td><td>$3,500+</td><td>Varies by breed and source</td></tr>
+    <tr><td>Initial vet visits (puppy series)</td><td>$200</td><td>$400</td><td>3 rounds of vaccinations at 8, 12, 16 weeks</td></tr>
+    <tr><td>Spay or neuter</td><td>$200</td><td>$500</td><td>Usually scheduled at 5–6 months</td></tr>
+    <tr><td>Microchipping</td><td>$25</td><td>$70</td><td>Often included in first vet visit</td></tr>
+    <tr><td>Starter supplies</td><td>$300</td><td>$600</td><td>Crate, bed, bowls, collar, lead, toys, treats</td></tr>
+    <tr><td>Puppy training classes</td><td>$150</td><td>$350</td><td>6-week group obedience course</td></tr>
+    <tr><td>First-year food</td><td>$400</td><td>$900</td><td>Depends on size and food quality</td></tr>
+    <tr><td>Pet insurance (year one)</td><td>$300</td><td>$960</td><td>$25–$80/month; buy before first vet visit</td></tr>
+    <tr><td>Grooming (year one)</td><td>$100</td><td>$800</td><td>Higher for long-coated or double-coated breeds</td></tr>
+    <tr><td>Flea, tick &amp; worming treatments</td><td>$80</td><td>$200</td><td>Ongoing preventive care</td></tr>
+    <tr><td><strong>First-year total (excl. purchase price)</strong></td><td><strong>$1,755</strong></td><td><strong>$4,780</strong></td><td></td></tr>
+    <tr><td><strong>First-year total (incl. average purchase)</strong></td><td><strong>$2,500</strong></td><td><strong>$5,500+</strong></td><td></td></tr>
+  </tbody>
+</table>
+
+<h2>Puppy Costs by Breed Size</h2>
+<p>Size is the single biggest driver of ongoing costs. Larger dogs eat more, need higher medication doses (flea, worming), and face bigger surgery bills when things go wrong.</p>
+
+<table>
+  <thead><tr><th>Size</th><th>Examples</th><th>Year-One Total</th><th>Annual Cost (Year 2+)</th></tr></thead>
+  <tbody>
+    <tr><td>Small (under 20 lbs)</td><td>Chihuahua, Pomeranian, Maltese</td><td>$1,800 – $3,500</td><td>$900 – $1,800/yr</td></tr>
+    <tr><td>Medium (20–50 lbs)</td><td>Beagle, Border Collie, Cocker Spaniel</td><td>$2,200 – $4,200</td><td>$1,200 – $2,400/yr</td></tr>
+    <tr><td>Large (50–90 lbs)</td><td>Golden Retriever, Labrador, German Shepherd</td><td>$2,800 – $5,500</td><td>$1,500 – $3,000/yr</td></tr>
+    <tr><td>Giant (over 90 lbs)</td><td>Great Dane, Bernese Mountain Dog, Mastiff</td><td>$3,500 – $6,500</td><td>$2,000 – $4,500/yr</td></tr>
+  </tbody>
+</table>
+
+<h2>Monthly Puppy Costs</h2>
+<p>After the year-one setup spike, monthly costs settle considerably. Here's what to budget on an ongoing monthly basis:</p>
+
+<table>
+  <thead><tr><th>Expense</th><th>Small Dog</th><th>Medium Dog</th><th>Large Dog</th></tr></thead>
+  <tbody>
+    <tr><td>Food</td><td>$25 – $50</td><td>$45 – $80</td><td>$70 – $120</td></tr>
+    <tr><td>Pet insurance</td><td>$25 – $45</td><td>$35 – $60</td><td>$45 – $80</td></tr>
+    <tr><td>Vet care (averaged)</td><td>$30 – $70</td><td>$40 – $90</td><td>$50 – $120</td></tr>
+    <tr><td>Grooming</td><td>$20 – $80</td><td>$30 – $100</td><td>$40 – $120</td></tr>
+    <tr><td>Supplies, toys &amp; treats</td><td>$15 – $30</td><td>$20 – $40</td><td>$25 – $50</td></tr>
+    <tr><td><strong>Monthly total</strong></td><td><strong>$115 – $275</strong></td><td><strong>$170 – $370</strong></td><td><strong>$230 – $490</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>Hidden Costs First-Time Puppy Owners Miss</h2>
+<p>Beyond the obvious line items, these are the costs that consistently catch new puppy owners off guard:</p>
+
+<ul>
+  <li><strong>Pet deposits and higher rent.</strong> Many landlords charge a non-refundable pet deposit ($200–$500) and/or higher monthly rent ($25–$75/month extra) for dog owners. Over a 12-year dog's lifetime, that extra rent can total $3,600–$10,800.</li>
+  <li><strong>Emergency vet fund.</strong> A single emergency — swallowed object, broken bone, sudden illness — costs $1,500–$5,000+. We recommend keeping $1,500–$3,000 set aside specifically for this. Insurance helps, but there's always an excess and a waiting period.</li>
+  <li><strong>Puppy-proofing and replacements.</strong> Most puppies chew something they shouldn't in year one. Budget $100–$400 for cable protectors, baby gates, chewed shoes, and general chaos management.</li>
+  <li><strong>Daycare or dog walking if you work full-time.</strong> Puppies can't be left alone for 8–10 hours. Professional dog walking or puppy daycare costs $20–$40 per walk or $25–$45/day — potentially $500–$900/month if needed daily.</li>
+  <li><strong>Holiday boarding.</strong> Kennels charge $35–$80/night. A 2-week family holiday costs $500–$1,100 in boarding alone. Factor this into every year's budget.</li>
+  <li><strong>Fencing and yard work.</strong> Escape-prone breeds (Huskies, Beagles, Terriers) often require fence upgrades costing $500–$2,500.</li>
+</ul>
+
+<h2>How to Save Money on Puppy Costs</h2>
+<ul>
+  <li><strong>Adopt from a rescue.</strong> Adoption fees ($150–$400) save $1,000–$3,000+ on acquisition, and rescued puppies are often already vaccinated and desexed — saving another $400–$700.</li>
+  <li><strong>Get insurance before the first vet visit.</strong> Any condition diagnosed before you purchase insurance becomes a permanent pre-existing exclusion. Insuring your puppy on day one is significantly cheaper long-term.</li>
+  <li><strong>Buy supplies in bulk.</strong> Food, flea treatments, and poo bags cost 20–30% less when bought in bulk from Chewy or Amazon Subscribe &amp; Save.</li>
+  <li><strong>Use a low-cost vet clinic for routine care.</strong> Vaccination clinics at pet stores (PetSmart, Petco) often charge 40–60% less than private vets for standard puppy vaccines.</li>
+  <li><strong>Learn basic grooming.</strong> Brushing, nail trims, and ear cleaning at home can cut professional grooming costs by 40–60%, especially for long-coated breeds.</li>
+</ul>
+
+<h2>Use the Calculator for Your Breed</h2>
+<p>The costs above are averages across all breeds and sizes. Your actual puppy cost depends heavily on the specific breed, your location, and your lifestyle. Use our free calculator to get a personalised estimate — it covers first-year costs, monthly breakdown, and lifetime total for 300+ breeds.</p>
+`,
+  },
+  {
+    id: 'how-much-does-a-cat-cost-2026',
+    slug: 'how-much-does-a-cat-cost',
+    title: 'How Much Does a Cat Cost? Complete 2026 Guide ($800–$2,500 Year One)',
+    description: 'Cats cost $800–$2,500 in year one and $700–$1,500/year after that. Full 2026 breakdown: adoption fees, vet setup, food, litter, insurance, grooming — and the hidden costs most first-time cat owners miss.',
+    category: 'guide',
+    author: 'PetCost-Calculator Team',
+    publishDate: '2026-06-24',
+    readTime: 9,
+    image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=1100&q=80',
+    keywords: ['how much does a cat cost', 'cat cost', 'cost of owning a cat', 'cat price', 'how much is a cat', 'first year cat costs', 'cat expenses 2026'],
+    faqs: [
+      {
+        q: 'How much does a cat cost?',
+        a: 'A cat typically costs $800–$2,500 in the first year. This includes the adoption or purchase price ($50–$2,500 depending on source and breed), initial vet visits and vaccinations ($150–$400), spay or neuter ($150–$400), starter supplies ($200–$400), and the first year of food, litter, and ongoing care.',
+      },
+      {
+        q: 'How much does a cat cost per month?',
+        a: 'After year one, ongoing monthly cat costs typically run $60–$130/month for a domestic shorthair, and $100–$250/month for a purebred with higher grooming or health needs. Main costs: food ($20–$60/month), litter ($15–$35/month), vet care averaged monthly ($20–$60/month), and pet insurance ($15–$40/month).',
+      },
+      {
+        q: 'Is it cheaper to own a cat than a dog?',
+        a: 'Yes — significantly. Cats cost $700–$1,500/year on average vs $1,500–$3,000/year for a similarly sized dog. The main savings come from not needing professional dog walking, lower food costs (cats are smaller), and generally lower grooming costs for short-haired breeds. Over a 15-year lifespan, a cat typically costs $10,000–$22,000 total vs $25,000–$45,000 for a dog.',
+      },
+      {
+        q: 'How much does a kitten cost from a breeder?',
+        a: 'Kitten prices from reputable breeders range from $500–$1,000 for common breeds (American Shorthair, British Shorthair) up to $1,500–$3,500 for popular breeds like Ragdolls, Maine Coons, and Bengals. Rare or exotic breeds can reach $5,000+. Rescue adoption fees are $50–$200 and often include vaccinations and desexing.',
+      },
+      {
+        q: 'What are the hidden costs of owning a cat?',
+        a: 'Common hidden cat ownership costs include: litter box replacements and litter upgrades ($15–$60/month for premium litters), scratch post and furniture replacement, dental cleaning under anaesthesia ($300–$700, recommended every 2–3 years), cat-proofing your home (window screens, blind cord safety), and boarding or pet-sitting costs when you travel ($20–$40/night for in-home cat sitting).',
+      },
+    ],
+    content: `
+<h2>How Much Does a Cat Cost? The Quick Answer</h2>
+<p>Owning a cat costs <strong>$800–$2,500 in year one</strong>, dropping to <strong>$700–$1,500/year</strong> after the initial setup. Cats are significantly cheaper to own than dogs — roughly 40–60% less over a lifetime — but they still represent a real, long-term financial commitment. Over a cat's typical 13–17 year lifespan, total ownership costs generally land between <strong>$10,000 and $25,000</strong> depending on breed, health, and location.</p>
+
+<h2>Cat Purchase Price in 2026</h2>
+<table>
+  <thead><tr><th>Source</th><th>Typical Price</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Rescue / shelter adoption</td><td>$50 – $200</td><td>Usually includes vaccinations and desexing</td></tr>
+    <tr><td>Common domestic breeds (breeder)</td><td>$400 – $800</td><td>American Shorthair, British Shorthair</td></tr>
+    <tr><td>Popular purebreds</td><td>$1,000 – $2,500</td><td>Maine Coon, Ragdoll, Bengal, Siamese</td></tr>
+    <tr><td>Premium or rare breeds</td><td>$2,500 – $5,000+</td><td>Persian, Scottish Fold, Sphynx</td></tr>
+  </tbody>
+</table>
+
+<h2>First-Year Cat Costs: Full Breakdown</h2>
+<table>
+  <thead><tr><th>Expense</th><th>Low</th><th>High</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase / adoption fee</td><td>$50</td><td>$2,500+</td><td>Varies by source and breed</td></tr>
+    <tr><td>Initial vet visit &amp; vaccinations</td><td>$150</td><td>$350</td><td>Core vaccines: FVRCP + rabies</td></tr>
+    <tr><td>Spay or neuter</td><td>$150</td><td>$400</td><td>Often included with rescue adoption</td></tr>
+    <tr><td>Microchipping</td><td>$25</td><td>$60</td><td>Strongly recommended for indoor/outdoor cats</td></tr>
+    <tr><td>Starter supplies</td><td>$200</td><td>$450</td><td>Litter box, scratching post, bed, carrier, toys, bowls</td></tr>
+    <tr><td>First-year food</td><td>$250</td><td>$600</td><td>Dry, wet, or mixed depending on preference</td></tr>
+    <tr><td>First-year litter</td><td>$150</td><td>$400</td><td>Clumping, crystal, or biodegradable</td></tr>
+    <tr><td>Pet insurance (year one)</td><td>$180</td><td>$480</td><td>$15–$40/month</td></tr>
+    <tr><td>Flea &amp; worming prevention</td><td>$60</td><td>$150</td><td>Especially important for outdoor cats</td></tr>
+    <tr><td><strong>Total year one (excl. purchase)</strong></td><td><strong>$1,165</strong></td><td><strong>$2,890</strong></td><td></td></tr>
+    <tr><td><strong>Total year one (incl. average purchase)</strong></td><td><strong>$800</strong></td><td><strong>$2,500+</strong></td><td>Lower end = rescue; upper = purebred</td></tr>
+  </tbody>
+</table>
+
+<h2>Annual Ongoing Costs (Year 2+)</h2>
+<table>
+  <thead><tr><th>Annual Expense</th><th>Low</th><th>High</th></tr></thead>
+  <tbody>
+    <tr><td>Food</td><td>$250</td><td>$700</td></tr>
+    <tr><td>Litter</td><td>$150</td><td>$400</td></tr>
+    <tr><td>Routine vet care</td><td>$150</td><td>$400</td></tr>
+    <tr><td>Pet insurance</td><td>$180</td><td>$480</td></tr>
+    <tr><td>Grooming (long-haired breeds)</td><td>$0</td><td>$600</td></tr>
+    <tr><td>Flea &amp; parasite prevention</td><td>$60</td><td>$150</td></tr>
+    <tr><td>Supplies, toys &amp; replacements</td><td>$60</td><td>$200</td></tr>
+    <tr><td><strong>Annual total</strong></td><td><strong>$700</strong></td><td><strong>$1,500+</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>Cat Costs by Breed Type</h2>
+<table>
+  <thead><tr><th>Breed Type</th><th>Examples</th><th>Annual Cost</th><th>Key Cost Driver</th></tr></thead>
+  <tbody>
+    <tr><td>Short-haired domestic</td><td>Domestic Shorthair, American Shorthair</td><td>$700 – $1,100/yr</td><td>Minimal grooming</td></tr>
+    <tr><td>Long-haired (low-maintenance)</td><td>Maine Coon, Norwegian Forest</td><td>$900 – $1,600/yr</td><td>Regular brushing required</td></tr>
+    <tr><td>High-grooming purebreds</td><td>Persian, Himalayan</td><td>$1,200 – $2,500/yr</td><td>Daily grooming + regular professional grooming</td></tr>
+    <tr><td>Health-risk breeds</td><td>Scottish Fold, Sphynx</td><td>$1,200 – $3,000/yr</td><td>Higher vet bills from breed-specific conditions</td></tr>
+  </tbody>
+</table>
+
+<h2>Hidden Costs of Cat Ownership</h2>
+<ul>
+  <li><strong>Dental cleaning.</strong> Professional dental cleaning under anaesthesia costs $300–$700 and is recommended every 2–3 years. Most cat owners don't budget for this — it's one of the most commonly skipped, and most needed, vet procedures.</li>
+  <li><strong>Litter upgrades.</strong> Odour-control premium litters (crystal, subscription clumping) cost $30–$60/month — 2–3× more than basic clay. Many owners start basic and switch, permanently raising monthly costs.</li>
+  <li><strong>Cat boarding or sitters.</strong> Catteries charge $20–$50/night; in-home cat sitters $15–$40/visit. A 2-week holiday costs $200–$700 in care. Unlike dogs, most cats do well with a sitter visiting once daily — the cheaper option.</li>
+  <li><strong>Scratch post and furniture replacement.</strong> Budget $50–$150/year for scratching posts and replacement items. Cats that aren't given enough scratching surfaces often redirect to sofas and carpets.</li>
+  <li><strong>Outdoor cat hazards.</strong> Outdoor or indoor/outdoor cats have higher vet bills from injuries, cat fights, and ingested toxins. Pet insurance is significantly more important for outdoor cats.</li>
+</ul>
+
+<h2>Is Pet Insurance Worth It for Cats?</h2>
+<p>Pet insurance for cats typically costs <strong>$15–$40/month</strong> ($180–$480/year) — cheaper than for dogs because cats are generally less accident-prone and have fewer hereditary conditions. A single emergency vet visit costs $800–$3,000+, so insurance pays for itself with one significant claim.</p>
+<p>The best time to buy is before your first vet visit, as any condition already on record becomes a pre-existing exclusion. Breeds like Scottish Folds and Persian cats — which have known inherited health conditions — should absolutely be insured from day one.</p>
+
+<h2>Cat vs Dog Costs</h2>
+<p>Cats cost roughly 40–60% less than dogs annually and 50–60% less over a lifetime. The main savings: no dog walking or daycare costs, lower food consumption (cats are smaller), less grooming for short-haired breeds, and lower boarding costs. A cat's 13–17 year lifetime total is typically $10,000–$22,000, versus $25,000–$45,000 for a dog.</p>
+
+<h2>Get Your Personalised Cat Cost Estimate</h2>
+<p>The costs above cover a broad range of breeds and situations. For a personalised breakdown based on your specific breed, location, and lifestyle — use our free pet cost calculator. It covers first-year costs, monthly budget, and lifetime projection for 80+ cat breeds.</p>
+`,
   },
 ];
 
