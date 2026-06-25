@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/gtag";
 
 function encode(data: Record<string, string>) {
   return Object.entries(data)
@@ -24,6 +25,7 @@ export default function EmailCapture({ source = "homepage" }: { source?: string 
         body: encode({ "form-name": "email-subscribe", email, source }),
       });
       if (!res.ok) throw new Error(`Form POST failed: ${res.status}`);
+      trackEvent("email_signup", { source });
       setStatus("done");
     } catch {
       setStatus("error");

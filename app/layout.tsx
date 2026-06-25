@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyCalculatorCTA from "@/components/StickyCalculatorCTA";
+import AffiliateClickTracker from "@/components/AffiliateClickTracker";
 
 export const metadata: Metadata = {
   title: {
@@ -87,6 +88,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1">{children}</main>
         <Footer />
         <StickyCalculatorCTA />
+        <AffiliateClickTracker />
       </body>
     </html>
   );
