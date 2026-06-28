@@ -11,7 +11,67 @@ package = "@netlify/plugin-nextjs"
 [build.environment]
   NODE_VERSION = "20"
 
-# Redirect www to non-www
+# ── Single-hop www → final destination for legacy blog slugs ──────────────────
+# These old blog URLs have a Next.js redirect at the non-www level, so without
+# these rules they'd go through a double-hop chain:
+#   www/old-slug → non-www/old-slug (Netlify) → non-www/new-slug (Next.js)
+# Two hops causes GSC to flag them as "Redirect error". Specific rules here
+# (evaluated before the general www→non-www rule below) collapse each to one hop.
+[[redirects]]
+  from = "https://www.petcost-calculator.com/blog/golden-retriever-cost-us"
+  to = "https://petcost-calculator.com/blog/golden-retriever-lifetime-costs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.petcost-calculator.com/blog/small-vs-large-dogs"
+  to = "https://petcost-calculator.com/blog/small-vs-large-dog-costs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.petcost-calculator.com/blog/labrador-retriever-costs"
+  to = "https://petcost-calculator.com/blog/labrador-retriever-costs-complete-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.petcost-calculator.com/blog/purebred-vs-mixed-breed"
+  to = "https://petcost-calculator.com/blog/purebred-vs-mixed-breed-costs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.petcost-calculator.com/blog/city-vs-rural-pet-costs"
+  to = "https://petcost-calculator.com/blog/pet-costs-by-location"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.petcost-calculator.com/blog/adoption-vs-breeder"
+  to = "https://petcost-calculator.com/guides/rescue-vs-breeder-cost-comparison"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.petcost-calculator.com/blog/diy-pet-care"
+  to = "https://petcost-calculator.com/guides/professional-vs-diy-grooming-costs"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.petcost-calculator.com/blog/budget-friendly-pet-care"
+  to = "https://petcost-calculator.com/guides/how-to-budget-for-a-new-pet"
+  status = 301
+  force = true
+
+# ── General www → non-www fallback (must stay LAST so specific rules above win) ─
+# NOTE: /calculator and /tools/gear appear in GSC redirect errors because Google
+# crawled their www versions, which land here and 301 to non-www. These are
+# single-hop redirects to valid pages and will clear once GSC re-validates.
+# Long-term fix: add https://petcost-calculator.com (non-www) as a GSC property
+# and submit the sitemap there — it matches the canonical domain used in
+# sitemap.ts and metadataBase.
 [[redirects]]
   from = "https://www.petcost-calculator.com/*"
   to = "https://petcost-calculator.com/:splat"
