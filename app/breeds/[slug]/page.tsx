@@ -5,9 +5,9 @@ import { Calculator, ChevronRight, TrendingUp, Shield, Clock, AlertTriangle, Lig
 import { getAllBreeds, getBreedById, getBreedFirstYearTotal, getBreedAnnualTotal, getBreedLifetimeTotal } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import BreedImage from "@/components/BreedImage";
-import AdUnit from "@/components/AdUnit";
 import { productLinks, resolveLink, amazonSearchLink, breedGearQuery } from "@/lib/affiliateLinks";
 import { getBreedGuideArticle } from "@/data/blogArticles";
+import { isBreedIndexable } from "@/lib/indexableBreeds";
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -23,6 +23,10 @@ export async function generateMetadata({ params: paramsPromise }: Props): Promis
   return {
     title: `${breed.name} Cost Guide – How Much Does a ${breed.name} Cost?`,
     description: `Complete ${breed.name} cost guide. First-year costs from ${formatCurrency(firstYear)}, annual expenses, lifetime ownership costs, and money-saving tips.`,
+    // Only curated, high-demand / well-supported breed pages are indexable.
+    // The thin templated long tail is noindex,follow to fix the AdSense
+    // "low value content" ratio (see lib/indexableBreeds.ts).
+    robots: isBreedIndexable(breed.id) ? undefined : { index: false, follow: true },
     alternates: { canonical: `https://petcost-calculator.com/breeds/${breed.id}` },
     openGraph: {
       title: `${breed.name} Cost Guide – How Much Does a ${breed.name} Cost?`,
@@ -214,9 +218,6 @@ export default async function BreedPage({ params: paramsPromise }: Props) {
             </div>
           </div>
 
-          {/* Ad — between cost tables and content */}
-          <AdUnit slot="2847391056" format="horizontal" className="my-2" />
-
           {/* About section */}
           <div className="card p-6">
             <h2 className="text-lg font-bold text-[#1B2B1B] mb-3">About the {breed.name}</h2>
@@ -391,9 +392,6 @@ export default async function BreedPage({ params: paramsPromise }: Props) {
               )}
             </div>
           </div>
-
-          {/* Ad — bottom of sidebar */}
-          <AdUnit slot="6193847205" format="rectangle" className="mt-2" />
         </div>
       </div>
     </div>

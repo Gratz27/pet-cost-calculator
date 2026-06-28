@@ -11,7 +11,6 @@ import {
   type Breed,
 } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
-import AdUnit from "@/components/AdUnit";
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -117,6 +116,10 @@ export async function generateMetadata({ params: paramsPromise }: Props): Promis
   return {
     title,
     description,
+    // Compare pages are fully templated (numbers swapped into a fixed skeleton),
+    // so they are noindex,follow to fix the AdSense "low value content" ratio.
+    // They remain live for users and keep internal link equity flowing.
+    robots: { index: false, follow: true },
     alternates: { canonical: url },
     openGraph: { title, description, url },
     twitter: { card: "summary_large_image", title, description },
@@ -294,9 +297,6 @@ export default async function CompareSlugPage({ params: paramsPromise }: Props) 
             </tbody>
           </table>
         </div>
-
-        {/* Ad — below comparison table */}
-        <AdUnit slot="2847391056" format="horizontal" />
 
         {/* Cost analysis — unique narrative */}
         <div className="card p-6 space-y-4 text-[#1B2B1B] leading-relaxed">

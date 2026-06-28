@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllBreeds } from "@/lib/calculator";
 import { getAllGuideSlugs } from "@/data/guides";
 import { allBlogArticles } from "@/data/blogArticles";
+import { isBreedIndexable } from "@/lib/indexableBreeds";
 
 const BASE = "https://petcost-calculator.com";
 
@@ -20,56 +21,16 @@ const COST_REGIONS: { country: string; region: string }[] = [
   { country: "au", region: "melbourne" },
 ];
 
-// Mirror of TOP_DOG_BREEDS + TOP_CAT_BREEDS in compare/[slug]/page.tsx
-const TOP_DOG_BREEDS = [
-  "golden-retriever", "labrador-retriever", "french-bulldog", "german-shepherd-dog",
-  "poodle-standard", "bulldog", "beagle", "rottweiler", "german-shorthaired-pointer",
-  "dachshund", "pembroke-welsh-corgi", "yorkshire-terrier", "australian-shepherd",
-  "boxer", "border-collie", "siberian-husky", "great-dane", "doberman-pinscher",
-  "cavalier-king-charles-spaniel", "shih-tzu", "boston-terrier", "bernese-mountain-dog",
-  "pomeranian", "miniature-schnauzer", "english-cocker-spaniel", "bichon-frise",
-  "maltese", "weimaraner", "brittany", "english-setter",
-];
-
-const TOP_CAT_BREEDS = [
-  "persian", "maine-coon", "ragdoll", "bengal", "siamese", "british-shorthair",
-  "abyssinian", "russian-blue", "scottish-fold", "sphynx", "norwegian-forest",
-  "devon-rex", "american-shorthair", "birman", "burmese",
-];
-
-function buildComparePairs(): string[] {
-  const pairs: string[] = [];
-  const seen = new Set<string>();
-
-  function addPair(a: string, b: string) {
-    if (a === b) return;
-    const key = [a, b].sort().join("|");
-    if (seen.has(key)) return;
-    seen.add(key);
-    pairs.push(`${a}-vs-${b}`);
-  }
-
-  for (let i = 0; i < TOP_DOG_BREEDS.length; i++)
-    for (let j = i + 1; j < TOP_DOG_BREEDS.length; j++)
-      addPair(TOP_DOG_BREEDS[i], TOP_DOG_BREEDS[j]);
-
-  for (let i = 0; i < TOP_CAT_BREEDS.length; i++)
-    for (let j = i + 1; j < TOP_CAT_BREEDS.length; j++)
-      addPair(TOP_CAT_BREEDS[i], TOP_CAT_BREEDS[j]);
-
-  // Neighbour pairs across lists
-  const allBreeds = [...TOP_DOG_BREEDS, ...TOP_CAT_BREEDS];
-  for (let i = 0; i < allBreeds.length - 1; i++)
-    addPair(allBreeds[i], allBreeds[i + 1]);
-
-  return pairs;
-}
+// NOTE: compare pages and the thin breed-page long tail are intentionally
+// EXCLUDED from the sitemap. They are noindex,follow (see lib/indexableBreeds.ts,
+// app/breeds/[slug]/page.tsx, app/compare/[slug]/page.tsx) to fix the AdSense
+// "low value content" ratio. Only curated, substantial pages are submitted to
+// Google. Re-add a breed here once its page has genuinely unique content.
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const dogs = getAllBreeds("dog");
   const cats = getAllBreeds("cat");
   const guideSlugs = getAllGuideSlugs();
-  const comparePairs = buildComparePairs();
 
   const now = new Date();
   const launched = new Date("2026-06-07"); // site launch date
@@ -95,24 +56,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/terms`,                   lastModified: stable,   priority: 0.3, changeFrequency: "yearly" },
   ];
 
-  const breedPages: MetadataRoute.Sitemap = [...dogs, ...cats].map((b) => ({
-    url: `${BASE}/breeds/${b.id}`,
-    lastModified: now,
-    priority: 0.7,
-    changeFrequency: "monthly" as const,
-  }));
+  const breedPages: MetadataRoute.Sitemap = [...dogs, ...cats]
+    .filter((b) => isBreedIndexable(b.id))
+    .map((b) => ({
+      url: `${BASE}/breeds/${b.id}`,
+      lastModified: now,
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+    }));
 
   const guidePages: MetadataRoute.Sitemap = guideSlugs.map((slug) => ({
     url: `${BASE}/guides/${slug}`,
     lastModified: now,
     priority: 0.7,
-    changeFrequency: "monthly" as const,
-  }));
-
-  const comparePages: MetadataRoute.Sitemap = comparePairs.map((slug) => ({
-    url: `${BASE}/compare/${slug}`,
-    lastModified: now,
-    priority: 0.6,
     changeFrequency: "monthly" as const,
   }));
 
@@ -130,5 +86,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
-  return [...staticPages, ...breedPages, ...guidePages, ...comparePages, ...costPages, ...blogPages];
+  return [...staticPages, ...breedPages, ...guidePages, ...costPages, ...blogPages];
 }
