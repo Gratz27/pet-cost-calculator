@@ -11,6 +11,7 @@ import {
   type Breed,
 } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
+import { isCompareIndexable } from "@/lib/indexableBreeds";
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -117,9 +118,11 @@ export async function generateMetadata({ params: paramsPromise }: Props): Promis
     title,
     description,
     // Compare pages are fully templated (numbers swapped into a fixed skeleton),
-    // so they are noindex,follow to fix the AdSense "low value content" ratio.
-    // They remain live for users and keep internal link equity flowing.
-    robots: { index: false, follow: true },
+    // so they are noindex,follow by default to fix the AdSense "low value
+    // content" ratio. EXCEPTION: an allowlist of pages already ranking in Google
+    // (see lib/indexableBreeds.ts) stays indexable so we don't deindex proven
+    // winners. All compare pages remain live for users and keep link equity.
+    robots: isCompareIndexable(canonicalSlug) ? undefined : { index: false, follow: true },
     alternates: { canonical: url },
     openGraph: { title, description, url },
     twitter: { card: "summary_large_image", title, description },

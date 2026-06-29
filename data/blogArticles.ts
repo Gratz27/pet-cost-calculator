@@ -25,6 +25,148 @@ export interface BlogArticle {
 
 export const allBlogArticles: BlogArticle[] = [
   {
+    id: 'border-collie-cost-guide-2026',
+    slug: 'how-much-does-a-border-collie-cost',
+    title: 'How Much Does a Border Collie Cost? Complete 2026 Guide',
+    description: 'Border Collies cost $600–$1,500 to buy and $1,800–$3,500/year to own — their intelligence drives training and enrichment costs higher than most dogs. Full 2026 breakdown with lifetime totals and a free calculator.',
+    category: 'breed-guide',
+    author: 'PetCost-Calculator Team',
+    publishDate: '2026-06-29',
+    readTime: 9,
+    image: 'https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?w=1100&q=80',
+    keywords: ['border collie cost', 'how much does a border collie cost', 'border collie price', 'border collie expenses', 'border collie annual cost', 'border collie puppy price'],
+    relatedBreedName: 'Border Collie',
+    relatedBreedId: 'border-collie',
+    relatedPetType: 'dog',
+    relatedBreedSize: 'medium',
+    faqs: [
+      {
+        q: 'How much does a Border Collie cost?',
+        a: 'A Border Collie puppy from a reputable breeder typically costs $600–$1,500 in the US (£600–£1,500 in the UK). Working-line dogs from proven herding stock can reach $2,000–$3,500. Rescue adoption fees run $150–$400. Annual ongoing costs typically range from $1,800–$3,500/year, driven by high training and enrichment needs.',
+      },
+      {
+        q: 'Are Border Collies expensive to own?',
+        a: 'Border Collies have moderate food costs for their size, but their exceptional intelligence and energy level create a real "intelligence tax" — professional training, mental enrichment, agility sports, and dog sports equipment push their annual costs well above what their food bill alone would suggest. Bored Border Collies also cause expensive property damage.',
+      },
+      {
+        q: 'What is the biggest hidden cost of owning a Border Collie?',
+        a: 'Mental enrichment and training. A Border Collie left unstimulated will find its own entertainment — typically via destructive behaviour. Ongoing training classes, puzzle feeders, agility equipment, and dog sports participation can add $500–$2,000/year that most cost guides completely overlook.',
+      },
+      {
+        q: 'How long do Border Collies live?',
+        a: 'Border Collies are a healthy, long-lived breed, typically reaching 12–15 years. Their longevity is excellent news for owners but means costs accumulate over a longer horizon than shorter-lived breeds.',
+      },
+    ],
+    content: `
+<h2>How Much Does a Border Collie Cost? Quick Answer</h2>
+<p>A Border Collie puppy from a reputable breeder typically costs <strong>$600–$1,500</strong> in the US (£600–£1,500 in the UK), or $150–$400 to adopt from a rescue. After the purchase price, plan on roughly <strong>$150–$290 per month</strong> ($1,800–$3,500/year) for food, training, insurance, and vet care. Border Collies are not the most expensive breed to buy, but their extraordinary intelligence and energy level create what owners call an "intelligence tax" — costs for training, mental enrichment, and sometimes competitive dog sports that push their running costs above average for a medium-sized dog. Over a Border Collie's 12–15 year lifespan, total ownership costs typically land between <strong>$28,000 and $50,000</strong>.</p>
+
+<h2>Purchase Price in 2026</h2>
+<p>Border Collies fall into two distinct lineages with different price points: working-line dogs bred for herding ability, and show/pet-line dogs bred for temperament and conformation. Both make excellent companions for the right owner, but working-line dogs tend to have even higher drive — which can mean even higher enrichment costs.</p>
+
+<table>
+  <thead><tr><th>Source</th><th>US Price</th><th>UK Price</th></tr></thead>
+  <tbody>
+    <tr><td>Rescue / shelter adoption</td><td>$150 – $400</td><td>£100 – £350</td></tr>
+    <tr><td>Pet/show-line breeder puppy</td><td>$600 – $1,500</td><td>£600 – £1,500</td></tr>
+    <tr><td>Working-line (proven herding stock)</td><td>$800 – $2,000</td><td>£800 – £2,000</td></tr>
+    <tr><td>International import or champion bloodlines</td><td>$2,000 – $3,500+</td><td>£2,000 – £3,500+</td></tr>
+  </tbody>
+</table>
+
+<p>Border Collie rescues exist across the US and UK because the breed's intensity is frequently underestimated. Many "failed" Border Collies end up in rescue after owners discover that a highly intelligent herding dog in a suburban home without a job is a recipe for chaos. Adopting from a breed-specific rescue is often the most responsible route — rescues assess drive levels carefully and will match you with a dog suited to your lifestyle.</p>
+
+<h2>First-Year Costs</h2>
+<p>Beyond the purchase price, the first year includes setup costs and a significant investment in training — which is essential, not optional, for this breed.</p>
+
+<table>
+  <thead><tr><th>Expense</th><th>US Cost</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase price</td><td>$600 – $1,500</td><td>Average pet-line breeder puppy</td></tr>
+    <tr><td>Initial vet visits &amp; vaccinations</td><td>$200 – $350</td><td>Puppy series at 8, 12, and 16 weeks</td></tr>
+    <tr><td>Spay / neuter</td><td>$200 – $450</td><td>Often recommended around 12–18 months for this breed</td></tr>
+    <tr><td>Microchipping</td><td>$40 – $70</td><td>Essential — they can escape or stray when overexcited</td></tr>
+    <tr><td>Starter supplies</td><td>$250 – $550</td><td>Harness, long-line leash, crate, puzzle feeders, toys</td></tr>
+    <tr><td>Puppy training classes</td><td>$200 – $500</td><td>Higher investment than average — ongoing training is core to ownership</td></tr>
+    <tr><td>First-year food</td><td>$450 – $800</td><td>Active medium-breed formula; they burn more than sedentary dogs of similar weight</td></tr>
+    <tr><td>Pet insurance (first year)</td><td>$350 – $700</td><td>$30–$60/month</td></tr>
+    <tr><td><strong>First-year total</strong></td><td><strong>$2,290 – $4,920</strong></td><td>Including purchase price</td></tr>
+  </tbody>
+</table>
+
+<h2>Annual Ongoing Costs (Year 2+)</h2>
+<p>Once past year one, food and training remain the dominant costs. Border Collies are medium-sized (30–55 lbs) but highly active — their caloric needs exceed many larger, more sedentary breeds.</p>
+
+<table>
+  <thead><tr><th>Annual Expense</th><th>Low</th><th>High</th></tr></thead>
+  <tbody>
+    <tr><td>Food</td><td>$450</td><td>$800</td></tr>
+    <tr><td>Routine vet care</td><td>$280</td><td>$550</td></tr>
+    <tr><td>Pet insurance</td><td>$380</td><td>$750</td></tr>
+    <tr><td>Training (classes, workshops, sport entry fees)</td><td>$300</td><td>$900</td></tr>
+    <tr><td>Mental enrichment (puzzle toys, Kongs, enrichment feeders)</td><td>$100</td><td>$300</td></tr>
+    <tr><td>Grooming (seasonal de-shed, occasional professional bath)</td><td>$100</td><td>$300</td></tr>
+    <tr><td>Toys, supplies, replacement items</td><td>$190</td><td>$400</td></tr>
+    <tr><td><strong>Annual total (year 2+)</strong></td><td><strong>$1,800</strong></td><td><strong>$4,000</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>The Intelligence Tax: The Cost Most Guides Miss</h2>
+<p>Border Collies are widely considered the most intelligent domestic dog breed. This is both their greatest asset and their most significant cost driver. A Border Collie that isn't mentally and physically challenged will redirect its considerable intelligence into behaviour that costs you money — compulsive herding of children or other pets, obsessive ball-chasing that causes injury, destructive chewing, fence-pacing, or anxiety-driven destruction.</p>
+
+<h3>Training: An Ongoing Investment, Not a One-Time Cost</h3>
+<p>Unlike many breeds where puppy classes and a basic obedience course are sufficient, Border Collies thrive on continuous learning throughout their lives. Many owners participate in formal dog sports — agility, flyball, obedience competition, herding trials, or disc dog — which carry their own costs:</p>
+
+<table>
+  <thead><tr><th>Activity</th><th>Annual Cost</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Ongoing group training classes</td><td>$300 – $600</td><td>Monthly classes year-round rather than a single course</td></tr>
+    <tr><td>Agility (equipment + club membership + trial entries)</td><td>$400 – $1,500</td><td>A popular outlet; club membership $50–$150/year, trial entries $25–$50 each</td></tr>
+    <tr><td>Herding lessons (if available locally)</td><td>$300 – $800</td><td>$50–$100 per session; addresses instinct directly</td></tr>
+    <tr><td>Flyball team participation</td><td>$100 – $400</td><td>Team sport; club fees plus equipment</td></tr>
+    <tr><td>Private trainer (for behavioural issues)</td><td>$200 – $800</td><td>$100–$200/hour if problems develop from under-stimulation</td></tr>
+  </tbody>
+</table>
+
+<p>Not every Border Collie owner competes — but virtually all experienced owners invest meaningfully in mental stimulation beyond basic walks. Budget for this from day one rather than discovering the cost the hard way.</p>
+
+<h2>Breed-Specific Health Risks</h2>
+
+<h3>Hip Dysplasia</h3>
+<p>Despite being an athletic working breed, Border Collies have a moderate prevalence of hip dysplasia. Reputable breeders hip-score their breeding stock — ask for documentation. Hip replacement surgery costs $3,500–$7,000 per hip in the US.</p>
+
+<h3>Collie Eye Anomaly (CEA) and Progressive Retinal Atrophy (PRA)</h3>
+<p>Two inherited eye conditions specific to the breed. CEA is present from birth and ranges from minor to severely sight-impairing; PRA causes gradual blindness in adults. Both can be identified via DNA testing — breed from tested-clear parents and the conditions are avoided. If your dog develops PRA, there is no treatment; management is supportive and focuses on safety adaptations.</p>
+
+<h3>MDR1 Gene Mutation (Multi-Drug Resistance)</h3>
+<p>A significant proportion of Border Collies carry the MDR1 (ABCB1) gene mutation, which causes severe toxicity reactions to otherwise-safe medications — including common antiparasitic drugs (ivermectin, milbemycin) and some sedatives and chemotherapy drugs. DNA testing for MDR1 costs $50–$80 and should be done before any medication decisions are made. Inform every vet that treats your dog of their MDR1 status — failing to do so can result in fatal drug reactions.</p>
+
+<h3>Epilepsy</h3>
+<p>Idiopathic epilepsy is more common in Border Collies than in the general dog population. Managed with daily medication ($30–$100/month), but diagnosis requires specialist neurology consultations ($300–$600/visit) and sometimes MRI ($1,500–$3,000) to rule out structural causes.</p>
+
+<h2>Lifetime Cost Estimate</h2>
+<p>With a typical 12–15 year lifespan, lifetime costs break down as follows:</p>
+<ul>
+  <li><strong>Active owner with training/sports participation, no major health events:</strong> $28,000 – $42,000 over 13 years</li>
+  <li><strong>Owner with moderate enrichment, one health incident:</strong> $35,000 – $50,000 over 13 years</li>
+  <li><strong>Epilepsy management or hip surgery required:</strong> $40,000 – $55,000+ over 13 years</li>
+</ul>
+<p>In UK terms, expect roughly £22,000–£35,000 for an active, healthy dog with good training investment, rising to £30,000–£45,000+ if significant health events occur.</p>
+
+<h2>Money-Saving Tips for Border Collie Owners</h2>
+<ul>
+  <li><strong>Invest in training early and continuously.</strong> A well-trained Border Collie is a joy; an under-trained one causes hundreds to thousands in property damage annually. Training is the best ROI in Border Collie ownership.</li>
+  <li><strong>Join a dog sport club rather than hiring individual trainers.</strong> Agility and flyball clubs offer structured weekly sessions for $50–$150/year in membership fees — far cheaper than private lessons delivering the same mental workout.</li>
+  <li><strong>DNA test for MDR1 before your first parasite treatment.</strong> A $60 test prevents potentially fatal drug reactions and will shape every parasite prevention and anaesthetic decision for your dog's life.</li>
+  <li><strong>Buy from hip- and eye-tested breeders.</strong> CEA is fully preventable by testing parents. Hip-scored parents reduce (but don't eliminate) dysplasia risk.</li>
+  <li><strong>Get insurance before the first vet visit.</strong> Epilepsy in particular, once flagged on a vet record, becomes a pre-existing exclusion — removing a condition that could otherwise cost $1,000+ per year in medication.</li>
+  <li><strong>Use free mental stimulation.</strong> Scent games, hide-and-seek with toys, and learning new tricks cost nothing beyond time, but provide genuine cognitive exhaustion that reduces boredom-driven destruction.</li>
+</ul>
+
+<p>Use our <a href="/calculator">free pet cost calculator</a> to get a personalised Border Collie cost estimate based on your location and lifestyle.</p>
+    `,
+  },
+  {
     id: 'siberian-husky-cost-guide-2026',
     slug: 'how-much-does-a-siberian-husky-cost',
     title: 'How Much Does a Siberian Husky Cost? Complete 2026 Guide',
@@ -1079,6 +1221,27 @@ export const allBlogArticles: BlogArticle[] = [
 <p>Cancer treatment. With roughly a 60% lifetime incidence, many owners face a $3,000–$20,000+ bill at some point — insurance taken out early is the most cost-effective protection.</p>
 
 <p>Want a number tailored to your situation? Use the <a href="/calculator">cost calculator</a> to get a personalised estimate based on your location and lifestyle.</p>
+
+<h2>Golden Retriever Cost by Life Stage</h2>
+<p>Costs aren't flat across a Golden's life — they're front-loaded in puppyhood, settle in the adult years, and climb again in old age. Budgeting by stage gives a far more realistic picture than a single annual average.</p>
+<table>
+  <thead><tr><th>Life stage</th><th>Typical annual cost</th><th>What drives it</th></tr></thead>
+  <tbody>
+    <tr><td>Puppy (year 1)</td><td>$3,000–$8,500</td><td>Purchase price, vaccinations, neutering, training, supplies</td></tr>
+    <tr><td>Adult (years 2–7)</td><td>$1,600–$3,200</td><td>Food, insurance, routine care, grooming — the stable years</td></tr>
+    <tr><td>Senior (8+)</td><td>$2,500–$6,000+</td><td>Rising insurance premiums, joint support, dental work, age-related illness and screening</td></tr>
+  </tbody>
+</table>
+<p>The senior-year jump catches many owners off guard. As a Golden ages, insurance premiums rise, arthritis management and dental care become routine, and the breed's elevated cancer risk means more diagnostic visits. Setting aside a little extra each month during the cheaper adult years smooths out this later spike.</p>
+
+<h2>How Much Does a Golden Retriever Cost Where You Live?</h2>
+<p>Location can swing annual costs by 30–50%. Vet fees, grooming rates, and insurance premiums are all higher in major metros and lower in rural areas. As a rough guide, a Golden in a high-cost city (New York, Los Angeles, London) sits near the top of every range on this page, while the same dog in a smaller town or rural region sits near the bottom. Insurance is especially location-sensitive — premiums in dense urban postcodes can be double those in rural ones for identical coverage. For a figure matched to your specific city and lifestyle rather than a national average, run your details through the <a href="/calculator">cost calculator</a>.</p>
+
+<h2>A Realistic Golden Retriever Budget Example</h2>
+<p>To make the numbers concrete: a suburban US owner adopting a healthy Golden puppy might spend around $4,500 in year one (including a $1,500 breeder fee, training, neutering, and supplies), then settle into roughly $2,400/year through the adult years — about $200/month for food, insurance, routine vet care, and grooming. Across a 11-year life with one moderate health event (say, a $2,500 mass removal and biopsy in the senior years), the all-in lifetime total lands around $34,000 — squarely in the middle of the $25,000–$55,000 range. Skip insurance and get unlucky with cancer or bilateral hip surgery, and that same dog can cost $50,000+. The spread is real, and insurance is what compresses it.</p>
+
+<h2>How Golden Retrievers Compare to Similar Breeds</h2>
+<p>If you're weighing a Golden against other family favourites, cost is part of the picture. Goldens are roughly comparable to Labrador Retrievers in lifetime cost (both large, both joint-prone), more expensive than smaller low-shedding breeds like Cavoodles or Dachshunds (less food, less grooming), and generally cheaper than brachycephalic breeds such as French and English Bulldogs, whose breathing-related surgeries and C-section breeding push their lifetime costs higher. Where the Golden stands apart is its grooming bill — that beautiful double coat needs regular professional or at-home maintenance that short-coated breeds avoid.</p>
     `,
   },
   {
@@ -1096,24 +1259,78 @@ export const allBlogArticles: BlogArticle[] = [
     relatedBreedId: 'labrador-retriever',
     relatedPetType: 'dog',
     relatedBreedSize: 'large',
+    faqs: [
+      {"q":"How much does a Labrador cost per year?","a":"Plan on $1,500–$3,000 per year ($125–$250/month) for food, insurance, routine vet care, grooming, and supplies after the first year. Labradors have big appetites but low grooming costs."},
+      {"q":"Are Labradors expensive to own?","a":"They're mid-priced to buy but their size and two health risks — joint disease and obesity — determine the lifetime cost. A lean, well-managed Lab sits at the low end; one needing hip surgery or with chronic conditions sits at the high end."},
+      {"q":"What is the biggest hidden cost of owning a Labrador?","a":"Weight-related health problems. Labradors are genetically food-motivated and prone to obesity, which accelerates joint disease, diabetes, and heart strain. Keeping a Lab lean is the single most cost-effective health decision and can save thousands in later vet bills."},
+      {"q":"How much is a Labrador puppy?","a":"$800–$1,500 for a pet-quality puppy, $1,500–$2,500 from a health-tested breeder, or $200–$500 to adopt. Rescue adoption usually includes vaccinations, microchipping, and neutering, making it the best value."}
+    ],
     content: `
+<h2>How Much Does a Labrador Retriever Cost? Quick Answer</h2>
+<p>A Labrador Retriever puppy costs <strong>$800–$2,500</strong> (£400–£2,500) from a reputable breeder, or $200–$500 to adopt. The <strong>first year runs $2,500–$5,000</strong> including the purchase price, then <strong>$1,500–$3,000 per year</strong> ($125–$250/month) in ongoing costs. Over a Labrador's 10–13 year life, total ownership lands between <strong>$18,000 and $35,000</strong> (£18,000–£35,000). Labradors are mid-priced as breeds go — they're not exotic or expensive to buy — but their size, big appetite, and two specific health risks (joint disease and obesity) are what determine whether your Lab costs you the low end or the high end of that range.</p>
+
 <h2>Labrador Retriever Costs: The Complete Picture</h2>
-<p>Labrador Retrievers have been among the most popular breeds in the UK and US for decades. Their friendly temperament and adaptability make them excellent family pets, but their size and specific health predispositions make financial planning essential.</p>
+<p>Labrador Retrievers have topped the most-popular-breed lists in the UK and US for decades, and for good reason: they're friendly, trainable, and adaptable family dogs. That popularity also means there's a wide quality spread among breeders, from health-tested professionals to high-volume operations — and the difference shows up not in the puppy price but in the vet bills years later. Planning the cost of a Labrador well means budgeting for a large, food-motivated dog and protecting against the joint problems the breed is prone to.</p>
 
-<h2>Purchase Price: £400–£2,500</h2>
-<p>Reputable breeders charge £1,200–£2,000 for puppies with health clearances for hip dysplasia, elbow dysplasia, and eye conditions. Rescue organisations offer Labradors for £200–£500, including initial veterinary care and spaying/neutering. This is often the best value option.</p>
+<h2>Purchase Price: $800–$2,500 (£400–£2,500)</h2>
+<table>
+  <thead><tr><th>Source</th><th>Price</th></tr></thead>
+  <tbody>
+    <tr><td>Rescue / shelter adoption</td><td>$200–$500 (£200–£500)</td></tr>
+    <tr><td>Pet-quality puppy</td><td>$800–$1,500 (£1,000–£1,500)</td></tr>
+    <tr><td>Health-tested breeder puppy</td><td>$1,500–$2,500 (£1,200–£2,000)</td></tr>
+    <tr><td>Field-trial / show bloodline</td><td>$2,500–$4,000+</td></tr>
+  </tbody>
+</table>
+<p>A reputable breeder screens parents for hip dysplasia, elbow dysplasia, and eye conditions (PRA) and can show you the clearances. Rescue adoption is often the best value: the fee is a fraction of a breeder price and usually includes initial vaccinations, microchipping, and neutering — easily $200–$400 of bundled care.</p>
 
-<h2>First Year Expenses: £2,500–£5,000</h2>
-<p>Beyond the purchase or adoption fee, the first year includes vaccinations (£150–£300), microchipping (£20–£40), spay/neuter (£150–£400), starter supplies (£200–£400), puppy training classes (£100–£300), and the first year of food (£400–£700) and insurance (£250–£600).</p>
+<h2>First-Year Costs: $2,500–$5,000</h2>
+<table>
+  <thead><tr><th>Expense</th><th>Cost</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase or adoption fee</td><td>$200–$2,500</td></tr>
+    <tr><td>Vaccinations &amp; exams</td><td>$150–$300 (£150–£300)</td></tr>
+    <tr><td>Microchipping</td><td>$25–$50 (£20–£40)</td></tr>
+    <tr><td>Spay / neuter</td><td>$150–$500 (£150–£400)</td></tr>
+    <tr><td>Starter supplies</td><td>$200–$450 (£200–£400)</td></tr>
+    <tr><td>Puppy training classes</td><td>$100–$300</td></tr>
+    <tr><td>First-year food</td><td>$400–$800 (£400–£700)</td></tr>
+    <tr><td>Pet insurance (first year)</td><td>$350–$700 (£250–£600)</td></tr>
+  </tbody>
+</table>
 
-<h2>Annual Ongoing Costs: £1,500–£3,000</h2>
-<p>Labradors are large, active dogs with healthy appetites. Annual food costs run £400–£700. Routine vet care including annual boosters and preventive care: £200–£400. Grooming is minimal (occasional professional deshedding baths: £50–£150/year). Insurance: £250–£600/year.</p>
+<h2>Annual Ongoing Costs: $1,500–$3,000</h2>
+<table>
+  <thead><tr><th>Annual expense</th><th>Cost</th></tr></thead>
+  <tbody>
+    <tr><td>Food (large, active dog)</td><td>$400–$800 (£400–£700)</td></tr>
+    <tr><td>Routine vet care &amp; preventatives</td><td>$240–$480 (£200–£400)</td></tr>
+    <tr><td>Grooming (occasional deshedding baths)</td><td>$50–$200 (£50–£150)</td></tr>
+    <tr><td>Pet insurance</td><td>$350–$720 (£250–£600)</td></tr>
+    <tr><td>Toys, treats &amp; replacements</td><td>$150–$350</td></tr>
+    <tr><td>Boarding / sitting (if needed)</td><td>$200–$600</td></tr>
+  </tbody>
+</table>
+<p>Grooming is one area where Labs are cheap — their short double coat needs only regular brushing and the occasional bath, so you can skip the professional groomer most of the year. The savings there are real, but they're more than offset by their appetite and joint-care needs.</p>
 
-<h2>Health Considerations</h2>
-<p>Labradors are prone to hip and elbow dysplasia (surgery £3,000–£6,000 per joint), obesity-related conditions, and progressive retinal atrophy. Joint issues are the biggest financial risk — secure comprehensive insurance while your Lab is a healthy puppy.</p>
+<h2>The Labrador's Two Defining Costs: Joints and Weight</h2>
+<p>More than purchase price or food, two linked issues drive a Labrador's lifetime cost. First, <strong>joint disease</strong>: Labs are prone to hip and elbow dysplasia, where corrective surgery runs $3,500–$7,000 (£3,000–£6,000) per joint. Second, <strong>obesity</strong>: Labradors are famously food-motivated — a known genetic variant (the POMC gene) makes many of them perpetually hungry — and excess weight dramatically accelerates joint problems, diabetes, and heart strain. Keeping a Lab lean is the single most cost-effective health decision an owner can make, because it directly reduces the odds of the breed's most expensive conditions. Portion-control feeding and daily exercise quite literally save thousands in later vet bills.</p>
 
-<h2>Lifetime Cost: £18,000–£35,000</h2>
-<p>Over a typical 10–13 year lifespan, owning a Labrador costs between £18,000 and £35,000. Use our <a href="/calculator">cost calculator</a> for a personalised estimate based on your location.</p>
+<h2>Other Health Considerations</h2>
+<p>Beyond joints and weight, Labradors can be predisposed to progressive retinal atrophy (eyes), exercise-induced collapse, and ear infections (those floppy ears trap moisture — $100–$300 per vet visit if recurring). None of these are universal, but together they make a strong case for comprehensive accident-and-illness insurance taken out while your Lab is a healthy puppy, before anything can be flagged as pre-existing.</p>
+
+<h2>Lifetime Cost: $18,000–$35,000</h2>
+<p>Over a typical 10–13 year lifespan, owning a Labrador costs between $18,000 and $35,000 (£18,000–£35,000). A Lab that stays lean and avoids major joint surgery sits at the lower end; one that needs bilateral hip surgery or develops a chronic condition can push toward — or past — the top. That spread is largely within your control through diet, exercise, and early insurance.</p>
+
+<h2>How to Reduce Labrador Costs</h2>
+<ul>
+  <li><strong>Keep your Lab lean.</strong> Portion-control feeding prevents the obesity that triggers the breed's most expensive health problems.</li>
+  <li><strong>Insure early</strong> while the dog is young, before joint or eye issues become pre-existing exclusions.</li>
+  <li><strong>Buy food and preventatives in bulk</strong> via subscription services to cut 20–30% off recurring costs.</li>
+  <li><strong>Groom at home</strong> — the short coat rarely needs a professional.</li>
+  <li><strong>Adopt rather than buy</strong> if budget is a priority; Lab-specific rescues are common in both the US and UK.</li>
+</ul>
+<p>Use our <a href="/calculator">cost calculator</a> for a personalised estimate based on your location and how you plan to care for your Labrador.</p>
     `,
   },
   {
@@ -1131,24 +1348,83 @@ export const allBlogArticles: BlogArticle[] = [
     relatedBreedId: 'german-shepherd-dog',
     relatedPetType: 'dog',
     relatedBreedSize: 'large',
+    faqs: [
+      {"q":"How much does a German Shepherd cost per year?","a":"Budget $1,800–$3,500 per year (about $150–$290/month) for food, insurance, routine vet care, grooming, and training maintenance — not including the purchase price or major health events."},
+      {"q":"Are German Shepherds expensive to own?","a":"Yes, they sit at the higher end of dog ownership costs. As a large working breed they eat more, need more training, and carry serious genetic health risks (hip and elbow dysplasia, bloat, degenerative myelopathy) that make insurance close to essential."},
+      {"q":"What is the biggest cost of owning a German Shepherd?","a":"Health. Hip or elbow dysplasia surgery runs $3,500–$7,000 per joint, and bloat surgery $3,000–$8,000. Comprehensive insurance taken out while the dog is a healthy puppy is the most cost-effective protection against these."},
+      {"q":"How much is a German Shepherd puppy?","a":"$1,000–$2,000 for a pet-quality puppy, $1,500–$3,500 from a health-tested or working-line breeder, or $200–$500 to adopt from a rescue. Paying for hip, elbow, and DM clearances lowers your odds of expensive surgery later."}
+    ],
     content: `
+<h2>How Much Does a German Shepherd Cost? Quick Answer</h2>
+<p>A German Shepherd puppy costs <strong>$800–$3,500</strong> (£1,000–£3,500) from a reputable breeder, or $200–$500 to adopt. After that, plan on a <strong>first year of $3,800–$6,500</strong> including the purchase price, then <strong>$1,800–$3,500 per year</strong> ($150–$290/month) in ongoing costs. Over a German Shepherd's 9–13 year life, total ownership runs <strong>$22,000–$42,000</strong> (£22,000–£42,000). GSDs sit at the higher end of dog ownership costs for one main reason: they're a large, working breed with serious genetic health risks — particularly hip and elbow dysplasia — that make insurance and an emergency fund close to essential rather than optional.</p>
+
 <h2>German Shepherd Costs: What Every Owner Should Know</h2>
-<p>German Shepherds are among the world's most versatile breeds — excelling as family companions, police dogs, service animals, and protectors. Their capabilities attract many prospective owners, but the financial commitment often exceeds initial expectations.</p>
+<p>German Shepherds are among the world's most versatile breeds — excelling as family companions, police dogs, service animals, and protectors. That capability is exactly what drives the cost: a GSD is a high-drive, highly intelligent dog that needs training, exercise, and mental stimulation to thrive, and it's big enough that everything from food to medication to surgery is priced at the large-breed end of the scale. The owners who find German Shepherds expensive are usually the ones who underestimated the training and health budget, not the food bill.</p>
 
-<h2>Initial Purchase: £500–£3,500</h2>
-<p>Working-line German Shepherds from reputable breeders with health clearances cost £1,500–£3,500. Pet-quality GSDs cost £1,000–£2,000. Rescue adoption fees range from £200–£500, including initial veterinary care.</p>
+<h2>Purchase Price: $800–$3,500 (£500–£3,500)</h2>
+<table>
+  <thead><tr><th>Source</th><th>Price</th></tr></thead>
+  <tbody>
+    <tr><td>Rescue / shelter adoption</td><td>$200–$500 (£200–£500)</td></tr>
+    <tr><td>Pet-quality puppy</td><td>$1,000–$2,000 (£1,000–£2,000)</td></tr>
+    <tr><td>Working-line / health-tested puppy</td><td>$1,500–$3,500 (£1,500–£3,500)</td></tr>
+    <tr><td>Imported or champion bloodline</td><td>$3,500–$6,000+</td></tr>
+  </tbody>
+</table>
+<p>Pay for the health clearances. A reputable GSD breeder screens parents for hip and elbow dysplasia (via OFA or PennHIP) and degenerative myelopathy. Those certifications add to the purchase price but genuinely lower your odds of a $3,000–$6,000 surgery later — so the cheaper unscreened puppy is frequently the more expensive dog over a lifetime.</p>
 
-<h2>First Year Expenses: £3,800–£6,500</h2>
-<p>German Shepherds require substantial investment in their first year. Beyond standard veterinary costs (vaccinations, microchipping, spay/neuter totalling £300–£700), GSDs require significant investment in training (£300–£800) due to their intelligence and need for mental stimulation. Starter supplies cost £250–£500 for this large, active breed.</p>
+<h2>First-Year Costs: $3,800–$6,500</h2>
+<table>
+  <thead><tr><th>Expense</th><th>Cost</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase price</td><td>$1,000–$3,500</td></tr>
+    <tr><td>Vaccinations, microchip, exams</td><td>$300–$700 (£300–£700)</td></tr>
+    <tr><td>Spay / neuter</td><td>$200–$500</td></tr>
+    <tr><td>Starter supplies (large crate, bed, bowls, leash)</td><td>$250–$500</td></tr>
+    <tr><td>Puppy &amp; foundation training</td><td>$300–$800</td></tr>
+    <tr><td>First-year food (large-breed puppy formula)</td><td>$500–$900</td></tr>
+    <tr><td>Pet insurance (first year)</td><td>$400–$800</td></tr>
+  </tbody>
+</table>
+<p>Training is not a place to economise with this breed. A bored, untrained German Shepherd is large, strong, and prone to anxiety-driven or protective behaviours that become genuinely expensive — property damage, liability, and remedial behaviourist sessions ($150–$250 each). Front-loading foundation training is the cheapest insurance you can buy.</p>
 
-<h2>Annual Ongoing Costs: £1,800–£3,500</h2>
-<p>Food for a large, active GSD: £500–£900/year. Vet care: £250–£500. Grooming (GSDs are heavy shedders): £100–£300. Insurance: £300–£700. Training maintenance: £100–£300/year recommended for ongoing stimulation.</p>
+<h2>Annual Ongoing Costs: $1,800–$3,500</h2>
+<table>
+  <thead><tr><th>Annual expense</th><th>Cost</th></tr></thead>
+  <tbody>
+    <tr><td>Food (large, active dog)</td><td>$500–$900 (£500–£900)</td></tr>
+    <tr><td>Routine vet care &amp; preventatives</td><td>$250–$500</td></tr>
+    <tr><td>Grooming (heavy shedder — deshedding tools or grooming)</td><td>$100–$300</td></tr>
+    <tr><td>Pet insurance</td><td>$400–$840</td></tr>
+    <tr><td>Training maintenance, toys, enrichment</td><td>$150–$400</td></tr>
+    <tr><td>Boarding / walking (if needed)</td><td>$300–$700</td></tr>
+  </tbody>
+</table>
+<p>German Shepherds are double-coated heavy shedders, so even though they rarely need a "haircut," budget for a quality deshedding tool or periodic grooming to manage the coat — especially during their twice-yearly heavy shed.</p>
 
-<h2>Health Considerations</h2>
-<p>German Shepherds are highly susceptible to hip and elbow dysplasia (surgery costs £3,000–£6,000 per joint), degenerative myelopathy (progressive paralysis, no cure), bloat, and exocrine pancreatic insufficiency. Insurance is essential.</p>
+<h2>German Shepherd Health Costs: The Big Financial Risk</h2>
+<p>This is where GSD ownership gets expensive, and why insurance matters so much. The breed is predisposed to:</p>
+<ul>
+  <li><strong>Hip &amp; elbow dysplasia</strong> — corrective surgery runs $3,500–$7,000 (£3,000–£6,000) <em>per joint</em>, and many affected dogs need both.</li>
+  <li><strong>Degenerative myelopathy</strong> — a progressive spinal disease causing hind-limb paralysis; no cure, and supportive care (mobility aids, ongoing vet visits) adds up over time.</li>
+  <li><strong>Gastric dilatation-volvulus (bloat)</strong> — a life-threatening emergency requiring $3,000–$8,000 surgery; large deep-chested breeds like the GSD are high-risk.</li>
+  <li><strong>Exocrine pancreatic insufficiency (EPI)</strong> — manageable but requires lifelong enzyme supplementation, roughly $50–$150/month.</li>
+  <li><strong>Allergies &amp; skin conditions</strong> — common, with ongoing management costs of $300–$1,500/year.</li>
+</ul>
+<p>Take out comprehensive accident-and-illness cover with a high annual limit while your Shepherd is a healthy puppy — before any of these can be excluded as a pre-existing condition. For this breed it's one of the most cost-effective decisions you can make.</p>
 
-<h2>Lifetime Cost: £22,000–£42,000</h2>
-<p>Over 9–13 years, owning a German Shepherd costs between £22,000 and £42,000. The combination of their size, training needs, and health risks places them at the higher end of dog ownership costs.</p>
+<h2>Lifetime Cost: $22,000–$42,000</h2>
+<p>Over a 9–13 year lifespan, owning a German Shepherd costs between $22,000 and $42,000 (£22,000–£42,000), combining purchase price, routine annual costs, and a realistic allowance for at least one significant health event. A double hip surgery or a bloat emergency alone can add $6,000–$14,000, which is exactly why the insured-and-funded owner sleeps better than the one relying on hope.</p>
+
+<h2>How to Reduce German Shepherd Costs</h2>
+<ul>
+  <li><strong>Buy from a health-tested breeder</strong> or adopt — both lower your lifetime medical risk.</li>
+  <li><strong>Insure early</strong> while the dog is young and healthy.</li>
+  <li><strong>Invest in foundation training in year one</strong> to avoid far costlier behavioural problems later.</li>
+  <li><strong>Feed an appropriate large-breed diet</strong> and keep your GSD lean — obesity dramatically worsens joint problems.</li>
+  <li><strong>Learn home grooming and nail care</strong> to manage the heavy coat without recurring salon bills.</li>
+</ul>
+<p>Want a figure based on your location and lifestyle? Run the numbers through our <a href="/calculator">cost calculator</a> for a personalised German Shepherd estimate.</p>
     `,
   },
   {
@@ -1382,6 +1658,28 @@ export const allBlogArticles: BlogArticle[] = [
 <p>Gastric torsion (bloat) in large dogs is among the most expensive common emergencies, often costing $3,000–$8,000 due to emergency surgery and intensive post-op monitoring.</p>
 <h3>Can I negotiate an emergency vet bill?</h3>
 <p>You usually can't negotiate the bill itself, but you can ask for a tiered treatment plan (showing cheaper alternatives), request a payment plan, or transfer follow-up care to your regular vet to reduce ongoing costs.</p>
+
+<h2>Emergency Vet Cost by Pet Size and Type</h2>
+<p>Two pets with the identical emergency can receive very different bills, because dose-based costs (anaesthesia, medication, fluids) scale with body weight, and some procedures are species-specific.</p>
+<table>
+  <thead><tr><th>Pet</th><th>Typical emergency visit (all-in)</th><th>Why</th></tr></thead>
+  <tbody>
+    <tr><td>Cat</td><td>$400–$3,000</td><td>Smaller doses; but urinary blockages in male cats are a common, costly exception</td></tr>
+    <tr><td>Small dog (under 25 lbs)</td><td>$500–$3,500</td><td>Lower medication and anaesthesia costs</td></tr>
+    <tr><td>Medium dog (25–60 lbs)</td><td>$800–$5,000</td><td>Mid-range dosing; broad risk profile</td></tr>
+    <tr><td>Large / giant dog (60+ lbs)</td><td>$1,200–$8,000+</td><td>Higher drug doses, plus elevated bloat risk in deep-chested breeds</td></tr>
+  </tbody>
+</table>
+<p>This is also why large-breed owners benefit most from insurance and an emergency fund: the same surgery that costs a Chihuahua owner $2,000 can cost a Great Dane owner $5,000+ simply because of the dog's size.</p>
+
+<h2>Is It a Real Emergency? When to Go Now vs. Wait for Your Regular Vet</h2>
+<p>Knowing the difference can save you a four-figure after-hours bill — or save your pet's life. Go to the emergency vet immediately for: difficulty breathing, collapse or unconsciousness, suspected bloat (unproductive retching with a swollen abdomen), a male cat straining unsuccessfully in the litter box, ingestion of a known toxin (chocolate, xylitol, antifreeze, human medication), uncontrolled bleeding, seizures, suspected fractures, or signs of severe pain. These are genuine emergencies where waiting is dangerous and the cost is unavoidable. By contrast, a mild limp, a single episode of vomiting in an otherwise bright pet, minor diarrhoea, or a small superficial scratch can usually wait safely until your regular vet opens — at a fraction of the after-hours cost. When in doubt, most emergency clinics and pet-insurance providers offer a phone triage line; a two-minute call can tell you whether you need to come in now or can wait until morning.</p>
+
+<h2>The First Five Minutes: Controlling the Cost Without Compromising Care</h2>
+<p>How you handle the start of an emergency affects both the outcome and the bill. Call ahead so the clinic is ready when you arrive (faster triage, less time on the clock). Bring any packaging or a photo of what your pet ingested — it saves expensive diagnostic guesswork. Ask for a written estimate with a clear range before treatment begins, and ask the vet to walk you through "gold standard" versus "essential" options; a reputable emergency vet will give you genuine choices rather than a single take-it-or-leave-it number. None of this means cutting corners on care — it means making informed decisions instead of panicked ones.</p>
+
+<h2>Why Emergency Costs Spike at Nights, Weekends, and Holidays</h2>
+<p>Emergencies don't keep office hours, and neither does pricing. After-hours and public-holiday surcharges are standard at most emergency hospitals, reflecting overnight staffing and on-call specialist costs. Predictable high-risk windows include holiday weekends (toxic-food ingestion — chocolate, raisins, rich leftovers), summer (heatstroke, snake and insect encounters, road accidents from more outdoor time), and festive periods (decorations, ribbon, and bones swallowed by curious pets). Knowing the seasonal pattern is half the prevention: the cheapest emergency is the one that never happens, so pet-proofing before predictable danger periods is the highest-return spending you can do.</p>
     `,
   },
   {
@@ -1395,41 +1693,69 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 8,
     image: 'https://images.unsplash.com/photo-1568152950566-c1bf43f4ab28?w=1100&q=80',
     keywords: ['dog vs cat costs', 'cat cheaper than dog', 'comparing pet costs', 'dog or cat more expensive'],
+    faqs: [
+      {"q":"Is it cheaper to own a cat or a dog?","a":"A cat is almost always cheaper — typically 40–60% less over a lifetime. A mixed-breed cat runs about $700–$1,700/year versus $1,400–$3,400/year for a medium dog. The gap is widest for owners who work long hours, because dogs often need paid walking or daycare that cats never do."},
+      {"q":"How much does a dog cost per year compared to a cat?","a":"A medium dog costs roughly $1,760–$3,810/year (£1,550–£3,200) once food, vet care, grooming, insurance, training and boarding are included. An average cat costs roughly $1,010–$2,120/year (£650–£1,600). Small dogs can be cheaper than large dogs, narrowing the gap."},
+      {"q":"Why are dogs more expensive than cats?","a":"Dogs are larger (more food and bigger medication doses), need training, and usually require paid services like walking, daycare, or boarding because they can't be left alone all day. Cats are self-exercising, litter-trained, and self-grooming, so they avoid most of those recurring costs."},
+      {"q":"Can a cat ever cost more than a dog?","a":"Yes. A small, healthy dog can be cheaper than a large or chronically ill cat, and pedigree cats like Persians, Maine Coons, Bengals, and Sphynxes carry higher purchase prices and breed-specific health costs. Your specific breed matters more than the species label."}
+    ],
     content: `
-<h2>The Bottom Line Upfront</h2>
-<p>Cats are consistently cheaper than dogs to own — typically by 40–60% across annual costs and lifetime totals. However, the gap narrows considerably when comparing small dog breeds with large or medical-intensive cat breeds.</p>
+<h2>Dog vs Cat Costs: Quick Answer</h2>
+<p>Across a full lifetime, <strong>cats are cheaper to own than dogs — usually by 40–60%</strong>. A typical medium dog costs roughly <strong>$1,400–$3,400 per year</strong> ($21,000–$50,000 over its life), while a typical cat costs <strong>$700–$1,700 per year</strong> ($10,000–$25,000 over its life). In UK terms that's about <strong>£1,550–£3,200/year for a dog</strong> versus <strong>£650–£1,600/year for a cat</strong>. But those averages hide a lot: a small, healthy cat and a giant, medically fragile dog sit at opposite ends of the scale, and the single biggest cost difference isn't food or vet bills — it's the cost of <em>time</em> that dogs demand and cats don't.</p>
+
+<h2>Why Cats Are Cheaper Than Dogs</h2>
+<p>The cost gap comes down to four structural differences. Cats are smaller, so they eat less food and need smaller (cheaper) doses of medication and parasite prevention. Cats are largely self-exercising and litter-trained, so they rarely need the paid services — dog walking, daycare, boarding, professional training — that quietly dominate a dog's budget. Cats groom themselves, so grooming is optional rather than a recurring bill. And cats can be left alone safely for a working day, while a dog left alone for eight hours often needs a walker or daycare to avoid behavioural problems. Add those up and the "cat discount" is real and consistent — but it narrows fast for certain breeds.</p>
 
 <h2>Acquisition Costs</h2>
 <table>
   <thead><tr><th>Source</th><th>Dog</th><th>Cat</th></tr></thead>
   <tbody>
-    <tr><td>Shelter / Rescue</td><td>£150–£450</td><td>£50–£200</td></tr>
-    <tr><td>Reputable breeder (popular breed)</td><td>£1,000–£3,000+</td><td>£400–£2,000+</td></tr>
-    <tr><td>Pedigree / Show quality</td><td>£2,000–£8,000+</td><td>£800–£3,000+</td></tr>
+    <tr><td>Shelter / Rescue</td><td>$50–$500 (£150–£450)</td><td>$25–$200 (£50–£200)</td></tr>
+    <tr><td>Reputable breeder (popular breed)</td><td>$1,000–$3,500+ (£1,000–£3,000+)</td><td>$400–$2,000+ (£400–£2,000+)</td></tr>
+    <tr><td>Pedigree / show quality</td><td>$2,500–$10,000+ (£2,000–£8,000+)</td><td>$800–$3,000+ (£800–£3,000+)</td></tr>
   </tbody>
 </table>
+<p>Adoption is the great equaliser: a shelter cat and a shelter dog both cost far less upfront than a bred animal, and the fee usually bundles in vaccinations, microchipping, and spay/neuter — easily $200–$500 of value. If your decision is partly financial, adopting either species is the single biggest lever on first-year cost.</p>
 
 <h2>Annual Cost Comparison</h2>
 <table>
   <thead><tr><th>Expense</th><th>Average Dog (medium)</th><th>Average Cat</th></tr></thead>
   <tbody>
-    <tr><td>Food</td><td>£500–£800</td><td>£250–£500</td></tr>
-    <tr><td>Routine vet care</td><td>£200–£400</td><td>£100–£250</td></tr>
-    <tr><td>Grooming</td><td>£200–£500</td><td>£50–£150</td></tr>
-    <tr><td>Insurance</td><td>£250–£600</td><td>£100–£300</td></tr>
-    <tr><td>Training</td><td>£100–£300</td><td>£0–£50</td></tr>
-    <tr><td>Boarding/sitting</td><td>£300–£600</td><td>£150–£350</td></tr>
-    <tr><td><strong>Annual Total</strong></td><td><strong>£1,550–£3,200</strong></td><td><strong>£650–£1,600</strong></td></tr>
+    <tr><td>Food</td><td>$500–$840 (£500–£800)</td><td>$250–$500 (£250–£500)</td></tr>
+    <tr><td>Routine vet care</td><td>$240–$480 (£200–£400)</td><td>$130–$300 (£100–£250)</td></tr>
+    <tr><td>Grooming</td><td>$200–$650 (£200–£500)</td><td>$0–$200 (£50–£150)</td></tr>
+    <tr><td>Insurance</td><td>$420–$840 (£250–£600)</td><td>$180–$360 (£100–£300)</td></tr>
+    <tr><td>Training</td><td>$100–$300 (£100–£300)</td><td>$0–$60 (£0–£50)</td></tr>
+    <tr><td>Boarding / sitting</td><td>$300–$700 (£300–£600)</td><td>$150–$400 (£150–£350)</td></tr>
+    <tr><td>Litter (cats only)</td><td>—</td><td>$150–$300</td></tr>
+    <tr><td><strong>Annual total</strong></td><td><strong>$1,760–$3,810 (£1,550–£3,200)</strong></td><td><strong>$1,010–$2,120 (£650–£1,600)</strong></td></tr>
   </tbody>
 </table>
+<p>Two line items flip the script depending on species. Dogs carry training and walking/daycare costs a cat never will; cats carry a litter cost (and litter-box equipment) a dog never will. But litter is cheap relative to dog daycare, which is why the totals still favour cats.</p>
 
-<h2>Lifestyle Costs: The Biggest Differentiator</h2>
-<p>Dogs require significantly more time investment than cats — daily walks, training, supervision, and companionship. If you work long hours, dog ownership typically requires a dog walker (£1,500–£4,000/year) or daycare (£20–£40/day). Cats are largely self-sufficient.</p>
+<h2>The Biggest Difference Isn't Money — It's Time (Which Becomes Money)</h2>
+<p>This is the cost most first-time owners underestimate. A dog needs one to two hours of active attention a day — walks, play, and training. If you work full-time away from home, that time has a price: a dog walker runs $15–$30 per walk ($1,500–$4,000/year if used daily), and doggy daycare runs $20–$45/day ($5,000–$11,000/year for full-time use). Even occasional use during busy weeks adds up. A cat, by contrast, needs feeding, a clean litter box, and play, but can be left alone during a normal working day without paid help. For anyone with long hours or frequent travel, the realistic cost gap between a dog and a cat is far wider than the food-and-vet tables suggest.</p>
+
+<h2>When the Gap Narrows — or Reverses</h2>
+<p>Averages mislead at the extremes. A small, low-maintenance dog (a Chihuahua or a Dachshund) can be cheaper to feed and medicate than a large or chronically ill cat. And some pedigree cats are genuinely expensive: brachycephalic breeds like Persians need eye and coat care, and breeds such as the Maine Coon, Bengal, and Sphynx carry higher purchase prices and breed-specific health risks. A healthy mixed-breed cat will almost always be the cheapest pet on this page; a giant-breed dog (Great Dane, Bernese Mountain Dog) with a short lifespan and high medical needs will almost always be the most expensive. Your specific breed choice matters more than the species label.</p>
 
 <h2>Lifetime Cost Comparison</h2>
-<p><strong>Dog (medium breed, 12 years):</strong> £18,000–£40,000<br>
-<strong>Cat (12–15 years):</strong> £8,000–£20,000</p>
-<p>The choice between a dog and cat is ultimately a lifestyle decision, not just a financial one. But understanding the true cost difference helps ensure you make an informed commitment.</p>
+<table>
+  <thead><tr><th>Scenario</th><th>Lifetime total</th></tr></thead>
+  <tbody>
+    <tr><td>Cat (mixed breed, 13–15 years)</td><td>$10,000–$20,000 (£8,000–£16,000)</td></tr>
+    <tr><td>Small dog (12–16 years)</td><td>$15,000–$30,000 (£12,000–£24,000)</td></tr>
+    <tr><td>Medium dog (10–13 years)</td><td>$21,000–$50,000 (£18,000–£40,000)</td></tr>
+    <tr><td>Large / giant dog (7–11 years)</td><td>$25,000–$60,000+ (£20,000–£48,000+)</td></tr>
+  </tbody>
+</table>
+<p>Interestingly, giant dogs can cost more <em>per year</em> but live fewer years, while cats cost less per year but live longer — so the lifetime totals don't scale as simply as you'd expect. The longer a pet lives, the more the cheaper annual cost compounds in the cat's favour.</p>
+
+<h2>How to Lower the Cost of Either Pet</h2>
+<p>Whichever you choose, the same levers cut the bill: adopt rather than buy; take out accident-and-illness insurance while the animal is young and healthy, before any condition becomes pre-existing; buy food and parasite prevention in bulk; learn basic grooming and nail trims at home; and build a small emergency fund so an unexpected vet bill doesn't go on a credit card. For dogs specifically, investing in early training is the cheapest way to avoid expensive behavioural problems and property damage later.</p>
+
+<h2>So Which Should You Get?</h2>
+<p>If budget is your primary constraint and you work long hours, a cat is the lower-cost, lower-time choice and the gap is substantial. If you have the time, outdoor space, and budget for walking or daycare, a dog's higher cost buys a different kind of companionship — but go in with eyes open about the time-becomes-money reality. The honest answer is that the cheapest pet is a healthy, adopted, properly insured one of <em>either</em> species — and the most expensive is an un-insured purebred with a chronic condition. Run your specific breed and location through our <a href="/calculator">cost calculator</a> for a number tailored to you rather than relying on the averages above.</p>
     `,
   },
   // ── Comparison Articles ──────────────────────────────────────────────────

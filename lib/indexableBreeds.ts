@@ -65,3 +65,22 @@ export const INDEXABLE_BREED_IDS: ReadonlySet<string> = new Set([
 export function isBreedIndexable(breedId: string): boolean {
   return INDEXABLE_BREED_IDS.has(breedId);
 }
+
+// ── Compare pages ─────────────────────────────────────────────────────────────
+// Compare pages are noindex,follow by default (fully templated → thin-content
+// ratio). EXCEPTION: a small allowlist of compare pages that were already
+// earning Google impressions / ranking competitively per the June 2026 GSC
+// analysis. Noindexing pages that already rank throws away proven equity — the
+// same reason PROVEN_IN_SEARCH exists for breed pages. Slugs below are stored in
+// the canonical (alphabetically sorted) form, matching how the compare route
+// builds `canonicalSlug` (`[id1, id2].sort()`), so the lookup is order-safe.
+export const INDEXABLE_COMPARE_SLUGS: ReadonlySet<string> = new Set([
+  "bulldog-vs-golden-retriever",            // GSC pos ~4.5 — flagship pair
+  "bengal-vs-ragdoll",                      // GSC pos ~7.5
+  "australian-shepherd-vs-boston-terrier",  // GSC pos ~9.5
+  "australian-cattle-dog-vs-scottish-fold", // GSC pos ~6.0
+]);
+
+export function isCompareIndexable(canonicalSlug: string): boolean {
+  return INDEXABLE_COMPARE_SLUGS.has(canonicalSlug);
+}

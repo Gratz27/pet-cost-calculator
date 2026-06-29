@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getAllBreeds } from "@/lib/calculator";
 import { getAllGuideSlugs } from "@/data/guides";
 import { allBlogArticles } from "@/data/blogArticles";
-import { isBreedIndexable } from "@/lib/indexableBreeds";
+import { isBreedIndexable, INDEXABLE_COMPARE_SLUGS } from "@/lib/indexableBreeds";
 
 const BASE = "https://petcost-calculator.com";
 
@@ -87,5 +87,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly" as const,
   }));
 
-  return [...staticPages, ...breedPages, ...guidePages, ...costPages, ...blogPages];
+  // Only the small allowlist of compare pages that are already ranking is
+  // submitted (see lib/indexableBreeds.ts). The thin templated long tail stays
+  // out of the sitemap and noindex,follow.
+  const comparePages: MetadataRoute.Sitemap = [...INDEXABLE_COMPARE_SLUGS].map((slug) => ({
+    url: `${BASE}/compare/${slug}`,
+    lastModified: now,
+    priority: 0.6,
+    changeFrequency: "monthly" as const,
+  }));
+
+  return [...staticPages, ...breedPages, ...guidePages, ...costPages, ...blogPages, ...comparePages];
 }
