@@ -9,8 +9,10 @@ import {
   Pill, Plus, Bug, Mouse, Cookie, Link as LinkIcon, Bell,
 } from "lucide-react";
 import AdUnit from "@/components/AdUnit";
-import { amazonSearchLink, productLinks, awinLinks, resolveLink } from "@/lib/affiliateLinks";
+import { amazonSearchLink, productLinks, resolveLink } from "@/lib/affiliateLinks";
 import { fetchTopItems } from "@/lib/amazonPaapi";
+import PartnerDirectory from "@/components/PartnerDirectory";
+import { partners } from "@/lib/partners";
 
 export const metadata: Metadata = {
   title: "Pet Essentials 2026 — Best Dog & Cat Gear | PetCost-Calculator",
@@ -173,15 +175,19 @@ export default async function GearPage() {
               <div className="badge bg-white/20 text-green-100 mb-4">Updated for 2026</div>
               <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">Pet Essentials</h1>
               <p className="text-green-200 text-lg leading-relaxed max-w-xl mb-6">
-                Curated categories of well-reviewed dog and cat products — organised by what your pet actually
-                needs at each stage of ownership. Compare options on Amazon and Chewy and pick what fits your budget.
+                Our hand-picked directory of trusted dog &amp; cat brands — premium food, treats,
+                supplements, insurance and lifestyle gear. Vetted partners, exclusive reader codes,
+                and everyday essentials all in one place.
               </p>
               <div className="flex flex-wrap gap-3">
                 <div className="inline-flex items-center gap-2 bg-white/15 rounded-xl px-4 py-2 text-sm text-green-100">
-                  🐾 8 essential categories
+                  🤝 {partners.length} trusted brands
                 </div>
                 <div className="inline-flex items-center gap-2 bg-white/15 rounded-xl px-4 py-2 text-sm text-green-100">
-                  🛒 24 hand-picked product searches
+                  🎟️ Exclusive reader discounts
+                </div>
+                <div className="inline-flex items-center gap-2 bg-white/15 rounded-xl px-4 py-2 text-sm text-green-100">
+                  🇺🇸🇬🇧 US &amp; UK partners
                 </div>
               </div>
             </div>
@@ -192,8 +198,35 @@ export default async function GearPage() {
         </div>
       </div>
 
+      {/* Featured partner brands — primary section */}
+      <div className="container-xl pt-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-6">
+            <span className="badge badge-green mb-2 inline-block">Featured partners</span>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#1B2B1B]">Brands we trust for your pet</h2>
+            <p className="text-[#5a7a5a] mt-2 max-w-2xl">
+              Independently chosen partners across food, health, insurance and lifestyle — sorted to
+              show the most relevant brands for your region first. A few include exclusive PetCost
+              reader discounts.
+            </p>
+          </div>
+          <PartnerDirectory />
+        </div>
+      </div>
+
+      {/* Secondary: shop everyday essentials by category (Amazon) */}
+      <div className="container-xl pt-4">
+        <div className="max-w-5xl mx-auto border-t border-[#C8E6C9] pt-10">
+          <span className="badge badge-blue mb-2 inline-block">Browse on Amazon</span>
+          <h2 className="text-2xl md:text-3xl font-bold text-[#1B2B1B] mb-1">Shop everyday essentials by category</h2>
+          <p className="text-[#5a7a5a]">
+            Crates, beds, bowls, litter, grooming and more — jump straight to the right Amazon category.
+          </p>
+        </div>
+      </div>
+
       {/* Amazon Pet Supplies banner */}
-      <div className="container-xl pt-8">
+      <div className="container-xl pt-6">
         <a
           href={resolveLink(productLinks.amazonPetSupplies)}
           target="_blank"
@@ -326,102 +359,24 @@ export default async function GearPage() {
             );
           })}
 
-          {/* Partner Food & Supplement Brands */}
-          <div className="card p-6">
-            <div className="flex items-center gap-3 mb-2">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#E8F5E9] flex-shrink-0">
-                <Utensils className="h-5 w-5 text-[#2E7D32]" />
-              </div>
-              <div>
-                <h2 className="text-xl font-bold text-[#1B2B1B]">Partner Food & Supplement Brands</h2>
-                <p className="text-xs text-[#5a7a5a]">Vetted brands we've partnered with — each ships direct to your door</p>
-              </div>
+          {/* Chewy auto-ship CTA (generic store) */}
+          <div className="card p-6 bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white border-0 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div>
+              <h3 className="text-lg font-bold mb-1">Prefer one shop with auto-ship &amp; free returns?</h3>
+              <p className="text-green-200 text-sm">Chewy stocks most of these categories with autoship discounts of up to 30%.</p>
             </div>
-
-            {/* UK brands */}
-            <p className="text-xs font-semibold text-[#5a7a5a] uppercase tracking-wide mt-5 mb-3">🇬🇧 United Kingdom</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
-              {([awinLinks.barkingHeads, awinLinks.aatu, awinLinks.purrAndMutt, awinLinks.regalMutt] as const).map((brand) => (
-                <a
-                  key={brand.name}
-                  href={brand.affiliateUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-4 hover:border-[#4CAF50] hover:shadow-md transition-all group"
-                >
-                  <span className="text-[10px] font-semibold uppercase tracking-wide text-[#5a7a5a] mb-1">{brand.category}</span>
-                  <span className="text-sm font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] mb-1">{brand.name}</span>
-                  <p className="text-xs text-slate-500 leading-relaxed flex-1">{brand.tagline}</p>
-                  <span className="flex items-center gap-1 mt-3 text-xs font-medium text-[#2E7D32]">
-                    Shop now <ExternalLink className="h-3 w-3" />
-                  </span>
-                </a>
-              ))}
-            </div>
-
-            {/* US brands */}
-            <p className="text-xs font-semibold text-[#5a7a5a] uppercase tracking-wide mb-3">🇺🇸 United States</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              {([awinLinks.rawWild, awinLinks.aniwell, awinLinks.petLifestyleAndYou] as const).map((brand) => (
-                <a
-                  key={brand.name}
-                  href={brand.affiliateUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-4 hover:border-[#4CAF50] hover:shadow-md transition-all group"
-                >
-                  <span className="text-[10px] font-semibold uppercase tracking-wide text-[#5a7a5a] mb-1">{brand.category}</span>
-                  <span className="text-sm font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] mb-1">{brand.name}</span>
-                  <p className="text-xs text-slate-500 leading-relaxed flex-1">{brand.tagline}</p>
-                  <span className="flex items-center gap-1 mt-3 text-xs font-medium text-[#2E7D32]">
-                    Shop now <ExternalLink className="h-3 w-3" />
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Chewy + BarkBox + YumWoof CTAs */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="card p-6 bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white border-0 flex flex-col justify-between gap-4">
-              <div>
-                <h3 className="text-lg font-bold mb-1">Prefer auto-ship and free returns?</h3>
-                <p className="text-green-200 text-sm">Chewy stocks most of these categories with autoship discounts of up to 30%.</p>
-              </div>
-              <a href={resolveLink(productLinks.chewy)} target="_blank" rel="noopener noreferrer" className="btn-green text-sm whitespace-nowrap self-start">
-                Shop on Chewy
-              </a>
-            </div>
-            <div className="card p-6 bg-gradient-to-br from-[#4a2c6e] to-[#6d3f9e] text-white border-0 flex flex-col justify-between gap-4">
-              <div>
-                <h3 className="text-lg font-bold mb-1">Spoil your dog every month 🐾</h3>
-                <p className="text-purple-200 text-sm">BarkBox delivers themed toys and treats straight to your door — tailored to your dog's size.</p>
-              </div>
-              <a href={resolveLink(productLinks.barkBox)} target="_blank" rel="noopener noreferrer" className="btn-green text-sm whitespace-nowrap self-start">
-                Try BarkBox
-              </a>
-            </div>
-            <div className="card p-6 bg-gradient-to-br from-[#92400e] to-[#b45309] text-white border-0 flex flex-col justify-between gap-4">
-              <div>
-                <div className="inline-block bg-white/20 text-orange-100 text-xs font-semibold rounded-full px-2.5 py-0.5 mb-2">
-                  5% off — code <span className="font-bold">{productLinks.yumWoof.couponCode}</span>
-                </div>
-                <h3 className="text-lg font-bold mb-1">Premium dog food, vet-designed 🥩</h3>
-                <p className="text-orange-200 text-sm">YumWoof's air-dried, grain-free recipes skip seed oils and synthetic fillers — personalised to your dog's breed and health goals.</p>
-              </div>
-              <a href={resolveLink(productLinks.yumWoof)} target="_blank" rel="noopener noreferrer" className="btn-green text-sm whitespace-nowrap self-start">
-                Get 5% Off at YumWoof
-              </a>
-            </div>
+            <a href={resolveLink(productLinks.chewy)} target="_blank" rel="noopener noreferrer" className="btn-green text-sm whitespace-nowrap">
+              Shop on Chewy
+            </a>
           </div>
 
           {/* Disclosure */}
           <div className="rounded-xl bg-white border border-[#C8E6C9] px-4 py-3">
             <p className="text-xs text-slate-500 leading-relaxed">
-              <span className="font-semibold text-[#1B2B1B]">Affiliate disclosure:</span> Links on this page include
-              affiliate links to Amazon, Chewy, BarkBox, YumWoof, Barking Heads, AATU, Purr &amp; Mutt, The Regal Mutt,
-              Raw Wild, Aniwell, and Pet Lifestyle and You. If you make a purchase, we may earn a commission at no
-              additional cost to you. We only partner with brands we believe offer genuine value for pet owners.
+              <span className="font-semibold text-[#1B2B1B]">Affiliate disclosure:</span> Many links on this page —
+              including our featured partner brands, Amazon and Chewy — are affiliate links. If you buy through them we
+              may earn a commission at no extra cost to you, and some brands offer exclusive PetCost reader discounts.
+              We only feature partners we believe offer genuine value, and brand placement is never paid for editorially.
             </p>
           </div>
 
