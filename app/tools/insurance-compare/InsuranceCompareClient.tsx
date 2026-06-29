@@ -99,6 +99,19 @@ const providers = [
     country: "au" as Country,
     petTypes: ["dog", "cat"] as PetType[],
   },
+  {
+    name: "Odie Pet Insurance",
+    coverage: "Up to 90%",
+    avgMonthly: "$49",
+    deductible: "$250–$1,000",
+    waitingPeriod: "3 days (accidents)",
+    pros: ["Accident, illness & wellness plans", "Short accident waiting period", "Easy online claims"],
+    cons: ["US only", "Newer provider — less claims history"],
+    bestFor: "US owners wanting wellness + illness cover",
+    linkKey: "odie",
+    country: "us" as Country,
+    petTypes: ["dog", "cat"] as PetType[],
+  },
 ];
 
 const breedCosts = [

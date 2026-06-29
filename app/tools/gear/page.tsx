@@ -9,7 +9,7 @@ import {
   Pill, Plus, Bug, Mouse, Cookie, Link as LinkIcon, Bell,
 } from "lucide-react";
 import AdUnit from "@/components/AdUnit";
-import { amazonSearchLink, productLinks, resolveLink } from "@/lib/affiliateLinks";
+import { amazonSearchLink, productLinks, awinLinks, resolveLink } from "@/lib/affiliateLinks";
 import { fetchTopItems } from "@/lib/amazonPaapi";
 
 export const metadata: Metadata = {
@@ -326,6 +326,61 @@ export default async function GearPage() {
             );
           })}
 
+          {/* Partner Food & Supplement Brands */}
+          <div className="card p-6">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#E8F5E9] flex-shrink-0">
+                <Utensils className="h-5 w-5 text-[#2E7D32]" />
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-[#1B2B1B]">Partner Food & Supplement Brands</h2>
+                <p className="text-xs text-[#5a7a5a]">Vetted brands we've partnered with — each ships direct to your door</p>
+              </div>
+            </div>
+
+            {/* UK brands */}
+            <p className="text-xs font-semibold text-[#5a7a5a] uppercase tracking-wide mt-5 mb-3">🇬🇧 United Kingdom</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
+              {([awinLinks.barkingHeads, awinLinks.aatu, awinLinks.purrAndMutt, awinLinks.regalMutt] as const).map((brand) => (
+                <a
+                  key={brand.name}
+                  href={brand.affiliateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-4 hover:border-[#4CAF50] hover:shadow-md transition-all group"
+                >
+                  <span className="text-[10px] font-semibold uppercase tracking-wide text-[#5a7a5a] mb-1">{brand.category}</span>
+                  <span className="text-sm font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] mb-1">{brand.name}</span>
+                  <p className="text-xs text-slate-500 leading-relaxed flex-1">{brand.tagline}</p>
+                  <span className="flex items-center gap-1 mt-3 text-xs font-medium text-[#2E7D32]">
+                    Shop now <ExternalLink className="h-3 w-3" />
+                  </span>
+                </a>
+              ))}
+            </div>
+
+            {/* US brands */}
+            <p className="text-xs font-semibold text-[#5a7a5a] uppercase tracking-wide mb-3">🇺🇸 United States</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              {([awinLinks.rawWild, awinLinks.aniwell, awinLinks.petLifestyleAndYou] as const).map((brand) => (
+                <a
+                  key={brand.name}
+                  href={brand.affiliateUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col rounded-xl bg-[#F1F8F1] border border-[#C8E6C9] p-4 hover:border-[#4CAF50] hover:shadow-md transition-all group"
+                >
+                  <span className="text-[10px] font-semibold uppercase tracking-wide text-[#5a7a5a] mb-1">{brand.category}</span>
+                  <span className="text-sm font-bold text-[#1B2B1B] group-hover:text-[#2E7D32] mb-1">{brand.name}</span>
+                  <p className="text-xs text-slate-500 leading-relaxed flex-1">{brand.tagline}</p>
+                  <span className="flex items-center gap-1 mt-3 text-xs font-medium text-[#2E7D32]">
+                    Shop now <ExternalLink className="h-3 w-3" />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           {/* Chewy + BarkBox + YumWoof CTAs */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="card p-6 bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white border-0 flex flex-col justify-between gap-4">
@@ -363,10 +418,10 @@ export default async function GearPage() {
           {/* Disclosure */}
           <div className="rounded-xl bg-white border border-[#C8E6C9] px-4 py-3">
             <p className="text-xs text-slate-500 leading-relaxed">
-              <span className="font-semibold text-[#1B2B1B]">Affiliate disclosure:</span> Links on this page are
-              affiliate links to Amazon, Chewy, BarkBox, and YumWoof. If you make a purchase, we may earn a commission at no
-              additional cost to you. We link to product categories rather than single items so you can compare
-              options, read current reviews, and choose what's best for your pet and budget.
+              <span className="font-semibold text-[#1B2B1B]">Affiliate disclosure:</span> Links on this page include
+              affiliate links to Amazon, Chewy, BarkBox, YumWoof, Barking Heads, AATU, Purr &amp; Mutt, The Regal Mutt,
+              Raw Wild, Aniwell, and Pet Lifestyle and You. If you make a purchase, we may earn a commission at no
+              additional cost to you. We only partner with brands we believe offer genuine value for pet owners.
             </p>
           </div>
 

@@ -25,6 +25,33 @@ type LinkEntry = {
   couponCode?: string;
 };
 
+// ---------------------------------------------------------------------------
+// AWIN — publisher ID and deep-link builder
+// ---------------------------------------------------------------------------
+
+export const AWIN_PUBLISHER_ID = "2632402";
+
+/**
+ * Generates a tracked AWIN deep-link for a given merchant and destination URL.
+ * Format: https://www.awin1.com/cread.php?awinmid={mid}&awinaffid={pid}&ued={url}
+ */
+export function awinLink(merchantId: number, destinationUrl: string): string {
+  return `https://www.awin1.com/cread.php?awinmid=${merchantId}&awinaffid=${AWIN_PUBLISHER_ID}&ued=${encodeURIComponent(destinationUrl)}`;
+}
+
+type AwinEntry = {
+  name: string;
+  merchantId: number;
+  directUrl: string;
+  affiliateUrl: string;
+  region: "uk" | "us" | "global";
+  category: "food" | "treats" | "supplements" | "insurance" | "lifestyle";
+  tagline: string;
+  /** EPC from AWIN dashboard — useful for prioritising placement */
+  epc?: string;
+  couponCode?: string;
+};
+
 const UTM = "utm_source=petcost-calculator&utm_medium=referral";
 
 function withUtm(url: string): string {
@@ -85,6 +112,12 @@ export const insuranceLinks: Record<string, LinkEntry> = {
     directUrl: "https://www.petsure.com.au",
     // Program: Commission Factory (AU network) — apply via petsure.com.au/partners/
     affiliateUrl: null,
+  },
+  odie: {
+    name: "Odie Pet Insurance",
+    directUrl: "https://getodie.com/",
+    // AWIN merchant 68990 — approved June 2026
+    affiliateUrl: awinLink(68990, "https://getodie.com/"),
   },
 };
 
@@ -168,3 +201,91 @@ export function breedGearQuery(breedName: string, petType: "dog" | "cat", size?:
 // ---------------------------------------------------------------------------
 
 export const insuranceCompareCta = "/tools/insurance-compare";
+
+// ---------------------------------------------------------------------------
+// AWIN partner programmes
+// Publisher ID: 2632402  |  All approved June 2026
+// ---------------------------------------------------------------------------
+
+export const awinLinks: Record<string, AwinEntry> = {
+  barkingHeads: {
+    name: "Barking Heads",
+    merchantId: 15852,
+    directUrl: "https://barkingheads.co.uk/",
+    affiliateUrl: awinLink(15852, "https://barkingheads.co.uk/"),
+    region: "uk",
+    category: "food",
+    tagline: "Natural dry & wet dog food — no nasty bits, just real ingredients",
+    epc: "GBP 0.33",
+  },
+  aatu: {
+    name: "AATU",
+    merchantId: 17135,
+    directUrl: "https://aatu.co.uk/",
+    affiliateUrl: awinLink(17135, "https://aatu.co.uk/"),
+    region: "uk",
+    category: "food",
+    tagline: "80% meat super-premium dog & cat food — single protein, no fillers",
+    epc: "GBP 0.63",
+  },
+  purrAndMutt: {
+    name: "Purr & Mutt",
+    merchantId: 30883,
+    directUrl: "https://purrandmutt.com/",
+    affiliateUrl: awinLink(30883, "https://purrandmutt.com/"),
+    region: "uk",
+    category: "supplements",
+    tagline: "Science-backed supplements and treats for dogs and cats",
+    epc: "GBP 0.64",
+  },
+  regalMutt: {
+    name: "The Regal Mutt",
+    merchantId: 38436,
+    directUrl: "https://www.regalmutt.com/",
+    affiliateUrl: awinLink(38436, "https://www.regalmutt.com/"),
+    region: "uk",
+    category: "treats",
+    tagline: "Natural dog chews, treats & supplements — 10% of profits to rescue",
+    epc: "GBP 0.33",
+  },
+  rawWild: {
+    name: "Raw Wild",
+    merchantId: 89689,
+    directUrl: "https://rawwild.com/",
+    affiliateUrl: awinLink(89689, "https://rawwild.com/"),
+    region: "us",
+    category: "food",
+    tagline: "Wild-harvested raw dog food — elk, venison & bison with no additives",
+    epc: "USD 1.78",
+  },
+  aniwell: {
+    name: "Aniwell",
+    merchantId: 123892,
+    directUrl: "https://getaniwell.com/",
+    affiliateUrl: awinLink(123892, "https://getaniwell.com/"),
+    region: "us",
+    category: "supplements",
+    tagline: "Vet-formulated supplements to support dog joint, gut & skin health",
+    epc: "USD 0.14",
+  },
+  odie: {
+    name: "Odie Pet Insurance",
+    merchantId: 68990,
+    directUrl: "https://getodie.com/",
+    affiliateUrl: awinLink(68990, "https://getodie.com/"),
+    region: "us",
+    category: "insurance",
+    tagline: "Comprehensive accident, illness & wellness cover — US dogs & cats",
+    epc: "USD 0.19",
+  },
+  petLifestyleAndYou: {
+    name: "Pet Lifestyle and You",
+    merchantId: 46441,
+    directUrl: "https://www.petplay.com/",
+    affiliateUrl: awinLink(46441, "https://www.petplay.com/"),
+    region: "us",
+    category: "lifestyle",
+    tagline: "Handpicked pet products and lifestyle gear for dogs and cats",
+    epc: "USD 0.12",
+  },
+};
