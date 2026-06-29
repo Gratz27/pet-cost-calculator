@@ -51,6 +51,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/tools/gear`,              lastModified: launched, priority: 0.5, changeFrequency: "weekly" },
     { url: `${BASE}/about`,                   lastModified: stable,   priority: 0.5, changeFrequency: "yearly" },
     { url: `${BASE}/how-it-works`,            lastModified: stable,   priority: 0.5, changeFrequency: "yearly" },
+    { url: `${BASE}/partners`,                lastModified: now,      priority: 0.5, changeFrequency: "weekly" },
     { url: `${BASE}/contact`,                 lastModified: stable,   priority: 0.4, changeFrequency: "yearly" },
     { url: `${BASE}/privacy-policy`,          lastModified: stable,   priority: 0.3, changeFrequency: "yearly" },
     { url: `${BASE}/terms`,                   lastModified: stable,   priority: 0.3, changeFrequency: "yearly" },
