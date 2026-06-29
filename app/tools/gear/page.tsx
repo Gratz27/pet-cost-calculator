@@ -326,8 +326,8 @@ export default async function GearPage() {
             );
           })}
 
-          {/* Chewy + BarkBox CTAs */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Chewy + BarkBox + YumWoof CTAs */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="card p-6 bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] text-white border-0 flex flex-col justify-between gap-4">
               <div>
                 <h3 className="text-lg font-bold mb-1">Prefer auto-ship and free returns?</h3>
@@ -346,13 +346,25 @@ export default async function GearPage() {
                 Try BarkBox
               </a>
             </div>
+            <div className="card p-6 bg-gradient-to-br from-[#92400e] to-[#b45309] text-white border-0 flex flex-col justify-between gap-4">
+              <div>
+                <div className="inline-block bg-white/20 text-orange-100 text-xs font-semibold rounded-full px-2.5 py-0.5 mb-2">
+                  5% off — code <span className="font-bold">{productLinks.yumWoof.couponCode}</span>
+                </div>
+                <h3 className="text-lg font-bold mb-1">Premium dog food, vet-designed 🥩</h3>
+                <p className="text-orange-200 text-sm">YumWoof's air-dried, grain-free recipes skip seed oils and synthetic fillers — personalised to your dog's breed and health goals.</p>
+              </div>
+              <a href={resolveLink(productLinks.yumWoof)} target="_blank" rel="noopener noreferrer" className="btn-green text-sm whitespace-nowrap self-start">
+                Get 5% Off at YumWoof
+              </a>
+            </div>
           </div>
 
           {/* Disclosure */}
           <div className="rounded-xl bg-white border border-[#C8E6C9] px-4 py-3">
             <p className="text-xs text-slate-500 leading-relaxed">
               <span className="font-semibold text-[#1B2B1B]">Affiliate disclosure:</span> Links on this page are
-              affiliate links to Amazon, Chewy, and BarkBox. If you make a purchase, we may earn a commission at no
+              affiliate links to Amazon, Chewy, BarkBox, and YumWoof. If you make a purchase, we may earn a commission at no
               additional cost to you. We link to product categories rather than single items so you can compare
               options, read current reviews, and choose what's best for your pet and budget.
             </p>

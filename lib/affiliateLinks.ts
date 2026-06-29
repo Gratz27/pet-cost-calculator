@@ -21,6 +21,8 @@ type LinkEntry = {
   directUrl: string;
   /** Full affiliate/tracking deep-link once approved. Null = not yet set up. */
   affiliateUrl: string | null;
+  /** Optional discount/coupon code to display in the UI near this link. */
+  couponCode?: string;
 };
 
 const UTM = "utm_source=petcost-calculator&utm_medium=referral";
@@ -108,6 +110,13 @@ export const productLinks: Record<string, LinkEntry> = {
     directUrl: "https://www.barkbox.com",
     // Program: Impact.com — approved June 2026
     affiliateUrl: "https://barkbox.pxf.io/c/6642111/2911264/34203",
+  },
+  yumWoof: {
+    name: "YumWoof",
+    // Referral: ref=rjdfquwx  |  Discount URL auto-applies PETCOST (5% off) at checkout
+    directUrl: "https://yumwoof.com/?ref=rjdfquwx",
+    affiliateUrl: "https://yumwoof.com/discount/PETCOST?ref=rjdfquwx",
+    couponCode: "PETCOST",
   },
 };
 
