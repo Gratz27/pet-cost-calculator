@@ -157,6 +157,37 @@ export default function MethodologyPage() {
             </div>
           </div>
 
+          {/* What it can and can't tell you */}
+          <div className="card p-8">
+            <h2 className="text-xl font-bold text-[#1B2B1B] mb-4">What Our Estimates Can and Can&apos;t Tell You</h2>
+            <p className="text-[#5a7a5a] leading-relaxed mb-3">
+              Our figures are designed to answer one question well: &quot;what should I realistically budget for
+              this pet?&quot; They are averages and ranges built from market data, and they are most accurate when
+              used as a planning guide. There are limits worth being honest about:
+            </p>
+            <ul className="article-content">
+              <li><strong>Individual health is unpredictable.</strong> Two dogs of the same breed can have very different lifetime vet costs. We model typical breed risks, but we can&apos;t foresee an individual animal&apos;s specific conditions.</li>
+              <li><strong>Major emergencies are one-off, not annual.</strong> A single surgery or cancer diagnosis can dwarf a year&apos;s routine costs. We flag emergency-fund guidance separately rather than smearing rare events across every year.</li>
+              <li><strong>Local providers vary.</strong> Even within one city, vet and grooming prices differ between practices. Our regional multipliers capture the average, not your specific clinic.</li>
+              <li><strong>Your choices move the number.</strong> Food quality, insurance level, grooming frequency, and whether you use boarding or daycare can each shift the total by hundreds per year.</li>
+            </ul>
+          </div>
+
+          {/* How to get the most accurate estimate */}
+          <div className="card p-8">
+            <h2 className="text-xl font-bold text-[#1B2B1B] mb-4">How to Get the Most Accurate Estimate</h2>
+            <p className="text-[#5a7a5a] leading-relaxed">
+              To make your result as close to reality as possible, select the breed that most closely matches
+              your pet (or, for a mixed breed, the closest dominant breed or size), choose your nearest major
+              city so the right regional multiplier is applied, and answer the lifestyle questions based on what
+              you&apos;ll genuinely do — not the cheapest theoretical option. If you&apos;re deciding between
+              breeds, run the calculator for each and compare the lifetime totals; the gap is often larger than
+              people expect and is one of the most useful inputs to a sensible decision. Finally, treat the
+              emergency-fund guidance as a real line item: the owners least likely to face financial stress are
+              the ones who set money aside (or insure early) before they ever need it.
+            </p>
+          </div>
+
           {/* Disclaimer */}
           <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6">
             <div className="flex items-start gap-3">

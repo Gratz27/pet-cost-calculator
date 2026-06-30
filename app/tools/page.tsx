@@ -100,6 +100,36 @@ export default function ToolsPage() {
           ))}
         </div>
 
+        {/* SEO / educational content — server-rendered */}
+        <div className="max-w-4xl mt-10 bg-white border border-[#C8E6C9] rounded-xl p-6 md:p-8 space-y-8">
+          <section>
+            <h2 className="text-2xl font-bold text-[#1B2B1B] mb-3">How These Tools Work Together</h2>
+            <p className="text-[#5a7a5a] leading-relaxed">
+              Each tool answers a different question about the cost of owning a pet, and they&apos;re designed to
+              be used together. Start with the <Link href="/calculator" className="text-[#2E7D32] underline">cost
+              calculator</Link> to get a personalised first-year, annual, and lifetime estimate for your breed and
+              location. Use the <Link href="/tools/insurance-compare" className="text-[#2E7D32] underline">insurance
+              comparator</Link> to decide whether to insure and what a policy should cost. Once your pet is home,
+              the <Link href="/tools/budget-tracker" className="text-[#2E7D32] underline">budget tracker</Link> keeps
+              your real spending on plan month to month. And if you&apos;re still choosing, the
+              <Link href="/compare" className="text-[#2E7D32] underline"> breed comparison</Link> tool shows two
+              breeds&apos; costs side by side. All of them are free and require no sign-up.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-bold text-[#1B2B1B] mb-3">Understanding the True Cost of Pet Ownership</h2>
+            <p className="text-[#5a7a5a] leading-relaxed">
+              The purchase or adoption price is only a small fraction of what a pet really costs. Over a lifetime,
+              the big numbers are the ongoing ones: food, routine and emergency veterinary care, insurance,
+              grooming, and the higher costs of the senior years. A typical dog costs $20,000–$55,000 over its
+              life and a typical cat $10,000–$25,000 — figures that vary widely by breed, location, and the
+              choices you make. These tools exist to turn those abstract ranges into a concrete plan you can
+              actually budget around, so you can take on a pet with confidence rather than financial surprise.
+            </p>
+          </section>
+        </div>
+
         {/* Ad — below tools grid */}
         <div className="max-w-4xl mt-8">
           <AdUnit slot="2847391056" format="horizontal" />

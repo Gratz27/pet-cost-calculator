@@ -1442,35 +1442,57 @@ export const allBlogArticles: BlogArticle[] = [
     relatedBreedId: 'french-bulldog',
     relatedPetType: 'dog',
     relatedBreedSize: 'small',
+    faqs: [
+      {"q":"How much does a French Bulldog cost?","a":"A French Bulldog puppy costs £2,000–£7,000+ ($3,000–$8,000+), with rare colours and champion lines at the top end. The first year runs $4,000–$10,000 with setup and vet costs, and lifetime ownership typically reaches £25,000–£45,000 ($30,000–$55,000)."},
+      {"q":"Why are French Bulldogs so expensive to own?","a":"Health costs. An estimated 50–60% need BOAS airway surgery (£2,500–£5,000) and about 1 in 4 develop spinal disease (£4,000–£8,000), plus chronic skin conditions. These breed-specific risks make insurance premiums among the highest of any breed."},
+      {"q":"Is pet insurance worth it for a French Bulldog?","a":"It's close to essential. With a high likelihood of expensive airway or spinal surgery, a lifetime policy (£80–£150/month) is a financial survival tool. You must insure before any symptoms appear, as pre-existing conditions are excluded."},
+      {"q":"What is the biggest hidden cost of a French Bulldog?","a":"BOAS airway surgery and IVDD spinal surgery. Either can cost £2,500–£8,000, and some dogs need both plus lifelong skin management — which is how lifetime costs can exceed £50,000 for an unlucky, uninsured Frenchie."}
+    ],
     content: `
-<h2>The True Cost of a French Bulldog</h2>
-<p>The French Bulldog has surged to become one of the UK's most popular breeds, beloved for their affectionate personality and distinctive bat ears. However, this breed represents one of the most expensive dog ownership commitments available. Total lifetime costs typically reach <strong>£25,000–£45,000</strong> over 10–12 years.</p>
+<h2>How Much Does a French Bulldog Cost? Quick Answer</h2>
+<p>A French Bulldog puppy costs <strong>£2,000–£7,000+ ($3,000–$8,000+)</strong> to buy, and the first year typically runs <strong>$4,000–$10,000</strong> once setup and veterinary costs are added. After that, plan on <strong>£2,500–£5,000 a year</strong> in running costs. Over a 10–12 year life, total ownership commonly reaches <strong>£25,000–£45,000 ($30,000–$55,000)</strong> — and can climb well beyond that if your Frenchie needs airway or spinal surgery. The French Bulldog is one of the most expensive popular breeds to own, and the reason is almost entirely health-related. Going in informed is essential.</p>
 
-<h2>Initial Purchase and Setup Costs</h2>
-<h3>Purchase Price: £2,000–£7,000+</h3>
-<p>French Bulldog puppies from reputable UK breeders typically cost £2,000–£4,000, with rare colours or champion bloodlines commanding £5,000–£7,000+. This reflects genuine breeding costs: French Bulldogs require artificial insemination and caesarean section delivery (£1,500–£2,500 per litter), driving up prices substantially.</p>
+<h2>Purchase Price: £2,000–£7,000+</h2>
+<p>French Bulldog puppies from reputable UK breeders typically cost £2,000–£4,000, with rare colours or champion bloodlines commanding £5,000–£7,000+ (US prices run $3,000–$8,000+). The high price reflects genuine breeding costs: Frenchies usually require artificial insemination and almost always a planned caesarean section to give birth (£1,500–£2,500 per litter), because their build makes natural mating and delivery difficult. Be cautious of "bargain" Frenchies and unusual fad colours — they're frequently linked to unscrupulous breeding that increases the odds of the expensive health problems below.</p>
 
-<h3>First-Year Setup: £800–£1,500</h3>
-<p>Essential supplies include a harness (never a collar — breathing issues), crate, elevated food bowls to reduce air intake, orthopaedic bed, and climate control (Frenchies cannot regulate their temperature effectively). Add first-year veterinary costs of £300–£500 for vaccinations, microchipping, and initial health assessments.</p>
+<h2>First-Year Setup: £800–£1,500</h2>
+<p>Essential supplies for a Frenchie are slightly specialised: a harness (never a collar, given their airway sensitivity), a crate, elevated food bowls to reduce air gulping, an orthopaedic bed, and some form of climate control — Frenchies can't regulate their body temperature well and are at real risk of heatstroke in warm weather. Add first-year veterinary costs of £300–£500 for vaccinations, microchipping, and initial health assessments.</p>
 
-<h2>Breed-Specific Health Costs</h2>
+<h2>Breed-Specific Health Costs: The Real Story</h2>
 <h3>Brachycephalic Obstructive Airway Syndrome (BOAS)</h3>
-<p>An estimated 50–60% of French Bulldogs will require BOAS surgery during their lifetime. This procedure — widening the nostrils, shortening the soft palate, and sometimes removing laryngeal saccules — costs <strong>£2,500–£5,000</strong>. Many specialists recommend corrective surgery at 12–18 months before irreversible secondary changes develop.</p>
-
+<p>An estimated 50–60% of French Bulldogs need BOAS surgery during their lifetime. The procedure — widening the nostrils, shortening the soft palate, and sometimes removing laryngeal saccules — costs <strong>£2,500–£5,000 ($3,000–$6,000)</strong>. Many specialists recommend it at 12–18 months, before irreversible secondary changes set in. This single condition is the biggest reason Frenchies are so expensive to own.</p>
 <h3>Spinal Issues (IVDD)</h3>
-<p>Intervertebral disc disease affects approximately 1 in 4 French Bulldogs. Surgical treatment costs <strong>£4,000–£8,000</strong> and requires intensive rehabilitation. Some dogs experience multiple episodes.</p>
-
-<h3>Skin Conditions</h3>
-<p>Atopic dermatitis and skin fold infections are endemic in the breed. Annual management including specialist consultations, prescription food, medicated washes, and Cytopoint/Apoquel injections: <strong>£500–£2,000/year</strong>.</p>
+<p>Intervertebral disc disease affects roughly 1 in 4 French Bulldogs, a consequence of their compact, screw-tailed conformation. Surgical treatment costs <strong>£4,000–£8,000 ($5,000–$10,000)</strong> and requires weeks of intensive rehabilitation, and some dogs have repeat episodes.</p>
+<h3>Skin and Eye Conditions</h3>
+<p>Atopic dermatitis and skin-fold infections are endemic in the breed; ongoing management (specialist consults, prescription food, medicated washes, Apoquel or Cytopoint) runs <strong>£500–£2,000 a year</strong>. The prominent eyes are also prone to ulcers and cherry eye, each costing several hundred pounds to treat.</p>
 
 <h2>Insurance: Non-Negotiable for This Breed</h2>
-<p>Comprehensive lifetime pet insurance is not optional for a French Bulldog — it's a financial survival tool. Expect premiums of <strong>£80–£150/month</strong> (£960–£1,800/year). Policies often have breed-specific exclusions for pre-existing BOAS or spinal conditions, so insure before any symptoms appear.</p>
+<p>Comprehensive lifetime insurance isn't optional for a French Bulldog — it's a financial survival tool. Expect premiums of <strong>£80–£150/month ($100–$200/month)</strong>, among the highest of any breed, precisely because insurers know the claim likelihood. Crucially, policies exclude pre-existing conditions, so you must insure <em>before</em> any BOAS, spinal, or skin symptoms appear — ideally the week you bring the puppy home. A lifetime policy (rather than a 12-month one) is essential so chronic conditions stay covered year after year.</p>
 
 <h2>Annual Running Costs: £2,500–£5,000</h2>
-<p>Food: £400–£600. Vet care (routine + ongoing skin management): £600–£1,500. Insurance: £960–£1,800. Grooming (wrinkle cleaning is daily maintenance, professional baths 4–6 times/year): £200–£400. Breeding-specific health costs variable.</p>
+<table>
+  <thead><tr><th>Annual expense</th><th>Cost</th></tr></thead>
+  <tbody>
+    <tr><td>Food</td><td>£400–£600</td></tr>
+    <tr><td>Routine vet care + ongoing skin management</td><td>£600–£1,500</td></tr>
+    <tr><td>Insurance</td><td>£960–£1,800</td></tr>
+    <tr><td>Grooming (daily wrinkle cleaning + 4–6 baths/yr)</td><td>£200–£400</td></tr>
+    <tr><td>Toys, supplies, climate control, replacements</td><td>£150–£400</td></tr>
+  </tbody>
+</table>
 
 <h2>Lifetime Cost: £25,000–£45,000</h2>
-<p>This estimate can increase significantly if your Frenchie requires BOAS surgery, spinal surgery, or develops chronic skin conditions. Before buying a French Bulldog, honestly assess whether your household budget can absorb a £5,000–£8,000 veterinary bill without financial stress.</p>
+<p>Over 10–12 years, total French Bulldog ownership typically lands between £25,000 and £45,000 ($30,000–$55,000) — but this assumes only moderate health intervention. A Frenchie that needs both BOAS surgery and IVDD treatment, plus lifelong skin management, can push the lifetime total past £50,000. Before buying, the honest question to ask is whether your household could absorb a sudden £5,000–£8,000 vet bill without serious financial stress. If the answer is no, insurance from day one is the difference between a hard week and a crisis.</p>
+
+<h2>How to Reduce French Bulldog Costs</h2>
+<ul>
+  <li><strong>Insure on day one</strong> with a lifetime policy — the single most important financial decision for this breed.</li>
+  <li><strong>Buy from a health-focused breeder</strong> who screens for BOAS and spinal conformation, and avoid fad colours linked to poor breeding.</li>
+  <li><strong>Keep your Frenchie lean</strong> — excess weight worsens both breathing and spinal problems.</li>
+  <li><strong>Learn home wrinkle-cleaning and nail care</strong> to manage daily grooming without salon bills.</li>
+  <li><strong>Prevent heatstroke</strong> — avoid exercise in heat; an emergency heatstroke admission is both dangerous and costly.</li>
+</ul>
+<p>Get a personalised estimate for a French Bulldog in your area with our <a href="/calculator">cost calculator</a>.</p>
     `,
   },
   // ── Cost-Saving Articles ─────────────────────────────────────────────────
@@ -1485,34 +1507,73 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 9,
     image: 'https://images.unsplash.com/photo-1690985210626-885a2b0ba5ce?w=1100&q=80',
     keywords: ['first year puppy costs', 'puppy expenses', 'cost of raising a puppy', 'puppy budget'],
+    faqs: [
+      {"q":"How much does a puppy cost in the first year?","a":"The first year typically costs £2,000–£5,000 ($2,500–$5,500), covering purchase price, supplies, the vaccination series, neutering, training, food, and insurance. It's the most expensive year of a dog's life."},
+      {"q":"What is the most expensive part of the first year?","a":"After the purchase price, the biggest items are food ($300–$700), training ($150–$600), and veterinary care including vaccinations and neutering ($400–$1,000). Insurance and supplies add several hundred more."},
+      {"q":"How can I reduce first-year puppy costs?","a":"Adopt (the fee bundles in neutering and vaccinations), buy adult-sized equipment once instead of sizing up, choose group training over private sessions, and buy food and preventatives via subscription. Don't economise on nutrition, vaccinations, or early insurance — they prevent larger costs later."},
+      {"q":"Should I get pet insurance for a puppy right away?","a":"Yes. Starting a lifetime policy in the first few weeks ensures any conditions that develop later aren't excluded as pre-existing. It's also the cheapest your dog will ever be to insure with full coverage."}
+    ],
     content: `
-<h2>The Financial Shock of Year One</h2>
-<p>Bringing a puppy home is joyful, exhausting, and undeniably expensive. First-year puppy costs typically range from £2,000–£5,000 / $3,000–$6,000, with some breeds and locations pushing expenses even higher.</p>
+<h2>First-Year Puppy Costs: Quick Answer</h2>
+<p>The first year of puppy ownership typically costs <strong>£2,000–£5,000 ($2,500–$5,500)</strong>, and more for expensive breeds or high-cost cities. It's by far the most expensive year of a dog's life — purchase price, setup equipment, the full vaccination series, neutering, training, and the inevitable surprises all land in the same twelve months. This breakdown shows where every pound goes and where you can safely trim without cutting corners on your puppy's health.</p>
 
-<h2>Initial Purchase or Adoption: £50–£3,000</h2>
-<p>Your puppy's source dramatically impacts initial costs. Shelter adoptions typically include initial vaccinations and spaying/neutering. Reputable breeders charge more but provide health guarantees. Avoid puppy mills — lower purchase prices mask expensive health problems that emerge later.</p>
+<h2>The Financial Shock of Year One</h2>
+<p>Bringing a puppy home is joyful, exhausting, and undeniably expensive. Most new owners budget for the purchase price and little else, then are surprised by how quickly the supporting costs stack up. Setting realistic expectations before you commit is the best way to avoid that shock — and to make sure you can give the puppy everything it needs in those critical early months.</p>
+
+<h2>Full First-Year Cost Breakdown</h2>
+<table>
+  <thead><tr><th>Expense</th><th>Typical cost</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase or adoption</td><td>£50–£3,000+</td></tr>
+    <tr><td>Essential supplies</td><td>£200–£600</td></tr>
+    <tr><td>Vaccination series &amp; vet visits</td><td>£150–£300</td></tr>
+    <tr><td>Microchipping</td><td>£20–£40</td></tr>
+    <tr><td>Spay / neuter</td><td>£150–£400</td></tr>
+    <tr><td>Flea, tick &amp; worming prevention</td><td>£80–£200</td></tr>
+    <tr><td>Food &amp; treats</td><td>£300–£700</td></tr>
+    <tr><td>Training</td><td>£150–£600</td></tr>
+    <tr><td>Pet insurance (first year)</td><td>£200–£600</td></tr>
+    <tr><td><strong>First-year total</strong></td><td><strong>£1,300–£6,400</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>Purchase or Adoption: £50–£3,000</h2>
+<p>Your puppy's source dramatically affects this line. Shelter adoptions (£50–£300) usually bundle in initial vaccinations and neutering, making them the best value. Reputable breeders charge more (£800–£3,000+) but provide health guarantees and screened parents. Avoid puppy mills and suspiciously cheap puppies — the low price almost always masks expensive health problems that surface within months.</p>
 
 <h2>Essential Supplies: £200–£600</h2>
 <ul>
-  <li>Crate (sized for expected adult size): £40–£150</li>
+  <li>Crate sized for expected adult size (with a divider): £40–£150</li>
   <li>Bed, bedding, and blankets: £30–£80</li>
   <li>Food and water bowls: £15–£50</li>
-  <li>Collar, leash, ID tag, harness: £30–£80</li>
-  <li>Starter toy set: £30–£80</li>
-  <li>Enzyme cleaner for accidents: £15–£30</li>
+  <li>Collar, lead, ID tag, and harness: £30–£80</li>
+  <li>Starter toy and chew set: £30–£80</li>
+  <li>Enzyme cleaner for toilet-training accidents: £15–£30</li>
+  <li>Grooming basics (brush, puppy shampoo, nail clippers): £20–£60</li>
 </ul>
+<p>Buying a crate with a divider rather than multiple crates as your puppy grows is the easiest place to save here.</p>
 
-<h2>First-Year Veterinary Care: £400–£1,000</h2>
-<p>Puppies require a vaccination series (typically 3 visits at 8, 12, and 16 weeks: £150–£300 total), microchipping (£20–£40), flea/tick/worming prevention (£80–£200/year), and spay/neuter at 6–12 months (£150–£400). Unexpected illness or injury: budget an extra £150–£300.</p>
+<h2>Veterinary Care: £400–£1,000</h2>
+<p>Puppies need a vaccination series (typically three visits at 8, 12, and 16 weeks, £150–£300 total), microchipping (£20–£40), flea/tick/worming prevention (£80–£200/year), and spaying or neutering at 6–12 months (£150–£400). It's also wise to budget an extra £150–£300 for the unexpected — puppies eat things they shouldn't and pick up minor illnesses, and a single "what did you swallow" vet visit can wipe out a month's budget.</p>
 
-<h2>Food and Treats: £300–£700</h2>
-<p>Puppies require specialized, high-calorie diets to support rapid growth. Premium puppy kibble for a medium breed costs £30–£60 per month. Large breeds consume considerably more.</p>
+<h2>Food: £300–£700</h2>
+<p>Puppies need specialised, calorie-dense food to fuel rapid growth, and large breeds eat considerably more than small ones. Premium puppy kibble for a medium breed runs £30–£60 a month. Don't switch to cheap adult food early to save money — appropriate puppy nutrition in the first year genuinely affects long-term bone and joint development, especially in large breeds.</p>
 
-<h2>Training: £150–£600</h2>
-<p>Investing in training during the first year pays dividends for the dog's entire life. Puppy preschool (essential for socialisation): £80–£200 for a 5-week course. Basic obedience classes: £100–£300. Private consultations if behavioural issues arise: £60–£150/hour.</p>
+<h2>Training: £150–£600 — The Best Money You'll Spend</h2>
+<p>Investing in training during the first year pays dividends for the dog's entire life and prevents expensive problems later. Puppy preschool (essential for socialisation) costs £80–£200 for a five-week course; basic obedience classes £100–£300; and private sessions, if behavioural issues arise, £60–£150 an hour. A well-socialised, trained dog is cheaper to insure against liability, less likely to damage your home, and far less likely to need costly behavioural intervention as an adult.</p>
 
-<h2>Pet Insurance: £200–£600 (first year)</h2>
-<p>Securing insurance in the first year is critical — it ensures any conditions that develop later aren't classified as pre-existing and excluded from coverage. Start your policy within the first few weeks of ownership.</p>
+<h2>Pet Insurance: £200–£600</h2>
+<p>Securing insurance in the first year is critical: it ensures any conditions that develop later aren't classed as pre-existing and excluded. Start a lifetime policy within the first few weeks of ownership, while your puppy is healthy and nothing can be held against the record. This is the cheapest your puppy will ever be to insure with full coverage.</p>
+
+<h2>How to Keep First-Year Costs Down</h2>
+<ul>
+  <li><strong>Adopt</strong> where possible — the fee bundles in neutering and vaccinations.</li>
+  <li><strong>Buy adult-sized equipment once</strong> instead of replacing as the puppy grows.</li>
+  <li><strong>Choose group training over private sessions</strong> for socialisation at a fraction of the cost.</li>
+  <li><strong>Buy food and preventatives via subscription</strong> to cut 20–30% off recurring spend.</li>
+  <li><strong>Insure early</strong> rather than risk a large uninsured bill in year one.</li>
+  <li><strong>Don't economise on nutrition or vaccinations</strong> — both prevent far larger costs later.</li>
+</ul>
+<p>Use our <a href="/calculator">cost calculator</a> for a first-year estimate tailored to your puppy's breed and your location.</p>
     `,
   },
   {
@@ -1526,34 +1587,58 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 9,
     image: 'https://images.unsplash.com/photo-1602268867508-b058cb9c3e99?w=1100&q=80',
     keywords: ['senior pet care costs', 'old dog expenses', 'senior cat costs', 'aging pet budget'],
+    faqs: [
+      {"q":"How much more does a senior pet cost?","a":"Senior pets typically cost 2–3x more per year than in their healthy adult years — often $2,500–$6,000+ annually — due to more frequent vet visits, ongoing condition management, prescription diets, and mobility aids."},
+      {"q":"At what age is a pet considered senior?","a":"Dogs are generally senior at 7–10 years, with small breeds ageing more slowly than giant breeds. Cats reach senior status around 11 years. This is when monitoring should increase to twice-yearly check-ups."},
+      {"q":"What are the most expensive senior pet conditions?","a":"Cancer is the most expensive ($3,000–$15,000+), followed by kidney disease, heart disease, and diabetes (each $600–$2,500/year to manage). Arthritis and dental disease are more common and add $400–$1,200 a year."},
+      {"q":"How should I budget for my pet's senior years?","a":"If you have lifetime insurance taken out while your pet was young, the senior years are when it pays back. If uninsured, build a dedicated senior pet fund of £2,000–£5,000, starting with £30–£50/month during the adult years."}
+    ],
     content: `
+<h2>Senior Pet Care Costs: Quick Answer</h2>
+<p>Caring for a senior dog or cat typically costs <strong>2–3x more per year than their healthy adult years</strong> — often <strong>$2,500–$6,000+ annually (£2,000–£5,000+)</strong> once you add more frequent vet visits, ongoing condition management, prescription diets, and quality-of-life aids. The jump catches many owners off guard because it arrives gradually and then accelerates. Planning for it — through lifetime insurance taken out early or a dedicated savings buffer — is what keeps end-of-life care a medical decision rather than a financial one.</p>
+
 <h2>When Pets Become Senior</h2>
-<p>Dogs are typically considered senior at 7–10 years depending on size (smaller dogs age slower). Cats become senior around 11 years. This transition usually coincides with rising veterinary costs that can double or triple what you've spent in previous years.</p>
+<p>Dogs are generally considered senior at 7–10 years, with smaller breeds ageing more slowly than giant breeds (a Great Dane is senior years before a Chihuahua). Cats reach senior status around 11 years. This transition usually coincides with rising veterinary costs as age-related conditions begin to appear and routine monitoring intensifies.</p>
 
-<h2>Increased Veterinary Visits</h2>
-<p>Senior pets benefit from twice-yearly wellness examinations rather than annual check-ups. Each visit with blood panels and urinalysis typically costs £80–£200. Annual diagnostic costs for a senior pet run £160–£400 just for monitoring — before any treatment.</p>
+<h2>More Frequent Vet Visits</h2>
+<p>Senior pets benefit from twice-yearly wellness exams rather than annual check-ups, because catching problems early is both better for the animal and cheaper to treat. Each visit with blood panels and urinalysis typically costs £80–£200 ($100–$280). That's £160–£400 ($200–$560) a year in monitoring alone, before any treatment — but it's money well spent: early detection of kidney disease, diabetes, or a tumour can mean the difference between a manageable condition and a crisis.</p>
 
-<h2>Common Senior Pet Conditions and Costs</h2>
+<h2>Common Senior Conditions and Costs</h2>
 <table>
-  <thead><tr><th>Condition</th><th>Annual Management Cost</th></tr></thead>
+  <thead><tr><th>Condition</th><th>Annual management cost</th></tr></thead>
   <tbody>
     <tr><td>Arthritis (pain management)</td><td>£400–£1,200</td></tr>
     <tr><td>Dental disease</td><td>£300–£800 per cleaning</td></tr>
     <tr><td>Kidney disease (diet + fluids)</td><td>£600–£2,000</td></tr>
     <tr><td>Hyperthyroidism in cats</td><td>£300–£800</td></tr>
     <tr><td>Heart disease</td><td>£500–£2,500</td></tr>
-    <tr><td>Cancer (varied)</td><td>£3,000–£15,000+</td></tr>
+    <tr><td>Diabetes (insulin + monitoring)</td><td>£600–£1,500</td></tr>
+    <tr><td>Cancer (varies widely)</td><td>£3,000–£15,000+</td></tr>
   </tbody>
 </table>
+<p>Most senior pets develop at least one of these. Many develop two or three at once in their final years, which is how the annual figure climbs so steeply.</p>
 
 <h2>Prescription Diets</h2>
-<p>Many senior pets with kidney disease, arthritis, or diabetes require prescription diets costing 2–3x standard food prices. Budget an additional £200–£600/year if your pet is put on a therapeutic diet.</p>
+<p>Pets with kidney disease, arthritis, diabetes, or weight issues often need therapeutic prescription diets costing two to three times standard food prices. Budget an extra £200–£600 ($280–$840) a year if your pet is placed on one — and note that these diets are usually a permanent switch, not a short course.</p>
 
-<h2>Quality of Life Aids</h2>
-<p>Orthopaedic beds (£50–£200), ramps and steps (£30–£150), non-slip mats, and mobility harnesses (£30–£80) improve comfort for ageing pets. Physiotherapy or hydrotherapy sessions: £50–£80 each.</p>
+<h2>Quality-of-Life Aids</h2>
+<p>Comfort and mobility equipment is a real and recurring senior cost: orthopaedic beds (£50–£200), ramps and steps to get on furniture or into the car (£30–£150), non-slip mats for slippery floors, raised feeders, and mobility harnesses (£30–£80). Many older pets also benefit from physiotherapy or hydrotherapy at £50–£80 a session. None of these are dramatic individually, but together they add a few hundred pounds a year to the budget.</p>
 
-<h2>Financial Planning for Senior Pet Years</h2>
-<p>If you have lifetime pet insurance, this is when it pays back in full. If your pet is uninsured, establish a dedicated "senior pet fund" savings account, targeting £2,000–£5,000 as a buffer for the final years of your pet's life.</p>
+<h2>End-of-Life Costs: The Part No One Plans For</h2>
+<p>It's difficult to think about, but planning prevents added distress later. In-home or in-clinic euthanasia typically costs £100–£400 ($150–$500), and cremation £100–£350 ($150–$450) depending on whether you choose communal or individual return of ashes. Some owners also face difficult decisions about advanced treatment (chemotherapy, major surgery) for an elderly pet, where the choice is as much about quality of life as cost. Having a financial buffer in place means these decisions can be made on what's right for your pet, not on what you can afford in the moment.</p>
+
+<h2>Financial Planning for the Senior Years</h2>
+<p>If you have lifetime pet insurance taken out when your pet was young and healthy, the senior years are when it pays back in full — this is exactly the scenario it exists for. If your pet is uninsured (or has exclusions for pre-existing conditions), the alternative is a dedicated "senior pet fund": a separate savings account targeting £2,000–£5,000 ($3,000–$7,000) as a buffer for the final years. Start it early; even £30–£50 a month over the adult years builds a meaningful cushion by the time it's needed.</p>
+
+<h2>How to Manage Senior Pet Costs</h2>
+<ul>
+  <li><strong>Don't skip the twice-yearly senior check-ups</strong> — early detection is far cheaper than crisis treatment.</li>
+  <li><strong>Keep your pet lean and mobile</strong> — weight management dramatically reduces arthritis and metabolic-disease costs.</li>
+  <li><strong>Stay on top of dental care</strong> — untreated dental disease drives expensive secondary problems.</li>
+  <li><strong>Ask about generic or compounded medications</strong> for long-term prescriptions to cut ongoing costs.</li>
+  <li><strong>Use insurance or a dedicated fund</strong> rather than relying on credit when a big bill arrives.</li>
+</ul>
+<p>Estimate your pet's senior-year budget by location and breed with our <a href="/calculator">cost calculator</a>.</p>
     `,
   },
   {
@@ -1770,18 +1855,27 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 8,
     image: 'https://images.unsplash.com/photo-1675178898454-f92e52ec9226?w=1100&q=80',
     keywords: ['purebred vs mixed breed cost', 'purebred vs mutt', 'mixed breed health', 'purebred dog costs'],
+    faqs: [
+      {"q":"Is a purebred or mixed-breed dog cheaper?","a":"Mixed-breed dogs are almost always cheaper — about $8,000–$18,000 over a lifetime versus $14,000–$40,000+ for a purebred. They cost far less to acquire and, thanks to greater genetic diversity, tend to have lower inherited-disease vet costs."},
+      {"q":"Why are purebred dogs more expensive to own?","a":"Selective breeding concentrates breed-specific health conditions — airway surgery in flat-faced breeds, hip dysplasia in large breeds, heart disease in Cavaliers — which raises vet bills and insurance premiums 20–50% above mixed breeds, on top of a much higher purchase price."},
+      {"q":"Are designer crossbreeds like Cavapoos cheaper than purebreds?","a":"Usually not. Doodles and designer crossbreeds are often priced like purebreds (£1,500–£3,000+) and can inherit health problems from both parent breeds rather than escaping them. The genuine cost advantage is in adopting a true mixed-breed from a shelter."},
+      {"q":"Can a purebred ever cost less than a mixed-breed?","a":"Yes, indirectly. A health-tested purebred from a responsible breeder may cost less over its life than a cheap puppy from untested parents that later develops an expensive inherited condition. If you want a purebred, paying for health certificates is the cost-smart route."}
+    ],
     content: `
-<h2>Initial Purchase Costs</h2>
-<p><strong>Purebred:</strong> £800–£3,000 from reputable breeders, with popular breeds like French Bulldogs and Bernese Mountain Dogs reaching £3,000–£8,000. Show-quality purebreds can exceed £10,000.</p>
-<p><strong>Mixed Breed:</strong> Shelter adoption fees run £50–£300, typically including spaying/neutering, initial vaccinations, and microchipping — services worth £300–£500 in value.</p>
+<h2>Purebred vs Mixed Breed Costs: Quick Answer</h2>
+<p>A mixed-breed (mongrel/crossbreed) dog is almost always cheaper to own than a purebred — typically <strong>$8,000–$18,000 (£8,000–£18,000) over a lifetime versus $14,000–$40,000+ for a purebred</strong>. The gap comes from two places: purebreds cost far more to acquire, and selective breeding concentrates inherited health conditions that drive higher vet and insurance bills for life. But the picture isn't black and white — a health-tested purebred from a responsible breeder can end up cheaper than a bargain puppy from untested parents that later needs surgery.</p>
 
-<h2>Veterinary Costs and Health Issues</h2>
-<p><strong>Purebred Health Challenges:</strong> Selective breeding concentrates genetic health problems. Brachycephalic breeds need BOAS surgery (£2,000–£5,000). Large breeds frequently develop hip dysplasia requiring surgery (£3,000–£6,000 per hip). Cavaliers are prone to heart disease (£2,000–£10,000 in lifetime care). These breed-specific conditions create vet costs 20–50% higher than mixed breeds.</p>
-<p><strong>Mixed Breed Advantages:</strong> Genetic diversity typically produces healthier dogs. Studies show mixed breeds visit vets 30% less frequently for genetic health issues, with proportionally lower vet bills. However, they still develop age-related conditions at similar rates.</p>
+<h2>Initial Purchase Costs</h2>
+<p><strong>Purebred:</strong> £800–£3,000 ($1,000–$3,500) from reputable breeders, with in-demand breeds like French Bulldogs and Bernese Mountain Dogs reaching £3,000–£8,000. Show-quality purebreds can exceed £10,000.</p>
+<p><strong>Mixed breed:</strong> Shelter adoption fees run £50–£300 ($50–$500), and that fee typically already includes spaying/neutering, initial vaccinations, and microchipping — services worth £300–£500 if you paid for them separately. That makes adoption the single cheapest way to acquire a dog.</p>
+
+<h2>Veterinary Costs and Health</h2>
+<p><strong>Purebred health challenges:</strong> Selective breeding for appearance concentrates genetic problems within a breed. Brachycephalic (flat-faced) breeds often need BOAS airway surgery (£2,000–£5,000). Large breeds frequently develop hip and elbow dysplasia (£3,000–£6,000 per joint). Cavalier King Charles Spaniels are prone to heart disease (£2,000–£10,000 in lifetime care). These predictable, breed-specific conditions push purebred vet costs 20–50% higher than mixed breeds on average.</p>
+<p><strong>Mixed-breed advantage — "hybrid vigour":</strong> Greater genetic diversity tends to dilute recessive disease genes, so mixed breeds visit the vet less often for inherited conditions and carry proportionally lower bills. It's not a guarantee of health — mixed breeds still get age-related illness, injuries, and some can inherit problems from either parent — but on average the genetic-disease burden is lower.</p>
 
 <h2>Lifetime Cost Comparison</h2>
 <table>
-  <thead><tr><th>Category</th><th>Mixed Breed</th><th>Purebred (average)</th></tr></thead>
+  <thead><tr><th>Category</th><th>Mixed breed</th><th>Purebred (average)</th></tr></thead>
   <tbody>
     <tr><td>Acquisition</td><td>£50–£400</td><td>£800–£3,000+</td></tr>
     <tr><td>Annual vet costs</td><td>£300–£600</td><td>£400–£900</td></tr>
@@ -1791,8 +1885,23 @@ export const allBlogArticles: BlogArticle[] = [
   </tbody>
 </table>
 
-<h2>When Purebreds Make Sense</h2>
-<p>Buying from a health-tested breeder can reduce lifetime costs by eliminating the most expensive genetic conditions. A £2,000 health-tested Labrador from a responsible breeder may genuinely cost less than a £800 puppy from untested parents who later develops hip dysplasia.</p>
+<h2>Insurance: Why Purebreds Cost More to Cover</h2>
+<p>Insurers price premiums on risk, and they know exactly which conditions each breed is prone to. That's why a French Bulldog or a giant breed costs far more to insure than a mixed-breed of similar size — the actuarial likelihood of an expensive claim is higher. Some policies even apply breed-specific exclusions for known conditions. Whichever you choose, taking out lifetime cover while the dog is young and healthy is the most cost-effective move, because it locks in coverage before anything becomes a pre-existing exclusion.</p>
+
+<h2>The "Designer Crossbreed" Exception</h2>
+<p>Doodles and other designer crossbreeds (Cavapoos, Labradoodles, Cockapoos) blur the line. They're marketed as the best of both worlds, but they're often priced like purebreds — £1,500–£3,000+ — and can inherit health problems from <em>both</em> parent breeds rather than escaping them. A Cavapoo can inherit Cavalier heart disease and Poodle eye conditions. So a "crossbreed" label doesn't automatically deliver the mixed-breed cost advantage; the genuine savings are in adopting a true mixed-breed of unknown ancestry from a shelter.</p>
+
+<h2>When a Purebred Makes Financial Sense</h2>
+<p>Buying from a health-tested breeder can actually lower lifetime costs by screening out the most expensive inherited conditions. A £2,000 Labrador whose parents have certified hip, elbow, and eye clearances may genuinely cost less over its life than an £800 puppy from untested parents that develops hip dysplasia at age four. Predictability is also worth something: with a purebred you know the likely adult size, temperament, grooming needs, and health risks in advance, which makes budgeting more accurate. If you want a specific breed, the cost-smart route is to pay for the health testing — not to find the cheapest puppy.</p>
+
+<h2>How to Reduce Costs Either Way</h2>
+<ul>
+  <li><strong>Adopt if budget is the priority</strong> — a shelter mixed-breed is the lowest-cost acquisition by far.</li>
+  <li><strong>If buying purebred, demand the health certificates</strong> for that breed's known conditions — it's the cheapest insurance against future surgery.</li>
+  <li><strong>Insure early</strong> regardless of type, before anything becomes pre-existing.</li>
+  <li><strong>Keep any dog lean</strong> — obesity multiplies the cost of joint and metabolic disease in both purebreds and mixes.</li>
+</ul>
+<p>Run your specific breed (or "mixed breed") through our <a href="/calculator">cost calculator</a> to see a realistic lifetime estimate for your situation.</p>
     `,
   },
   {
@@ -1847,34 +1956,63 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 7,
     image: 'https://images.unsplash.com/photo-1574760112346-8443c3773437?w=1100&q=80',
     keywords: ['puppy vs adult dog cost', 'adopting adult dog', 'puppy expenses vs rescue', 'should I get a puppy or adult dog'],
+    faqs: [
+      {"q":"Is it cheaper to get a puppy or an adult dog?","a":"An adopted adult dog is much cheaper in year one — about £500–£1,550 versus £1,750–£5,900 for a puppy, a difference of roughly $2,500. The adoption fee usually bundles in neutering and vaccinations, and you avoid puppy equipment, heavy training, and property damage."},
+      {"q":"Why does a puppy cost so much more in the first year?","a":"Puppies carry a higher purchase price, need the full vaccination series and neutering, require equipment that gets sized up as they grow, need more training, and cause more property damage during the chewing and toilet-training phase. Most of the cost gap is front-loaded into year one."},
+      {"q":"Do puppy and adult dog costs even out over time?","a":"Largely yes. After the first year, a puppy and an adopted adult of the same size and health cost about the same to run. The main exception is adopting a senior dog, which brings you into the higher-vet-cost senior years sooner."},
+      {"q":"What is the cheapest way to get a dog?","a":"Adopting a young adult dog (2–5 years) from a shelter is usually the financial sweet spot: a low adoption fee that includes neutering and vaccinations, past the expensive puppy phase, with many healthy low-cost years ahead."}
+    ],
     content: `
-<h2>The Cost Comparison</h2>
-<p>The financial case for adopting an adult dog over a puppy is compelling — but it's not the whole story. Here's an honest breakdown of both options.</p>
+<h2>Puppy vs Adult Dog Cost: Quick Answer</h2>
+<p>A puppy costs <strong>roughly $2,500 more than an adult rescue dog in the first year alone</strong> — typically <strong>£1,750–£5,900 ($2,500–$7,000) for a puppy</strong> versus <strong>£500–£1,550 ($700–$2,200) for an adopted adult</strong>. The savings come from the adoption fee bundling in spay/neuter and vaccinations, no need to buy and re-buy puppy equipment, less training, and far less property damage. But the cheaper option isn't automatically the right one — an adult rescue can carry unknown health history, and a puppy lets you shape temperament from the start. Here's the honest breakdown.</p>
 
 <h2>First-Year Costs: Puppy vs Adult</h2>
 <table>
-  <thead><tr><th>Expense</th><th>Puppy (year 1)</th><th>Adult Dog Rescue (year 1)</th></tr></thead>
+  <thead><tr><th>Expense</th><th>Puppy (year 1)</th><th>Adult dog rescue (year 1)</th></tr></thead>
   <tbody>
     <tr><td>Acquisition cost</td><td>£800–£3,000</td><td>£150–£450 (incl. spay/neuter, vax)</td></tr>
     <tr><td>Vaccination series</td><td>£150–£300</td><td>£50–£100 (boosters only)</td></tr>
-    <tr><td>Spay/Neuter</td><td>£150–£400</td><td>Usually included in adoption fee</td></tr>
+    <tr><td>Spay / neuter</td><td>£150–£400</td><td>Usually included in adoption fee</td></tr>
     <tr><td>Equipment and supplies</td><td>£250–£600</td><td>£150–£400 (no need to size up)</td></tr>
     <tr><td>Training</td><td>£200–£600</td><td>£100–£400 (less required)</td></tr>
     <tr><td>Property damage</td><td>£200–£1,000</td><td>£50–£200 (mostly past chewing phase)</td></tr>
-    <tr><td><strong>First-Year Total</strong></td><td><strong>£1,750–£5,900</strong></td><td><strong>£500–£1,550</strong></td></tr>
+    <tr><td><strong>First-year total</strong></td><td><strong>£1,750–£5,900</strong></td><td><strong>£500–£1,550</strong></td></tr>
   </tbody>
 </table>
 
 <h2>The Hidden Financial Advantages of Adult Dogs</h2>
 <ul>
-  <li><strong>No puppy equipment duplication:</strong> Puppies need crates sized up multiple times, collars replaced as they grow.</li>
-  <li><strong>Known temperament:</strong> Rescues can match you with a dog whose personality is well-understood, reducing training costs and failed placements.</li>
-  <li><strong>Often house-trained:</strong> Eliminates cleaning product costs and property damage from accidents.</li>
-  <li><strong>Lower insurance premiums initially:</strong> Young adult dogs in their 2–6 year range often have lower premiums than puppies in their first year (which carry higher illness risk).</li>
+  <li><strong>No equipment duplication.</strong> Puppies outgrow crates, collars, and harnesses, so you buy each item two or three times. An adult is full-sized — buy once.</li>
+  <li><strong>Known temperament.</strong> A good rescue matches you with a dog whose personality is already understood, reducing the risk of an expensive mismatch or failed placement.</li>
+  <li><strong>Often house-trained.</strong> That eliminates cleaning costs and the property damage that comes with toilet-training a puppy.</li>
+  <li><strong>Lower behavioural-training spend.</strong> Adults are usually past the destructive chewing and constant-supervision phase.</li>
+  <li><strong>Bundled veterinary value.</strong> Most adoption fees already cover neutering, microchipping, and vaccinations — hundreds of pounds of care folded into a small fee.</li>
 </ul>
 
 <h2>Where Puppies Have an Edge</h2>
-<p>A puppy purchased from a health-tested breeder has a known health history and no pre-existing conditions. An adult rescue dog may have unknown background health issues that emerge after adoption. Budget a £500–£1,500 buffer for any health surprises in the first year with a rescue adult.</p>
+<p>A puppy from a health-tested breeder comes with a known health history and no pre-existing conditions, which can make insurance cleaner and cheaper to start. You also shape socialisation and training from day one, which matters a lot for some households (young children, other pets, specific working roles). The trade-off is cost and time: the first year is expensive and labour-intensive. With an adult rescue, budget a £500–£1,500 ($700–$2,000) buffer for any background health issues that surface after adoption — it's the main financial unknown with an older dog.</p>
+
+<h2>Beyond Year One: Do the Costs Converge?</h2>
+<p>Largely, yes. After the first year, a puppy and an adopted adult of the same size and health cost roughly the same to run — food, insurance, routine vet care, and supplies don't care how you acquired the dog. The big divergence is almost entirely front-loaded into year one. The exception is age-related cost: adopting a <em>senior</em> dog (8+) means stepping into the higher-vet-cost years sooner, which is worth factoring in. Adopting a young adult (2–5 years) is often the financial sweet spot — past the expensive puppy phase, but with many low-cost healthy years ahead.</p>
+
+<h2>The Lifetime Picture</h2>
+<table>
+  <thead><tr><th>Route</th><th>First-year cost</th><th>Main financial risk</th></tr></thead>
+  <tbody>
+    <tr><td>Puppy from breeder</td><td>£1,750–£5,900</td><td>High upfront; chewing/training/property damage</td></tr>
+    <tr><td>Young adult rescue (2–5 yrs)</td><td>£500–£1,550</td><td>Possible unknown health history</td></tr>
+    <tr><td>Senior rescue (8+ yrs)</td><td>£400–£1,200</td><td>Earlier entry into high-vet-cost senior years</td></tr>
+  </tbody>
+</table>
+
+<h2>How to Keep First-Year Costs Down</h2>
+<ul>
+  <li><strong>Adopt a young adult</strong> for the biggest first-year saving with the most healthy years ahead.</li>
+  <li><strong>Buy adult-sized equipment once</strong> rather than sizing up — even for a puppy, buy a crate with a divider instead of multiple crates.</li>
+  <li><strong>Invest in early group training</strong> (cheaper than private sessions) to prevent costly behavioural problems later.</li>
+  <li><strong>Insure from week one</strong> so nothing becomes a pre-existing exclusion.</li>
+</ul>
+<p>Use our <a href="/calculator">cost calculator</a> to compare a puppy versus an adult of your chosen breed based on your location.</p>
     `,
   },
   {
@@ -1888,13 +2026,22 @@ export const allBlogArticles: BlogArticle[] = [
     readTime: 8,
     image: 'https://images.unsplash.com/photo-1563889362352-b0492c224f62?w=1100&q=80',
     keywords: ['pet costs by city', 'vet fees by location', 'dog ownership cost UK vs US', 'city pet expenses'],
+    faqs: [
+      {"q":"How much does location change the cost of owning a pet?","a":"Location can change annual pet costs by 30–100%. A dog that costs about $1,400/year in a low-cost rural area can cost $2,800+ in a high-cost city like New York, San Francisco, or central London. Veterinary care, grooming, boarding, and dog walking drive the difference; food and supplies barely vary."},
+      {"q":"Where is it cheapest to own a pet?","a":"Rural areas and smaller regional towns are cheapest, often 10–20% below the national average for vet care and services. Major metros (NYC, SF, LA, central London) are the most expensive, at 1.5–2x the cost of rural areas for the same services."},
+      {"q":"Does pet food cost more in expensive cities?","a":"Not really. Premium pet food is broadly consistent in price across regions — typically within 15–20% — and online retailers like Chewy and Amazon have flattened geographic differences. The big location-driven costs are services priced on local rent and wages, not food."},
+      {"q":"How do I budget for pet costs in my city?","a":"Start from a national average and apply a regional multiplier: roughly 1.5–2x for high-cost metros, 1.0x for average areas, and 0.8–0.9x for rural areas. Our calculator applies these multipliers automatically based on your location."}
+    ],
     content: `
+<h2>How Much Does Location Change Pet Costs? Quick Answer</h2>
+<p>Where you live can swing the cost of owning a pet by <strong>30–100%</strong>. The same dog that costs around <strong>$1,400/year</strong> in a low-cost rural area can cost <strong>$2,800/year or more</strong> in New York, San Francisco, or central London. The driver isn't food — that's broadly consistent everywhere — it's the services priced on local wages and rent: veterinary care, grooming, boarding, dog walking, and daycare. This guide shows exactly how much your city changes the number, and how to budget for it.</p>
+
 <h2>Why Location Dramatically Affects Pet Costs</h2>
-<p>Commercial rents, staff wages, and cost of living all feed directly into veterinary and grooming prices. A routine consultation in central London or Manhattan can cost 2–3x the same service in a rural area or regional town.</p>
+<p>Commercial rents, staff wages, and the local cost of living feed directly into the price of every service your pet needs. A veterinary practice in Manhattan or central London pays many times the rent and salaries of a rural clinic, and those overheads are built into every consultation, vaccination, and surgery. The same is true of groomers, boarding kennels, and dog walkers. A routine vet consultation in a major metro can cost two to three times the same service in a regional town — and for big-ticket items like surgery, the absolute difference runs into thousands.</p>
 
 <h2>Veterinary Cost Multipliers by Region</h2>
 <table>
-  <thead><tr><th>Location</th><th>Cost Multiplier vs UK Average</th></tr></thead>
+  <thead><tr><th>Location</th><th>Cost multiplier vs UK average</th></tr></thead>
   <tbody>
     <tr><td>Central London</td><td>1.4–1.8x</td></tr>
     <tr><td>UK major cities (Manchester, Birmingham)</td><td>1.1–1.3x</td></tr>
@@ -1905,22 +2052,44 @@ export const allBlogArticles: BlogArticle[] = [
     <tr><td>Sydney / Melbourne</td><td>1.1–1.4x UK average</td></tr>
   </tbody>
 </table>
+<p>These multipliers compound across every service, which is why a small percentage difference per visit becomes a large annual gap once you add up vet care, grooming, boarding, and walking across a full year.</p>
 
-<h2>Specific Cost Examples: Same Procedure, Different Cities</h2>
+<h2>Same Procedure, Different City: Real Examples</h2>
 <p><strong>Dog neuter surgery (medium male dog):</strong></p>
 <ul>
   <li>Rural England: £150–£250</li>
   <li>Manchester: £200–£350</li>
   <li>Central London: £350–£600</li>
-  <li>New York City: £400–£700</li>
+  <li>New York City: $400–$900 (£400–£700)</li>
   <li>Sydney: £300–£500</li>
 </ul>
+<p><strong>Emergency vet exam fee (after-hours):</strong> $75–$120 in a small US town versus $200–$300 in a major US metro. <strong>Full-time doggy daycare</strong> ranges from roughly $15–$25/day in lower-cost regions to $40–$60/day in big cities — a difference of thousands of dollars a year for working owners.</p>
 
-<h2>Food Costs: Less Variable Than You Think</h2>
-<p>Premium pet food is broadly consistent in price across most developed regions, typically within 15–20% of the median price. Online retailers (Zooplus, Chewy, Amazon) have further reduced geographic food cost differences.</p>
+<h2>US Costs by City Tier</h2>
+<table>
+  <thead><tr><th>City tier</th><th>Typical annual cost, medium dog</th></tr></thead>
+  <tbody>
+    <tr><td>High-cost metro (NYC, SF, LA, Boston, Seattle)</td><td>$2,500–$4,500</td></tr>
+    <tr><td>Mid-size city (Austin, Denver, Chicago suburbs)</td><td>$1,900–$3,200</td></tr>
+    <tr><td>Small town / rural</td><td>$1,300–$2,400</td></tr>
+  </tbody>
+</table>
+<p>The single biggest swing item in expensive cities is paid pet services — walking and daycare — followed by veterinary care and grooming. If you work from home and don't need daycare, a high-cost city's premium shrinks considerably.</p>
+
+<h2>What Doesn't Change Much: Food and Supplies</h2>
+<p>Premium pet food is broadly consistent in price across developed regions, typically within 15–20% of the median, and online retailers (Chewy, Amazon, Zooplus) have flattened geographic differences even further. The same goes for toys, beds, and equipment, which are mostly bought online at national prices. So when you're estimating how your location changes costs, focus on the services — food and supplies are roughly the same wherever you live.</p>
+
+<h2>How to Reduce Location-Driven Costs</h2>
+<ul>
+  <li><strong>Compare clinics within your city.</strong> Prices vary widely even within one metro — a practice a few miles out from the centre can be 20–40% cheaper than a downtown clinic.</li>
+  <li><strong>Use a vet school or non-profit clinic</strong> where available — often 30–50% below private rates for routine care and surgery.</li>
+  <li><strong>Buy food and preventatives online</strong> at national prices rather than from a city-centre store.</li>
+  <li><strong>Cut the biggest metro premium — daycare/walking —</strong> with a neighbour share, a local sitter, or a midday visit instead of full daycare.</li>
+  <li><strong>Keep insurance, but shop it:</strong> premiums are location-rated, so it's worth comparing providers when you move.</li>
+</ul>
 
 <h2>Using Location Data in Your Budget</h2>
-<p>Our calculator adjusts all cost estimates based on your selected location, applying region-specific multipliers to vet costs, grooming, and boarding. This ensures your estimate reflects real costs in your area rather than a national average that may significantly understate or overstate your likely expenses.</p>
+<p>National averages can significantly understate or overstate your real costs depending on where you live. Our <a href="/calculator">cost calculator</a> applies region-specific multipliers to vet care, grooming, and boarding so your estimate reflects your actual area, not a one-size-fits-all figure. If you're weighing a move or comparing two cities, running both through the calculator shows the real annual difference for your specific breed and lifestyle.</p>
     `,
   },
   // ── Holiday Articles ─────────────────────────────────────────────────────

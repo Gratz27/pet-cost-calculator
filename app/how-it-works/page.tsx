@@ -39,11 +39,25 @@ const faqs = [
   { q: "Does it cost anything?", a: "No. The calculator and all tools on PetCost-Calculator are completely free to use with no signup required." },
   { q: "What locations are supported?", a: "We support all US cities and regions, the United Kingdom, Australia, Canada, Singapore, and Western Europe. Enter your nearest major city for the most accurate results." },
   { q: "How often is the data updated?", a: "Food and supply prices are updated monthly. Vet and grooming costs are reviewed quarterly. Insurance premiums are reviewed annually." },
+  { q: "Do I need to create an account?", a: "No. There is no sign-up, login, or personal information required. You can run the calculator as many times as you like, completely anonymously." },
+  { q: "Can I use it to compare two breeds before deciding?", a: "Yes. Run the calculator once for each breed you are considering, or use our comparison pages for a side-by-side cost breakdown. Seeing the difference in lifetime cost is one of the most useful ways to choose a breed that fits your budget." },
+  { q: "Does it work for both puppies/kittens and adult pets?", a: "Yes. The report separates first-year costs (which are higher for a young pet that needs vaccinations, neutering, and setup) from steady annual costs, so it is useful whether you are getting a puppy, a kitten, or adopting an adult." },
 ];
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map(({ q, a }) => ({
+    "@type": "Question",
+    name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+};
 
 export default function HowItWorksPage() {
   return (
     <div className="bg-[#F1F8F1] min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       {/* Hero — green palette */}
       <div className="bg-gradient-to-br from-[#1B5E20] via-[#2E7D32] to-[#388E3C] text-white py-16 md:py-20">
         <div className="container-xl max-w-3xl text-center">
@@ -97,6 +111,44 @@ export default function HowItWorksPage() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Why personalised */}
+        <div className="mt-10 card p-8">
+          <h2 className="text-xl font-bold text-[#1B2B1B] mb-4">Why a Personalised Estimate Beats a National Average</h2>
+          <p className="text-[#5a7a5a] leading-relaxed">
+            Most &quot;cost of owning a pet&quot; figures you&apos;ll find online are a single national average —
+            one number meant to cover a Chihuahua and a Great Dane, a city apartment and a rural farm. In
+            reality, the cost of a pet is driven by factors that average hides completely: the breed&apos;s size
+            and health risks, your location, whether you insure, how you feed and groom, and whether you need
+            paid walking or boarding. By asking a few quick questions, the calculator replaces a vague average
+            with a figure that actually reflects your situation — which is what you need to budget responsibly.
+          </p>
+        </div>
+
+        {/* Understanding results */}
+        <div className="mt-6 card p-8">
+          <h2 className="text-xl font-bold text-[#1B2B1B] mb-4">Understanding Your Results: First-Year vs Annual vs Lifetime</h2>
+          <p className="text-[#5a7a5a] leading-relaxed mb-3">
+            Your report separates costs into three views, because each answers a different question:
+          </p>
+          <ul className="text-[#5a7a5a] leading-relaxed space-y-2 list-disc pl-5">
+            <li><strong className="text-[#1B2B1B]">First-year cost</strong> answers &quot;how much do I need up front?&quot; — the purchase or adoption price plus setup, vaccinations, and neutering. It&apos;s almost always the most expensive year.</li>
+            <li><strong className="text-[#1B2B1B]">Annual ongoing cost</strong> answers &quot;what does this add to my monthly budget?&quot; — the steady year-2-onward spend on food, insurance, routine vet care, and grooming.</li>
+            <li><strong className="text-[#1B2B1B]">Lifetime total</strong> answers &quot;what am I really committing to?&quot; — the full cost across the breed&apos;s typical lifespan, including the more expensive senior years.</li>
+          </ul>
+        </div>
+
+        {/* Who it's for */}
+        <div className="mt-6 card p-8">
+          <h2 className="text-xl font-bold text-[#1B2B1B] mb-4">Who Should Use This Calculator</h2>
+          <p className="text-[#5a7a5a] leading-relaxed">
+            It&apos;s built for anyone weighing up a pet decision: first-time owners checking whether they can
+            realistically afford a dog or cat, families comparing two breeds to find one that fits their budget,
+            and current owners planning ahead for insurance, senior care, or a move to a new city. Because it
+            takes under two minutes and requires no sign-up, it&apos;s also a quick sanity check before you fall
+            in love with a particular breed at the breeder or shelter — far better to know the numbers first.
+          </p>
         </div>
 
         {/* FAQs */}
