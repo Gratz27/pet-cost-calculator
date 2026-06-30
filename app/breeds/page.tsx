@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { getAllBreeds } from "@/lib/calculator";
+import { getAllBreeds, getBreedFirstYearTotal, getBreedAnnualTotal } from "@/lib/calculator";
 import { formatCurrency } from "@/lib/utils";
 import BreedImage from "@/components/BreedImage";
 
@@ -50,8 +50,8 @@ export default async function BreedsPage({ searchParams: searchParamsPromise }: 
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {breeds.map((breed) => {
-            const firstYearEst = breed.adoptionFee + breed.initialVet + breed.initialSupplies + breed.annualFood + breed.annualVet + breed.annualGrooming;
-            const annualEst = breed.annualFood + breed.annualVet + breed.annualGrooming + breed.annualInsurance + breed.annualSupplies;
+            const firstYearEst = getBreedFirstYearTotal(breed);
+            const annualEst = getBreedAnnualTotal(breed);
             return (
               <Link key={breed.id} href={`/breeds/${breed.id}`} className="card overflow-hidden group hover:border-[#4CAF50]/50">
                 <div className="relative h-52 bg-[#E8F5E9] overflow-hidden">

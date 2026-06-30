@@ -3075,6 +3075,190 @@ Solid budget options that meet all nutritional requirements without the premium 
 <p>The costs above cover a broad range of breeds and situations. For a personalised breakdown based on your specific breed, location, and lifestyle — use our free pet cost calculator. It covers first-year costs, monthly budget, and lifetime projection for 80+ cat breeds.</p>
 `,
   },
+  {
+    id: 'dog-cost-australia-2026',
+    slug: 'how-much-does-a-dog-cost-australia',
+    title: 'How Much Does a Dog Cost in Australia? 2026 Complete Guide (AUD)',
+    description: 'Australian dog ownership costs explained — purchase prices, annual expenses, vet bills, and city-by-city differences. Full 2026 breakdown in AUD for popular breeds.',
+    category: 'dogs',
+    author: 'PetCost-Calculator Team',
+    publishDate: '2026-07-01',
+    readTime: 10,
+    image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=1100&q=80',
+    keywords: [
+      'how much does a dog cost australia',
+      'dog cost australia',
+      'dog ownership cost australia',
+      'how much does it cost to own a dog australia',
+      'dog price australia 2026',
+      'annual dog cost australia',
+      'dog expenses australia',
+    ],
+    faqs: [
+      {
+        q: 'How much does a dog cost in Australia?',
+        a: 'Buying a puppy from a registered Australian breeder typically costs $2,000–$6,000 AUD depending on breed. RSPCA or shelter adoption runs $200–$500 AUD and usually includes desexing, microchipping, and initial vaccinations. Annual ongoing costs average $3,000–$6,500 AUD/year depending on breed size and your city.',
+      },
+      {
+        q: 'What is the cheapest dog to own in Australia?',
+        a: 'Small low-maintenance breeds cost the least. Australian Kelpies, Border Collies, and Staffy crosses from shelters combine a low purchase price ($200–$500 RSPCA adoption) with modest food and grooming costs. Expect $2,500–$3,800 AUD/year in ongoing costs for a small to medium low-grooming breed.',
+      },
+      {
+        q: 'Is dog ownership more expensive in Sydney or Melbourne?',
+        a: 'Sydney is generally 10–20% more expensive for vet care and dog services than the national average. Melbourne is comparable to Sydney. Brisbane and Adelaide typically run 5–10% below Sydney. Perth can be higher for certain services due to supply chain costs.',
+      },
+      {
+        q: 'Do I need to register my dog in Australia?',
+        a: 'Yes. All states and territories in Australia require dogs to be registered with the local council. Registration costs $50–$200 AUD per year depending on your council, with discounts for desexed animals and pensioners. You also need to microchip your dog — this is a legal requirement in all states.',
+      },
+      {
+        q: 'How much is pet insurance for a dog in Australia?',
+        a: 'Pet insurance in Australia typically costs $600–$2,000+ AUD per year depending on breed, age, and the level of cover. Large or brachycephalic breeds (like French Bulldogs) attract higher premiums. Comprehensive policies covering accidents, illness, and dental care cost more than accident-only cover.',
+      },
+    ],
+    content: `
+<h2>How Much Does a Dog Cost in Australia? Quick Answer</h2>
+<p>Bringing a dog into your Australian household is one of the most rewarding decisions you can make — but it comes with real costs that many new owners underestimate. A puppy from a registered Australian breeder typically costs <strong>$2,000–$6,000 AUD</strong> upfront, or <strong>$200–$500 AUD</strong> to adopt from the RSPCA or a shelter (usually including desexing and vaccinations). Beyond the purchase price, plan on <strong>$3,000–$6,500 AUD per year</strong> for food, vet care, insurance, and everyday supplies — more in Sydney or Melbourne, and for breeds with high grooming or health needs.</p>
+
+<p>Over a dog's 10–15 year lifespan, total ownership costs in Australia typically land between <strong>$30,000 and $80,000 AUD</strong>, making this one of the most significant financial commitments a household can make. This guide breaks down every cost category so you can budget accurately before you commit.</p>
+
+<h2>Purchase Prices in Australia (2026)</h2>
+<p>Dog prices vary enormously by breed, breeder reputation, and whether you're buying or adopting. Registered breeders with Dogs Australia (formerly ANKC) membership are the safest choice for a purebred puppy — they health-test breeding stock and follow responsible breeding practices.</p>
+
+<table>
+  <thead><tr><th>Source</th><th>Typical Price (AUD)</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>RSPCA / council shelter adoption</td><td>$200 – $500</td><td>Includes desexing, microchip, and often initial vaccinations</td></tr>
+    <tr><td>Breed-specific rescue</td><td>$300 – $600</td><td>Dogs carefully assessed and often foster-home trained</td></tr>
+    <tr><td>Registered breeder (small breed)</td><td>$2,000 – $4,500</td><td>E.g. Cavoodle, French Bulldog, Maltese, Pug</td></tr>
+    <tr><td>Registered breeder (medium breed)</td><td>$2,500 – $5,000</td><td>E.g. Labrador, Border Collie, Beagle, Cocker Spaniel</td></tr>
+    <tr><td>Registered breeder (large breed)</td><td>$3,000 – $6,500</td><td>E.g. Golden Retriever, German Shepherd, Bernese Mountain Dog</td></tr>
+    <tr><td>High-demand or designer breeds</td><td>$4,000 – $12,000+</td><td>French Bulldog, Cavoodle, Toy Cavoodle from premium breeders</td></tr>
+  </tbody>
+</table>
+
+<p><strong>Avoid backyard breeders and pet shops.</strong> Dogs sourced from unregulated breeders frequently have undisclosed genetic conditions that generate significant vet bills later. In Australia, the RSPCA and state governments strongly discourage buying from pet shops, as many source from puppy farms. Use the Dogs Australia breed club directory or PetRescue.com.au to find ethical sources.</p>
+
+<h2>Most Popular Dog Breeds in Australia and Their Costs</h2>
+<p>According to Animal Medicines Australia, the most popular dog breeds owned by Australians are Labrador Retrievers, Golden Retrievers, French Bulldogs, and Cavoodles — with Staffordshire Bull Terriers (Staffies) the most common in rescue populations. Here's how their costs compare:</p>
+
+<table>
+  <thead><tr><th>Breed</th><th>Purchase Price</th><th>Annual Cost (AUD)</th><th>Lifetime (AUD)</th></tr></thead>
+  <tbody>
+    <tr><td>Labrador Retriever</td><td>$2,500 – $4,500</td><td>$4,200 – $5,500</td><td>$48,000 – $68,000</td></tr>
+    <tr><td>Golden Retriever</td><td>$3,000 – $5,500</td><td>$4,500 – $6,000</td><td>$52,000 – $74,000</td></tr>
+    <tr><td>French Bulldog</td><td>$4,000 – $10,000+</td><td>$4,000 – $7,000</td><td>$48,000 – $90,000</td></tr>
+    <tr><td>Cavoodle</td><td>$3,500 – $8,000</td><td>$3,500 – $5,500</td><td>$42,000 – $68,000</td></tr>
+    <tr><td>Staffordshire Bull Terrier</td><td>$500 – $2,000</td><td>$3,200 – $4,800</td><td>$36,000 – $58,000</td></tr>
+    <tr><td>German Shepherd</td><td>$2,500 – $5,000</td><td>$4,500 – $6,500</td><td>$50,000 – $78,000</td></tr>
+    <tr><td>Australian Kelpie</td><td>$500 – $2,500</td><td>$2,800 – $4,500</td><td>$34,000 – $58,000</td></tr>
+    <tr><td>Border Collie</td><td>$1,500 – $4,000</td><td>$3,500 – $5,500</td><td>$42,000 – $70,000</td></tr>
+  </tbody>
+</table>
+
+<h2>First-Year Costs in Australia</h2>
+<p>The first year is always the most expensive — you're paying the purchase price plus one-off setup costs plus a full year of ongoing expenses. Here's a realistic budget for a medium-sized dog in Australia:</p>
+
+<table>
+  <thead><tr><th>Expense</th><th>Estimated Cost (AUD)</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td>Purchase / adoption fee</td><td>$300 – $5,500</td><td>Wide range depending on source and breed</td></tr>
+    <tr><td>Desexing (if not included)</td><td>$250 – $600</td><td>Required by most councils; cheaper at RSPCA clinics</td></tr>
+    <tr><td>Microchipping (if not included)</td><td>$50 – $100</td><td>Legally required in all Australian states and territories</td></tr>
+    <tr><td>Council registration</td><td>$50 – $200</td><td>Annual; discounted for desexed animals and pensioners</td></tr>
+    <tr><td>Puppy vaccinations (C3 or C5)</td><td>$150 – $350</td><td>Initial series at 6–8 weeks, 10–12 weeks, 14–16 weeks</td></tr>
+    <tr><td>Starter supplies</td><td>$400 – $900</td><td>Crate, bed, bowls, collar, lead, toys, training treats</td></tr>
+    <tr><td>Puppy training classes</td><td>$200 – $600</td><td>Group classes; strongly recommended for socialisation</td></tr>
+    <tr><td>First-year food</td><td>$800 – $2,000</td><td>Varies significantly by breed size</td></tr>
+    <tr><td>Routine vet care (year 1)</td><td>$400 – $800</td><td>Vaccinations, parasite prevention, puppy health checks</td></tr>
+    <tr><td>Grooming (year 1)</td><td>$200 – $1,200</td><td>Depends on breed — poodle crosses need professional grooming every 6–8 weeks</td></tr>
+    <tr><td>Pet insurance</td><td>$600 – $1,500</td><td>Higher for brachycephalic or large breeds</td></tr>
+    <tr><td><strong>First-year total (medium breed, mid-range)</strong></td><td><strong>$5,500 – $9,500</strong></td><td>Including purchase price from registered breeder</td></tr>
+  </tbody>
+</table>
+
+<h2>Annual Ongoing Costs in Australia (Year 2+)</h2>
+<p>Once past the first year, your main recurring expenses are food, vet care, insurance, and grooming. Council registration renews annually. Here's what to budget:</p>
+
+<table>
+  <thead><tr><th>Annual Expense</th><th>Small Breed</th><th>Medium Breed</th><th>Large Breed</th></tr></thead>
+  <tbody>
+    <tr><td>Food (quality dry/wet mix)</td><td>$600 – $1,000</td><td>$900 – $1,800</td><td>$1,400 – $2,600</td></tr>
+    <tr><td>Routine vet care</td><td>$400 – $700</td><td>$500 – $900</td><td>$700 – $1,200</td></tr>
+    <tr><td>Pet insurance</td><td>$600 – $1,000</td><td>$700 – $1,400</td><td>$900 – $2,000</td></tr>
+    <tr><td>Grooming</td><td>$300 – $1,200</td><td>$400 – $1,500</td><td>$500 – $2,000</td></tr>
+    <tr><td>Council registration</td><td>$50 – $200</td><td>$50 – $200</td><td>$50 – $200</td></tr>
+    <tr><td>Parasite prevention</td><td>$150 – $250</td><td>$200 – $350</td><td>$300 – $500</td></tr>
+    <tr><td>Toys, treats, supplies</td><td>$200 – $400</td><td>$250 – $500</td><td>$300 – $600</td></tr>
+    <tr><td><strong>Annual total (year 2+)</strong></td><td><strong>$2,300 – $4,750</strong></td><td><strong>$3,000 – $6,650</strong></td><td><strong>$4,150 – $9,100</strong></td></tr>
+  </tbody>
+</table>
+
+<h2>Australian-Specific Costs You Need to Know</h2>
+
+<h3>Council Registration</h3>
+<p>Every dog in Australia must be registered with the local council — this is a legal requirement nationwide. Annual registration fees range from $50 to $200 AUD depending on your council and whether your dog is desexed. Desexed dogs typically pay 30–50% less. Many councils offer pensioner concessions. Failing to register your dog can result in fines of $200–$500+. Check your specific council's website for current rates — they vary significantly even within the same state.</p>
+
+<h3>Parasite Prevention: A Year-Round Commitment</h3>
+<p>Australia's warm climate means parasite prevention is more intensive than in cooler countries. Heartworm is endemic to much of Australia and requires either monthly preventatives or an annual injection from your vet. Paralysis ticks (present in coastal areas of eastern Australia) are potentially fatal and require regular tick prevention products. Budget $200–$500 AUD/year for a comprehensive heartworm, flea, tick, and intestinal worm prevention programme.</p>
+
+<h3>Heat-Related Vet Costs</h3>
+<p>Australia's extreme summer heat (especially in inland and western regions) creates a genuine health risk for dogs, particularly brachycephalic breeds like French Bulldogs, Pugs, and Bulldogs. Heatstroke is a veterinary emergency that can cost $1,000–$5,000+ AUD to treat. Brachycephalic breeds also commonly need corrective airway surgery ($1,500–$4,000 AUD) — factor this into your budget if buying a flat-faced breed.</p>
+
+<h3>Cane Toad Toxicity (QLD and Northern States)</h3>
+<p>If you're in Queensland, NT, or northern WA, cane toad encounters are a real and costly risk. A dog that mouths a cane toad can suffer rapid-onset cardiac symptoms requiring emergency treatment. Have an emergency vet number saved and budget for potential emergency care — treatment can cost $500–$2,000+ AUD depending on severity.</p>
+
+<h2>Cost by City: Sydney vs Melbourne vs Brisbane</h2>
+<p>Where you live significantly affects what you'll pay. Vet fees, grooming rates, and pet service costs all reflect local cost-of-living differences.</p>
+
+<table>
+  <thead><tr><th>Cost Category</th><th>Sydney</th><th>Melbourne</th><th>Brisbane</th><th>Adelaide</th><th>Perth</th></tr></thead>
+  <tbody>
+    <tr><td>Standard vet consultation</td><td>$100 – $160</td><td>$90 – $150</td><td>$80 – $140</td><td>$80 – $130</td><td>$90 – $150</td></tr>
+    <tr><td>Professional grooming (medium breed)</td><td>$80 – $130</td><td>$75 – $120</td><td>$70 – $110</td><td>$65 – $110</td><td>$70 – $115</td></tr>
+    <tr><td>Dog walking (per hour)</td><td>$30 – $50</td><td>$28 – $45</td><td>$25 – $42</td><td>$22 – $38</td><td>$25 – $42</td></tr>
+    <tr><td>Doggy daycare (per day)</td><td>$65 – $95</td><td>$60 – $90</td><td>$55 – $85</td><td>$50 – $80</td><td>$55 – $85</td></tr>
+    <tr><td>Boarding per night</td><td>$50 – $90</td><td>$45 – $85</td><td>$40 – $80</td><td>$38 – $75</td><td>$42 – $80</td></tr>
+  </tbody>
+</table>
+
+<p>Sydney consistently runs 10–25% above the national average for dog services. Regional and rural areas can be cheaper for some services (especially grooming) but more expensive for specialist vet care due to limited access.</p>
+
+<h2>Pet Insurance in Australia</h2>
+<p>Pet insurance is strongly recommended given Australia's high vet costs and the complexity of treating heat, parasite, and accident-related conditions. Major Australian pet insurance providers include PetSure (underwriting multiple brands), Bow Wow Meow, NRMA, Budget Direct, and the RSPCA's own cover.</p>
+
+<table>
+  <thead><tr><th>Cover Type</th><th>Annual Cost (AUD)</th><th>What's Covered</th></tr></thead>
+  <tbody>
+    <tr><td>Accident only</td><td>$300 – $700</td><td>Injuries from accidents; no illness cover</td></tr>
+    <tr><td>Accident + illness</td><td>$700 – $1,600</td><td>The standard option for most pet owners</td></tr>
+    <tr><td>Comprehensive (incl. dental)</td><td>$1,000 – $2,500+</td><td>Full cover including dental disease and some routine care</td></tr>
+  </tbody>
+</table>
+
+<p>Insure your dog as a puppy to avoid pre-existing condition exclusions. Many insurers won't cover conditions diagnosed before the policy starts — and common breed issues (like hip dysplasia in large breeds) are frequently flagged as pre-existing if you wait until symptoms appear.</p>
+
+<h2>Emergency Vet Fund: A Must-Have in Australia</h2>
+<p>Emergency vet care in Australia is expensive. A single overnight hospitalisation can cost $2,000–$5,000 AUD; surgery for a swallowed object can reach $3,000–$8,000; cruciate ligament repair runs $4,000–$7,000. Even with insurance (which involves excess payments and waiting periods), you need cash available for immediate emergencies.</p>
+
+<p>We recommend maintaining a dedicated pet emergency fund of at least <strong>$3,000–$5,000 AUD</strong> in addition to any insurance policy. If the upfront emergency fund feels out of reach, start building it incrementally — even $50/week for a year gets you to $2,600.</p>
+
+<h2>How to Reduce Dog Ownership Costs in Australia</h2>
+<ul>
+  <li><strong>Adopt from the RSPCA or a rescue:</strong> The $300–$500 AUD adoption fee includes desexing, microchipping, and initial vaccinations — potentially saving $1,000+ compared to buying from a breeder and paying these separately.</li>
+  <li><strong>Insure early:</strong> Puppy insurance premiums are lower and no pre-existing conditions are excluded. The earlier you start, the better value you get across a lifetime of cover.</li>
+  <li><strong>Join a vet care plan:</strong> Many Australian vets offer annual health plans ($500–$1,200 AUD) that bundle vaccinations, check-ups, and parasite prevention at a discount compared to paying individually.</li>
+  <li><strong>Learn basic grooming:</strong> For low-to-medium grooming breeds, investing in good clippers and learning to do coat maintenance at home can save $600–$1,500 AUD/year.</li>
+  <li><strong>Buy food in bulk:</strong> Premium dry food bought in 15–20kg bags from specialist pet food suppliers is significantly cheaper per kilogram than supermarket brands and often better quality.</li>
+  <li><strong>Choose a breed suited to your lifestyle:</strong> Owning a high-energy dog when you work long hours leads to separation anxiety, destructive behaviour, and expensive training or vet bills. Matching breed energy level to your reality is the single most impactful cost decision you can make.</li>
+</ul>
+
+<h2>Is a Dog Worth the Cost in Australia?</h2>
+<p>The financial cost of dog ownership in Australia is real and significant — $30,000 to $80,000+ over a dog's lifetime is not a small commitment. But for millions of Australians, the companionship, physical activity, and wellbeing benefits make it one of the best investments they've ever made. The key is going in with accurate expectations: understand the ongoing costs before you bring a dog home, not after.</p>
+
+<p>Use our free calculator to get a personalised estimate for your specific breed, city, and lifestyle — it covers first-year costs, annual ongoing expenses, and lifetime totals for over 300 breeds.</p>
+`,
+  },
 ];
 
 export const getBlogArticleBySlug = (slug: string): BlogArticle | undefined =>
