@@ -1103,7 +1103,7 @@ export const allBlogArticles: BlogArticle[] = [
   {
     id: '1',
     slug: 'golden-retriever-lifetime-costs',
-    title: 'How Much Does a Golden Retriever Cost in 2026? Price & Monthly Cost Guide',
+    title: 'How Much Does a Golden Retriever Cost? $1,000–$3,500 (2026 Guide)',
     description: 'Golden Retrievers cost $1,000–$3,500 to buy and $200–$400/month after that — $25,000–$55,000 over a lifetime. See the full first-year, annual, and lifetime breakdown, then use our free calculator to get your exact numbers.',
     category: 'breed-guide',
     author: 'PetCost-Calculator Team',
